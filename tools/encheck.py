@@ -5,7 +5,8 @@ usage: tools/encheck.py [script/en/msg_XXX.txt ...]   (default: all)
 
 For every message in an EN file, checks against script/jp/ that:
   - the ID exists and the label matches,
-  - the sequence of [code ...] and <XX> tokens is identical,
+  - the sequence of [code ...] tokens is identical (<XX> raw glyph
+    tiles may be dropped in English: warning only),
   - trailing newlines match (they are real F5 bytes),
 and warns (does not fail) on lines > 24 glyphs or pages > 4 lines.
 Name codes count as their longest expansion (7: Hiroshi / Nakama).
@@ -64,9 +65,14 @@ def check_file(path, jp):
         jlabel, jtext = jp[mid]
         if label.split()[:3] != jlabel.split()[:3]:
             print('%03X: label mismatch' % mid); errs += 1
-        if TOK.findall(text) != TOK.findall(jtext):
+        codes = lambda t: [x for x in TOK.findall(t) if x.startswith('[')]
+        tiles = lambda t: [x for x in TOK.findall(t) if x.startswith('<')]
+        if codes(text) != codes(jtext):
             print('%03X: codes differ\n  JP %s\n  EN %s' % (
-                mid, TOK.findall(jtext), TOK.findall(text))); errs += 1
+                mid, codes(jtext), codes(text))); errs += 1
+        if tiles(text) != tiles(jtext):
+            print('%03X: warn raw tiles differ JP %s EN %s' % (
+                mid, tiles(jtext), tiles(text))); warns += 1
         tj = len(jtext) - len(jtext.rstrip('\n'))
         te = len(text) - len(text.rstrip('\n'))
         if tj != te:

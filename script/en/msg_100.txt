@@ -1,0 +1,800 @@
+# Be-Bop High School - English script, msg_100.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 100  bank2 $ACCC
+EN:
+[cmdEF 10][cmdDD 0a][cmdEE 03]D-don't be daft!
+The great Kikunaga
+doesn't go soft over
+some girl!
+[setflag 84][clrflag 72][setflag 44]
+
+@@ 101  bank2 $AD16
+EN:
+[cmdEF 11]Oh, [cmdE2][cmdED]...
+[delay 3c][cmdEE 02]W-well, I'll be off.
+
+@@ 102  bank2 $AD3A
+EN:
+[cmdEF 11]The Taika Reform was
+in the year 645.
+[cmdEE 02][cmdED][delay 1e]
+
+@@ 103  bank2 $AD57
+EN:
+[cmdEF 11][cmdDD 07][cmdEE 02]Eek!
+The Taiho Code was
+the year 701!
+
+@@ 104  bank2 $AD77
+EN:
+[cmdEF 11]I-I'm recording the
+world with my camera[cmdEE 02][delay 3c][cmdED]...
+
+@@ 105  bank2 $AD9E
+EN:
+[cmdEF 11][cmdEE 01]N-not taking dodgy
+photos or anything[cmdED]...
+
+@@ 106  bank2 $ADBE
+EN:
+[cmdEF 11][cmdDD 07][cmdEE 02]Oh, you can borrow
+this camera if you like.
+[cmdEE 04]C-can I go now, please?
+[setflag 47][page+goto a0 02]
+
+
+@@ 107  bank2 $ADFA
+EN:
+[cmdEE 05]Kaneko! Give it back!
+
+@@ 108  bank2 $AE0E
+EN:
+[cmdEF 11][cmdEE 03]Please give the camera
+back when you're done.
+
+@@ 109  bank2 $AE2B
+EN:
+[cmdEF 11][cmdEE 03]It's easy. Even you can
+manage, [cmdE2].
+[cmdEE 04]Oh, n-not that I'm
+calling you thick[cmdED]...
+
+@@ 10A  bank2 $AE6C
+EN:
+[cmdDD 07][cmdEF 11][cmdEE 04]V-violence is wrong.
+
+@@ 10B  bank2 $AE85
+EN:
+Oi, it's the three
+wallies.
+
+@@ 10C  bank2 $AE96
+EN:
+Oh, those dodgy types on
+the Kakui roof all got
+arrested. Extremists,
+apparently.
+
+@@ 10D  bank2 $AEDD
+EN:
+Hey! That's Iwamoto's
+camera!
+[cmdEE 02]You shouldn't pick on
+a good lad like him.
+
+@@ 10E  bank2 $AF11
+EN:
+[cmdEE 02]Don't tell me you can't
+even work a camera?[cmdED]...
+
+@@ 10F  bank2 $AF34
+EN:
+Promise to give Iwamoto
+his camera back, and
+I'll let you take a
+pin-up of Junko.
+[setflag 48][page+goto 74 02]
+
+
+@@ 110  bank2 $AF77
+EN:
+I said, promise and I'll
+let you take a photo.
+
+@@ 111  bank2 $AF96
+EN:
+Righto, then.
+Make me look nice♥
+[setflag 49][page+goto 75 02]
+
+
+@@ 112  bank2 $AFB0
+EN:
+Don't you go using my
+photo for owt funny.
+
+@@ 113  bank2 $AFCA
+EN:
+[cmdEE 02]Kikunaga?
+What about him?
+
+@@ 114  bank2 $AFE4
+EN:
+[cmdEE 00][delay 3c][cmdDD 05][flash][cmdF0 04][cmdEE 00]Whoa there!
+Keep the photo, but
+Junko'll give the camera
+back to Iwamoto.
+[setflag 4a][clrflag 84][setflag 72]
+
+@@ 115  bank2 $B02B
+EN:
+[cmdDD 0a][cmdEE 02]That's enough now.
+
+@@ 116  bank2 $B037
+EN:
+[cmdDD 08][cmdEE 01]Don't go shouting all
+over the place.
+
+@@ 117  bank2 $B051
+EN:
+[cmdEE 00]I gave the camera back
+to Iwamoto.
+
+@@ 118  bank2 $B06A
+EN:
+[cmdEE 02]Lately, that Kikunaga
+from Tachibana keeps
+turning up in my dreams.
+
+@@ 119  bank2 $B092
+EN:
+[cmdEE 00]I'm so tired.
+[cmdEE 02]But if I sleep, that
+nightmare again[cmdED]...
+
+@@ 11A  bank2 $B0B8
+EN:
+[cmdDD 0a][cmdEE 02]Eh? Kikunaga fancies
+me[cmdED]...?[page]
+[cmdEE 01]Oi! You didn't give
+that photo to Kikunaga?!
+
+@@ 11B  bank2 $B0F2
+EN:
+[cmdEE 03][cmdDD 05][flash][cmdEE 01]Hands off Junko!
+
+@@ 11C  bank2 $B10D
+EN:
+[cmdDD 0a][cmdEE 01]Just leave me alone.
+
+@@ 11D  bank2 $B11E
+EN:
+[cmdEE 02]Th-this is a photo
+of J-Junko!
+Well, if I must, I'll
+take it off your hands.
+[cmdDE 21][setflag 4b][page+goto 23 03]
+
+
+@@ 11E  bank2 $B159
+EN:
+[cmdDD 08][cmdEE 03]Shut it!
+
+@@ 11F  bank2 $B163
+EN:
+[cmdEF 10][cmdEE 02]The great Kikunaga will
+keep Junko's photo safe,
+so you lot can't misuse
+it.
+
+@@ 120  bank2 $B19A
+EN:
+[cmdEF 10]Oh, the Gold Emperor lot
+meet every night in the
+warehouse at the docks.[page]
+And they've hired a
+minder, Harada, who's
+strong as a monster.[page]
+[cmdEE 01]Even the mighty Kikunaga
+might struggle a bit, so
+he must be something.
+[setflag 85]
+
+@@ 121  bank2 $B241
+EN:
+[cmdEF 10][cmdDD 0a][cmdEE 02]Now, now, don't be
+jealous. Keep at it.
+
+@@ 122  bank2 $B266
+EN:
+Oi, what are you lot
+doing here?
+
+@@ 123  bank2 $B27A
+EN:
+None of your business.
+Get lost!
+
+@@ 124  bank2 $B28D
+EN:
+Very well. Forget what
+you just saw and I'll
+let you go.
+
+@@ 125  bank2 $B2B1
+EN:
+Oh, it's [cmdE2] and co.
+[page+goto ce 01]
+
+
+@@ 126  bank2 $B2C6
+EN:
+Kyokuto High's pretty
+well known round here.[page]
+Big Four: No.1 Tsuji,
+No.2 Kitamura,
+No.3 Kudo,
+No.4 Samejima, was it?[page]
+[goto cf 01]
+
+@@ 127  bank2 $B31B
+EN:
+Oh, I'm in a rush.[page]
+Mind you, the other day
+some old geezer, Tomezo,
+offered me diamonds if
+I went for a cuppa.[page]
+I was fuming, so I
+slapped him. His false
+teeth flew out and he
+ran off crying. Harsh?
+[setflag 4d][clrflag 44][page+goto 2c 03]
+
+
+@@ 128  bank2 $B3CA
+EN:
+[cmdEE 02]Here, you lot.
+You didn't go and knock
+down that pylon, did
+you[cmdED]...?
+[cmdEE 03][delay 5a]
+
+@@ 129  bank2 $B3FF
+EN:
+Shingo wasn't kidnapped,
+[cmdE1]. [cmdEE 01]Word is, he's
+gone off travelling in
+search of new thrills.
+[cmdDE 2e][delay 5a][cmdDE 22]
+
+@@ 12A  bank2 $B446
+EN:
+[cmdEE 01][cmdED][delay 1e][cmdEE 03]No worries, no worries.
+I'll keep my promise.[page]
+[cmdEE 00]But Remi's mine!
+
+@@ 12B  bank2 $B48A
+EN:
+[cmdEE 03][clrflag 9f]Well, well, [cmdE1].
+Your manners get better
+every time. Very good.
+Ta-ra, then.
+
+
+@@ 12C  bank2 $B4C4
+EN:
+Hehe♥
+[page+goto 9d 01]
+
+
+@@ 12D  bank2 $B4CD
+EN:
+Eh? False teeth?
+I chucked them in the
+fountain in the park.
+[setflag 4e]
+
+@@ 12E  bank2 $B4F6
+EN:
+Sorry, I'm in a bit of
+a hurry. Another time.
+[page+goto d1 01]
+
+
+@@ 12F  bank2 $B51C
+EN:
+[cmdEF 05]Oh, it'sh you lads
+from before. Long time
+no shee.
+
+@@ 130  bank2 $B53E
+EN:
+[cmdEF 05]Shtill can't find my
+teeth, y'know.
+
+@@ 131  bank2 $B556
+EN:
+[cmdEF 05]Oho!
+Theshe are my teeth,
+right enough!
+[flash][flash][flash][flash][page+goto 32 01]
+
+
+@@ 132  bank2 $B57B
+EN:
+[cmdDE 28][cmdEE 01]Much obliged, lads.
+It seems I owe you a
+great debt.
+[setflag 51][page+goto bb 02]
+
+
+@@ 133  bank2 $B5B5
+EN:
+[cmdEF 02][cmdEE 01][cmdD1]Well, well, [cmdE2].
+Playing pachinko too,
+are we?
+[cmdEE 03]You're coming with me.
+[setflag 14][cmdEC 01 17 3e][page+goto 96 02]
+
+
+@@ 134  bank2 $B5F1
+EN:
+[cmdEF 02][cmdDD 0a][cmdDA]What's all the shouting?
+[cmdEE 01]Oh, it's [cmdE2]!
+Pachinko in uniform?
+[cmdEE 03]You're coming with me.
+[setflag 14][cmdEC 01 17 3e][goto 96 02]
+
+@@ 135  bank2 $B650
+EN:
+Beggin' your pardon,
+young sir, but I'm bound
+by honour not to let you
+pass. Kindly turn back.
+
+@@ 136  bank2 $B686
+EN:
+Why? It's a debt of
+honour, that's all.
+I trust you understand.
+
+@@ 137  bank2 $B6AB
+EN:
+[cmdDD 07]If you mean to force
+your way, then try it.
+
+@@ 138  bank2 $B6C8
+EN:
+[cmdDD 03][flash][cmdEE 01]Fear not. I used the
+back of the blade.
+[cmdE8][cmdDE 28]
+
+@@ 139  bank2 $B6E4
+EN:
+It's a debt of honour as
+big as a mountain.
+Please forgive me.
+
+@@ 13A  bank2 $B70E
+EN:
+[cmdDE 28][cmdEF 1b]Well, well, Grand Boss
+Tomezo! If you say so,
+sir[cmdED]...
+Go on through, sir.
+[page+goto 34 03]
+
+
+@@ 13B  bank2 $B757
+EN:
+[cmdEF 15]I'm Tanaka. Kyokuto High
+council president, vice-
+president, and head of
+every single committee.
+
+@@ 13C  bank2 $B7B9
+EN:
+[cmdEF 15]You're from out of town,
+so you may not know[cmdED]...[page]
+Kyokuto High's a dumping
+ground for no-hopers.
+I'm the only proper
+pupil there.
+
+@@ 13D  bank2 $B827
+EN:
+[cmdEF 15][cmdDD 07][cmdEE 01]Eek!
+You're nasty, just like
+our Samejima.
+
+@@ 13E  bank2 $B84F
+EN:
+I've lost the will to go
+on.
+
+@@ 13F  bank2 $B868
+EN:
+What am I doing?
+I'm about to throw
+myself in the sea.
+
+@@ 140  bank2 $B88E
+EN:
+[cmdDD 0a]That flippant attitude
+of yours is just like
+that rotten swine's.[page]
+Shingo from Kita High.
+The one who stole my
+girl.
+
+@@ 141  bank2 $B8E3
+EN:
+[cmdEF 13]Whey, what ye deein'?
+
+@@ 142  bank2 $B8F0
+EN:
+[cmdEF 13]
+Whoo-hooooo!
+
+@@ 143  bank2 $B8FD
+EN:
+[cmdEF 13]
+Hic-hey!
+
+@@ 144  bank2 $B904
+EN:
+[cmdEF 09][cmdEE 01][setflag 38][cmdED].........
+[page+goto 0b 03]
+
+
+@@ 145  bank2 $B915
+EN:
+Oh, [cmdE1],
+you came here too?
+
+@@ 146  bank2 $B92A
+EN:
+We've come this far, so
+let's do it!
+
+@@ 147  bank2 $B93F
+EN:
+All right, all right.
+[cmdEE 03]Next time, a bit more
+than a snog[cmdED]......
+
+@@ 148  bank2 $B95C
+EN:
+[cmdEE 03]I know[cmdED]...
+[cmdEE 00]But Remi's mine.
+[clrflag a0]
+
+@@ 149  bank2 $B97E
+EN:
+[cmdEE 00]Who are you? You're not
+from round here.
+
+@@ 14A  bank2 $B99A
+EN:
+[cmdEE 00]Gold Emperor?
+Kyokuto's Big Four?
+So it's you lot who've
+been sniffing round us.
+
+@@ 14B  bank2 $B9CF
+EN:
+[cmdEE 00][cmdDD 07]Bring it on, then.
+
+@@ 14C  bank2 $B9E1
+EN:
+[cmdEE 00]What you staring at,
+outsider?
+
+@@ 14D  bank2 $B9F8
+EN:
+[cmdEE 00]Shut it.
+[cmdEA 16][clrflag 1b]
+
+@@ 14E  bank2 $BA04
+EN:
+[cmdEE 00]Well, if it isn't Nobuo!
+Long time no see. I've
+changed since we were
+kids. I'm Big Four now.
+
+@@ 14F  bank2 $BA53
+EN:
+[cmdEE 00]Keep sniffing
+round us, and you'll
+regret it.
+
+@@ 150  bank2 $BA77
+EN:
+[cmdDD 07][cmdEE 01]B-but I'm one of the
+Big Four[cmdED]...
+[setflag 55]
+
+@@ 151  bank2 $BAA2
+EN:
+[cmdEE 03][cmdED][cmdDD 04][cmdDA][cmdEE 04]W-wait!
+I'm one of the Big[cmdED]...
+[setflag 55]
+
+@@ 152  bank2 $BAC2
+EN:
+[cmdEE 01]I t-told you, I'm in
+Kyokuto's Big Four[cmdED]...
+
+@@ 153  bank2 $BAE2
+EN:
+[cmdEE 01]I'm B-Big Four, I am.
+I'm well hard[cmdED]...
+
+@@ 154  bank2 $BAFE
+EN:
+[cmdDD 07][cmdEE 01]L-lay a finger on me and
+the others won't stand
+for it!
+
+@@ 155  bank2 $BB29
+EN:
+[cmdDD 03][cmdEE 02]A-alright.
+I'm sorry, OK?
+J-just don't hit me.
+
+@@ 156  bank2 $BB53
+EN:
+[cmdDD 08][cmdEE 02]Eeek!
+[delay 3c][setflag 56][cmdEF 00][page+goto d6 01]
+
+
+@@ 157  bank2 $BB65
+EN:
+[cmdEE 00]
+Oi! Where you from?!
+
+@@ 158  bank2 $BB77
+EN:
+[cmdEE 00]
+Stop! You're not getting
+past! Oi!
+
+@@ 159  bank2 $BB8A
+EN:
+[cmdEE 00]
+Who the hell are you?!
+
+@@ 15A  bank2 $BB99
+EN:
+[cmdEE 00]
+Got a death wish, have
+you?
+
+@@ 15B  bank2 $BBAD
+EN:
+[cmdEE 00]
+Don't mess with Kyokuto!
+
+@@ 15C  bank2 $BBBE
+EN:
+[cmdEE 00]
+You're not getting past!
+
+@@ 15D  bank2 $BBCE
+EN:
+[cmdEE 00]
+Say your prayers!
+
+@@ 15E  bank2 $BBE1
+EN:
+[cmdEE 00]
+Why, you!
+
+@@ 15F  bank2 $BBEB
+EN:
+Right, you've had it.
+Three of Kyokuto's Big
+Four, all together. You
+won't get off lightly!
+
+@@ 160  bank2 $BC2C
+EN:
+Eh? I'm acting different
+from before? What you on
+about?!
+
+@@ 161  bank2 $BC57
+EN:
+[cmdDD 07][cmdEE 01]Ah, er, m-my tummy's
+dodgy today[cmdED]...
+Over to you, Kudo.
+[page+goto d7 01]
+
+
+@@ 162  bank2 $BC93
+EN:
+[cmdEE 00]Oh no, you don't!
+
+@@ 163  bank2 $BCA3
+EN:
+[cmdEE 00]I'm Kudo, Kyokuto's
+Big Four No.3. You broke
+into our hideout. You
+won't leave it alive.
+
+@@ 164  bank2 $BCEC
+EN:
+[cmdEE 00]Now you face the great
+Kitamura, Big Four No.2.
+
+@@ 165  bank2 $BD13
+EN:
+[cmdEE 00]Oh no, you don't!
+
+@@ 166  bank2 $BD23
+EN:
+[cmdEF 2a][cmdEE 01]Do what you like.
+
+@@ 167  bank2 $BD2E
+EN:
+[cmdEF 2a][cmdEE 01]Black Skylion? That's
+our Tsuji's car.[page]
+But if you know what's
+good for you, keep your
+hands off Tsuji. He's
+another league[cmdED]...
+
+@@ 168  bank2 $BD97
+EN:
+[cmdEF 2a][cmdDD 03][cmdEE 01]Oof!
+[clrflag 94][page+goto 4e 03]
+
+
+@@ 169  bank2 $BDA8
+EN:
+[cmdEE 05][cmdED]W-wait! Let's talk!
+Ask me anything you
+like. Anything.
+
+@@ 16A  bank2 $BDD8
+EN:
+[cmdEE 05][cmdED]It w-was our Tsuji who
+snatched Shingo from
+Kita High. The black
+Skylion's his car.[page]
+Seems Shingo chatted up
+Tsuji's girlfriend and
+got on the wrong side
+of him.[page]
+There, I've talked.
+Now let me go.
+[setflag 58][page+goto 5c 03]
+
+
+@@ 16B  bank2 $BE82
+EN:
+[cmdDD 07][cmdEE 05][cmdED]A-alright, I'll talk.
+Ask me whatever.
+
+@@ 16C  bank2 $BEA9
+EN:
+[cmdDD 04][cmdEE 06][cmdED]Ow[cmdED]...
+[cmdEE 05][cmdED]I'll tell you all[cmdED]...
+
+@@ 16D  bank2 $BECB
+EN:
+[cmdEE 05][cmdED]Oh, y-you're still here?
+Ask me anything at all.
+
+@@ 16E  bank2 $BEF3
+EN:
+[cmdEE 05]Tsuji's stupidly strong.
+He's Big Four No.1 and
+vice-president of Gold
+Emperor, after all.[page]
+He boxes at a gym every
+day. Hokuto Gym, in the
+Nishiyama Building.
+Evenings, I think.[page]
+See, I told you loads.
+So please don't hit me.
+[setflag 59][setflag 95]
+
+@@ 16F  bank2 $BFC5
+EN:
+[cmdDD 03][cmdEE 05][cmdED]Eeek, mercy!
+I've told you it all!
+
+@@ 170  bank3 $8000
+EN:
+[cmdEF 22]What's this?
+You lot want to box?
+
+@@ 171  bank3 $801A
+EN:
+[cmdEF 22]What?
+
+@@ 172  bank3 $8023
+EN:
+[cmdEF 22][cmdDD 07]Oh yeah?
+Want to try me, then?
+
+@@ 173  bank3 $8038
+EN:
+[cmdEE 02]Howay, lad, what's up?
+Face like a wet weekend.
+If summat's botherin'
+ye, tell yer uncle Gen.
+
+@@ 174  bank3 $8079
+EN:
+[cmdEE 02]Eh?
+How do ye beat a hard
+lad, like?[page]
+[cmdEE 00]Easy. Blow him up, man!
+
+@@ 175  bank3 $80AF
+EN:
+Whoa, ah cannit give ye
+this sake, mind. Took
+us ages to find. It's a
+fine bottle of "Cannit"!
+
+@@ 176  bank3 $80E3
+EN:
+[cmdDD 0a][cmdEE 01]Wheey!
+Ah'm gettin' into it![page]
+In the end, like,
+ye just bash him
+from the bottom up!
+
+@@ 177  bank3 $8122
+EN:
+Ah well, nowt else for
+it. Ah'll gan and sort
+out this bully meself.
+[setflag 5b][page+goto 5f 03]
+
+
+@@ 178  bank3 $815E
+EN:
+[cmdEE 01]Reet, let's gan!
+
+@@ 179  bank3 $816D
+EN:
+[cmdEE 02]Eh? What's that?
+[cmdEE 00]Divn't faff on, man,
+just leave it to me!
+
+@@ 17A  bank3 $8198
+EN:
+Still not learnt your
+lesson, have you?
+
+@@ 17B  bank3 $81AB
+EN:
+[cmdEF 22]Shut it! Come on, then!
+
+@@ 17C  bank3 $81BB
+EN:
+[cmdDD 07]Want another beating?!
+
+@@ 17D  bank3 $81CE
+EN:
+[cmdEF 22]Why don't you
+just give up,
+you lot?
+
+@@ 17E  bank3 $81EC
+EN:
+[cmdEF 22][cmdDD 07]Bringing some scruffy
+old geezer won't scare
+me.
+
+@@ 17F  bank3 $8218
+EN:
+[cmdEF 22][cmdEE 01]Alright, alright.
+I'll talk. Just get that
+old geezer off me.[page]
+[setflag 5c][goto 07 03]
+

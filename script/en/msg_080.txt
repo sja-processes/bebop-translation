@@ -1,0 +1,826 @@
+# Be-Bop High School - English script, msg_080.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 080  bank2 $958A
+EN:
+[cmdEF 31]What do you want?
+
+@@ 081  bank2 $9595
+EN:
+[cmdEF 31][cmdE2] from Aitoku?
+Never heard of you.
+
+@@ 082  bank2 $95A7
+EN:
+[cmdEF 31]You're having a laugh.
+[cmdE8][cmdDE 22][cmdD1][goto 8e 01]
+
+@@ 083  bank2 $95C1
+EN:
+[cmdEF 31]Well, a cuppa maybe[cmdED]...
+[cmdEC 05 14 24][page+goto c8 02]
+
+
+@@ 084  bank2 $95DA
+EN:
+[cmdEF 31]I'm Lisa.
+[page+goto a2 01]
+
+
+@@ 085  bank2 $95E9
+EN:
+[cmdEF 31]I'm 17.
+[page+goto a2 01]
+
+
+@@ 086  bank2 $95F6
+EN:
+[cmdEF 31][setflag 20]Ooh, you charmer.
+Oh, ex-Gold Emperor
+Higashi hangs about in
+the arcade by Kita High.
+
+@@ 087  bank2 $9651
+EN:
+[cmdEF 31]Cheek! I really am 17.
+[page+goto a2 01]
+
+
+@@ 088  bank2 $966A
+EN:
+[cmdEE 02]Oi! [cmdE1],
+[cmdEE 00]got anything on
+Shingo yet?
+
+@@ 089  bank2 $968D
+EN:
+[cmdEE 01]Hm? Me? I haven't got a
+single lead. [delay 3c][cmdEE 03]Not one.
+
+@@ 08A  bank2 $96C1
+EN:
+Right! A promise is a
+promise! I'll tell you
+the minute I hear owt.
+
+@@ 08B  bank2 $96E8
+EN:
+[cmdEE 03]Well, [cmdE1]. You've
+finally learnt some
+manners. So I'll let you
+in on a little secret.[page]
+[cmdEE 00]Look for a girl called
+Lisa in the underground
+arcade.[page]
+[cmdEE 02]She's a looker♥
+[clrflag 99]
+
+@@ 08C  bank2 $9756
+EN:
+Wh-who's there?
+I-I'll batter you!
+
+@@ 08D  bank2 $976F
+EN:
+Sh-shut it!
+Now you've really
+done it.
+
+@@ 08E  bank2 $978F
+EN:
+You won't get away!
+
+@@ 08F  bank2 $9798
+EN:
+Too late for that!
+
+@@ 090  bank2 $97A3
+EN:
+[cmdEE 00]S-say that word again[cmdED]...
+and I'll flatten you!
+
+@@ 091  bank2 $97CC
+EN:
+[cmdEE 03]Oh yeah[cmdED]...
+You've not seen me
+when I lose it!
+
+@@ 092  bank2 $97F0
+EN:
+[cmdEF 19][cmdEE 04]I'll tell you anything.
+But leave my past
+alone.
+
+@@ 093  bank2 $981B
+EN:
+[cmdEF 19][cmdEE 02][cmdD1]Gold Emperor[cmdED]...
+They hang out in the
+car park near Joto High.
+[setflag 24][clrflag 77][setflag 78]
+
+@@ 094  bank2 $986A
+EN:
+[cmdEF 19][cmdDD 07][cmdEE 04][cmdD1]Alright, alright. You're
+hard, I get it.
+
+@@ 095  bank2 $988B
+EN:
+[cmdEF 03][cmdE2]! Always skiving!
+What are you up to?
+Not good[cmdED]...Mm.
+Sir is very sad.
+
+@@ 096  bank2 $98CE
+EN:
+[cmdEF 03]Hmm. The way to Joto
+High, eh? I'll tell you
+if you promise to come
+to school properly.
+[setflag 25][page+goto d5 02]
+
+
+@@ 097  bank2 $991D
+EN:
+[cmdEF 03][cmdDD 07]I've told you, that
+won't do.
+
+@@ 098  bank2 $9933
+EN:
+[cmdEF 03]You're not going to
+cause trouble at another
+school, are you?
+
+@@ 099  bank2 $995B
+EN:
+[cmdEF 03]Do you promise?
+
+@@ 09A  bank2 $9968
+EN:
+[cmdEF 03]Good, good. For Joto
+High, it's one stop on
+the underground there.
+[cmdED][cmdDE 2e][delay 5a][cmdDE 22][setflag 26][clrflag 78]
+
+@@ 09B  bank2 $99A7
+EN:
+[flash][shake][cmdDD 05]Don't make me jump!
+
+@@ 09C  bank2 $99B9
+EN:
+[cmdDE 2e][delay 5a][cmdDE 22]Shingo?!
+[cmdDD 05][flash][shake][page]
+You know Shingo? He's
+the enemy of women!
+I'll find him and give
+him what for.
+
+@@ 09D  bank2 $9A00
+EN:
+[cmdDD 05][flash][shake]Don't be daft. Just
+hurry up and find
+Shingo.
+
+@@ 09E  bank2 $9A2D
+EN:
+[cmdDD 05][flash][shake]Grrr! Shingooo!
+[cmdDD 05][flash][shake]
+
+@@ 09F  bank2 $9A44
+EN:
+[cmdDE 2e][cmdDA][cmdDE 2b][cmdEE 01]Well, long time no see.
+Off on a picnic with
+your hangers-on?
+
+@@ 0A0  bank2 $9A75
+EN:
+[cmdEE 00]Gold Emperor?[page]
+Nobody from Joto joins
+a gang. That's my rule
+as top dog here.
+[setflag 29][page+goto e0 02]
+
+
+@@ 0A1  bank2 $9ABF
+EN:
+[cmdEE 01]Sure, I'll come along.
+[cmdEE 00]But I'm having a
+knickerbocker glory.
+[delay 1e][cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 02]Got the bottle for that?
+[cmdEE 00]
+
+@@ 0A2  bank2 $9B0C
+EN:
+[cmdDD 07][cmdEE 01]Oh?[delay 1e][cmdEE 00] Picking a fight with
+Toshimitsu Yamada, top
+dog at Joto?
+
+@@ 0A3  bank2 $9B3F
+EN:
+[cmdDD 08][cmdEE 01]Lively lot, you[cmdED]...
+
+@@ 0A4  bank2 $9B59
+EN:
+[cmdEF 0d][cmdEE 01]What's that idiot
+[cmdE0] up to? Not
+seen him lately.
+
+@@ 0A5  bank2 $9B7B
+EN:
+[cmdEF 0d]How many times? There's
+no gang lads at our
+school. Give it a rest.
+
+@@ 0A6  bank2 $9BAD
+EN:
+[cmdEF 0d][cmdDD 07]That's enough, you lot.
+[page+goto 07 02]
+
+
+@@ 0A7  bank2 $9BC8
+EN:
+[cmdEF 0d][cmdDD 08][cmdEE 01]Honestly, what a
+weird pair.
+
+@@ 0A8  bank2 $9BE3
+EN:
+[cmdEF 0d][setflag 2a]Aye, I'll swear to it.
+Nobody at our school is
+in a gang. If anyone is,
+I'll sort them out.
+
+@@ 0A9  bank2 $9C39
+EN:
+[cmdEE 00]Sob[cmdED]... Sniff..
+I'm Kazuhiro the
+Heartbroken!!
+[cmdED].......sob...
+
+@@ 0AA  bank2 $9C65
+EN:
+What? Shingo from Kita
+High?
+[cmdEE 01][page]
+He's the one who stole
+my girl!
+[cmdEA 12][setflag 2b][page+goto e7 02]
+
+
+@@ 0AB  bank2 $9C9A
+EN:
+Sob, sob[cmdED]...
+Rie was, sniff, my[cmdED]...
+my one and only[cmdED]...[page]
+[cmdEE 01]Damn him!
+[cmdEA 21][clrflag 2b]
+
+@@ 0AC  bank2 $9CD7
+EN:
+[cmdEF 0e]Alright, [cmdE2].
+
+@@ 0AD  bank2 $9CE0
+EN:
+[cmdEF 0e][cmdEE 01][cmdDD 07]D-don't get cocky.
+
+@@ 0AE  bank2 $9CF6
+EN:
+[cmdEF 0e][cmdEE 01]Gold Emperor? [delay 3c][cmdEE 02]N-never
+heard of them.
+
+@@ 0AF  bank2 $9D17
+EN:
+[cmdEE 01]Honestly, what are you
+lot playing at?
+
+@@ 0B0  bank2 $9D2D
+EN:
+Told you, nobody here's
+in a gang.
+
+@@ 0B1  bank2 $9D4E
+EN:
+[cmdDD 07][cmdEE 02]What! Our Teru's in
+Gold Emperor?
+[cmdED]................[page]
+[cmdEE 00]Right. I'll get to the
+bottom of this and sort
+it out.[page]
+Come to the park up
+north tomorrow.
+[setflag 30][clrflag a9][clrflag 7b]
+
+@@ 0B2  bank2 $9DBA
+EN:
+[cmdEF 0d]That Teru, honestly.
+Disgracing us all.
+
+@@ 0B3  bank2 $9DDB
+EN:
+[cmdEF 0d]I've given Teru a proper
+hiding. Do what you like
+with him now.
+
+@@ 0B4  bank2 $9E09
+EN:
+[cmdEF 0d][cmdDD 07]I've settled it my way.
+Or, [cmdE2],
+[delay 1e][cmdEE 02]still fancy a scrap?
+[delay 3c]
+
+@@ 0B5  bank2 $9E41
+EN:
+[cmdEE 03]It was you lot.
+You grassed me up
+to Toshimitsu.
+
+@@ 0B6  bank2 $9E63
+EN:
+[cmdEE 03]Gold Emperor's
+black Skylion?
+Dunno.
+
+@@ 0B7  bank2 $9E84
+EN:
+[cmdDD 07][cmdEE 03]A-alright! The black
+Skylion'll be parked by
+the Nishiyama Building
+in the next town.
+[cmdDE 2e][cmdDA][cmdDE 2b][page]
+It's a Gold Emperor car,
+no doubt about it.
+[cmdDE 2e][delay 5a][cmdDE 2e][delay 5a][cmdDE 2b][setflag 2c][setflag 7e][clrflag 7c][clrflag 7d][page+goto f2 02]
+
+
+@@ 0B8  bank2 $9EF8
+EN:
+[cmdDD 04][cmdEE 04][cmdED][delay 1e]Urk
+[delay 1e][cmdEE 03]
+
+@@ 0B9  bank2 $9F08
+EN:
+[cmdEE 03]I'm done with Gold
+Emperor now.
+
+@@ 0BA  bank2 $9F2C
+EN:
+[cmdEE 03]A-alright, have mercy.
+I really don't know.
+
+@@ 0BB  bank2 $9F50
+EN:
+[cmdDD 07][cmdEE 03]Th-the black Skylion,
+right? I told you!
+Oi oi, don't look at
+me like that.
+
+@@ 0BC  bank2 $9F90
+EN:
+[cmdDD 03][cmdEE 04]Ow!
+
+@@ 0BD  bank2 $9F98
+EN:
+Howay lads, this is
+a buildin' site, like.[page]
+Whassat? Ye want ower
+to the next toon?
+Nae chance, nae chance.
+
+@@ 0BE  bank2 $9FD5
+EN:
+Me age? Ah'm 33, me.
+Look older, eh?
+[setflag 32][page+goto f6 02]
+
+
+@@ 0BF  bank2 $9FFD
+EN:
+Ah only drink sake, me.
+
+@@ 0C0  bank2 $A00E
+EN:
+[cmdDD 0a]That's reet.
+Ah'm the best navvy
+in all Japan, me.
+
+@@ 0C1  bank2 $A031
+EN:
+Ah'm sorry, like, but ah
+cannit let ye through.
+
+@@ 0C2  bank2 $A050
+EN:
+Favourite grub? Sake!
+[cmdEE 01]'Specially one called
+"Canny". Ah cannit
+resist it.
+[setflag 33]
+
+@@ 0C3  bank2 $A091
+EN:
+[cmdEE 01]Ooh, ye knaa yer stuff,
+lad! Eight parts sake,
+two parts tea. Ooh, me
+mouth's waterin'.
+
+@@ 0C4  bank2 $A0D6
+EN:
+[cmdDD 0a][cmdEE 02]Is that reet.
+
+@@ 0C5  bank2 $A0E1
+EN:
+[cmdEE 02]Howay lads[cmdED]...
+Ah can smell sake on
+ye[cmdED]...
+
+@@ 0C6  bank2 $A10A
+EN:
+[cmdEE 02][cmdED][delay 1e][cmdEE 01]Canny! That's sake,
+that is. Canny!
+
+@@ 0C7  bank2 $A126
+EN:
+Tea's canny an' all, but[cmdEE 01]
+ah'm dyin' for a proper
+drink, man.
+
+@@ 0C8  bank2 $A14A
+EN:
+[cmdDE 2e][delay 5a][cmdDE 22][cmdEE 02]Whey! It's me
+favourite, "Canny"!
+[cmdEE 01]Ta very much, lads![page]
+Ye wanted to get to the
+next toon, aye?[page]
+[cmdEE 00]Reet, leave it to me.
+Ah'll blast this hill
+wi' dynamite!
+[cmdDD 0b][flash][shake][flash][shake][flash][shake][flash][shake][flash][shake][clrflag 7e][setflag 97][setflag b2][page+goto f8 02]
+
+
+@@ 0C9  bank2 $A1ED
+EN:
+[cmdEF 08]This is an offie.
+Schoolkids, off home!
+
+@@ 0CA  bank2 $A20D
+EN:
+[cmdEF 08]Dunno, dunno. Off you
+go, off you go.
+
+@@ 0CB  bank2 $A225
+EN:
+[cmdEF 08]Off you go, off you go.
+
+@@ 0CC  bank2 $A232
+EN:
+[cmdEF 08]We don't sell booze to
+schoolkids!
+
+@@ 0CD  bank2 $A24B
+EN:
+
+
+@@ 0CE  bank2 $A24C
+EN:
+[cmdEF 2c]Hiya, come on in♥
+
+@@ 0CF  bank2 $A25B
+EN:
+[cmdEF 2c]"Canny" sake? It's a
+popular one. Of course
+we've got it.
+
+@@ 0D0  bank2 $A286
+EN:
+[cmdEF 2c][cmdDD 0a]Oh[cmdED]...
+thank you.
+You're lovely too.
+[page+goto b6 01]
+
+
+@@ 0D1  bank2 $A2AA
+EN:
+[cmdEF 2c]Sorry♥ We don't sell
+tea.
+
+@@ 0D2  bank2 $A2C1
+EN:
+[cmdEF 2c]One bottle of the finest
+"Canny". Thanks ever so
+much. Come again♥
+[setflag 34][page+goto b6 01]
+
+
+@@ 0D3  bank2 $A2FC
+EN:
+[cmdEF 09]Oi, brats! What you
+lookin' at?!
+
+@@ 0D4  bank2 $A318
+EN:
+[cmdEF 09]That's better.
+Look at me like that
+again and you'll pay.
+
+@@ 0D5  bank2 $A33D
+EN:
+[cmdEF 09][cmdEE 02]G-give me back my
+sunglasses!
+
+@@ 0D6  bank2 $A356
+EN:
+[cmdEF 09][cmdDD 07][cmdEE 02]Y-you shouldn't
+threaten a gangster,
+y-you know.
+
+@@ 0D7  bank2 $A380
+EN:
+[cmdEF 09][cmdEE 02]Oh, I-I'm not that
+tough, really[cmdED]...
+
+@@ 0D8  bank2 $A39B
+EN:
+[cmdEE 02]Ah, you've rumbled me.
+I'm really Sarukichi[cmdED]...
+
+@@ 0D9  bank2 $A3CA
+EN:
+[cmdDD 07][cmdEE 03]W-waaah, I'm sorry!
+I'll tell you something
+good, just let me off!
+[setflag 3a][page+goto 0d 03]
+
+
+@@ 0DA  bank2 $A3FB
+EN:
+
+
+@@ 0DB  bank2 $A3FC
+EN:
+[cmdEE 02]Listen, go down the
+underground arcade to
+chat up girls.[page]
+But steer clear of Mari
+from Girls' Commercial.
+[cmdDE 2e][delay 5a][cmdDE 22][page]
+When I tried it on, she
+said her fella's high up
+in Gold Emperor.
+I was bricking it.
+[setflag 3b][setflag 82]
+
+@@ 0DC  bank2 $A4A3
+EN:
+[cmdDD 07][cmdEE 03]Please, give me a break!
+
+@@ 0DD  bank2 $A4BB
+EN:
+Me? I'm Mari.
+Hmm, so you're this
+[cmdE2], are you?
+
+@@ 0DE  bank2 $A4DD
+EN:
+Well, my type is,
+[cmdEE 02]blood type B, and
+star sign is[cmdED]...
+
+@@ 0DF  bank2 $A50A
+EN:
+Ugh, [cmdEE 01]I can see what
+you're after.
+
+@@ 0E0  bank2 $A522
+EN:
+[cmdEE 01]Oi, d'you know who
+you're chatting up?[page]
+My boyfriend's George
+Tsuji. He runs
+Kyokuto High.
+[cmdDE 2e][delay 5a][cmdDE 21][page]
+George is high up in
+Gold Emperor, and he
+boxes. He's dead hard.
+[setflag 3c][page+goto 10 03]
+
+
+@@ 0E1  bank2 $A5C9
+EN:
+[cmdEE 01]Don't do weird stuff in
+the street!
+[cmdEE 02]It's embarrassing.
+
+@@ 0E2  bank2 $A5F6
+EN:
+They say you're hard,
+[cmdE2]. But you're no
+match for George.
+
+@@ 0E3  bank2 $A61C
+EN:
+[cmdDD 0a][cmdEE 02]Oh yes, me and George
+are ever so close.
+And he's not just hard,
+he's well fit too.[page]
+Ooh, shall I show you
+his photo[cmdED]......
+[cmdEE 03]Ta-da![cmdDD 0a][cmdED].....
+[delay 3c][cmdEE 02]Well? Fit, isn't he?
+[setflag 3d]
+
+@@ 0E4  bank2 $A6B0
+EN:
+Still after me, [cmdE2],
+even knowing about
+George? You've got
+guts.[page]
+[cmdEE 02]But no. I could
+never betray George.
+
+@@ 0E5  bank2 $A700
+EN:
+[cmdEE 02]No way!
+I'm George's girl.
+
+@@ 0E6  bank2 $A71C
+EN:
+Graaagh!
+[cmdEE 01][cmdEE 02][cmdDD 03][flash][delay 3c][cmdE8]
+
+@@ 0E7  bank2 $A72C
+EN:
+[setflag 9e]Roooar!
+[cmdEE 01][cmdEE 02][cmdDD 04][flash][delay 3c][cmdE8]
+
+@@ 0E8  bank2 $A73E
+EN:
+[cmdEF 1a]Eh?
+[cmdED][delay 3c]
+
+@@ 0E9  bank2 $A749
+EN:
+[cmdEE 02]Oi, you hooligans, keep
+back.
+[cmdEE 00]There was a phone threat
+to bomb Minami Bridge.
+[cmdDE 2e][delay 5a][cmdDE 22][cmdDA][page]
+You don't want to get
+hurt, do you?
+[cmdEE 02]Go on, off home with
+you.
+[setflag 3f][setflag 2c]
+
+@@ 0EA  bank2 $A7CD
+EN:
+The culprit?[cmdED]... Well,
+they say the voice on
+the call sounded like a
+lad of school age.
+[cmdDE 2e][delay 5a][cmdDE 2e][delay 5a][cmdDE 22]
+
+@@ 0EB  bank2 $A816
+EN:
+[cmdDD 07][cmdEE 01]Oho, threatening
+Onijima, eh[cmdED]...
+You've got some nerve.
+
+@@ 0EC  bank2 $A83E
+EN:
+[cmdEE 02]No, no! Go home!
+
+@@ 0ED  bank2 $A851
+EN:
+[cmdEE 03]Oi! You lot! What are
+you sneaking about for?
+Go home, go home.
+
+@@ 0EE  bank2 $A874
+EN:
+[cmdEE 03]Oi, [cmdE1]. I've got a
+cracking bit of info.
+
+@@ 0EF  bank2 $A88C
+EN:
+Someone's only gone and
+nicked the Kakui Dept.
+Store sign.
+[cmdEE 02]He's the one to watch.
+
+@@ 0F0  bank2 $A8C6
+EN:
+[cmdEE 03]Yeah, yeah, I know.[page]
+[cmdEE 00]Remi goes to whoever
+rescues Shingo first.
+
+@@ 0F1  bank2 $A8F7
+EN:
+[cmdEE 03]Mm, nice grovelling.
+[cmdEE 02]The pylon up ahead's old
+and leans south. It
+could topple any time.
+[clrflag 9e]
+
+@@ 0F2  bank2 $A941
+EN:
+[cmdEF 2e]Oi, [cmdE1]. Found
+Shingo? [cmdEE 02]Not yet? The
+dog warden's finally
+caught him, I bet.
+
+@@ 0F3  bank2 $A97C
+EN:
+[cmdEF 2e]Oh, and I hear dodgy
+types are still hanging
+about on the roof of
+Kakui Dept. Store.
+[setflag 40]
+
+@@ 0F4  bank2 $A9BD
+EN:
+[cmdEF 2e][cmdEE 01]Pull yourself together!
+[cmdEE 03][cmdED][cmdDD 05][flash]
+
+@@ 0F5  bank2 $A9D0
+EN:
+[cmdDE 22][cmdDD 0e][cmdEF 02][cmdEE 03]Right, you've finally
+done it. I always knew
+you two were dodgy.
+You're nicked! Nicked!!
+[page+goto c4 01]
+
+
+@@ 0F6  bank2 $AA17
+EN:
+[cmdDE 2e][cmdDA][cmdDE 2e][cmdDA][cmdEE 03][cmdDE 22]Oho! It's the wanted
+extremists' bomb![page]
+What? On the department
+store roof? Right!
+Good work, lads!
+That's their hideout.[page]
+Right, I'm first in!
+Gahahahahahahahaha!
+[cmdDD 0e][clrflag 83][clrflag 9a][clrflag 9b][page+goto 1b 03]
+
+
+@@ 0F7  bank2 $AAAD
+EN:
+Long time, [cmdE2].
+
+@@ 0F8  bank2 $AABB
+EN:
+[cmdEE 01]Eh? Gold Emperor?
+[cmdED][cmdDE 2e][delay 5a][cmdDE 2b]
+[page]
+[cmdEE 00]Yeah, I know them. A
+gang full of Kyokuto
+High lads.[page]
+Our boss Kikunaga says
+they're nothing special.
+
+@@ 0F9  bank2 $AB30
+EN:
+[cmdDD 07][cmdEE 02]You[cmdED]... picking a
+fight with Minoru of
+Tachibana?
+
+@@ 0FA  bank2 $AB4F
+EN:
+Tea's fine, but listen.[page]
+Our boss Kikunaga's
+gone and fallen for
+Junko at your school[cmdED]...[page]
+He's always moping in
+that cafe "Gecko",
+sighing all day. Sort
+him out, will you?
+[setflag 43]
+
+@@ 0FB  bank2 $ABDF
+EN:
+[cmdEF 10][cmdEE 01]...♥...♥...♥.
+Sigh...
+
+@@ 0FC  bank2 $ABF5
+EN:
+[cmdEF 10][cmdEE 01]Crush Gold Emperor?
+[cmdED][cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 00]Then beat
+Kyokuto's Big Four.
+That's quicker.[page]
+Word is No.1 Tsuji and
+No.2 Kitamura are high
+up in Gold Emperor.[page]
+They're not a patch [cmdEE 02]on
+the great Kikunaga, but
+they're hard, I hear.
+
+@@ 0FD  bank2 $ACA3
+EN:
+[cmdEF 10][cmdDD 0a][cmdEE 02]Gulp!
+
+@@ 0FE  bank2 $ACAF
+EN:
+[cmdEF 10][cmdDD 08][cmdEE 03]Shut it! Can't you see
+I'm suffering here?
+
+@@ 0FF  bank2 $ACCB
+EN:
+
+
