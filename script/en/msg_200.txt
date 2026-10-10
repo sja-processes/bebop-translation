@@ -1,0 +1,739 @@
+# Be-Bop High School - English script, msg_200.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 200  bank3 $9B5E
+EN:
+[cmdEF 32][cmdEE 01]The ticket man's giving
+us funny looks. Pack it
+in.
+
+@@ 201  bank3 $9B7F
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], we don't even
+know where we're
+going[cmdED]...
+
+@@ 202  bank3 $9BA1
+EN:
+[cmdEF 32][cmdEE 0a]Mr Totsuka did say get
+off at the first stop to
+get to Joto High.
+
+@@ 203  bank3 $9BE6
+EN:
+[cmdEF 32][cmdEE 0a]Got tickets for Joto.
+[cmdEE 00]Oh, Nobuo, you said they
+know your face on the
+underground, didn't you?[setflag 27][page+goto da 02]
+
+
+@@ 204  bank3 $9C36
+EN:
+[cmdEF 32][cmdEE 04]I've got the tickets.
+Hurry, or we'll miss the
+train.
+
+@@ 205  bank3 $9C5E
+EN:
+[cmdEF 32][cmdEE 08][cmdE1], Nobuo's
+having a row with the
+ticket man.
+[page+goto ab 01]
+
+
+@@ 206  bank3 $9C88
+EN:
+[cmdEF 32][cmdEE 00]Eh? Nobuo, I thought
+they knew your face?
+[cmdED][delay 3c][setflag 28][page+goto dd 02]
+
+
+@@ 207  bank3 $9CAE
+EN:
+[cmdEF 32][cmdEE 09]Well, he's Joto's top
+dog. He's got real
+presence.
+[page+goto 9d 01]
+
+
+@@ 208  bank3 $9CDE
+EN:
+[cmdEF 32][cmdEE 0b][cmdED]Nobuooo[cmdEE 06][cmdED]...
+
+@@ 209  bank3 $9CF0
+EN:
+[cmdEF 32][cmdEE 06][cmdED]Nobuo, practise your
+[cmdED]one-on-ones at home.
+[cmdED][delay 3c]
+
+@@ 20A  bank3 $9D20
+EN:
+[cmdEF 31]What's all this?!
+
+@@ 20B  bank3 $9D2A
+EN:
+[cmdEF 32][cmdEE 03]I've bought three
+tickets.
+[setflag 54]
+
+@@ 20C  bank3 $9D45
+EN:
+[cmdEF 32][cmdEE 05][cmdE1], Nobuo says Teru
+from Joto was with the
+Gold Emperor lot last
+night, no question.[page]
+[cmdEE 06]Poor Nobuo got a right
+going-over, though.
+
+@@ 20D  bank3 $9DB9
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], touch a Joto
+lad and Toshimitsu
+Yamada won't stand for
+it. Let's not.
+
+@@ 20E  bank3 $9DF8
+EN:
+[cmdEF 32][cmdEE 01]Something's fishy here.
+
+@@ 20F  bank3 $9E0B
+EN:
+[cmdEF 32][cmdEE 05]Wait, [cmdE1].
+[cmdEE 09]Why not let Teru go and
+see where he runs?
+
+@@ 210  bank3 $9E32
+EN:
+[cmdEF 32][cmdEE 02]It's the black Skylion!
+[setflag 2f][clrflag 7b]
+
+@@ 211  bank3 $9E4B
+EN:
+[cmdEF 32][cmdEE 0a][cmdED]Shh! [cmdEE 0a][cmdE1], they'll
+see us. [cmdEE 09]Best tell
+Toshimitsu Yamada first,
+I reckon[cmdED]...
+
+@@ 212  bank3 $9E94
+EN:
+[cmdEF 32][cmdEE 05]Toshimitsu Yamada's not
+here.
+
+@@ 213  bank3 $9EAA
+EN:
+[cmdEF 32][cmdEE 04]Toshimitsu Yamada of
+Joto has a bit of a
+name. He won't lie.
+
+@@ 214  bank3 $9EE6
+EN:
+[cmdEF 32][cmdEE 0a]This is floor 1.
+
+@@ 215  bank3 $9EF3
+EN:
+[cmdEF 32][cmdEE 0a]Floor 2.
+
+@@ 216  bank3 $9EFF
+EN:
+[cmdEF 32][cmdEE 0a]Floor 3.
+
+@@ 217  bank3 $9F0B
+EN:
+[cmdEF 32][cmdEE 08]We can only go up or
+down.
+
+@@ 218  bank3 $9F23
+EN:
+[cmdEF 32][cmdEE 07]This building only goes
+up to floor 4.
+
+@@ 219  bank3 $9F3A
+EN:
+[cmdEF 32][cmdEE 03]It's a boxing gym.
+[setflag 81]
+
+@@ 21A  bank3 $9F51
+EN:
+[cmdEF 32][cmdEE 02][cmdE1], d-don't do
+anything rash!
+
+@@ 21B  bank3 $9F6B
+EN:
+[cmdEF 32][cmdEE 07][cmdE1], when did we
+last save?[page]
+[delay 5a][cmdEE 01]Oh, that's right.
+Luckily Nobuo remembers.
+[delay 5a][cmdEE 05]We'll just have to start
+again from there.
+[cmdED][delay 5a][cmdEA 0a]
+
+@@ 21C  bank3 $9FCB
+EN:
+[cmdEF 32][cmdEE 01]Minoru's too thick to
+tell a lie.
+
+@@ 21D  bank3 $9FEA
+EN:
+[cmdEF 32][cmdEE 07]Looks pretty serious.
+
+@@ 21E  bank3 $9FFF
+EN:
+[cmdEF 32][cmdEE 08]Nobuooo!
+
+@@ 21F  bank3 $A00B
+EN:
+[cmdEF 32][cmdEE 06]Not that it matters, [cmdEE 08]but
+Kikunaga's clutching
+that photo tight.
+
+@@ 220  bank3 $A03D
+EN:
+[cmdEF 32][cmdEE 04]The ones who ran were
+Gold Emperor, no doubt
+about it.
+
+@@ 221  bank3 $A067
+EN:
+[cmdEF 32][cmdEE 0a][cmdE1], it's just a
+fountain.
+
+@@ 222  bank3 $A07F
+EN:
+[cmdEF 32][cmdEE 06]Stop messing about.
+
+@@ 223  bank3 $A094
+EN:
+[cmdEF 32][cmdEE 0b][cmdED]Oh, [cmdE1]! [cmdEE 01]There's a
+set of false teeth down
+there. Must be worth
+700,000 yen.
+[setflag 4f][page+goto 30 03]
+
+
+@@ 224  bank3 $A0C8
+EN:
+[cmdEF 32][cmdEE 06]Honestly, Nobuo's a
+liability[cmdED]...
+[cmdEE 0a]Anyway, I've fished the
+teeth out.
+[setflag 50][clrflag 4e][clrflag 4f][clrflag 86]
+
+@@ 225  bank3 $A10C
+EN:
+[cmdEF 32][cmdEE 0a][cmdE1], word is the
+machines in the 19s are
+paying out today.
+
+@@ 226  bank3 $A131
+EN:
+[cmdEF 32][cmdEE 02]Bad news, [cmdE1].
+This is Onijima's local,
+apparently.
+
+@@ 227  bank3 $A15D
+EN:
+[cmdEF 32][cmdEE 09]I've bought three
+tickets.
+[setflag 53][setflag 54]
+
+@@ 228  bank3 $A17A
+EN:
+[cmdEF 32][cmdEE 04]It's Higashimachi
+station.
+
+@@ 229  bank3 $A18E
+EN:
+[cmdEF 32][cmdEE 0b][cmdED][delay 3c]Hmm,
+[cmdEE 04]that's a sharp uniform.
+
+@@ 22A  bank3 $A1B0
+EN:
+[cmdEF 32][cmdEE 06]Let's not. It's giving
+me the creeps.
+
+@@ 22B  bank3 $A1CC
+EN:
+[cmdEF 32][cmdEE 08]Looks like his brain's
+packed up.
+
+@@ 22C  bank3 $A1EB
+EN:
+[cmdEF 32][cmdEE 02]Q-quick, after him!
+[cmdE1]!
+
+@@ 22D  bank3 $A205
+EN:
+[cmdEF 32][cmdEE 03][cmdE1], is this
+Tsuji[cmdED]...?
+
+@@ 22E  bank3 $A21F
+EN:
+[cmdEF 32][cmdEE 05]W-we're here to rescue
+Shingo, remember.
+[cmdE1], no pointless
+scraps.
+
+@@ 22F  bank3 $A25C
+EN:
+[cmdEF 32][cmdEE 03]Looks like this block of
+flats has three floors.
+
+@@ 230  bank3 $A27B
+EN:
+[cmdEF 07][cmdEE 02]Howay, lad!
+[cmdEE 00]This where we're
+plantin' the bomb?
+[cmdEE 01]Reet, here we gan!
+[page+goto 7f 01]
+
+
+@@ 231  bank3 $A2B1
+EN:
+[cmdDE 28][cmdEF 05][cmdEE 01]Hold it, hold it, Ken!
+[cmdDD 2e][cmdDA][cmdDD 2e][cmdDA]These gentlemen saved
+me. For my sake, let
+them pass!
+[page+goto 3a 01]
+
+
+@@ 232  bank3 $A2FD
+EN:
+[cmdEF 32][cmdEE 08][cmdE1], that's
+going a bit far.
+
+@@ 233  bank3 $A31C
+EN:
+[cmdEF 34][cmdEE 0f]Guv, let me do it.
+Nobuo Kaneko'll prove
+he's a real man.
+[page+goto a5 01]
+
+
+@@ 234  bank3 $A351
+EN:
+[call d2 01][page+goto 24 02]
+
+
+@@ 235  bank3 $A358
+EN:
+
+
+@@ 236  bank3 $A359
+EN:
+[cmdEF 34][cmdEE 13]Oi! Who you eyeballing,
+eh?!
+[page+goto 09 02]
+
+
+@@ 237  bank3 $A37B
+EN:
+[cmdD1]Beggin' your pardon,
+young sir, but I'm bound
+by honour not to let you
+pass. Kindly turn back.
+[page+goto 31 02]
+
+
+@@ 238  bank3 $A3B6
+EN:
+[cmdDE 26][cmdF0 04][cmdEF 37][cmdD1]Thing is, Toru,
+Hiroshi[cmdED]... seems I've
+chatted up the wrong
+bloke's girl.[page]
+Maybe it's finally time
+Shingo of Kita High paid
+the price.[page]
+Listen, Toru, Hiroshi...
+if anything happens to
+me, help me out, yeah?
+I'll make it worth it.[page]
+If you rescue me, I'll
+make it up to you. You
+know the one you fancy,[page]
+[cmdEE 03]Remi, from Chuo Girls'.
+[cmdEE 01]She's sort of my girl,
+[cmdEE 00]but I'll set you up.[page]
+[cmdEA 0e][cmdDE 1e][cmdF0 0b][cmdEF 14]Here, [cmdE1]. Didn't
+Shingo seem dead serious
+yesterday? Never seen
+him that rattled before.
+[delay 78][page]
+[cmdEF 00][cmdDE 2e][delay 5a][cmdDE 2b][cmdEF 36]Kato! Nakama! It's
+terrible! This morning,
+Shingo was snatched by
+someone![page]
+He told me if anything
+happened to him, to tell
+Kato and Nakama of
+Aitoku first.[page]
+Right, I'm off to ask
+around, so[cmdED]...
+[delay 3c][page]
+[cmdDE 1e][cmdEF 14][cmdEE 03]Heh heh heh. Remi's
+mine.[page]
+[cmdEE 01]Oi oi, [cmdE1]. Someone
+as thick as you hasn't a
+chance. You don't even
+know who took Shingo.[page]
+[cmdEE 02]Hm? Team up[cmdED]...?
+Well, alright.[page]
+[cmdEE 01][cmdE1]'ll be next
+to no use, though.[page]
+[cmdEE 00]Anyway, whoever rescues
+Shingo first gets Remi.
+Deal?!
+[delay 3c][page]
+[cmdEF 32][cmdEE 01][cmdE1], this is no
+time for lessons.
+[cmdEE 00]Let's skive off and look
+for Shingo.[page]
+[cmdEF 34][cmdEE 07]Guv! Your number one
+sidekick, Nobuo Kaneko,
+is coming too.
+[delay 3c]
+
+@@ 239  bank3 $A702
+EN:
+
+
+@@ 23A  bank3 $A703
+EN:
+
+
+@@ 23B  bank3 $A704
+EN:
+
+
+@@ 23C  bank3 $A705
+EN:
+
+
+@@ 23D  bank3 $A706
+EN:
+
+
+@@ 23E  bank3 $A707
+EN:
+
+
+@@ 23F  bank3 $A708
+EN:
+[cmdDE 22][cmdF0 19][cmdEF 37][cmdEE 04][cmdD1]Oi! If it isn't [cmdE1]!
+Long time no see![page]
+Eh? You've come to
+rescue me?[page]
+[cmdEA 23]
+
+@@ 240  bank3 $A740
+EN:
+[cmdEE 03]Well, [cmdDF] came
+bursting in too, just
+two hours ago.[page]
+[cmdEE 02]You're both proper
+mates, you are. Yeah.
+[cmdED][delay 3c][page]
+
+
+@@ 241  bank3 $A788
+EN:
+[cmdEE 04]Oh, I see, I see.
+[cmdEE 02][cmdE1]'s the only real
+mate I've got, eh?
+Mmmmmmm.[page]
+[cmdED][delay 3c][page]
+
+
+@@ 242  bank3 $A7C0
+EN:
+[cmdEE 04]Thing is, like I said, I
+chatted up Mari, Tsuji's
+girlfriend,
+[cmdEE 01]and Tsuji went spare[cmdED]...[delay 1e][page]
+[cmdEE 04]So Tsuji and his mates
+kidnapped me
+and dragged me to these
+flats.[page]
+[cmdEE 01]So to say sorry, I went
+and introduced Tsuji to
+my girlfriend Remi. Just
+as a friend, like.[page]
+[cmdEE 03]Tsuji was chuffed to
+bits, we got pally, and
+now I'm round his place
+all the time.
+[cmdED][delay 1e][page]
+[cmdEE 03]Loads of girls come
+round here,
+and, well, you could say
+this is
+[delay 1e][page]
+[cmdEE 02]the flat nearest heaven.
+[cmdED][delay 3c][page]
+
+
+@@ 243  bank3 $A928
+EN:
+[cmdEE 03][cmdDF] loves it here
+too. Says he never wants
+to go home.[page]
+[cmdEE 04]Come on, why the long
+faces? [cmdEE 03][cmdE1], come in,
+come in.[page]
+
+
+@@ 244  bank3 $A980
+EN:
+Oi, [cmdE1], it's great
+here! Come on up!
+
+@@ 245  bank3 $A99D
+EN:
+[cmdEE 03]Come on, [cmdE1], don't
+just stand there.
+Welcome to the House of
+Heaven. In you come.[page]
+
+
+@@ 246  bank3 $A9D2
+EN:
+Oh! Someone else is
+here.[page]
+Well, if it isn't
+[cmdDF]. Welcome to the
+House of Heaven.[page]
+
+
+@@ 247  bank3 $AA02
+EN:
+[page]
+Whyyy, you...!!
+You rotten lot...!!
+[cmdED]..............
+
+@@ 248  bank3 $AA28
+EN:
+
+
+...Ngah!
+[cmdDC][delay 78][cmdDE 29]
+
+@@ 249  bank3 $AA38
+EN:
+
+
+@@ 24A  bank3 $AA39
+EN:
+
+
+@@ 24B  bank3 $AA3A
+EN:
+
+
+@@ 24C  bank3 $AA3B
+EN:
+
+
+@@ 24D  bank3 $AA3C
+EN:
+
+
+@@ 24E  bank3 $AA3D
+EN:
+
+
+@@ 24F  bank3 $AA3E
+EN:
+
+
+@@ 250  bank3 $AA3F
+EN:
+
+
+@@ 251  bank3 $AA40
+EN:
+
+
+@@ 252  bank3 $AA41
+EN:
+
+
+@@ 253  bank3 $AA42
+EN:
+
+
+@@ 254  bank3 $AA43
+EN:
+Nakama
+
+@@ 255  bank3 $AA47
+EN:
+Toru
+
+@@ 256  bank3 $AA4B
+EN:
+Kato
+
+@@ 257  bank3 $AA4F
+EN:
+Hiroshi
+
+@@ 258  bank3 $AA53
+EN:
+[cmdDE 2b][cmdF0 01][cmdEF 0a][ifflag-call 01 59 02 5a 02]
+
+@@ 259  bank3 $AA60
+EN:
+[menu 08 06 00 07 00 08 00 09 00 09 03]
+
+@@ 25A  bank3 $AA6D
+EN:
+[menu 16 0a 00 0b 00 0c 00 09 03]
+
+@@ 25B  bank3 $AA78
+EN:
+[cmdDE 2b][cmdF0 01][if2flags-call 02 01 5c 02 5e 02 5d 02 5e 02]
+
+@@ 25C  bank3 $AA88
+EN:
+[cmdEF 0b][menu 08 00 00 01 00 02 00 03 00 09 03]
+
+@@ 25D  bank3 $AA97
+EN:
+[cmdEF 0b][menu 16 04 00 05 00 de 01 09 03]
+
+@@ 25E  bank3 $AAA4
+EN:
+[cmdEF 0b][menu 16 0d 00 0e 00 0f 00 09 03]
+
+@@ 25F  bank3 $AAB1
+EN:
+[cmdDE 22][cmdF0 02][ifflag-call 03 60 02 6d 03]
+
+@@ 260  bank3 $AABC
+EN:
+[menu 58 88 01 84 03 09 03]
+
+@@ 261  bank3 $AAC5
+EN:
+[menu 57 84 03 8e 01 09 03]
+
+@@ 262  bank3 $AACE
+EN:
+[menu 4b 8e 03 84 03 09 03]
+
+@@ 263  bank3 $AAD7
+EN:
+[cmdF0 21][cmdEF 2e][cmdDE 21][menu-call 1d 10 00 11 00 12 00 13 00 14 00 09 03]
+
+@@ 264  bank3 $AAEC
+EN:
+[cmdDE 28][cmdF0 21][cmdEF 01][firstclear 04 65 02 1e 66 02 33 67 02 44 68 02 49 69 02 4c 6a 02 55 6b 02 59 6c 02 fa 6d 02]
+
+@@ 265  bank3 $AB0F
+EN:
+[menu-call 22 15 00 16 00 09 03]
+
+@@ 266  bank3 $AB18
+EN:
+[menu-call 22 17 00 18 00 09 03]
+
+@@ 267  bank3 $AB21
+EN:
+[menu-call 22 19 00 1a 00 09 03]
+
+@@ 268  bank3 $AB2A
+EN:
+[menu-call 22 1b 00 1c 00 09 03]
+
+@@ 269  bank3 $AB33
+EN:
+[menu-call 22 1d 00 1e 00 09 03]
+
+@@ 26A  bank3 $AB3C
+EN:
+[menu-call 22 1f 00 20 00 09 03]
+
+@@ 26B  bank3 $AB45
+EN:
+[menu-call 22 21 00 22 00 09 03]
+
+@@ 26C  bank3 $AB4E
+EN:
+[menu-call 22 23 00 24 00 09 03]
+
+@@ 26D  bank3 $AB57
+EN:
+[menu-call 22 25 00 26 00 09 03]
+
+@@ 26E  bank3 $AB60
+EN:
+[cmdDE 21][cmdF0 21][cmdEF 2f][menu-call 1c 27 00 28 00 29 00 2a 00 2b 00 09 03]
+
+@@ 26F  bank3 $AB75
+EN:
+[cmdDE 21][cmdF0 04][cmdEF 2e][firstclear-call 06 70 02 3f 71 02 47 72 02 48 73 02 49 74 02 4b 75 02 fa 76 02]
+
+@@ 270  bank3 $AB92
+EN:
+[menu 1e 2c 00 2d 00 2f 00 2e 00 30 00 09 03]
+
+@@ 271  bank3 $ABA1
+EN:
+[menu 1f 31 00 32 00 33 00 34 00 35 00 09 03]
+
+@@ 272  bank3 $ABB0
+EN:
+[menu 1e f2 00 f3 00 f4 00 f4 00 c5 01 09 03]
+
+@@ 273  bank3 $ABBF
+EN:
+[menu 32 0b 01 0c 01 0d 01 0e 01 0f 01 09 03]
+
+@@ 274  bank3 $ABCE
+EN:
+[menu 34 0b 01 0c 01 10 01 11 01 0e 01 09 03]
+
+@@ 275  bank3 $ABDD
+EN:
+[menu 35 12 01 13 01 14 01 15 01 16 01 09 03]
+
+@@ 276  bank3 $ABEC
+EN:
+[menu 21 17 01 18 01 19 01 1b 01 1a 01 09 03]
+
+@@ 277  bank3 $ABFB
+EN:
+[cmdDE 22][cmdF0 05][firstclear-call 07 78 02 08 79 02 09 7a 02 fa 7b 02]
+
+@@ 278  bank3 $AC0D
+EN:
+[menu 4c df 01 e0 01 8e 01 09 03]
+
+@@ 279  bank3 $AC18
+EN:
+[menu 4c e1 01 8f 01 90 01 09 03]
+
+@@ 27A  bank3 $AC23
+EN:
+[menu 43 91 01 e1 01 8f 01 90 01 09 03]
+
+@@ 27B  bank3 $AC30
+EN:
+[menu 4c e1 01 fb 01 90 01 09 03]
+
+@@ 27C  bank3 $AC3B
+EN:
+[cmdDE 22][firstclear-call 09 7d 02 0a 7e 02 fa 7f 02]
+
+@@ 27D  bank3 $AC48
+EN:
+[cmdF0 06][menu-call 5a e3 01 e8 01 e2 01 09 03]
+
+@@ 27E  bank3 $AC55
+EN:
+[cmdF0 06][menu-call 5c 92 01 e3 01 e8 01 e2 01 09 03]
+
+@@ 27F  bank3 $AC64
+EN:
+[cmdF0 06][menu 5a e4 01 81 02 e9 01 09 03][goto 7f 02]
+

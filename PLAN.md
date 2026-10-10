@@ -12,7 +12,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 2 — Find the font & table file (2026-10-10)
 - [x] Stage 3 — Trace the text engine (2026-10-10)
 - [x] Stage 4 — Script dump (2026-10-10)
-- [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — msg_000 to msg_180 done 2026-10-10
+- [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — msg_000 to msg_200 done 2026-10-10
 - [ ] Stage 6 — Insertion tooling
 - [ ] Stage 7 — Graphics (title logo kanji, menus)
 - [ ] Stage 8 — Playtest & polish (several sessions)
@@ -255,7 +255,7 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - `tools/enbuild.py msg_XXX draft.txt` turns a draft of `@@ ID` + English
   into the EN file with the right labels/trailing newlines, and greedily
   re-wraps any run of text lines that has a line over 24 glyphs.
-- Done: msg_000-msg_180 (IDs $000-$1FF).
+- Done: msg_000-msg_200 (IDs $000-$27F).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.

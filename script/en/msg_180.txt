@@ -648,10 +648,10 @@ in first.[page]
 
 @@ 1DD  bank3 $961F
 EN:
-[cmdEF 34][cmdEE 0c]Hnuuv~ hasht nighh hi
+[cmdEF 34][cmdEE 0c]Hnuuuv, hasht nighh hi
 hhoughh[cmdED]........ Hahi
 hahi hefuha hihahi[cmdED]...
-Hnuuv~ hhorry.[page]
+Hnuuuv, hhorry.[page]
 [setflag 2e][goto 0c 02]
 
 @@ 1DE  bank3 $9668

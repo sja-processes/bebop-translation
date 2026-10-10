@@ -11,7 +11,8 @@ add new names as they turn up.
 - Never "Now then, now then" / "Now then" as a greeting for anyone (Savile).
 - Raw tiles like `<41>` inside words may be dropped (checker only warns).
 - Ellipsis ‥‥ → `...` (keep the `[cmdED]` before it). 〜 → drawn-out
-  letters ("Eeek", "Hello-o"). ♥ kept.
+  letters ("Eeek", "Hello-o"), but never where the stretched word looks
+  like another word or an accent ("looot" read as "loot"). ♥ kept.
 - Stammers kept ("I-I-I d-don't"), hyphen style.
 - うんせい (game stat) → **luck**.
 - Plain ASCII plus ♥ only (no é, curly quotes) so the stage 6 font stays small.
@@ -48,14 +49,14 @@ Width checker counts each as 7 letters.
 | シンゴ | Shingo | Kita High womaniser, kidnapped |
 | レミ | Remi | Chuo Girls', Shingo's girlfriend |
 | カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", me = my, Cor, Blimey, "a face" round here); hero keeps calling him Noboru |
-| (EF32 companion) | | polite junior, calls hero by name, "Nobuo" |
+| (EF32 companion) | | polite junior, calls hero by name, "Nobuo"; the voice of reason |
 | イナガキ | Inagaki | Nichu No.2 |
 | ハヤシ | Hayashi | Nichu top dog |
 | ユウジ | Yuji | informant (luck-based) |
 | ヒガシ / マントヒガシ | Higashi / "Mandrill Higashi" | ex-Gold Emperor |
 | ゲン | Gen | boozy dynamite expert from Kyushu |
 | ハラダ | Harada | Gold Emperor's minder |
-| ひときりケン | Ken the Slasher | just out of prison |
+| ひときりケン | Ken the Slasher | just out of prison; the honour-bound guard Tomezo calls off (231) |
 | ツジ・キタムラ・クドウ・サメジマ | Tsuji, Kitamura, Kudo, Samejima | Big Four No.1-4 |
 | イワモト | Iwamoto | Aitoku pupil with camera |
 | シマザキ | Shimazaki | Kita High |
@@ -73,14 +74,14 @@ Width checker counts each as 7 letters.
 | オニジマ | Onijima | police officer (Kansai speech, kept plain UK copper: "You're nicked!") |
 | タチバナのミノル | Minoru of Tachibana | |
 | キクナガ | Kikunaga | Minoru's boss, lovesick for Junko |
-| (rival) | unnamed rival who wants Remi | |
+| (rival) | the *other* hero ([cmdDF]); EF14 portrait | competes for Remi: "whoever rescues Shingo first gets Remi" |
 | (old man) = トメゾウ | Tomezo, "Grand Boss" (おおおやぶん) | lisps s → sh while his false teeth are lost; speaks normally once they're back (132) |
 | イワモト | Iwamoto | timid Aitoku camera nerd, blurts history dates |
 | ジュンコ | Junko | refers to herself as "Junko"; Kikunaga is smitten |
 | タナカ | Tanaka | Kyokuto's only swot; every committee |
 | (Kazuhiro) | | 13E-140 by the sea, wants to jump; keep it plain |
 | (Gen, drunk) | | "Whey, what ye deein'?" (EF13 speaker = Gen) |
-| (teacher) | "Not good... Mm." catchphrase (イカんなぁ) | |
+| トツカ (teacher) | Mr Totsuka; "Not good... Mm." catchphrase (イカんなぁ) | |
 | (policeman) | "Right, let's be 'avin' you" — NOT "Now then, now then" (Savile association) | |
 | (priest) | かしこみ → "O spirits, hear us!" | luck-raising ritual |
 
@@ -100,6 +101,8 @@ Width checker counts each as 7 letters.
 | かお (well-known) | "a face" |
 | さけぶ (verb) | "Shout" — 1BA refers to the command by name; keep in sync with verb list |
 | ヤングマガジン | Young Magazine (real magazine that ran the manga; kept) |
+| てんごくの やかた | the House of Heaven (Tsuji's flat, ending) |
+| エスケープ (skip class) | skive off |
 | N かい (floors) | "floor N" — Japanese numbering kept, avoids UK ground-floor mismatch |
 | ズガガガ ドピューン (kiddie ride) | "Vroom vroom... Neeeeow!" (1A5 / 1FC) |
 | ひがしまちえき / みなとえき | Higashimachi / Minato station |
@@ -119,4 +122,5 @@ Width checker counts each as 7 letters.
 - [x] msg_080 (2026-10-10)
 - [x] msg_100 (2026-10-10)
 - [x] msg_180 (2026-10-10)
-- [ ] msg_200 · msg_280 · msg_300 · msg_380
+- [x] msg_200 (2026-10-10) — 254-257 hero names; 258-27F are menu scripts (codes only, copied)
+- [ ] msg_280 · msg_300 · msg_380
