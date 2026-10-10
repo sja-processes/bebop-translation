@@ -36,7 +36,11 @@ switching. Output: an engine description in this file.
 **4. Script dump.** A Python dumper using the table + pointer tables, writing
 `script/*.txt` (Japanese with IDs). Check how many bytes are free for growth.
 
-**5. Translation.** Fill in English next to each line. This is mostly
+**5. Translation.** Fill in English next to each line. **Use UK English
+throughout:** British spelling (colour, realise, programme), vocabulary
+(mate, bloke, mum, trousers, pavement) and idioms, plus British slang
+for the delinquent schoolboy banter where an equivalent fits, rather than
+American phrasing. This is mostly
 language work and can be done in a normal Claude chat (cheaper) in batches.
 
 **6. Insertion.** Inserter that re-encodes English, repoints, and emits an
