@@ -9,7 +9,7 @@ each session so the next one doesn't re-derive anything.
 
 - [x] **Stage 0 — Tooling check** (2026-10-10)
 - [x] Stage 1 — Static ROM survey (2026-10-10)
-- [ ] Stage 2 — Find the font & table file
+- [x] Stage 2 — Find the font & table file (2026-10-10)
 - [ ] Stage 3 — Trace the text engine
 - [ ] Stage 4 — Script dump
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat)
@@ -109,8 +109,39 @@ freed/added banks — decide in stage 6).
   pointer table. Verify in stage 3 — it makes reinsertion much easier.
 - Dialogue box (intro): text starts at nametable column 2, row 4.
 
+### Font & table (stage 2)
+- Font lives in **CHR 4 KB banks 30 and 31** (CHR ROM offsets $1E000 /
+  $1F000), tiles $00-$9F; tiles $A0-$FF of those banks are portraits.
+  Banks 30/31 are almost identical in the font area — only tiles $42, $4D,
+  $7C, $86, $8D differ (glyph variants of 0, O, ホ, ラ, ン). Which screen
+  uses which bank: find out in stage 3.
+- Layout: $00-$2D hiragana あ…ん; $2E-$36 ぁぃぅぇぉゃゅょっ; $37 unknown
+  (rare); $38-$40 ァィゥェォャュョッ; $41 unknown (rare); $42-$4B digits
+  0-9; $4C N, $4D O, $4E 「, $4F 」; $50 icon; $51 ？ $52 ！ $53 ー $54 〜
+  $55 ‥ $56 ・ $57 、 $58 。 $59 ♥ $5A ゛ $5B ゜ $5C B $5D A; $5E/$5F
+  graphics; $60-$8D katakana ア…ン; $8E/$8F and $90-$9F white-on-black
+  kana graphics (probably status/menu labels).
+- `tools/bebop.tbl` (Thingy format) covers all of this, with `5Axx` /
+  `5Bxx` two-byte entries for voiced kana. Verified by decoding bank 3
+  $A3F8 and samples from banks 2/3.
+- **English font plan:** once Japanese is replaced, kana tiles $00-$8D
+  (142 slots) are free for an English font in both banks 30 and 31, which
+  is plenty for A-Z, a-z and punctuation, or for DTE pair tiles. With no
+  dakuten, the "row above" isn't needed, so lines could be single-spaced
+  (more lines per box) if the engine allows. Check first that no other
+  screen uses kana tiles as graphics.
+
+### Control codes seen in script (decode in stage 3)
+Byte frequency in banks 2-3: `FE` 2006 (space), `F5` 914 (newline),
+`EE` 600, `FF` 645, `EF` 308, `ED` 196, `F4` 131, `DD` 128, `F7` 110,
+`F3` 108, `D3` 86, `DE` 85, `E1` 48, `F6` 42, `EB` 34, `DA` 31, `D2` 27,
+`E2` 22, `F8` 17, `F2` 14, `F0` 13, `EA` 13, then rare ones. `FF` looks
+like end-of-message; `EE xx`, `EF xx`, `F7 xx`, `F0 xx` look like they
+take one argument byte (the argument decodes as a stray kana).
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
+- `tools/bebop.tbl` — script table (see above).
 
 ### Tooling notes (mesen-for-ai)
 - Execute breakpoints use `access: "exec"` (not `"execute"`); also
