@@ -106,6 +106,8 @@ Width checker counts each as 7 letters.
 | N かい (floors) | "floor N" — Japanese numbering kept, avoids UK ground-floor mismatch |
 | おどりうち (pachinko) | trick shot |
 | きりょく (stat) | "run out of steam" / steam |
+| ヘンシ〜ン | "Transfoooorm!!" (Nobuo, 388/38A) |
+| やったろうジャン | "Let's 'ave it!!" |
 | ズガガガ ドピューン (kiddie ride) | "Vroom vroom... Neeeeow!" (1A5 / 1FC) |
 | ひがしまちえき / みなとえき | Higashimachi / Minato station |
 | みなとの そうこ | warehouse at the docks |
@@ -127,4 +129,33 @@ Width checker counts each as 7 letters.
 - [x] msg_200 (2026-10-10) — 254-257 hero names; 258-27F are menu scripts (codes only, copied)
 - [x] msg_280 (2026-10-10) — scene/menu scripts only, copied
 - [x] msg_300 (2026-10-10) — only 338/339/33B/36F/370/375 have text
-- [ ] msg_380 (incl. verb list $3AA-$3C1)
+- [x] msg_380 (2026-10-10) — first pass of the whole script complete
+
+## Verb menu ($3AA-$3C1, provisional, max 8 letters)
+| ID | JP | EN | Notes |
+|---|---|---|---|
+| 3AA | はなす | Talk | |
+| 3AB | きく | Ask | |
+| 3AC | おどす | Menace | "Threaten me all you like" (072) |
+| 3AD | なぐる | Thump | "Thump me all you like" (073) |
+| 3AE | とる | Take | |
+| 3AF | ねる | Sleep | (menu word stays plain; dialogue can still say "kip") |
+| 3B0 | いどうする | Move | |
+| 3B1 | ごまする | Grovel | "nice grovelling" (0F1) |
+| 3B2 | おちゃする | Coffee | お茶する = go for a drink at a cafe (chat-up line); drink served is coffee, so related lines say coffee too (083, 0D1, 0FA) |
+| 3B3 | つかう | Use | |
+| 3B4 | やくそくする | Promise | |
+| 3B5 | しらべる | Search | |
+| 3B6 | セーブする | Save | |
+| 3B7 | のぼる | Go up | |
+| 3B8 | おりる | Go down | |
+| 3B9 | ひやかす | Tease | |
+| 3BA | はりこませる | Stakeout | Nobuo stakes a place out; if too wide, use "Case" (case the joint) |
+| 3BB | かう | Buy | |
+| 3BC | おがみたおす | Beg | |
+| 3BD | わたす | Give | |
+| 3BE | さけぶ | Shout | named in dialogue (1BA) |
+| 3BF | のる | Ride | kiddie ride, trains |
+| 3C0 | かくれあるく | Sneak | |
+| 3C1 | おいかける | Chase | |
+Menu slot width is unknown (JP max 6 kana): confirm in stage 6 before finalising.

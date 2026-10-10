@@ -1,0 +1,284 @@
+# Be-Bop High School - English script, msg_380.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 380  bank3 $BC4A
+EN:
+
+
+@@ 381  bank3 $BC4B
+EN:
+
+
+@@ 382  bank3 $BC4C
+EN:
+
+
+@@ 383  bank3 $BC4D
+EN:
+
+
+@@ 384  bank3 $BC4E
+EN:
+[cmdEF 34][cmdEE 11][delay 5a][cmdE6][cmdEE 13]Yesss!
+[cmdED][cmdDD 18][delay 3c][page]
+[cmdEE 0f]Guv, Nobuo Kaneko's
+got it all memorised.[page]
+[cmdEE 01][cmdE1], Guv! Tell your
+number one sidekick,
+Nobuo Kaneko, he did
+well, eh?
+
+@@ 385  bank3 $BCBD
+EN:
+[cmdEA 01]
+
+@@ 386  bank3 $BCC0
+EN:
+[cmdEA 02]
+
+@@ 387  bank3 $BCC3
+EN:
+[cmdEA 03]
+
+@@ 388  bank3 $BCC6
+EN:
+[cmdEF 34][cmdEE 13][cmdD1]Transfoooorm!!
+[delay 3c][cmdDD 0b][cmdEE 00][delay 1e][cmdEE 01][delay 1e][cmdEE 02][delay 1e][cmdEE 03][delay 1e][cmdEE 04][delay 1e][cmdEE 05][delay 1e][cmdEE 0d][delay 5a][cmdEF 00][clrflag 7a][setflag 7b]
+
+@@ 389  bank3 $BCFF
+EN:
+[cmdEA 05][cmdDE 22]
+
+@@ 38A  bank3 $BD04
+EN:
+[cmdEF 34][cmdEE 13][cmdD1]Transfoooorm!!
+[delay 3c][cmdDD 0b][cmdEE 00][delay 1e][cmdEE 01][delay 1e][cmdEE 02][delay 1e][cmdEE 03][delay 1e][cmdEE 04][delay 1e][cmdEE 05][delay 1e][cmdEE 0d][delay 5a][cmdEF 00][setflag 5f][clrflag 3e]
+
+@@ 38B  bank3 $BD3D
+EN:
+[flash][flash][flash][flash][flash][flash][flash][page+goto 17 03]
+
+
+@@ 38C  bank3 $BD48
+EN:
+[clrflag 8a][setflag a1]
+
+@@ 38D  bank3 $BD4D
+EN:
+[clrflag 8a][setflag a1][setflag b4][menu 53 09 03]
+
+@@ 38E  bank3 $BD58
+EN:
+[cmdEF 32][cmdEE 05][cmdD1]See you tomorrow,
+then, [cmdE1].[page]
+[cmdEF 34][cmdEE 0f]Cheers, Guv. Good day's
+work. Nobuo Kaneko'll be
+off and all, then.[page]
+[cmdEF 00][cmdEA 09]
+
+@@ 38F  bank3 $BD9E
+EN:
+[cmdD1]Right!!
+Let's 'ave it!!
+[cmdEA 0f]
+
+@@ 390  bank3 $BDB3
+EN:
+
+
+@@ 391  bank3 $BDB4
+EN:
+[setflag 22][cmdEA 11]
+
+@@ 392  bank3 $BDB9
+EN:
+[cmdEF 22][cmdEA 13]
+
+@@ 393  bank3 $BDBE
+EN:
+[cmdEF 22][cmdEA 22]
+
+@@ 394  bank3 $BDC3
+EN:
+[cmdEA 14]
+
+@@ 395  bank3 $BDC6
+EN:
+[cmdEA 15]
+
+@@ 396  bank3 $BDC9
+EN:
+[cmdEA 16]
+
+@@ 397  bank3 $BDCC
+EN:
+[cmdEA 17]
+
+@@ 398  bank3 $BDCF
+EN:
+[cmdEA 18]
+
+@@ 399  bank3 $BDD2
+EN:
+[cmdEA 19]
+
+@@ 39A  bank3 $BDD5
+EN:
+[cmdEA 1a]
+
+@@ 39B  bank3 $BDD8
+EN:
+[cmdEA 1b]
+
+@@ 39C  bank3 $BDDB
+EN:
+[cmdEA 1c]
+
+@@ 39D  bank3 $BDDE
+EN:
+[cmdEA 1d]
+
+@@ 39E  bank3 $BDE1
+EN:
+[cmdEA 1e]
+
+@@ 39F  bank3 $BDE4
+EN:
+[cmdEA 1f]
+
+@@ 3A0  bank3 $BDE7
+EN:
+[cmdEA 20]
+
+@@ 3A1  bank3 $BDEA
+EN:
+[cmdEF 00][cmdF0 18][cmdDD 16][cmdDA][clrflag 27][cmdEC 01 4b 4e][menu 53 09 03]
+
+@@ 3A2  bank3 $BDFC
+EN:
+[cmdEF 00][cmdF0 18][cmdDD 16][cmdDA][clrflag 28][cmdEC 00 40 17][menu 53 09 03]
+
+@@ 3A3  bank3 $BE0E
+EN:
+[cmdEF 00][cmdF0 18][cmdDD 16][cmdDA][clrflag 53][clrflag 54][cmdEC 03 16 07][menu 53 09 03]
+
+@@ 3A4  bank3 $BE22
+EN:
+[cmdF0 18][clrflag 54][clrflag 53][cmdEC 02 55 76][menu 53 09 03]
+
+@@ 3A5  bank3 $BE31
+EN:
+
+
+@@ 3A6  bank3 $BE32
+EN:
+
+
+@@ 3A7  bank3 $BE33
+EN:
+
+
+@@ 3A8  bank3 $BE34
+EN:
+
+
+@@ 3A9  bank3 $BE35
+EN:
+
+
+@@ 3AA  bank3 $BE36  verb list (fixed address $BE36)
+EN:
+Talk
+
+@@ 3AB  bank3 $BE3A  verb list (fixed address $BE36)
+EN:
+Ask
+
+@@ 3AC  bank3 $BE3E  verb list (fixed address $BE36)
+EN:
+Menace
+
+@@ 3AD  bank3 $BE43  verb list (fixed address $BE36)
+EN:
+Thump
+
+@@ 3AE  bank3 $BE48  verb list (fixed address $BE36)
+EN:
+Take
+
+@@ 3AF  bank3 $BE4C  verb list (fixed address $BE36)
+EN:
+Sleep
+
+@@ 3B0  bank3 $BE50  verb list (fixed address $BE36)
+EN:
+Move
+
+@@ 3B1  bank3 $BE57  verb list (fixed address $BE36)
+EN:
+Grovel
+
+@@ 3B2  bank3 $BE5D  verb list (fixed address $BE36)
+EN:
+Coffee
+
+@@ 3B3  bank3 $BE63  verb list (fixed address $BE36)
+EN:
+Use
+
+@@ 3B4  bank3 $BE67  verb list (fixed address $BE36)
+EN:
+Promise
+
+@@ 3B5  bank3 $BE6E  verb list (fixed address $BE36)
+EN:
+Search
+
+@@ 3B6  bank3 $BE74  verb list (fixed address $BE36)
+EN:
+Save
+
+@@ 3B7  bank3 $BE7B  verb list (fixed address $BE36)
+EN:
+Go up
+
+@@ 3B8  bank3 $BE80  verb list (fixed address $BE36)
+EN:
+Go down
+
+@@ 3B9  bank3 $BE84  verb list (fixed address $BE36)
+EN:
+Tease
+
+@@ 3BA  bank3 $BE89  verb list (fixed address $BE36)
+EN:
+Stakeout
+
+@@ 3BB  bank3 $BE90  verb list (fixed address $BE36)
+EN:
+Buy
+
+@@ 3BC  bank3 $BE94  verb list (fixed address $BE36)
+EN:
+Beg
+
+@@ 3BD  bank3 $BE9C  verb list (fixed address $BE36)
+EN:
+Give
+
+@@ 3BE  bank3 $BEA0  verb list (fixed address $BE36)
+EN:
+Shout
+
+@@ 3BF  bank3 $BEA5  verb list (fixed address $BE36)
+EN:
+Ride
+
+@@ 3C0  bank3 $BEA9  verb list (fixed address $BE36)
+EN:
+Sneak
+
+@@ 3C1  bank3 $BEB0  verb list (fixed address $BE36)
+EN:
+Chase
+

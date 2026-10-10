@@ -17,7 +17,7 @@ EN:
 
 @@ 083  bank2 $95C1
 EN:
-[cmdEF 31]Well, a cuppa maybe[cmdED]...
+[cmdEF 31]Well, a coffee, maybe[cmdED]...
 [cmdEC 05 14 24][page+goto c8 02]
 
 
@@ -498,8 +498,8 @@ You're lovely too.
 
 @@ 0D1  bank2 $A2AA
 EN:
-[cmdEF 2c]Sorry♥ We don't sell
-tea.
+[cmdEF 2c]Sorry♥ We don't do
+coffee.
 
 @@ 0D2  bank2 $A2C1
 EN:
@@ -783,7 +783,8 @@ Tachibana?
 
 @@ 0FA  bank2 $AB4F
 EN:
-Tea's fine, but listen.[page]
+Coffee's fine, but
+listen.[page]
 Our boss Kikunaga's
 gone and fallen for
 Junko at your school[cmdED]...[page]
