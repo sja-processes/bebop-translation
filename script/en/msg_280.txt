@@ -1,0 +1,516 @@
+# Be-Bop High School - English script, msg_280.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 280  bank3 $AC74
+EN:
+[cmdDE 22][cmdF0 07][goto 81 02]
+
+@@ 281  bank3 $AC7C
+EN:
+[cmdDE 22][cmdF0 07][menu 44 e4 01 e5 01 82 02 3e 03 f0 01][goto 81 02]
+
+@@ 282  bank3 $AC90
+EN:
+[cmdF0 07][menu 44 93 01 e6 01 84 02 3e 03 f0 01][goto 82 02]
+
+@@ 283  bank3 $ACA2
+EN:
+[cmdF0 07][menu 44 e4 01 e7 01 87 02 3e 03 f0 01][goto 84 02]
+
+@@ 284  bank3 $ACB4
+EN:
+[ifflag 0d 83 02 85 02]
+
+@@ 285  bank3 $ACBB
+EN:
+[cmdF0 07][menu 44 e4 01 96 01 87 02 3e 03 86 02][goto 84 02]
+
+@@ 286  bank3 $ACCD
+EN:
+[cmdF0 07][menu 44 e4 01 ed 01 71 03 ee 01 3e 03][goto 86 02]
+
+@@ 287  bank3 $ACDF
+EN:
+[cmdDE 22][cmdF0 08][menu-call 64 ea 01 94 01 95 01 3e 03 eb 01]
+
+@@ 288  bank3 $ACF0
+EN:
+[firstclear 0f 89 02 11 8a 02 40 8c 02 41 8d 02 42 8e 02 fa 8f 02]
+
+@@ 289  bank3 $AD04
+EN:
+[menu 51 c9 01 ef 01 99 01 3e 03 98 01 f0 01][goto 88 02]
+
+@@ 28A  bank3 $AD16
+EN:
+[menu 2b ef 01 99 01 3e 03 9a 01 98 01 f0 01][goto 88 02]
+
+@@ 28B  bank3 $AD28
+EN:
+
+
+@@ 28C  bank3 $AD29
+EN:
+[menu 62 f1 01 99 01 3e 03 ae 01 98 01 f0 01][goto 88 02]
+
+@@ 28D  bank3 $AD3B
+EN:
+[menu 50 ea 01 c6 01 3e 03 c7 01 f0 01][goto 88 02]
+
+@@ 28E  bank3 $AD4B
+EN:
+[menu 42 c8 01 c9 01 3e 03 c7 01 f0 01][goto 88 02]
+
+@@ 28F  bank3 $AD5B
+EN:
+[menu 50 ea 01 c9 01 3e 03 c7 01 f0 01][goto 88 02]
+
+@@ 290  bank3 $AD6B
+EN:
+[cmdDE 22][cmdF0 09][firstclear-call 11 91 02 12 92 02 13 93 02 fa 91 02]
+
+@@ 291  bank3 $AD7D
+EN:
+[menu-call 56 f3 01 f4 01 09 03]
+
+@@ 292  bank3 $AD86
+EN:
+[menu 56 9c 01 f4 01 09 03]
+
+@@ 293  bank3 $AD8F
+EN:
+[menu-call 3a 36 00 38 00 39 00 3a 00 37 00 09 03]
+
+@@ 294  bank3 $AD9E
+EN:
+[cmdDE 22][cmdF0 0a][cmdEF 02][goto 3b 00]
+
+@@ 295  bank3 $ADA8
+EN:
+[cmdDE 22][cmdF0 0b][firstset ac 9a 02 78 9c 02 44 9d 02 fa 96 02]
+
+@@ 296  bank3 $ADBA
+EN:
+[ifflag 14 9b 02 97 02]
+
+@@ 297  bank3 $ADC1
+EN:
+[cmdF0 0b][cmdEF 03][menu-call 3d 40 00 41 00 43 00 43 00 42 00]
+
+@@ 298  bank3 $ADD2
+EN:
+[cmdEF 03][menu-call 3e f5 01 f5 01 44 00 45 00 44 00 f5 01]
+
+@@ 299  bank3 $ADE3
+EN:
+[clrflag 14][cmdEF 03][menu-call 3f 46 00 3d 00 47 00 49 00 48 00 09 03]
+
+@@ 29A  bank3 $ADF6
+EN:
+[cmdEF 00][menu-call 54 f6 01 09 03]
+
+@@ 29B  bank3 $ADFF
+EN:
+[cmdEF 03][menu-call 3d 3c 00 3d 00 3e 00 3f 00 09 03]
+
+@@ 29C  bank3 $AE0E
+EN:
+[cmdEF 03][menu-call 41 4a 00 09 03]
+
+@@ 29D  bank3 $AE17
+EN:
+[cmdDE 22][firstclear-call 46 9e 02 47 9f 02 fa a0 02]
+
+@@ 29E  bank3 $AE24
+EN:
+[cmdEF 11][menu 07 01 01 02 01 03 01 af 01 ca 01 09 03]
+
+@@ 29F  bank3 $AE35
+EN:
+[cmdEF 11][menu 0b 04 01 05 01 06 01 06 01 cb 01 09 03]
+
+@@ 2A0  bank3 $AE46
+EN:
+[cmdEF 11][cmdEE 03][menu-call 11 08 01 09 01 0a 01 cb 01 09 03]
+
+@@ 2A1  bank3 $AE57
+EN:
+[cmdDE 27][cmdF0 0c][ifflag-call 17 a2 02 a3 02]
+
+@@ 2A2  bank3 $AE62
+EN:
+[menu 45 f7 01 9e 01 a4 02 09 03]
+
+@@ 2A3  bank3 $AE6D
+EN:
+[menu 45 f7 01 9e 01 f8 01 09 03]
+
+@@ 2A4  bank3 $AE78
+EN:
+[cmdEA 02][firstset ad 89 01 ae 8a 01 af 8b 01 b0 8c 01 fa 8d 01]
+
+@@ 2A5  bank3 $AE8B
+EN:
+[cmdDE 27][cmdF0 0c][cmdEF 04][firstclear-call 64 a6 02 65 a7 02 66 a8 02 67 a9 02 68 aa 02 fa ab 02]
+
+@@ 2A6  bank3 $AEA5
+EN:
+[menu 3d 4b 00 4c 00 4d 00 4e 00 09 03]
+
+@@ 2A7  bank3 $AEB2
+EN:
+[menu 3d 4b 00 4c 00 4d 00 4f 00 09 03]
+
+@@ 2A8  bank3 $AEBF
+EN:
+[menu 3d 4b 00 4c 00 4d 00 50 00 09 03]
+
+@@ 2A9  bank3 $AECC
+EN:
+[menu 3d 4b 00 4c 00 4d 00 51 00 09 03]
+
+@@ 2AA  bank3 $AED9
+EN:
+[menu 3d 4b 00 4c 00 4d 00 52 00 09 03]
+
+@@ 2AB  bank3 $AEE6
+EN:
+[menu 53 09 03]
+
+@@ 2AC  bank3 $AEEB
+EN:
+[cmdDE 2b][cmdF0 21][cmdEF 0c][ifflag-call 18 ad 02 ae 02]
+
+@@ 2AD  bank3 $AEF8
+EN:
+[menu 0c 53 00 54 00 55 00 09 03]
+
+@@ 2AE  bank3 $AF03
+EN:
+[menu 0c 56 00 57 00 58 00 09 03]
+
+@@ 2AF  bank3 $AF0E
+EN:
+[cmdDE 2b][cmdF0 0d][cmdEF 17][if2flags-call 19 1a b0 02 b2 02 b1 02 b3 02]
+
+@@ 2B0  bank3 $AF20
+EN:
+[menu 08 59 00 5a 00 5b 00 8f 03 09 03]
+
+@@ 2B1  bank3 $AF2D
+EN:
+[menu 08 5c 00 5d 00 5e 00 8f 03 09 03]
+
+@@ 2B2  bank3 $AF3A
+EN:
+[menu 08 5f 00 60 00 61 00 f9 01 09 03]
+
+@@ 2B3  bank3 $AF47
+EN:
+[menu 08 5f 00 62 00 63 00 65 00 09 03]
+
+@@ 2B4  bank3 $AF54
+EN:
+[cmdDE 2b][cmdF0 0d][cmdEF 18][menu 08 66 00 67 00 68 00 69 00 09 03]
+
+@@ 2B5  bank3 $AF67
+EN:
+[firstset ac 20 03 1b b6 02 fa 20 03]
+
+@@ 2B6  bank3 $AF72
+EN:
+[cmdDE 2a][cmdF0 0e][firstclear-call 1c b7 02 50 b8 02 51 ba 02 fa bb 02]
+
+@@ 2B7  bank3 $AF84
+EN:
+[cmdEF 05][menu 25 6a 00 6b 00 6c 00 9f 01 09 03]
+
+@@ 2B8  bank3 $AF93
+EN:
+[cmdEF 05][menu 24 6d 00 6e 00 6f 00 b9 02 09 03]
+
+@@ 2B9  bank3 $AFA2
+EN:
+[firstset ad 6f 03 ae 6f 03 fa 70 03]
+
+@@ 2BA  bank3 $AFAD
+EN:
+[cmdEF 05][menu-call 27 2f 01 30 01 9f 01 31 01 09 03]
+
+@@ 2BB  bank3 $AFBC
+EN:
+[cmdDE 2a][firstset ad bd 02 ae bd 02 fa bc 02]
+
+@@ 2BC  bank3 $AFC9
+EN:
+[menu-call 5e 25 02 26 02 f3 01 be 02 09 03]
+
+@@ 2BD  bank3 $AFD6
+EN:
+[cmdDE 22][cmdEF 02][goto 33 01]
+
+@@ 2BE  bank3 $AFDE
+EN:
+[cmdDE 22][cmdEF 02][page+goto 34 01]
+
+
+@@ 2BF  bank3 $AFE6
+EN:
+[cmdDE 22][cmdF0 21][cmdEF 06][firstclear 1c c0 02 1d c1 02 fa c2 02]
+
+@@ 2C0  bank3 $AFF7
+EN:
+[menu-call 08 70 00 71 00 72 00 73 00 09 03]
+
+@@ 2C1  bank3 $B004
+EN:
+[menu-call 04 74 00 74 00 72 00 73 00 75 00 09 03]
+
+@@ 2C2  bank3 $B013
+EN:
+[menu-call 04 74 00 74 00 72 00 73 00 76 00 09 03]
+
+@@ 2C3  bank3 $B022
+EN:
+[cmdDE 21][cmdF0 0f][cmdEF 30][menu 2e 77 00 78 00 a0 01 c4 02 79 00 09 03]
+
+@@ 2C4  bank3 $B037
+EN:
+[firstset c8 7a 00 b0 7b 00 b1 7b 00 fa 7a 00]
+
+@@ 2C5  bank3 $B045
+EN:
+[cmdDE 21][cmdF0 04][menu-call 20 7c 00 7d 00 b6 01 7e 00 7f 00 09 03]
+
+@@ 2C6  bank3 $B058
+EN:
+[cmdDE 22][cmdF0 0f][cmdEF 31][menu-call 2d 80 00 81 00 b3 01 c7 02 f2 01 09 03]
+
+@@ 2C7  bank3 $B06D
+EN:
+[ifflag ad 83 00 82 00]
+
+@@ 2C8  bank3 $B074
+EN:
+[cmdDE 22][cmdF0 04][menu-call 1e 84 00 85 00 a2 01 86 00 87 00 09 03]
+
+@@ 2C9  bank3 $B087
+EN:
+[cmdDE 22][ifflag ac ca 02 20 03]
+
+@@ 2CA  bank3 $B090
+EN:
+[cmdF0 04][menu-call 4e e1 01 a3 01 a4 01 fa 01 09 03]
+
+@@ 2CB  bank3 $B09F
+EN:
+[cmdDE 22][cmdF0 10][if2flags 20 21 cc 02 cc 02 cc 02 cd 02]
+
+@@ 2CC  bank3 $B0AF
+EN:
+[menu-call 5d 33 02 fb 01 a5 01 fc 01 09 03]
+
+@@ 2CD  bank3 $B0BC
+EN:
+[menu-call 5d 33 02 fb 01 a6 01 fc 01 09 03]
+
+@@ 2CE  bank3 $B0C9
+EN:
+[menu-call 5d 33 02 fd 01 a5 01 fc 01 09 03]
+
+@@ 2CF  bank3 $B0D6
+EN:
+[cmdDE 2b][cmdEF 19][if2flags-call 22 23 d0 02 d1 02 d1 02 d2 02]
+
+@@ 2D0  bank3 $B0E6
+EN:
+[menu 38 8c 00 8d 00 91 03 8f 00 8e 00]
+
+@@ 2D1  bank3 $B0F3
+EN:
+[menu 38 90 00 91 00 3c 03 a8 01 09 03]
+
+@@ 2D2  bank3 $B100
+EN:
+[menu 08 92 00 76 03 94 00 f9 01 09 03]
+
+@@ 2D3  bank3 $B10D
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 03][ifflag-call 25 d4 02 d5 02]
+
+@@ 2D4  bank3 $B11A
+EN:
+[menu 08 95 00 96 00 97 00 32 02 09 03]
+
+@@ 2D5  bank3 $B127
+EN:
+[menu 06 98 00 99 00 97 00 32 02 9a 00 09 03]
+
+@@ 2D6  bank3 $B136
+EN:
+[cmdDE 21][cmdF0 03][cmdEF 2d][menu 1d 9b 00 9c 00 9e 00 9d 00 a9 01 09 03]
+
+@@ 2D7  bank3 $B14B
+EN:
+[cmdEC 00 40 17][cmdDE 22][cmdDD 16][cmdF0 18][firstclear-call 26 d8 02 27 d9 02 fa da 02]
+
+@@ 2D8  bank3 $B160
+EN:
+[menu 61 fe 01 01 02 00 02 fe 01 09 03]
+
+@@ 2D9  bank3 $B16D
+EN:
+[menu 61 02 02 03 02 00 02 aa 01 09 03]
+
+@@ 2DA  bank3 $B17A
+EN:
+[menu 61 02 02 04 02 00 02 a1 03 09 03]
+
+@@ 2DB  bank3 $B187
+EN:
+[cmdDE 22][cmdDD 16][cmdF0 18][ifflag-call 28 dc 02 dd 02]
+
+@@ 2DC  bank3 $B194
+EN:
+[menu 61 05 02 ac 01 00 02 ad 01 09 03]
+
+@@ 2DD  bank3 $B1A1
+EN:
+[menu 61 ae 01 04 02 00 02 a2 03 09 03]
+
+@@ 2DE  bank3 $B1AE
+EN:
+[cmdDE 2b][cmdF0 0b][firstclear-call aa e2 02 29 df 02 2f e0 02 30 e1 02 fa e2 02]
+
+@@ 2DF  bank3 $B1C3
+EN:
+[cmdEF 0d][menu 0d 9f 00 a0 00 a2 00 a1 00 a3 00 09 03]
+
+@@ 2E0  bank3 $B1D4
+EN:
+[cmdEF 0d][menu 0e a4 00 a5 00 a6 00 a8 00 a7 00 09 03]
+
+@@ 2E1  bank3 $B1E5
+EN:
+[cmdEF 0d][menu-call 0f af 00 b0 00 b1 00 a7 00 09 03]
+
+@@ 2E2  bank3 $B1F4
+EN:
+[cmdDE 22][cmdEF 00][menu-call 4c df 01 12 02 e2 01 09 03]
+
+@@ 2E3  bank3 $B203
+EN:
+
+
+@@ 2E4  bank3 $B204
+EN:
+[cmdF0 19][menu 60 15 02 fe 02 3e 03 b8 01 17 02][goto e4 02]
+
+@@ 2E5  bank3 $B216
+EN:
+[cmdDE 2b][cmdF0 03][cmdEF 23][ifflag 2b e6 02 e7 02]
+
+@@ 2E6  bank3 $B223
+EN:
+[menu 22 a9 00 aa 00 09 03]
+
+@@ 2E7  bank3 $B22C
+EN:
+[menu 22 ab 00 a9 00 09 03]
+
+@@ 2E8  bank3 $B235
+EN:
+[cmdDE 22][cmdF0 11][firstclear-call 2a e9 02 2c ea 02 2e eb 02 fa e9 02]
+
+@@ 2E9  bank3 $B247
+EN:
+[menu 4f 97 01 ae 01 fb 01 36 02 09 03]
+
+@@ 2EA  bank3 $B254
+EN:
+[menu 4f 97 01 ae 01 b0 01 36 02 09 03]
+
+@@ 2EB  bank3 $B261
+EN:
+[menu 63 e1 01 b3 01 b0 01 b1 01 b2 01 09 03]
+
+@@ 2EC  bank3 $B270
+EN:
+[cmdDE 2b][cmdF0 03][cmdEF 0e][ifflag 2e ed 02 ee 02]
+
+@@ 2ED  bank3 $B27D
+EN:
+[menu-call 07 ac 00 ae 00 ad 00 0d 02 0e 02 09 03]
+
+@@ 2EE  bank3 $B28C
+EN:
+[menu-call 05 ac 00 ae 00 ad 00 0f 02 88 03 09 03]
+
+@@ 2EF  bank3 $B29B
+EN:
+[cmdF0 01][cmdEF 0d][cmdDE 2b][menu-call 11 b2 00 b3 00 b4 00 13 02 09 03]
+
+@@ 2F0  bank3 $B2AE
+EN:
+[cmdDE 2b][cmdF0 01][cmdEF 0e][cmdEE 03][ifflag-call 31 f1 02 f2 02]
+
+@@ 2F1  bank3 $B2BD
+EN:
+[menu 08 b5 00 b6 00 b7 00 b8 00 09 03]
+
+@@ 2F2  bank3 $B2CA
+EN:
+[menu 08 b9 00 ba 00 bb 00 bc 00 09 03]
+
+@@ 2F3  bank3 $B2D7
+EN:
+[cmdF0 12][cmdDE 22][menu-call 59 b4 01 b5 01 11 02 09 03]
+
+@@ 2F4  bank3 $B2E6
+EN:
+[cmdDE 22][cmdF0 13][cmdEF 07][firstclear-call 32 f5 02 34 f6 02 fa f7 02]
+
+@@ 2F5  bank3 $B2F7
+EN:
+[menu 2a bd 00 be 00 bf 00 c0 00 09 03]
+
+@@ 2F6  bank3 $B304
+EN:
+[menu 2a c1 00 c2 00 c3 00 c4 00 09 03]
+
+@@ 2F7  bank3 $B311
+EN:
+[menu-call 29 c5 00 c6 00 c7 00 c8 00]
+
+@@ 2F8  bank3 $B31C
+EN:
+[cmdF0 14][cmdEF 00][menu 53 09 03]
+
+@@ 2F9  bank3 $B325
+EN:
+[cmdDE 22][firstset ac 20 03 33 fb 02 fa fa 02]
+
+@@ 2FA  bank3 $B332
+EN:
+[cmdF0 15][cmdEF 08][menu-call 1a c9 00 ca 00 e4 01 cc 00 cb 00 09 03]
+
+@@ 2FB  bank3 $B345
+EN:
+[cmdF0 15][cmdDE 21][cmdEF 2c][menu-call 2f ce 00 cf 00 d1 00 d0 00 d2 00 09 03]
+
+@@ 2FC  bank3 $B35A
+EN:
+[cmdDE 22][goto fd 02]
+
+@@ 2FD  bank3 $B360
+EN:
+[cmdF0 19][menu 5f 14 02 e4 02 b5 01 b7 01 09 03][goto fd 02]
+
+@@ 2FE  bank3 $B372
+EN:
+[cmdF0 19][menu 60 16 02 00 03 3e 03 b9 01 17 02][goto fe 02]
+
+@@ 2FF  bank3 $B384
+EN:
+
+

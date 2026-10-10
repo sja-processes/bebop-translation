@@ -1,0 +1,563 @@
+# Be-Bop High School - English script, msg_300.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 300  bank3 $B385
+EN:
+[cmdF0 1a][firstclear 59 01 03 ab 01 03 fa 02 03]
+
+@@ 301  bank3 $B392
+EN:
+[menu-call 60 19 02 18 02 3e 03 ba 01 f0 01]
+
+@@ 302  bank3 $B39F
+EN:
+[cmdDE 2b][cmdEF 22][firstclear-call 3d 03 03 5a 04 03 5b 05 03 fa 06 03]
+
+@@ 303  bank3 $B3B1
+EN:
+[menu 07 70 01 71 01 72 01 92 03 2d 02 09 03]
+
+@@ 304  bank3 $B3C0
+EN:
+[menu 07 70 01 71 01 72 01 93 03 d9 01 09 03]
+
+@@ 305  bank3 $B3CF
+EN:
+[menu-call 08 7a 01 7b 01 7c 01 93 03 09 03]
+
+@@ 306  bank3 $B3DC
+EN:
+[cmdF0 1a][cmdEF 22][cmdEC 01 3b 4e][menu-call 15 7d 01 7b 01 7e 01 30 02 09 03]
+
+@@ 307  bank3 $B3F1
+EN:
+[menu-call 08 7f 01 82 01 81 01 2e 02 09 03]
+
+@@ 308  bank3 $B3FE
+EN:
+[cmdDE 28][cmdF0 03][cmdEF 09][firstclear-call 38 0a 03 39 0b 03 3a 0c 03 fa 0d 03]
+
+@@ 309  bank3 $B412
+EN:
+
+
+@@ 30A  bank3 $B413
+EN:
+[menu 39 d3 00 bc 01 1a 02 44 01 d4 00 09 03]
+
+@@ 30B  bank3 $B422
+EN:
+[menu 3c d5 00 d6 00 d7 00 bd 01 09 03]
+
+@@ 30C  bank3 $B42F
+EN:
+[menu 3b d8 00 d9 00 09 03]
+
+@@ 30D  bank3 $B438
+EN:
+[menu 0c d8 00 db 00 dc 00 09 03]
+
+@@ 30E  bank3 $B443
+EN:
+[cmdDE 21][cmdF0 0f][cmdEF 2b][ifflag 3c 0f 03 10 03]
+
+@@ 30F  bank3 $B450
+EN:
+[menu 31 dd 00 de 00 df 00 e0 00 e1 00 09 03]
+
+@@ 310  bank3 $B45F
+EN:
+[menu 30 e2 00 be 01 e5 00 e3 00 e4 00 09 03]
+
+@@ 311  bank3 $B46E
+EN:
+[cmdDE 2b][cmdF0 03][cmdEF 1a][ifflag 3e 12 03 13 03]
+
+@@ 312  bank3 $B47B
+EN:
+[menu 02 e6 00 e6 00 e6 00 e7 00 bf 01 09 03]
+
+@@ 313  bank3 $B48A
+EN:
+[menu 05 e6 00 e6 00 e6 00 e7 00 8a 03 09 03]
+
+@@ 314  bank3 $B499
+EN:
+[cmdDE 22][cmdF0 16][ifflag 42 15 03 16 03]
+
+@@ 315  bank3 $B4A4
+EN:
+[menu-call 47 c0 01 e1 01 c1 01 99 01 c2 01 09 03]
+
+@@ 316  bank3 $B4B3
+EN:
+[menu-call 46 c0 01 e1 01 c3 01 c1 01 95 01 09 03]
+
+@@ 317  bank3 $B4C2
+EN:
+[page+goto f5 00]
+
+
+@@ 318  bank3 $B4C6
+EN:
+[cmdDE 22][cmdF0 0a][cmdDD 0e][cmdEF 02][ifflag 42 19 03 1a 03]
+
+@@ 319  bank3 $B4D5
+EN:
+[menu 12 e9 00 ea 00 eb 00 ec 00 ed 00 09 03]
+
+@@ 31A  bank3 $B4E4
+EN:
+[menu 14 e9 00 ea 00 eb 00 ec 00 f6 00 1a 03]
+
+@@ 31B  bank3 $B4F3
+EN:
+[cmdEF 00][menu 53 09 03]
+
+@@ 31C  bank3 $B4FA
+EN:
+[cmdDE 2b][cmdF0 01][cmdEF 0f][menu 13 f7 00 f8 00 f9 00 fa 00 1c 02 09 03]
+
+@@ 31D  bank3 $B50F
+EN:
+[cmdDE 22][firstclear-call aa 20 03 43 1e 03 4a 21 03 4b 22 03 fa 23 03]
+
+@@ 31E  bank3 $B522
+EN:
+[cmdF0 04][cmdEF 10][menu-call 2c fb 00 fc 00 fd 00 64 00 09 03]
+
+@@ 31F  bank3 $B533
+EN:
+[firstset ac 20 03 05 6f 02 fa 20 03]
+
+@@ 320  bank3 $B53E
+EN:
+[cmdDE 22][cmdF0 1d][menu 53 09 03]
+
+@@ 321  bank3 $B547
+EN:
+[cmdF0 04][cmdEF 10][menu-call 33 fb 00 fc 00 1d 02 00 01 fe 00 09 03]
+
+@@ 322  bank3 $B55A
+EN:
+[cmdF0 04][cmdEF 10][menu-call 36 fb 00 fc 00 1e 01 1c 01 1d 01 09 03]
+
+@@ 323  bank3 $B56D
+EN:
+[cmdF0 04][cmdEF 10][menu-call 33 1f 01 20 01 1f 02 21 01 21 01 09 03]
+
+@@ 324  bank3 $B580
+EN:
+[cmdDE 22][cmdF0 17][firstclear ac 25 03 85 25 03 fa 26 03]
+
+@@ 325  bank3 $B58F
+EN:
+[menu-call 49 e4 01 fb 01 95 01 b5 01 b7 01 09 03]
+
+@@ 326  bank3 $B59E
+EN:
+[menu-call 49 e4 01 cc 01 95 01 b5 01 b7 01 09 03]
+
+@@ 327  bank3 $B5AD
+EN:
+[cmdDE 2b][ifflag-call 4c 28 03 29 03]
+
+@@ 328  bank3 $B5B6
+EN:
+[cmdEF 1c][menu 17 22 01 23 01 94 03 24 01 80 01 62 01]
+
+@@ 329  bank3 $B5C7
+EN:
+[menu 55 20 02 b5 01 09 03]
+
+@@ 32A  bank3 $B5D0
+EN:
+[cmdDE 21][cmdF0 03][cmdEF 30][ifflag 4d 2b 03 2c 03]
+
+@@ 32B  bank3 $B5DD
+EN:
+[menu 2a 25 01 26 01 27 01 d0 01 09 03]
+
+@@ 32C  bank3 $B5EA
+EN:
+[menu 2a 2c 01 2d 01 2e 01 d0 01 09 03]
+
+@@ 32D  bank3 $B5F7
+EN:
+[cmdDE 22][cmdF0 1c][firstclear-call 4e 2e 03 4f 2f 03 fa 30 03]
+
+@@ 32E  bank3 $B606
+EN:
+[menu 48 c0 01 21 02 22 02 8e 01 d2 01 09 03]
+
+@@ 32F  bank3 $B615
+EN:
+[menu 48 c0 01 23 02 22 02 8e 01 d2 01 09 03]
+
+@@ 330  bank3 $B624
+EN:
+[menu 48 34 02 23 02 22 02 8e 01 d2 01 09 03]
+
+@@ 331  bank3 $B633
+EN:
+[cmdDE 28][cmdF0 18][firstclear-call 51 32 03 52 33 03 fa 34 03]
+
+@@ 332  bank3 $B642
+EN:
+[cmdEF 1b][menu 03 35 01 36 01 37 01 38 01 39 01 09 03]
+
+@@ 333  bank3 $B653
+EN:
+[cmdEF 1b][goto 37 02]
+
+@@ 334  bank3 $B659
+EN:
+[cmdDE 22][cmdEF 00][cmdDD 16][ifflag-call 53 35 03 36 03]
+
+@@ 335  bank3 $B666
+EN:
+[menu 5b d3 01 27 02 d4 01 09 03]
+
+@@ 336  bank3 $B671
+EN:
+[menu 5b 04 02 04 02 a3 03 09 03]
+
+@@ 337  bank3 $B67C
+EN:
+[menu 08 69 01 6a 01 6b 01 6c 01 09 03]
+
+@@ 338  bank3 $B689
+EN:
+[cmdEF 34][cmdEE 13]Aaah! [delay 3c]Guv,
+[cmdED][delay 5a][cmdEE 03]c-c-can I
+nip to the loo?
+[delay 3c][page]
+[cmdEF 32][cmdEE 01]
+[cmdED]..................
+[delay 3c][page]
+[cmdEE 07][cmdE1],
+Nobuo's not
+joking.
+Let's go home.
+[menu 53 09 03]
+
+@@ 339  bank3 $B6F0
+EN:
+[cmdF0 02][cmdDE 22][cmdEF 32][cmdEE 05][cmdD1][cmdE1],
+I told you. If you don't
+sleep at night, you run
+out of steam.[page]
+[cmdEF 34][cmdEE 13]Come off it, Guv!
+[delay 3c][cmdEE 0d]You've got to take
+the lead properly!
+[cmdE8][cmdEC 01 15 33][menu 53 09 03]
+
+@@ 33A  bank3 $B75D
+EN:
+[ifflag ac 97 02 3b 03]
+
+@@ 33B  bank3 $B764
+EN:
+[cmdEF 03][cmdEE 01][cmdD1]You lot, will you stop
+calling Sir out at this
+time of night?[page]
+Right, I'm seeing you
+lot home!![page]
+[cmdF0 0b]Honestly.............
+Your next school report
+will be rock bottom.
+[cmdE8][clrflag 14][menu 53 09 03]
+
+@@ 33C  bank3 $B7D2
+EN:
+[cmdEA 06]
+
+@@ 33D  bank3 $B7D5
+EN:
+
+
+@@ 33E  bank3 $B7D6
+EN:
+
+
+@@ 33F  bank3 $B7D7
+EN:
+
+
+@@ 340  bank3 $B7D8
+EN:
+[clrflag 5e]
+
+@@ 341  bank3 $B7DB
+EN:
+[cmdF0 18][cmdDE 22][cmdF0 18][cmdDD 16][ifflag-call 54 42 03 43 03]
+
+@@ 342  bank3 $B7EA
+EN:
+[menu 5b 28 02 27 02 d4 01 09 03]
+
+@@ 343  bank3 $B7F5
+EN:
+[menu 5b 04 02 04 02 a4 03 09 03]
+
+@@ 344  bank3 $B800
+EN:
+[cmdDE 22][cmdF0 21][cmdEF 15][menu-call 10 3b 01 3c 01 3d 01 29 02 d5 01 09 03]
+
+@@ 345  bank3 $B815
+EN:
+[cmdDE 2b][cmdF0 21][cmdEF 1d][menu-call 08 49 01 4a 01 4b 01 95 03 09 03]
+
+@@ 346  bank3 $B828
+EN:
+[cmdEF 00][menu-call 53 09 03]
+
+@@ 347  bank3 $B82F
+EN:
+[cmdDE 2b][cmdF0 0d][cmdEF 24][menu-call 08 4c 01 4d 01 4d 01 96 03 09 03]
+
+@@ 348  bank3 $B842
+EN:
+[cmdEF 00][menu 53 09 03]
+
+@@ 349  bank3 $B849
+EN:
+[cmdDE 2b][cmdF0 0d][cmdEF 16][firstclear-call 55 4a 03 56 4b 03 fa 4c 03]
+
+@@ 34A  bank3 $B85A
+EN:
+[menu 08 4e 01 4f 01 50 01 51 01 09 03]
+
+@@ 34B  bank3 $B867
+EN:
+[menu 02 52 01 53 01 54 01 55 01 56 01 09 03]
+
+@@ 34C  bank3 $B876
+EN:
+[menu 52 2c 02 2c 02 2c 02 2c 02 8d 03 2c 02]
+
+@@ 34D  bank3 $B885
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 25][menu-call 40 57 01 97 03 09 03]
+
+@@ 34E  bank3 $B894
+EN:
+[cmdEF 00][menu-call 53 09 03]
+
+@@ 34F  bank3 $B89B
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 26][menu-call 40 58 01 98 03 09 03]
+
+@@ 350  bank3 $B8AA
+EN:
+[cmdDE 2b][cmdF0 1e][cmdEF 16][menu-call 0c 5f 01 60 01 61 01 62 01]
+
+@@ 351  bank3 $B8BB
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 1e][menu-call 40 59 01 99 03 09 03]
+
+@@ 352  bank3 $B8CA
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 29][menu-call 40 63 01 9f 03 62 01]
+
+@@ 353  bank3 $B8D9
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 1f][menu-call 40 5a 01 9a 03 09 03]
+
+@@ 354  bank3 $B8E8
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 2a][ifflag-call 57 56 03 58 03]
+
+@@ 355  bank3 $B8F5
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 27][menu-call 40 5b 01 9b 03 09 03]
+
+@@ 356  bank3 $B904
+EN:
+[menu 40 64 01 a0 03 65 01]
+
+@@ 357  bank3 $B90D
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 20][menu-call 40 59 01 9c 03 09 03]
+
+@@ 358  bank3 $B91C
+EN:
+[menu 18 66 01 67 01 68 01 d8 01 09 03]
+
+@@ 359  bank3 $B929
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 21][menu-call 40 5d 01 9d 03 09 03]
+
+@@ 35A  bank3 $B938
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 16][cmdEE 05][cmdED][ifflag-call 58 37 03 5c 03]
+
+@@ 35B  bank3 $B948
+EN:
+[cmdDE 2b][cmdF0 1b][cmdEF 28][menu-call 40 5e 01 9e 03 09 03]
+
+@@ 35C  bank3 $B957
+EN:
+[menu 08 6d 01 6e 01 6b 01 6f 01 09 03]
+
+@@ 35D  bank3 $B964
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 07][ifflag-call 5b 5e 03 5f 03]
+
+@@ 35E  bank3 $B971
+EN:
+[menu 1b 73 01 74 01 75 01 76 01 77 01 09 03]
+
+@@ 35F  bank3 $B980
+EN:
+[menu 19 78 01 79 01 75 01 76 01 06 03]
+
+@@ 360  bank3 $B98D
+EN:
+[cmdDE 22][cmdF0 19][ifflag 5d 63 03 64 03]
+
+@@ 361  bank3 $B998
+EN:
+[cmdDE 22][cmdF0 19][menu 5f 14 02 62 03 e2 01 22 02 09 03][goto 61 03]
+
+@@ 362  bank3 $B9AC
+EN:
+[cmdF0 19][menu 2b 15 02 60 03 3e 03 e2 01 b7 01 f0 01][goto 62 03]
+
+@@ 363  bank3 $B9C0
+EN:
+[menu-call 2b 16 02 2f 02 3e 03 e2 01 c7 01 f0 01]
+
+@@ 364  bank3 $B9CF
+EN:
+[cmdDE 2b][clrflag 5e][menu-call 2b da 01 2f 02 3e 03 74 03 73 03 f0 01]
+
+@@ 365  bank3 $B9E2
+EN:
+
+
+@@ 366  bank3 $B9E3
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 14][menu 26 88 00 89 00 8a 00 8b 00 09 03]
+
+@@ 367  bank3 $B9F6
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 14][menu 26 ee 00 ef 00 f0 00 f1 00 09 03]
+
+@@ 368  bank3 $BA09
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 14][menu 26 28 01 29 01 2a 01 2b 01 09 03]
+
+@@ 369  bank3 $BA1C
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 14][menu 26 45 01 46 01 47 01 48 01 09 03]
+
+@@ 36A  bank3 $BA2F
+EN:
+[cmdDE 22][cmdF0 03][cmdEF 12][menu 23 3e 01 3f 01 40 01 09 03]
+
+@@ 36B  bank3 $BA40
+EN:
+[cmdDE 22][cmdF0 21][cmdEF 13][menu-call 07 41 01 42 01 43 01 2a 02 2b 02 09 03]
+
+@@ 36C  bank3 $BA55
+EN:
+[cmdDE 22][cmdF0 13][cmdEF 07][menu-call 37 83 01 84 01 86 01 85 01 87 01 09 03]
+
+@@ 36D  bank3 $BA6A
+EN:
+[firstset aa 61 02 ab 62 02 fa 6e 03]
+
+@@ 36E  bank3 $BA75
+EN:
+[menu 4b 8e 03 84 03 09 03]
+
+@@ 36F  bank3 $BA7E
+EN:
+[clrflag 1c][cmdEF 32][cmdEE 09]Nobuo,
+show us your famous
+pachinko trick shot.[page]
+[cmdEF 34][cmdEE 17][cmdED][cmdDD 04][cmdDA][cmdDD 0a][cmdDA][cmdDD 03][cmdDA][cmdDD 0d][delay 2d][cmdDD 03][cmdDA][cmdDD 07][cmdDA][cmdDE 2f][delay 3c][cmdDE 30][delay 3c][cmdDE 2a][cmdEE 13][cmdED][delay 78]Nobuo Kaneko,
+body and soul,
+burnt out.
+
+@@ 370  bank3 $BAEB
+EN:
+[setflag 1d][cmdEF 32][cmdEE 09]Nobuo,
+show us your famous
+pachinko trick shot.[page]
+[cmdEF 34][cmdEE 17][cmdED][cmdDD 03][cmdDA][cmdDD 0a][cmdDA][cmdDD 0b][delay 2d][cmdDD 17][cmdDA][cmdDD 0d][cmdDA][cmdDD 04][cmdDA][cmdDD 03][cmdDA][cmdDD 0d][cmdDA][cmdDD 0d][cmdDA][cmdDE 30][delay 3c][cmdDE 2f][delay 3c][cmdDE 2a][cmdEE 13][cmdED][delay 78][cmdEE 05]Ooooooh!
+What a rush!
+[delay 5a][page]
+[cmdEE 0e]Oh, right. Guv!
+Look at all these balls!
+[cmdEE 0f]Go on, use 'em however
+you like, Guv.
+
+@@ 371  bank3 $BBA1
+EN:
+[cmdF0 08][goto 88 02]
+
+@@ 372  bank3 $BBA7
+EN:
+[cmdF0 02][goto fe 02]
+
+@@ 373  bank3 $BBAD
+EN:
+[ifflag 5e ba 01 dc 01]
+
+@@ 374  bank3 $BBB4
+EN:
+[ifflag 5e b5 01 db 01]
+
+@@ 375  bank3 $BBBB
+EN:
+[cmdF0 21][cmdDD 07][flash][shake][flash][shake][cmdDD 0b][shake][shake][shake][cmdDE 26][cmdEF 34][cmdEE 13][cmdD1]Aaaargh!
+A-are you alright?
+Guv?![page]
+[cmdEF 32][cmdEE 01]Charging at a car like
+that, [cmdE1]. You've
+got more guts than
+anyone in Japan.
+[goto c4 01]
+
+@@ 376  bank3 $BC23
+EN:
+[ifflag 24 93 00 94 00]
+
+@@ 377  bank3 $BC2A
+EN:
+
+
+@@ 378  bank3 $BC2B
+EN:
+
+
+@@ 379  bank3 $BC2C
+EN:
+
+
+@@ 37A  bank3 $BC2D
+EN:
+<9D><96><97><9D><98>
+
+@@ 37B  bank3 $BC33
+EN:
+<8E><90><92>
+
+@@ 37C  bank3 $BC37
+EN:
+<9C><9E><92><8E><9C>
+
+@@ 37D  bank3 $BC3D
+EN:
+<9D><9B><95><8E><9C>
+
+@@ 37E  bank3 $BC43
+EN:
+<9D><5E><5F><8E><9C>
+
+@@ 37F  bank3 $BC49
+EN:
+
+

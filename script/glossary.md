@@ -104,6 +104,8 @@ Width checker counts each as 7 letters.
 | てんごくの やかた | the House of Heaven (Tsuji's flat, ending) |
 | エスケープ (skip class) | skive off |
 | N かい (floors) | "floor N" — Japanese numbering kept, avoids UK ground-floor mismatch |
+| おどりうち (pachinko) | trick shot |
+| きりょく (stat) | "run out of steam" / steam |
 | ズガガガ ドピューン (kiddie ride) | "Vroom vroom... Neeeeow!" (1A5 / 1FC) |
 | ひがしまちえき / みなとえき | Higashimachi / Minato station |
 | みなとの そうこ | warehouse at the docks |
@@ -123,4 +125,6 @@ Width checker counts each as 7 letters.
 - [x] msg_100 (2026-10-10)
 - [x] msg_180 (2026-10-10)
 - [x] msg_200 (2026-10-10) — 254-257 hero names; 258-27F are menu scripts (codes only, copied)
-- [ ] msg_280 · msg_300 · msg_380
+- [x] msg_280 (2026-10-10) — scene/menu scripts only, copied
+- [x] msg_300 (2026-10-10) — only 338/339/33B/36F/370/375 have text
+- [ ] msg_380 (incl. verb list $3AA-$3C1)
