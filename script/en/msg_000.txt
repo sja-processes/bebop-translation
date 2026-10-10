@@ -1,0 +1,808 @@
+# Be-Bop High School - English script, msg_000.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 000  bank2 $8000
+EN:
+I'm Inagaki. Number Two
+at Nichu.
+
+@@ 001  bank2 $8017
+EN:
+Is that how you ask
+someone a question?
+
+@@ 002  bank2 $802E
+EN:
+[cmdDD 07][cmdEE 01]I-I-I d-don't know
+a-anything!
+[setflag 02][page+goto 5d 02]
+
+
+@@ 003  bank2 $8056
+EN:
+[cmdEE 03][cmdED][cmdDD 04][cmdDA][cmdEE 01]V-v-violence is
+w-wrong!
+[setflag 02][page+goto 5d 02]
+
+
+@@ 004  bank2 $807E
+EN:
+[cmdEF 0b][cmdEE 01]I-I'm just an ordinary
+schoolboy.
+
+@@ 005  bank2 $809D
+EN:
+[cmdEF 0b][cmdEE 01]I d-don't know anything
+about your sort.
+
+@@ 006  bank2 $80C0
+EN:
+[cmdEE 00]I'm Hayashi. Top dog
+at Nichu.
+
+@@ 007  bank2 $80E0
+EN:
+[cmdEE 00]Never heard of him.
+Anyway, got any spare
+cash for us?
+
+@@ 008  bank2 $80FD
+EN:
+[cmdDD 07][cmdEE 02][cmdED]
+Ugh[cmdED]...
+[cmdDE 2e][delay 5a][cmdDE 22]
+
+@@ 009  bank2 $8110
+EN:
+[cmdEE 03][cmdED][cmdDD 03][cmdDA][cmdEE 04]Y-you're the ones from
+Aitoku[cmdED]...
+[setflag 01][page+goto 5a 02]
+
+
+@@ 00A  bank2 $8130
+EN:
+[cmdEE 01]Well, well! [cmdE2] of
+Aitoku. Ask me anything.
+I know all sorts, me.
+
+@@ 00B  bank2 $8163
+EN:
+[cmdEE 01]Shingo from Kita High[cmdED]...
+Famous for chasing
+anything in a skirt.
+
+@@ 00C  bank2 $819A
+EN:
+[cmdEE 03][cmdED][cmdDD 03][cmdDA][cmdEE 04]Eeek!
+[cmdED]....................!!
+
+
+@@ 00D  bank2 $81B6
+EN:
+[cmdEE 01]I-I'm in Hayashi's
+class.
+
+@@ 00E  bank2 $81D3
+EN:
+[cmdEE 01]I don't know!
+A-ask Hayashi!
+
+@@ 00F  bank2 $81F5
+EN:
+[cmdEE 01]Please,
+n-not that[cmdED]...
+I'm begging you.
+
+@@ 010  bank2 $821C
+EN:
+[cmdEE 00]Alright, [cmdE1]?
+Not with [cmdDF] today?
+
+@@ 011  bank2 $823A
+EN:
+[cmdEE 02]Shingo's been kidnapped?
+[cmdEE 00]Ha ha ha! Girls can walk
+the streets in peace
+for a bit, then.
+
+@@ 012  bank2 $827E
+EN:
+If you want a kip,
+go home.
+
+@@ 013  bank2 $828E
+EN:
+[cmdEE 02]Eh, why not. Just
+this once.
+[delay 3c][cmdEE 00]I'll be waiting at a
+cafe called "Mai".
+[clrflag 6f][setflag 04]
+
+@@ 014  bank2 $82C4
+EN:
+[cmdEE 03][cmdDD 05][flash][shake][delay 1e][cmdEE 01]Oi! Wh-where d'you
+think you're searching?!
+
+@@ 015  bank2 $82E1
+EN:
+[cmdEE 01]Anything you don't know,
+come and ask me.[page]
+Mind you, if your luck's
+bad, you won't find me.
+
+@@ 016  bank2 $8324
+EN:
+[cmdEE 01]Shingo from Kita High[cmdED]...[page]
+[cmdEE 01]All I know is he's mad
+about girls. You lot
+should know more about
+Shingo than me.
+
+@@ 017  bank2 $8371
+EN:
+[cmdEE 01]Oh, you're lucky today.
+Yuji here'll give you
+a useful tip.
+
+@@ 018  bank2 $83A2
+EN:
+[cmdEE 01]Cafe "Mai"? It's just
+round the corner.
+[cmdDE 2e][delay 5a][cmdDE 28][setflag 05]
+
+@@ 019  bank2 $83C3
+EN:
+[cmdEE 01]Oh, it's you lot from
+before[cmdED]...
+Lucky again today, eh?
+Go on, ask away.
+
+@@ 01A  bank2 $83FA
+EN:
+[cmdEE 01][setflag 21]Higashi, who used to be
+in Gold Emperor[cmdED]...[page]
+In junior high he looked
+like a mandrill, so they
+called him
+"Mandrill Higashi".[page]
+Even now, the words
+"Mandrill Higashi"
+cut him to the quick,
+apparently.
+
+@@ 01B  bank2 $8486
+EN:
+[cmdEE 01]Oh, coming to see me
+was a smart move.
+
+@@ 01C  bank2 $84A8
+EN:
+Gen? Ah, the boozer[cmdED]...
+Ace with dynamite, mind.
+Word is he could blow up
+Mt Fuji in one night.
+
+@@ 01D  bank2 $850A
+EN:
+[cmdEE 01][cmdDE 2e][delay 5a][cmdDE 28]Not had much gossip
+lately[cmdED]...
+
+@@ 01E  bank2 $8530
+EN:
+[cmdEE 01]Some bloke from your
+school, Iwamoto, keeps
+prowling town with a
+camera. What's he up to?
+
+@@ 01F  bank2 $858A
+EN:
+[cmdEE 01]Right, here's a tip
+about Gold Emperor.
+
+@@ 020  bank2 $85AF
+EN:
+[cmdEE 01]Gold Emperor have hired
+a monster called Harada
+as their minder, I hear.
+Watch yourselves.
+
+@@ 021  bank2 $8601
+EN:
+[cmdEE 01]Oi, you lot have been
+making a right racket
+looking for Shingo,
+haven't you?
+
+@@ 022  bank2 $8632
+EN:
+[cmdEE 01]Bloke called Ken the
+Slasher's just got out
+of the nick.[page]
+He hates folk who don't
+play it straight. Your
+sort should keep well
+away from him.
+
+@@ 023  bank2 $8694
+EN:
+[cmdEE 01]Bad news: I'm leaving
+town soon.
+Might see you once more.
+
+@@ 024  bank2 $86CF
+EN:
+[cmdEE 01]Kyokuto High's Big Four,
+eh[cmdED]...[page]
+No.1, Tsuji, is stupidly
+strong.[page]
+No.2 Kitamura and No.3
+Kudo are Tsuji's right-
+hand men.[page]
+No.4 is Samejima. He's
+nothing special. Just
+there to make up the
+numbers, apparently.
+
+@@ 025  bank2 $876D
+EN:
+[cmdEE 01]I was off out of town
+and forgot to tell you
+something. Listen up.
+
+@@ 026  bank2 $879B
+EN:
+[cmdEE 01]Gen's a top bloke, eh?
+He's from Kyushu,
+apparently.
+
+@@ 027  bank2 $87CA
+EN:
+Eek! You're [cmdE2] from
+Aitoku! I'm Megumi.
+Pleased to meet you♥
+
+@@ 028  bank2 $87F7
+EN:
+Shingo? From Kita High?
+The older girls said to
+keep 100 metres away. So
+I don't know a thing.
+
+@@ 029  bank2 $8852
+EN:
+[cmdE2], you're a funny
+one. What's that?
+Playing dead?
+
+@@ 02A  bank2 $8870
+EN:
+Ooh, I dunno[cmdED]...[page]
+[cmdEE 00]I'm flattered, but the
+girls warned me about
+[cmdE2] from Aitoku's
+patter[cmdED]... Sorry.
+
+@@ 02B  bank2 $88C9
+EN:
+Eh, a date? But if you
+know Shingo from Kita
+High[cmdED]...
+Megumi's a bit scared.
+
+@@ 02C  bank2 $8902
+EN:
+[cmdEE 00]Your treat, obviously.
+[cmdEE 02]A date with Junko, eh?
+You've gone up in the
+world, [cmdE1].
+
+@@ 02D  bank2 $893D
+EN:
+[cmdEE 00]Coffee'll do.
+
+@@ 02E  bank2 $894A
+EN:
+[cmdDD 02][cmdEE 02]Well, yes[cmdED]...
+[cmdEE 00]Being gorgeous is
+nothing new for me.
+[setflag 06][page+goto 71 02]
+
+
+@@ 02F  bank2 $8981
+EN:
+[cmdEE 01]Am I boring you, then?
+
+@@ 030  bank2 $8997
+EN:
+[cmdEE 01]What're you searching
+the table for?
+
+@@ 031  bank2 $89B0
+EN:
+[cmdEE 01]Why look for Shingo?
+[delay 3c][cmdEE 02]Folk round here are
+partying 'cos the enemy
+of women's gone.
+
+@@ 032  bank2 $89FC
+EN:
+[cmdEE 02]Oh, I hear dodgy types
+hang out on the roof of
+Kakui Dept. Store while
+it's being done up.
+[setflag 07]
+
+@@ 033  bank2 $8A46
+EN:
+[cmdEE 01]If you're sleepy, go
+home.
+[delay 3c][cmdEE 00]But leave the money for
+the coffee, yeah?♥
+
+@@ 034  bank2 $8A75
+EN:
+[cmdEE 01]What're you checking the
+ashtray for?
+[delay 3c][cmdEE 02]Are you feeling alright?
+
+@@ 035  bank2 $8AA5
+EN:
+What d'you want to buy?
+[cmdEE 01]Answer wrong and the
+screen'll flash.
+
+@@ 036  bank2 $8AD1
+EN:
+[cmdEF 00][delay 3c]Hello, police emergency.
+
+@@ 037  bank2 $8AE9
+EN:
+[cmdEF 00]Hello? Calm down!
+It's all right, sir.
+
+@@ 038  bank2 $8B04
+EN:
+[cmdEF 00][cmdDD 07]What?! A bomb on the
+Minami Bridge?!
+Wh-who is this?
+[cmdDE 2e][cmdDD 0e][cmdDA][cmdDE 22][setflag 13][clrflag 71][setflag 83]
+
+@@ 039  bank2 $8B43
+EN:
+[cmdEF 00]Hello-o? Anyone there?
+Wake u-up!
+
+@@ 03A  bank2 $8B5C
+EN:
+[cmdEF 00][cmdDD 0a]Is this a prank call?
+We'll trace it and come
+round, you know.
+
+@@ 03B  bank2 $8B84
+EN:
+[cmdD1][cmdDD 0e][cmdEE 03]Right then, good timing!
+Extremists are on the
+move lately, so I'm out
+in the panda car.[page]
+Right,[cmdEE 02] let's be 'avin'
+you, young tearaways.
+[cmdEE 03]You're coming with me.
+[cmdEF 00][setflag 14][cmdEC 01 17 3e][goto 3a 03]
+
+@@ 03C  bank2 $8C0D
+EN:
+Not good, [cmdE2][cmdED]...
+Not good at all[cmdED]...
+Mm.
+
+@@ 03D  bank2 $8C24
+EN:
+[cmdDD 07]Hm![delay 1e][cmdEE 01] Th-threatening me
+will cost you later[cmdED]...
+[cmdEE 00]Not good[cmdED]...
+Mm.
+
+@@ 03E  bank2 $8C61
+EN:
+Mmm, er[cmdED]...
+
+@@ 03F  bank2 $8C6F
+EN:
+Hm,[delay 1e][cmdEE 01] you two are up to
+something again!
+
+@@ 040  bank2 $8C8C
+EN:
+[cmdEE 01]Honestly, you two, stop
+turning up at school in
+a police car.
+
+@@ 041  bank2 $8CBD
+EN:
+[cmdDD 07]Tsk tsk, that attitude
+won't do at all.
+
+@@ 042  bank2 $8CD8
+EN:
+[cmdEE 01]Oi, I've not finished!
+Do you promise to study
+properly from now on?
+[setflag 15][page+goto 98 02]
+
+
+@@ 043  bank2 $8D18
+EN:
+Honestly, you cheeky
+chancers.
+[cmdEE 01][cmdED][delay 3c]
+
+@@ 044  bank2 $8D33
+EN:
+[cmdEF 03][cmdEE 01]Yes, yes. Just promise
+me, will you?
+
+@@ 045  bank2 $8D4F
+EN:
+[cmdEF 03]Mm, good. Off you go.
+[setflag 16][clrflag 15][cmdE8][cmdDE 26][goto 99 02]
+
+@@ 046  bank2 $8D6D
+EN:
+What is it? You can go
+now, you know.
+
+@@ 047  bank2 $8D86
+EN:
+[cmdEE 01]All right, all right.
+Off you go now.
+[clrflag 16]
+
+@@ 048  bank2 $8DA3
+EN:
+[cmdDD 08][cmdEE 01]Fine, just go away
+somewhere, will you?
+
+@@ 049  bank2 $8DC0
+EN:
+[cmdEE 01]No need for pinkie
+promises. Creepy.
+
+@@ 04A  bank2 $8DDC
+EN:
+[cmdEE 01]Huff, puff! Sir ran all
+the way. Quick, eh?
+
+@@ 04B  bank2 $8DFC
+EN:
+[cmdEE 01]O spirits, hear us!
+Your luck is poor 'cos
+your ways are wicked!
+
+@@ 04C  bank2 $8E34
+EN:
+[cmdDD 07][cmdEE 01]O spirits, hear us!
+Numbskulls!
+
+@@ 04D  bank2 $8E48
+EN:
+[cmdEE 01]O spirits, hear us!
+Bow your heads!
+
+@@ 04E  bank2 $8E5F
+EN:
+[cmdEE 01]O spirits, hear us!
+Keep it up!
+[page+goto a7 02]
+
+
+@@ 04F  bank2 $8E7B
+EN:
+[cmdEE 01]O spirits, hear us!
+Once more!
+[page+goto a8 02]
+
+
+@@ 050  bank2 $8E95
+EN:
+[cmdEE 01]O spirits, hear us!
+A little more!
+[page+goto a9 02]
+
+
+@@ 051  bank2 $8EAE
+EN:
+[cmdEE 01]O spirits, hear us!
+Nearly there!
+[page+goto aa 02]
+
+
+@@ 052  bank2 $8EC8
+EN:
+[cmdEE 01]O spirits, hear us!
+[cmdED][delay 3c][cmdEE 00][cmdDD 07][flash][flash][shake][shake][shake][cmdDD 07][flash][flash][shake][shake]We hear you, mortals.
+Your luck shall go up
+by one.[page]
+[cmdDD 07][delay 3c][cmdE7][goto ab 02]
+
+@@ 053  bank2 $8F14
+EN:
+[cmdEE 01]Er,[delay 3c][cmdEE 00] I'm Shimazaki
+from Kita High.
+
+@@ 054  bank2 $8F33
+EN:
+[cmdEE 01]Anyone with a grudge
+against Shingo?
+[delay 3c][cmdEE 00]Count men and women and
+there's 10,000, easy.
+[cmdDE 2e][delay 5a][cmdDE 2b]
+
+@@ 055  bank2 $8F6F
+EN:
+[cmdDD 07][cmdEE 01]A-a Skylion[cmdED]...
+[cmdED].....................
+[setflag 18][page+goto ae 02]
+
+
+@@ 056  bank2 $8F97
+EN:
+[cmdEE 00]Do you know what
+happened when Shingo
+was snatched?
+
+@@ 057  bank2 $8FB7
+EN:
+[cmdEE 00]It's only what I heard,
+but someone saw Shingo
+being dragged into a
+black Skylion[cmdED]...
+[setflag 19]
+
+@@ 058  bank2 $900B
+EN:
+[cmdDD 07][cmdEE 01]I'll spill the lot, I
+swear!
+
+@@ 059  bank2 $9026
+EN:
+Who're you lot, then?
+The name's Yoshino.
+People round here
+know me.
+
+@@ 05A  bank2 $9056
+EN:
+What're you on about?
+
+@@ 05B  bank2 $9065
+EN:
+[cmdDD 07][cmdEE 04]You what?
+You starting, are you?!
+
+@@ 05C  bank2 $907D
+EN:
+Tch, I'm not some lazy
+schoolkid like you.
+[cmdEE 03]Right. Work, work.
+
+@@ 05D  bank2 $90AE
+EN:
+[cmdEE 04]Shut it. [cmdEE 03]Clear off!
+
+@@ 05E  bank2 $90C1
+EN:
+[cmdDD 07][cmdEE 04]Right, I'll take you on
+as often as you like!
+
+@@ 05F  bank2 $90DA
+EN:
+[cmdEF 17][delay 1e][cmdEE 03]What d'you want?
+
+@@ 060  bank2 $90E7
+EN:
+[cmdEF 17][delay 1e][cmdEE 03]Shingo from Kita High?
+Never heard of him.
+
+@@ 061  bank2 $9102
+EN:
+[cmdEF 17][cmdDD 07][cmdEE 02]Alright, alright, you
+win.
+[cmdEE 03]Sorry, but I really
+don't know.
+
+@@ 062  bank2 $912E
+EN:
+A black Skylion?
+[cmdEE 03]Probably one of that
+Gold Emperor biker
+gang's cars.
+[cmdDE 2e][delay 5a][cmdDE 2b][setflag 1b][setflag 76][clrflag 73][clrflag 74]
+
+@@ 063  bank2 $9172
+EN:
+[cmdDD 07][cmdEE 03]I really don't know
+this Shingo bloke.
+
+@@ 064  bank2 $918F
+EN:
+[cmdDD 08][cmdE2], you feeling
+low too?
+
+@@ 065  bank2 $91A1
+EN:
+[cmdDD 03][cmdEE 04]Alright, I give in.
+[cmdEE 00]You're hard as nails,
+[cmdEE 03]I get it.
+
+@@ 066  bank2 $91CA
+EN:
+I don't know nothing.
+Don't know Shingo.
+Don't know you lot.
+Dunno, dunno, dunno.
+
+@@ 067  bank2 $91FA
+EN:
+I'm just one of the
+crowd. Don't know a
+thing.
+
+@@ 068  bank2 $9215
+EN:
+[cmdDD 07][cmdEE 01]I'll take on anyone who
+challenges me!
+[cmdEE 00]Still don't know
+anything, though.
+
+@@ 069  bank2 $9244
+EN:
+[setflag 99][cmdDD 04][cmdEE 01]Yeah, I'll do anything!
+[cmdEA 10]
+
+@@ 06A  bank2 $925D
+EN:
+[cmdEF 05]Shonny lads,
+would you lishen
+to an old man?
+
+@@ 06B  bank2 $927D
+EN:
+[cmdEF 05]Y'shee, I've losht my
+preshious falshe teeth,
+cosht me 700,000 yen[cmdED]...
+Ash you can shee.
+
+@@ 06C  bank2 $92B4
+EN:
+[cmdEF 05]Shuch a shmooth talker
+for one sho young!
+Not much, but have
+theshe pachinko ballsh.
+[setflag 1c][page+goto b8 02]
+
+
+@@ 06D  bank2 $92DF
+EN:
+[cmdEF 05]Thoshe teeth, y'shee[cmdED]...
+they fitted me jusht
+right[cmdED]...
+It'sh sho shad.
+
+@@ 06E  bank2 $930D
+EN:
+[cmdEF 05]Shonny,
+you musht look after
+your teeth.
+
+@@ 06F  bank2 $9329
+EN:
+[cmdEF 05]I've not got many ballsh
+left myshelf[cmdED]...
+Shorry, can't shpare
+any.
+
+@@ 070  bank2 $9350
+EN:
+I'm Shinagawa.
+My hobby's pachinko.
+
+@@ 071  bank2 $936E
+EN:
+Ahh, I blew my precious
+100 yen on pachinko.
+
+@@ 072  bank2 $938E
+EN:
+[cmdDD 07][cmdEE 02]Threaten me all you
+like, you won't get a
+penny.
+
+@@ 073  bank2 $93A5
+EN:
+[cmdDD 03][cmdEE 03][cmdED][delay 1e][cmdEE 04]Thump me all you like,
+you still won't get a
+penny.
+
+@@ 074  bank2 $93C1
+EN:
+Aaah, I'm dying for a
+go on pachinko!
+Pachinko!
+
+@@ 075  bank2 $93DF
+EN:
+Not worth a go with this
+few pachinko balls.
+Still, it's the thought
+that counts.
+[clrflag 1c]
+
+@@ 076  bank2 $940E
+EN:
+[cmdEE 01]Ooh, ta very much!
+You were asking about
+Gold Emperor, weren't
+you?[page]
+A bloke called Higashi
+who quit them is lying
+low somewhere, I hear.
+[clrflag 1c][clrflag 1d][setflag 1e][clrflag 76]
+
+@@ 077  bank2 $9473
+EN:
+Ooh, so you're [cmdE2]
+from Aitoku.
+
+@@ 078  bank2 $948C
+EN:
+I'm Misako.
+Nice to meet you♥
+
+@@ 079  bank2 $949D
+EN:
+[cmdDD 0a]Yay!
+Am I really that cute?
+You're quite a catch
+yourself, [cmdE2].
+
+@@ 07A  bank2 $94C3
+EN:
+[cmdE2], you're a real
+catch, but[cmdED]...
+not today. Sorry.
+[cmdE8][clrflag c8][goto a1 01]
+
+@@ 07B  bank2 $94F5
+EN:
+Go on then, I'll let
+you treat me.
+[cmdEC 05 14 24][cmdE9][setflag c8][goto c5 02]
+
+@@ 07C  bank2 $9517
+EN:
+[cmdEF 30]Hehe♥
+[page+goto 9d 01]
+
+
+@@ 07D  bank2 $9522
+EN:
+[cmdEF 30]Gold Emperor? A girl
+called Mari knows all
+about them. With luck,
+you're sure to meet her.
+[setflag 1f]
+
+@@ 07E  bank2 $9563
+EN:
+[cmdEF 30]Well[cmdED]...
+just a snog for
+starters[cmdED]......
+[page+goto 9d 01]
+
+
+@@ 07F  bank2 $957E
+EN:
+[cmdEF 30]Oh[cmdED]...
+[page+goto b6 01]
+
+

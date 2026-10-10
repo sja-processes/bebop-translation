@@ -12,7 +12,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 2 — Find the font & table file (2026-10-10)
 - [x] Stage 3 — Trace the text engine (2026-10-10)
 - [x] Stage 4 — Script dump (2026-10-10)
-- [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat)
+- [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — msg_000 done 2026-10-10
 - [ ] Stage 6 — Insertion tooling
 - [ ] Stage 7 — Graphics (title logo kanji, menus)
 - [ ] Stage 8 — Playtest & polish (several sessions)
@@ -244,6 +244,17 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   plain script (graphics/nametable data → stage 7). A kana grid layout
   lives in bank 7 `$F94A`-`$FCD3` (character/name-select screen?) →
   stage 7.
+
+### Translation (stage 5)
+- Style decisions and names: `script/glossary.md` (no honorifics, place
+  names romanised, UK English, ASCII + ♥ only).
+- `tools/encheck.py [files]` checks `script/en/` against `script/jp/`:
+  identical code/raw-tile sequence, matching trailing newlines (they are
+  real F5 bytes), and warns on lines > 24 glyphs or pages > 4 lines
+  (name codes count as 7).
+- `tools/enbuild.py msg_XXX draft.txt` turns a draft of `@@ ID` + English
+  into the EN file with the right labels/trailing newlines.
+- Done: msg_000 (IDs $000-$07F).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
