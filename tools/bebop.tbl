@@ -1,7 +1,7 @@
 # Be-Bop High School (J) script table (Thingy format).
 # Script bytes are BG tile numbers in CHR banks 30/31.
 # $5A/$5B prefix = dakuten/handakuten (drawn on the row above).
-# Bytes >= $8E (except $FE) are control codes or graphic tiles; see PLAN.md.
+# Unlisted bytes are written <XX>; bytes >= $8E (except $FE) are control codes or graphic tiles; see PLAN.md.
 00=あ
 01=い
 02=う
@@ -57,7 +57,6 @@
 34=ゅ
 35=ょ
 36=っ
-37=[37]
 38=ァ
 39=ィ
 3A=ゥ
@@ -67,7 +66,6 @@
 3E=ュ
 3F=ョ
 40=ッ
-41=[41]
 42=0
 43=1
 44=2
@@ -82,7 +80,6 @@
 4D=O
 4E=「
 4F=」
-50=[icon50]
 51=？
 52=！
 53=ー

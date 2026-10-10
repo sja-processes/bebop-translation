@@ -11,7 +11,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 1 — Static ROM survey (2026-10-10)
 - [x] Stage 2 — Find the font & table file (2026-10-10)
 - [x] Stage 3 — Trace the text engine (2026-10-10)
-- [ ] Stage 4 — Script dump
+- [x] Stage 4 — Script dump (2026-10-10)
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat)
 - [ ] Stage 6 — Insertion tooling
 - [ ] Stage 7 — Graphics (title logo kanji, menus)
@@ -35,10 +35,23 @@ switching. Output: an engine description in this file.
 
 **4. Script dump.** A Python dumper using the table + pointer tables, writing
 `script/*.txt` (Japanese with IDs). Check how many bytes are free for growth.
-Add `script/` to `.gitignore` (or commit only the English) — per
-AGENTS.md, don't commit material extracted from the ROM.
+`script/jp/` is gitignored — per AGENTS.md, don't commit material
+extracted from the ROM; `script/en/` (English only) is committed.
 
-**5. Translation.** Fill in English next to each line. **Use UK English
+**5. Translation.** Fill in English next to each line. How to run it
+(cheapest in a normal Claude chat, one dump file per sitting):
+1. `python3 tools/script.py dump` (re-creates `script/jp/`, gitignored).
+2. Give the chat one `script/jp/msg_XXX.txt` plus the rules below, and ask
+   for an English-only file in the same shape: each `@@ ID ...` line
+   followed by `EN:` and the English (no JP block).
+3. Save the reply as `script/en/msg_XXX.txt` (committable — it contains
+   no ROM text) and commit.
+Rules for the translator: keep every `[code ...]` exactly and in order;
+`[page]` is a page break; aim for ≤24 characters per line and ≤4 lines per
+page (the inserter will re-wrap and warn, so natural line breaks are
+fine); character/place names consistent across files (keep a glossary in
+`script/glossary.md`); verb list entries (IDs $3AA-$3C1) must be short
+menu words (target ≤ 8 letters). **Use UK English
 throughout:** British spelling (colour, realise, programme), vocabulary
 (mate, bloke, mum, trousers, pavement) and idioms, plus British slang
 for the delinquent schoolboy banter where an equivalent fits, rather than
@@ -200,6 +213,37 @@ reachable messages with zero errors.
 rows hold verb IDs (01, 02, 03, … 07). The verb names are printed by
 `$DE6C` from somewhere not yet located — find in stage 4 (likely the
 text-like area in bank 7 around $F800 or bank 3 after $AC00).
+
+### Script dump (stage 4)
+- `tools/script.py dump` → `script/jp/msg_000.txt` … `msg_380.txt`, 128
+  messages per file, 962 messages (IDs $000-$3C1; bank 3's trailing $FF
+  padding is dropped). Each entry: `@@ ID bankN $ADDR`, `JP:` block, `EN:`
+  block (pre-filled with the JP for convenience).
+- Format: newline = `F5`; `[name hex-args]` = control code; `<XX>` = raw
+  byte (tiles $37, $41, $50 and the $8E-$9F inverse kana); `[page]` /
+  `[page+goto …]` are followed by a cosmetic newline. `encode()` is the
+  inverse of `render()` and `tools/script.py check` confirms all 1276
+  messages round-trip byte-for-byte, so the dump format is safe to
+  reinsert from.
+- **Verb list**: 24 verb names at bank 3 `$BE36`-$BEB4 (IDs $3AA-$3C1 in
+  the chain), read by `$DE88` via a *fixed* pointer (`LDA #$36/#$BE` at
+  `$DE8B`/`$DE8F`) skipping X−1 `$FF`-terminated names. Reinsertion must
+  either keep it at $BE36 or patch those two bytes.
+- Volume: bank 2 = 368 messages, 16358 bytes (13565 text / 2793 codes);
+  bank 3 (to $BE35) = 570 messages, 15926 bytes (9197 text / 6729 codes).
+  ~20,800 Japanese glyphs. English typically needs ~1.5× the kana count,
+  so expect ~10 KB more than fits today.
+- Text box: max line 24 glyphs (box clear width $19 = 25 tiles), normally
+  4 lines/page (5 in 8 places) because each line uses 2 rows.
+- **Stage 6 recommendation:** expand PRG to 256 KB (MMC1 handles 16 × 16
+  KB banks; copy the fixed bank to bank 15), put English text in the new
+  banks, and patch `$DBEE` (bank/split) and `$DE88` (verb list). Also
+  consider changing the newline step (`ADC #$44` at `$E137`) to one row so
+  English (no dakuten row) gets ~8 lines per box.
+- Other text found: none in banks 0/1/4/5/6. The title-screen menu is not
+  plain script (graphics/nametable data → stage 7). A kana grid layout
+  lives in bank 7 `$F94A`-`$FCD3` (character/name-select screen?) →
+  stage 7.
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
