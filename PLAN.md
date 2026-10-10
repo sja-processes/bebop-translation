@@ -235,8 +235,8 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   so expect ~10 KB more than fits today.
 - Text box: max line 24 glyphs (box clear width $19 = 25 tiles), normally
   4 lines/page (5 in 8 places) because each line uses 2 rows.
-- **Stage 6 recommendation:** expand PRG to 256 KB (MMC1 handles 16 × 16
-  KB banks; copy the fixed bank to bank 15), put English text in the new
+- **Stage 6 decision (agreed 2026-10-10):** expand PRG to 256 KB (SKROM-compatible; never 512 KB — SUROM conflicts with CHR-ROM banking); DTE only if a later limit appears. Plan: expand PRG to 256 KB (MMC1 handles 16 × 16
+  KB banks; copy the fixed bank to bank 15, add the $BFF0 reset stub + vectors to new banks 8-14, set header PRG count to 16), put English text in the new
   banks, and patch `$DBEE` (bank/split) and `$DE88` (verb list). Also
   consider changing the newline step (`ADC #$44` at `$E137`) to one row so
   English (no dakuten row) gets ~8 lines per box.
