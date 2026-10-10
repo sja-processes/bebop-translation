@@ -255,8 +255,43 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - `tools/enbuild.py msg_XXX draft.txt` turns a draft of `@@ ID` + English
   into the EN file with the right labels/trailing newlines, and greedily
   re-wraps any run of text lines that has a line over 24 glyphs.
-- Done: all files msg_000-msg_380 (first pass). Verb menu words are
-  provisional until the menu slot width is known (stage 6).
+- Done: all files msg_000-msg_380 (first pass, 2026-10-10, in a Cowork
+  chat). Verb menu words are provisional until the menu slot width is
+  known (stage 6).
+- `script/en/*.txt` are the source of truth. The drafts fed to
+  `enbuild.py` were scratch files and are not kept: for later fixes, edit
+  the EN file directly and re-run `tools/encheck.py`.
+- Stats for stage 6: 962 messages, ~31,200 visible English glyphs (JP
+  ~20,800, so ~1.5x as expected). Character set currently used, 69
+  glyphs: A-Z except X/Z, a-z, digits except 8, space, `! " ' , - . : ?`
+  and `♥`. Make the font complete anyway (A-Z, 0-9) for later edits:
+  ~72 tiles, fits the 142 free kana slots in CHR banks 30/31 and leaves
+  ~70 for DTE pairs if space gets tight.
+
+#### Handover: open points for later stages
+- **Verb menu width (stage 6):** find the slot width used by `$DE6C`/
+  `$DE88` (JP max 6 kana; 2-kana verbs are padded with a space, e.g.
+  `き く`). If 6: shorten "Promise" (→ "Swear"), "Go down" (→ "Down"),
+  "Stakeout" (→ "Case", as in "case the joint"). "Sleep" and "Coffee" were
+  chosen deliberately: see the glossary's verb table.
+- **Dialogue that names a verb:** 1BA mentions the "Shout" command;
+  keep in sync with $3BE.
+- **Raw tile `<41>`:** dropped in English in 14E and 182 (part of a JP
+  word). encheck only warns for raw tiles; control codes must match.
+- **Name codes:** `[cmdE1]`/`[cmdE2]` = this hero's given/surname,
+  `[cmdDF]`/`[cmdE0]` = partner's. The partner is the "rival" competing
+  for Remi. Names live in $254-$257 (Nakama, Toru, Kato, Hiroshi): check
+  whether the hero/name-select screen (bank 7 `$F94A` grid, stage 7)
+  draws them from there or from graphics.
+- **`EE` code:** meaning still unknown (sets `$7007`, maybe expression/
+  pose). Its position inside a line was kept roughly where the JP had it.
+- **Newline step:** English never needs the dakuten row, so consider
+  `ADC #$44` → `#$24` at `$E137` (8 lines per box). The script was
+  written to the current limit of 4 lines/page, so this is optional.
+- **Parked wording to revisit after playtesting (Stephen's call):**
+  policeman 03B "Right, let's be 'avin' you" (a Sweeney-style line was
+  considered but not adopted); "well fit" in 0E3; dog warden line 0F2;
+  "Skylion" car name; Gen's Geordie and the "Canny"/"Cannit" sake puns.
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
