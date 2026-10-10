@@ -261,8 +261,8 @@ EN:
 [cmdEF 03][cmdEE 01][cmdD1]You lot, will you stop
 calling Sir out at this
 time of night?[page]
-Right, I'm seeing you
-lot home!![page]
+Right, I'm seeing
+you lot home!![page]
 [cmdF0 0b]Honestly.............
 Your next school report
 will be rock bottom.
