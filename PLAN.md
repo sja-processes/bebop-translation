@@ -10,7 +10,7 @@ each session so the next one doesn't re-derive anything.
 - [x] **Stage 0 — Tooling check** (2026-10-10)
 - [x] Stage 1 — Static ROM survey (2026-10-10)
 - [x] Stage 2 — Find the font & table file (2026-10-10)
-- [ ] Stage 3 — Trace the text engine
+- [x] Stage 3 — Trace the text engine (2026-10-10)
 - [ ] Stage 4 — Script dump
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat)
 - [ ] Stage 6 — Insertion tooling
@@ -35,6 +35,8 @@ switching. Output: an engine description in this file.
 
 **4. Script dump.** A Python dumper using the table + pointer tables, writing
 `script/*.txt` (Japanese with IDs). Check how many bytes are free for growth.
+Add `script/` to `.gitignore` (or commit only the English) — per
+AGENTS.md, don't commit material extracted from the ROM.
 
 **5. Translation.** Fill in English next to each line. **Use UK English
 throughout:** British spelling (colour, realise, programme), vocabulary
@@ -107,11 +109,7 @@ freed/added banks — decide in stage 6).
 - `$F5` = newline, `$F4` = end of page/wait (likely). Other codes seen:
   `$F0 xx`, `$EF xx`, `$ED`, `$58` (。?), `$57`.
 - First intro line "ついに この キタコウの…" is at bank 3 `$A3F8`.
-- **Hypothesis:** the CDL showed bank 3 read *continuously* from `$8000`
-  to just past that line (`$A41E`), so the engine may find message N by
-  scanning terminators from the start of the bank rather than using a
-  pointer table. Verify in stage 3 — it makes reinsertion much easier.
-- Dialogue box (intro): text starts at nametable column 2, row 4.
+- No pointer table — confirmed in stage 3, see "Text engine".
 
 ### Font & table (stage 2)
 - Font lives in **CHR 4 KB banks 30 and 31** (CHR ROM offsets $1E000 /
@@ -135,17 +133,79 @@ freed/added banks — decide in stage 6).
   (more lines per box) if the engine allows. Check first that no other
   screen uses kana tiles as graphics.
 
-### Control codes seen in script (decode in stage 3)
-Byte frequency in banks 2-3: `FE` 2006 (space), `F5` 914 (newline),
-`EE` 600, `FF` 645, `EF` 308, `ED` 196, `F4` 131, `DD` 128, `F7` 110,
-`F3` 108, `D3` 86, `DE` 85, `E1` 48, `F6` 42, `EB` 34, `DA` 31, `D2` 27,
-`E2` 22, `F8` 17, `F2` 14, `F0` 13, `EA` 13, then rare ones. `FF` looks
-like end-of-message; `EE xx`, `EF xx`, `F7 xx`, `F0 xx` look like they
-take one argument byte (the argument decodes as a stray kana).
+### Text engine (stage 3)
+
+**Message lookup** — `$DBCF` runs message ID in X (lo) / Y (hi). IDs
+`< $170` → bank 2, index = ID; IDs `>= $170` → bank 3, index = ID − $170
+(constant at `$DBF0`/`$DBF5`; banks chosen by `JSR $C083`/`$C087` at
+`$DBF9`/`$DC02`). `$DC16` then walks from `$8000` skipping `index`
+`$FF`-terminated messages. **No pointer table**: to reinsert, keep
+message order and make each bank's messages fit in the bank. The skip
+loop doesn't parse arguments, so **`$FF` must never appear in an
+argument or text byte**. Verified at runtime: the intro calls ID `$238`
+= bank 3 `$A3B6`.
+- 368 messages in bank 2 ($8000-$BFE5, full; 26 junk bytes after).
+- Bank 3 holds IDs `$170`+, then ~315 bytes `$FF` padding at `$BEB5`.
+- To gain space later: patch the `$170` split, or point the bank-selects
+  at other/added banks.
+
+**Interpreter** — `$DC3C` loop: `$EA04` fetches `($4D)` → `$51` and
+advances `$4D/$4E`; the byte is looked up in a 48-entry code list at
+`$DC6E` with an RTS-jump table (hi `$DC9F`, lo `$DC9E`). Anything not in
+the list is a printable tile: `$DCFE` queues (hi `$50`, lo `$4F`, tile)
+into the `$02C4` NMI list and increments the cursor `$4F`. After each
+char, `$DC5B` waits `$52` frames unless fast mode (`$20`) is on.
+- Text box origin: PPU `$2084` (reset in `$E9AC`); the box is cleared over
+  9 rows by `$E97D`. Newline `F5`: cursor = (row start) + `$44` → two
+  rows down, column 4. Diacritic codes `5A`/`5B`/`9D` (`$E1D3`) draw the
+  mark one row up (cursor − $20) and then print the next byte.
+
+**Control codes** (args = following bytes; implemented in
+`tools/script.py`):
+
+| Code | Args | Meaning |
+|---|---|---|
+| `FF` | 0 | end of message |
+| `F5` | 0 | newline (2 rows down) |
+| `F4` | 0 | wait for button (blinking tile $50), clear box |
+| `D3` | 2 | `F4` then goto message |
+| `F3` | 1 | delay N frames |
+| `F7` / `F6` | 1 | set / clear flag `$7100+n` |
+| `F2` | 2 | goto message (lo, hi) |
+| `F1` | 2 | call message (nested) |
+| `FD` / `D9` | 5 | flag, target-if-clear, target-if-set (D9 = call & return) |
+| `F9` / `D5` | 10 | two flags → one of four targets |
+| `FC` / `D8` | var | `(flag lo hi)*` `FA lo hi`: go to first set flag's target, else default |
+| `FB` / `D7` | var | same, first *clear* flag |
+| `F8` / `D4` | var | menu: id, then one target per non-empty slot of menu row `$DEB3+id*6` (a trailing "leave" slot may have no target) |
+| `5A`/`5B`/`9D` | 1 | dakuten/handakuten/inverse-dakuten + char |
+| `E4` / `E3` | 0 | fast text on / off |
+| `EB` | 0 | screen flash (greyscale for a frame) |
+| `D2` | 0 | flash + shake |
+| `EF` | 1 | scene/music change? (special-cases $32/$14 by chosen hero `$71B5`) |
+| `F0` | 1 | portrait/face? (writes `$02C2`) |
+| `EE` | 1 | sets `$7007` (often right after `EF`) |
+| `EC` | 3 | object/sprite placement? (bank 6 `$800C`, coords ×16) |
+| `EA` | 1 | sub-command via table at `$E2B7` |
+| `DE` / `DD` | 1 | `$C296` with arg (sound?) |
+| `ED` | 0 | clears `$21` (mid-sentence, e.g. before ‥‥) |
+| `E2`-`DF` | 0 | call fixed messages $254-$257 depending on hero |
+| `E9 E8 E7 E6 E5 E1 E0 DC DB DA D1` | 0 | game-state actions (not text) |
+
+Names with "?" are guesses; they don't matter for translation as long
+as argument lengths are right. `tools/script.py check` parses all 1276
+reachable messages with zero errors.
+
+**Menus** — menu row 0 at `$DEB3` is the 6 slot screen positions; other
+rows hold verb IDs (01, 02, 03, … 07). The verb names are printed by
+`$DE6C` from somewhere not yet located — find in stage 4 (likely the
+text-like area in bank 7 around $F800 or bank 3 after $AC00).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
+- `tools/script.py check | show ID…` — message parser (stage 4 builds the
+  full dumper on this).
 
 ### Tooling notes (mesen-for-ai)
 - Execute breakpoints use `access: "exec"` (not `"execute"`); also
@@ -160,3 +220,9 @@ take one argument byte (the argument decodes as a stray kana).
 - PPU memory types: `nesNametableRam`, `nesPaletteRam`, `nesChrRom`,
   `nesPpuMemory`, `nesSpriteRam`.
 - CDL export JSON: `bytes[i].code/data` plus a `summary` range list.
+- Watches on `nesPrgRom` never fire; watch the CPU address via
+  `nesMemory` instead. Watch events stay in the buffer across
+  `watch.list` calls and a busy watch (e.g. `$2002`) can produce >100 KB
+  — delete noisy watches immediately and filter events by `handle`.
+- Intro timing: page 1 at frame ~545, A → page 2 (~750), A → page 3
+  with bank 3 `$A3F8` read by `$EA08` from frame 760, one char / 3 frames.
