@@ -1,0 +1,850 @@
+# Be-Bop High School - English script, msg_180.
+# Translation only (no ROM text). Check with tools/encheck.py.
+
+@@ 180  bank3 $8244
+EN:
+[cmdEF 34][cmdEE 17]Hup![cmdDD 07][cmdDA] Hup! Hup![cmdDD 07][cmdDA] Huuup!
+[delay 3c][cmdEE 05]Guv, did you see the
+guts on me?[page]
+[cmdEF 1c]Who's this crew-cut
+kid, then?
+[cmdEA 14]
+
+@@ 181  bank3 $82A0
+EN:
+[cmdEF 22][cmdDD 07]Oi. I'm George Tsuji.
+I run Kyokuto High.
+Push me any more and
+I'll get serious.
+
+@@ 182  bank3 $82F1
+EN:
+[cmdEF 22]Yeah, I grabbed Shingo
+from Kita High. He got
+on the wrong side of me.[page]
+[cmdEE 01]........But[cmdED]........
+go on, see for yourself.
+He's at my place. The
+flats near Kita High.
+[setflag 5d][clrflag 96]
+
+@@ 183  bank3 $836C
+EN:
+[cmdEE 02]Howay, it's you lot! Ta
+for the other day. Ah'm
+on a site round here
+now, like.
+
+@@ 184  bank3 $83A6
+EN:
+[cmdEE 02]What am ah deein'? Ye
+[cmdEE 01]can see, man. Night
+shift.
+
+@@ 185  bank3 $83CE
+EN:
+[cmdDD 0a][cmdEE 01]Say that and ah'll be
+ower the moon, me.
+
+@@ 186  bank3 $83F0
+EN:
+[cmdEE 02]Ooh, more "Canny" for
+us? [cmdEE 01]Reet, to celebrate,
+ah'll set off another
+bomb![page]
+Today's special offer!
+[cmdEE 00]This spot'll do!
+[clrflag 97][setflag b3][cmdDD 0b][flash][shake][flash][shake][flash][shake][flash][shake][flash][shake][page+goto f8 02]
+
+
+@@ 187  bank3 $8477
+EN:
+[cmdEE 02]Even for ye lads, if ah
+blow up that pylon ah'll
+get nicked, man.
+
+@@ 188  bank3 $84A8
+EN:
+[cmdEF 34]Guv,
+if you're not tucked up
+by nightfall, you'll run
+out of steam.
+[setflag 03][page+goto 61 02]
+
+
+@@ 189  bank3 $84D8
+EN:
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 08]Guv, you've got death
+written all over you.
+[cmdEE 04][cmdED][delay 3c][setflag 17][page+goto a5 02]
+
+
+@@ 18A  bank3 $8504
+EN:
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 14]Best not cross any
+dodgy bridges today.
+[setflag 17][page+goto a5 02]
+
+
+@@ 18B  bank3 $8538
+EN:
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Now you can live like
+a normal person.
+[setflag 17][page+goto a3 02]
+
+
+@@ 18C  bank3 $8562
+EN:
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Guv, you're on top form
+today.
+[setflag 17][page+goto a3 02]
+
+
+@@ 18D  bank3 $858D
+EN:
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 01]Cor, look at that!
+The world's yours today,
+Guv.
+[setflag 17][page+goto a3 02]
+
+
+@@ 18E  bank3 $85C6
+EN:
+[cmdEF 34][cmdEE 11]I know just how it is,
+Guv. That ache in your
+heart with nowhere to
+go.
+[cmdEE 0d][cmdEE 11][cmdEE 0d][cmdEE 11][cmdEE 0d][delay 1e]
+
+@@ 18F  bank3 $85FB
+EN:
+[cmdEF 34]Er, there's a sign here.
+[cmdEE 0f]Very handy, this is,
+Guv. Very handy.
+[setflag 08][page+goto 7a 02]
+
+
+@@ 190  bank3 $8630
+EN:
+[cmdEF 34][cmdEE 17][cmdED][cmdEE 17][cmdDD 03]Hup! Hup![cmdDD 04] Hup! Huuup![cmdDD 03][page]
+[cmdEE 01]Guv, did you see the
+guts on me?
+
+@@ 191  bank3 $8673
+EN:
+[cmdEF 34][cmdEE 0f]Right, Guv. From today,
+I'll walk about carrying
+the Kakui sign.
+[cmdEE 07]Watch me show some guts.
+[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
+
+
+@@ 192  bank3 $86CF
+EN:
+[cmdEF 34][cmdEE 0a]Bit obvious, but let's
+lean the sign up and use
+it.
+[setflag 0a][clrflag 60][page+goto 7f 02]
+
+
+@@ 193  bank3 $8701
+EN:
+[cmdEF 34][cmdEE 12]Take something[cmdED]...?
+There's only wardrobes
+here. Lugging one about
+takes guts, Guv.
+
+@@ 194  bank3 $874B
+EN:
+[cmdEF 34][cmdEE 0a]Guv, I'm a bit of a face
+round this shop, see[cmdED]...[page]
+Thing is, the walkway on
+floor 4 joins up with
+the main building.[page]
+[setflag 0d][goto ec 01]
+
+@@ 195  bank3 $87AB
+EN:
+[cmdEF 34][cmdEE 01]Leave it out, Guv!
+It's not Noboru.
+It's Nobuo, honestly.
+
+@@ 196  bank3 $87DB
+EN:
+[cmdEF 34][cmdEE 0a]This way, Guv, to the
+main building. I've been
+a face here since I was
+a [cmdEE 0f][cmdEE 0a][delay 14]nipper.
+
+@@ 197  bank3 $882C
+EN:
+[cmdEF 34][cmdEE 07]Ah, I see.
+Good things come to them
+who kip, as they say.
+
+@@ 198  bank3 $8851
+EN:
+[cmdEF 34][cmdEE 0f]Nobody's about, but I'm
+still a face round here,
+[cmdEE 12]so no funny business[cmdED]...
+
+@@ 199  bank3 $888C
+EN:
+[cmdEF 34][cmdEE 12]Guv, not again!
+[cmdEE 05]It's No-bu-o! Honestly!
+
+@@ 19A  bank3 $88B0
+EN:
+[cmdEF 34][cmdEE 0f]Guv, let me do it.
+Nobuo Kaneko'll prove
+he's a real man.[page]
+[cmdEA 01][cmdEF 34][cmdEE 13]Guv, Nobuo's a man now.[page]
+[cmdEE 07]Them dodgy types Junko
+mentioned? Only
+extremists![page]
+They were plotting to
+blow up Minami Bridge.
+What do we do?
+[setflag 11]
+
+@@ 19B  bank3 $8956
+EN:
+
+
+@@ 19C  bank3 $8957
+EN:
+[cmdEF 34][cmdEE 07]No change, but calling
+the police is free.
+[cmdEE 17][cmdED]Beep, boop, bip[cmdED]......[page]
+[cmdEE 09]Whoa, it's through!
+Guv, what do I say?
+[setflag 12][page+goto 93 02]
+
+
+@@ 19D  bank3 $89BE
+EN:
+[cmdEF 34][cmdEE 0e]Guv,
+me heart's going like
+the clappers.
+
+@@ 19E  bank3 $89E0
+EN:
+[cmdEF 34][cmdEE 07]Guv, draw a fortune here
+every morning, or your
+luck goes [cmdEE 12]right down[cmdEE 11]
+the pan.
+
+@@ 19F  bank3 $8A1D
+EN:
+[cmdEF 34][cmdEE 0f]Guv, I've bought 100 yen
+of balls. Go on, use
+'em.
+[setflag 1c][page+goto b8 02]
+
+
+@@ 1A0  bank3 $8A55
+EN:
+[cmdEF 34][cmdEE 07]Miss, would you do
+Nobuo Kaneko the honour
+of coming along?
+
+@@ 1A1  bank3 $8A85
+EN:
+[cmdEF 34][cmdEE 14][cmdD1]Guv, it's just bad luck
+today. [cmdEE 10]Another time, eh?
+
+@@ 1A2  bank3 $8AB2
+EN:
+[cmdEF 34][cmdEE 03]Guuuv!
+[delay 3c]
+
+@@ 1A3  bank3 $8ABE
+EN:
+[cmdEF 34][cmdEE 0d]Guv, I'm a bit fussy
+about me coffee, me.
+
+@@ 1A4  bank3 $8AE3
+EN:
+[cmdEF 34][cmdEE 0e]Th-this is the real
+deal!
+
+@@ 1A5  bank3 $8AFA
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Vroom vroom[cmdED]...
+[cmdED][cmdDD 17][cmdDA][cmdDD 0a][cmdDA][cmdDD 18][cmdDA][cmdDD 04][cmdDA][cmdDD 03][cmdDA][cmdDD 17][cmdDA][cmdDD 0b]Neeeeow![page]
+[cmdEE 0f]Guv[cmdED]...
+It was over in a flash.
+
+@@ 1A6  bank3 $8B46
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Mandrill Higashiii!
+[delay 5a][goto cf 02]
+
+@@ 1A7  bank3 $8B5B
+EN:
+[cmdEF 34][cmdEE 14]Tricky one, this, Guv.
+
+@@ 1A8  bank3 $8B71
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Now, now, calm down,
+[cmdED]calm down, Mandrill
+Higashi.[page]
+[cmdEF 19]Whaaaaat?!
+I told you not to call
+me that!
+[cmdEA 06]
+
+@@ 1A9  bank3 $8BB6
+EN:
+[flash][cmdDD 05][cmdDA][cmdEF 34][cmdEE 0f]Guv, she's got Shingo's
+mark on her thigh, sure
+enough.[page]
+[cmdED]........
+[cmdEE 02]Guv, you alright?
+Your cheek's bright red.
+
+@@ 1AA  bank3 $8C10
+EN:
+[cmdEF 34][cmdEE 0a]They know my face here,
+so I get in free. You'll
+need tickets, though.
+
+@@ 1AB  bank3 $8C44
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Oi, oi, oi!
+I'm Nobuo Kaneko,
+number one sidekick of
+[cmdE1] of Aitoku!![page]
+[cmdEE 06][delay 5a][cmdEE 14]Blimey, Guv. New ticket
+man, doesn't know me.
+Typical.
+
+@@ 1AC  bank3 $8CB9
+EN:
+[cmdEF 34][cmdEE 0f]Right, three returns.
+[page+goto 06 02]
+
+
+@@ 1AD  bank3 $8CD8
+EN:
+[cmdEF 34][cmdEE 14]Guv, we've no tickets.
+
+@@ 1AE  bank3 $8CEF
+EN:
+[cmdEF 34][cmdEE 0f]Guv, don't just use me
+as your gofer. Let me
+prove I'm a man.
+
+@@ 1AF  bank3 $8D1D
+EN:
+[cmdEF 34][cmdEE 13]Oi!
+Who you eyeballing, eh?!
+[page+goto 1e 02]
+
+
+@@ 1B0  bank3 $8D3F
+EN:
+[cmdEF 34][cmdEE 07]Looks like this is the
+car park, Guv.[page]
+[cmdEE 0f]Shall I stake it out
+again for you?
+[setflag 2c]
+
+@@ 1B1  bank3 $8D8E
+EN:
+[cmdEF 34][cmdEE 0f]Right, I'll stake it out
+from behind that car.[page]
+[cmdEA 03]
+
+@@ 1B2  bank3 $8DB9
+EN:
+[cmdEF 34][cmdEE 14]Guv, stop mucking about
+and decide what we're
+doing.
+
+@@ 1B3  bank3 $8DE3
+EN:
+[cmdEF 34][cmdEE 14]Leave it to me, Guv.[page]
+Nobuo Kaneko, a real
+man, will charge to the
+ends of hell for you,
+Guv.[page]
+[cmdEE 17][cmdED]Come on, come on,
+here I gooo!
+[cmdDD 0f][cmdEF 00][cmdDA][cmdDD 0d][cmdDA][cmdDD 04][cmdDA][cmdDD 03][cmdDA][cmdDD 17][cmdDA][cmdDD 10][cmdDA][cmdDD 08][cmdDA][page]
+[cmdEF 32][cmdEE 0b][cmdED]Nobuo[cmdED]............
+[delay 3c][cmdEE 07]He's gone off somewhere.
+
+@@ 1B4  bank3 $8E82
+EN:
+[cmdEF 34][cmdEE 17][cmdED]G-Guv! [cmdED]Just like I said,
+[cmdED]Teru's getting in that
+car.
+[page+goto 10 02]
+
+
+@@ 1B5  bank3 $8EB3
+EN:
+[cmdEF 34][cmdEE 12]No more stake-outs,
+please.
+[cmdEE 00][delay 3c]
+
+@@ 1B6  bank3 $8ED3
+EN:
+[cmdEF 34][cmdEE 05]Guuuv!
+
+@@ 1B7  bank3 $8EDC
+EN:
+[cmdEF 34][cmdEE 0d]Yeah!
+[cmdE1]'s the best in
+all Japan!
+[delay 3c][cmdEE 03][delay 3c][cmdEE 11][cmdED][delay 3c]
+
+@@ 1B8  bank3 $8F02
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Misakooo![page]
+[cmdEE 11]Not here, is she.
+
+@@ 1B9  bank3 $8F1D
+EN:
+[cmdEF 34][cmdEE 14]Nobody's listening to us
+any more.
+
+@@ 1BA  bank3 $8F38
+EN:
+[cmdEF 34][cmdEE 12]Guv, that "Shout"
+command doesn't do much,
+does it?
+
+@@ 1BB  bank3 $8F65
+EN:
+[cmdEF 34][cmdEE 0f]Guv, by Nobuo Kaneko's
+reckoning, the black
+Skylion bloke trains at
+this gym.
+
+@@ 1BC  bank3 $8FAB
+EN:
+[cmdEF 34][cmdEE 02]Guv, that's a real
+gangster! [cmdEE 03]We're in
+trouble.
+
+@@ 1BD  bank3 $8FD0
+EN:
+[cmdEF 34][cmdEE 17][cmdED][delay 5a][cmdEE 0e]Aaah! Guv, [cmdEE 0d]it's that
+drip Tsubota[cmdED]...
+Sarukichi Tsubota!
+[setflag 39][cmdEF 09][call 89 03]
+
+@@ 1BE  bank3 $9013
+EN:
+[cmdEF 34][cmdEE 12]Cor, Guv,
+life's not fair, is it?
+
+@@ 1BF  bank3 $9030
+EN:
+[setflag 3e][cmdEF 34][cmdEE 17][cmdED]No, no, no,
+[cmdED]one, two, three!
+[page+goto e8 00]
+
+
+@@ 1C0  bank3 $9054
+EN:
+[cmdEF 34][cmdEE 06]Guv, I can't take
+something this big!
+
+@@ 1C1  bank3 $9070
+EN:
+[cmdEF 34][cmdEE 0a]I know, Guv!
+[cmdEE 0f]If we plant a bomb here,
+we could get across.
+
+@@ 1C2  bank3 $90A0
+EN:
+[cmdEF 34][cmdEE 13]Aaaaaaaaaah![cmdED]...[page]
+[cmdEE 14]You trying to knock the
+pylon down by shouting?[page]
+[cmdEE 06]Don't reckon that'll
+work.
+
+@@ 1C3  bank3 $90E3
+EN:
+[cmdEF 34][cmdEE 0f]Then let's use the bomb
+from Kakui's and go
+out with a bang!
+[cmdEA 07][cmdDD 0b][cmdDD 0b][cmdDD 0b][flash][shake][flash][shake][flash][shake][shake][shake][page+goto f5 00]
+
+
+@@ 1C4  bank3 $9127
+EN:
+[cmdDE 26][cmdEF 34][cmdEE 07]Guv[cmdED]...[page]
+[cmdEE 11]Youthful folly, eh.
+[page+goto 1b 02]
+
+
+@@ 1C5  bank3 $914E
+EN:
+[cmdEF 34][cmdEE 0f]Leave it to me, Guv.
+Young Magazine? Course
+I've bought it.
+
+@@ 1C6  bank3 $917C
+EN:
+[cmdEF 34][cmdEE 08]Aaah!
+There's a bomb in here!
+[cmdEE 04][delay 1e][setflag 41][page+goto 8e 02]
+
+
+@@ 1C7  bank3 $91A8
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Daaaaaaah!
+[delay 5a][cmdEE 0a]Ahh, Guv, shouting from
+up high feels great.
+
+@@ 1C8  bank3 $91E4
+EN:
+[cmdEF 34][cmdEE 04]Let's carry it gently.
+Geeently.
+[setflag 42][page+goto 8f 02]
+
+
+@@ 1C9  bank3 $9205
+EN:
+[cmdEF 34][cmdEE 0a]Lovely view, every time.
+
+@@ 1CA  bank3 $921C
+EN:
+[cmdEF 34][cmdEE 17][cmdED][delay 5a]Ah, [cmdEE 0e]Guv,[page]
+[cmdEE 0f]that Iwamoto's got a
+camera with him.
+[setflag 46][page+goto 9f 02]
+
+
+@@ 1CB  bank3 $924E
+EN:
+[cmdEF 34][cmdEE 0b][cmdED][cmdED]..............
+[delay 5a][cmdEF 11][page+goto 07 01]
+
+
+@@ 1CC  bank3 $9264
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Hang on, someone's in
+there[cmdED]...
+[cmdEE 00][delay 1e][page]
+[cmdEE 13]Aaah! Guv, b-b-behind
+you!
+[page+goto 27 03]
+
+
+@@ 1CD  bank3 $929E
+EN:
+[cmdEF 34][setflag 4c][clrflag 85][setflag 86][cmdEE 07][cmdD1]Guv! While you were
+going one-on-one, the
+lot in the warehouse
+legged it.[page]
+[cmdEE 0f]One of them was my old
+classmate, Samejima.
+[page]
+He went to school in a
+town on the train from
+Minato station[cmdED]...
+[cmdEE 11][delay 3c][cmdDE 2e][cmdDA][page]
+[cmdEE 10][cmdDE 2b]Th-that's it! [cmdEE 0f]Kyokuto!
+He's at Kyokuto High.
+
+
+@@ 1CE  bank3 $937B
+EN:
+[cmdEF 34][cmdEE 17][cmdED]You remembered me.
+[cmdED]Nobuo Kaneko[cmdED]...
+[delay 3c][cmdEE 05][delay 5a]
+
+@@ 1CF  bank3 $93AC
+EN:
+[cmdEF 34][cmdEE 14]Samejima? [cmdEE 12]That drip is
+Kyokuto's Big Four No.4?[page]
+[cmdEE 14]Guv, [cmdEE 10]this'll be a
+doddle.
+
+@@ 1D0  bank3 $93F7
+EN:
+[cmdEF 34][cmdEE 0f]Guv,
+don't wind Misako up.
+
+@@ 1D1  bank3 $9414
+EN:
+[cmdEF 34][cmdEE 02]Haaah...
+[cmdEE 06][delay 5a]
+
+@@ 1D2  bank3 $9421
+EN:
+[cmdEF 34][cmdEE 0f]Nobuo Kaneko, going in![page]
+[delay 3c][cmdEE 17][cmdED][delay 3c]Ah, Guuuv!
+[cmdEA 08]
+
+@@ 1D3  bank3 $9448
+EN:
+[cmdEF 34][cmdEE 07]Higashimachi station,
+by Kyokuto High, is
+three stops from here.
+
+@@ 1D4  bank3 $947E
+EN:
+[cmdEF 34][cmdEE 11]Guv, they don't know my
+face at this station.
+[cmdEE 07]Buy us a ticket.
+
+@@ 1D5  bank3 $94B0
+EN:
+[cmdEF 34][cmdEE 0d]Oooh,
+[cmdEE 0f]I'm shaking with
+excitement, Guv.
+
+@@ 1D6  bank3 $94D0
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Ah, Guv, he's legging
+it!
+[setflag 56]
+
+@@ 1D7  bank3 $94EA
+EN:
+[cmdEF 34][cmdEE 17][cmdED]Oi, Samejima!
+[cmdED]Where d'you think
+you're going?
+[page+goto 52 03]
+
+
+@@ 1D8  bank3 $950E
+EN:
+[cmdEF 34][cmdEE 17][cmdED][delay 1e][cmdEE 11]Kitamura can rest in
+peace now.
+
+@@ 1D9  bank3 $9535
+EN:
+[cmdEF 34][cmdEE 17][cmdED]G-Guv, it's[cmdED]...
+Tsuji[cmdED]... [cmdED]It's Tsuji!
+[cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 0a]From that photo the
+girl showed us[cmdED]...
+
+@@ 1DA  bank3 $958D
+EN:
+[cmdEF 34][setflag 5e][cmdEE 17][cmdED]Ah, the nameplate on
+this [cmdED]door says Tsuji!
+[cmdEE 13]Shingo must be locked up
+in here.
+
+@@ 1DB  bank3 $95D2
+EN:
+[cmdEF 34][cmdEE 0f]Guv!
+Let's go all in.
+
+@@ 1DC  bank3 $95EE
+EN:
+[cmdEF 34][cmdEE 0f]Right, Guv, I'll charge
+in first.[page]
+[cmdEE 17][cmdED]Shingooo!
+[page+goto 3f 02]
+
+
+@@ 1DD  bank3 $961F
+EN:
+[cmdEF 34][cmdEE 0c]Hnuuv~ hasht nighh hi
+hhoughh[cmdED]........ Hahi
+hahi hefuha hihahi[cmdED]...
+Hnuuv~ hhorry.[page]
+[setflag 2e][goto 0c 02]
+
+@@ 1DE  bank3 $9668
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], there's
+no point picking on a
+junior-high kid.
+
+@@ 1DF  bank3 $9690
+EN:
+[cmdEF 32][cmdEE 05][cmdE1], show a bit
+more guts.
+
+@@ 1E0  bank3 $96AF
+EN:
+[cmdEF 32][cmdEE 03]It says "Closed for
+refurbishment".
+
+@@ 1E1  bank3 $96D9
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], give it a rest.
+If you're sleepy, let's
+go home.
+
+@@ 1E2  bank3 $9706
+EN:
+[cmdEF 32][cmdEE 05][cmdE1],
+is there any point to
+that?
+[delay 1e][cmdEE 06][cmdED][delay 3c]
+
+@@ 1E3  bank3 $972A
+EN:
+[cmdEF 32][cmdEE 0b][cmdED]There's a window way up
+there.
+
+@@ 1E4  bank3 $9747
+EN:
+[cmdEF 32][cmdEE 0a]Stealing's not on,
+[cmdEE 08][cmdE1].
+
+@@ 1E5  bank3 $9762
+EN:
+[cmdEF 32][cmdEE 0a]This looks like floor 2
+of the annexe.
+
+@@ 1E6  bank3 $977E
+EN:
+[cmdEF 32][cmdEE 0a]This looks like floor 3
+of the annexe.
+
+@@ 1E7  bank3 $979A
+EN:
+[cmdEF 32][cmdEE 0a]This looks like floor 4
+of the annexe.
+
+@@ 1E8  bank3 $97B6
+EN:
+[cmdEF 32][cmdEE 01][cmdE1], I can't
+reach.
+
+@@ 1E9  bank3 $97CD
+EN:
+[cmdEF 32][cmdEE 08][cmdED]........
+[cmdEE 08]Sigh[cmdED]...[page]
+[cmdEE 06][cmdE1],
+can you take this
+seriously for once?
+
+@@ 1EA  bank3 $9800
+EN:
+[cmdEF 32]It's just like the
+school roof. Makes you
+sleepy.
+
+@@ 1EB  bank3 $9824
+EN:
+[cmdEF 32][cmdEE 03]That's the main building
+roof, but there's no
+way across.
+
+@@ 1EC  bank3 $984D
+EN:
+[cmdEF 32][cmdEE 06]If you knew, you
+could've said so sooner,
+Nobuo.
+
+
+@@ 1ED  bank3 $9871
+EN:
+[cmdEF 32][cmdEE 0a]This is floor 4 of the
+main building.
+
+@@ 1EE  bank3 $9887
+EN:
+[cmdEF 32][cmdEE 0a]We can't use the stairs
+down.
+
+@@ 1EF  bank3 $98A1
+EN:
+[cmdEF 32][cmdEE 0b][cmdED]Hello, fag ends[cmdED]...
+[cmdEE 03]Just like Junko said, [cmdEE 04]
+this looks dodgy.
+[setflag 0f][clrflag a9]
+
+@@ 1F0  bank3 $98E5
+EN:
+[cmdEF 32][cmdEE 0a]So we're going down?
+
+@@ 1F1  bank3 $98F7
+EN:
+[cmdEF 32][cmdEE 07][cmdED]So Nobuo spent all night
+[cmdED]in this bin.[page]
+[cmdEE 09]That takes guts, that
+does. [cmdEE 04]What a man.
+[cmdEE 00][delay 3c]
+
+@@ 1F2  bank3 $9949
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], we ought
+to tell the police.
+
+@@ 1F3  bank3 $9973
+EN:
+[cmdEF 32][cmdEE 05]We've got no change.
+
+@@ 1F4  bank3 $9986
+EN:
+[cmdEF 32][cmdEE 01]This looks like the only
+phone round here.
+
+@@ 1F5  bank3 $99A7
+EN:
+[cmdEF 32][cmdEE 06]Just promise, then we
+can scarper.
+
+@@ 1F6  bank3 $99C2
+EN:
+[cmdEF 32][cmdEE 0a]There's nobody here[cmdED]...
+Let's go home and kip.
+
+@@ 1F7  bank3 $99E8
+EN:
+[cmdEF 32][cmdEE 05][cmdE1], you'll
+tempt fate.
+
+@@ 1F8  bank3 $99FE
+EN:
+[cmdEF 32][cmdEE 06][cmdE1], too many
+fortunes is bad for you.
+Stick to one a day.
+
+@@ 1F9  bank3 $9A39
+EN:
+[cmdEF 32][cmdEE 0a]He doesn't look like
+he's lying.
+
+@@ 1FA  bank3 $9A50
+EN:
+[cmdEF 32][cmdEE 06]True enough.
+Three blokes having
+coffee is no fun.
+[cmdE8][cmdDE 26]
+
+@@ 1FB  bank3 $9A7E
+EN:
+[cmdEF 32][cmdEE 0a]Nobody dodgy here.
+
+@@ 1FC  bank3 $9A9B
+EN:
+[cmdEF 32][cmdEE 0b][cmdED]Nobuo, you have to put
+[cmdED]money in when you
+get on[cmdED]......[page]
+[cmdED]Oh dear, rocking it
+yourself[cmdED]...
+[cmdED]Pathetic[cmdED]...[page]
+[cmdEE 06]What's all this "vroom
+vroom, neeeow"[cmdED]...?
+
+@@ 1FD  bank3 $9B07
+EN:
+[cmdEF 32][cmdEE 09][cmdE1], I think
+we're done here. Nobuo
+seems happy now.
+[page+goto a7 01]
+
+
+@@ 1FE  bank3 $9B3F
+EN:
+[cmdEF 32][cmdEE 01][cmdE1], where on
+earth are you going?
+
+@@ 1FF  bank3 $9B5D
+EN:
+
+

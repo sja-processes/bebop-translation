@@ -6,8 +6,7 @@ add new names as they turn up.
 ## Style
 - UK English spelling, vocabulary and slang (mate, bloke, chancer;
   money stays in yen because the game uses it).
-- **No honorifics**: drop -san/-kun/-sama; アニキ → "boss" (TBC when it
-  appears). Senpai → "the older girls/lads".
+- **No honorifics**: drop -san/-kun/-sama. アニキ (Nobuo → hero) → **"Guv"**. Senpai → "the older girls/lads".
 - **Place/school names romanised**, not translated.
 - Never "Now then, now then" / "Now then" as a greeting for anyone (Savile).
 - Raw tiles like `<41>` inside words may be dropped (checker only warns).
@@ -48,7 +47,8 @@ Width checker counts each as 7 letters.
 |---|---|---|
 | シンゴ | Shingo | Kita High womaniser, kidnapped |
 | レミ | Remi | Chuo Girls', Shingo's girlfriend |
-| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick |
+| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", me = my, Cor, Blimey, "a face" round here); hero keeps calling him Noboru |
+| (EF32 companion) | | polite junior, calls hero by name, "Nobuo" |
 | イナガキ | Inagaki | Nichu No.2 |
 | ハヤシ | Hayashi | Nichu top dog |
 | ユウジ | Yuji | informant (luck-based) |
@@ -67,7 +67,7 @@ Width checker counts each as 7 letters.
 | テル | Teru | Joto lad secretly in Gold Emperor |
 | かなしみのカズヒロ | Kazuhiro the Heartbroken | lost his girl Rie to Shingo |
 | ゲン (ひやといにんぷ) | Gen, navvy | **Kyushu dialect → light Geordie** (howay, reet, cannit, toon, me = my) |
-| サルキチ | Sarukichi | fake yakuza in sunglasses |
+| ツボタ サルキチ | Sarukichi Tsubota | fake yakuza in sunglasses; シャバぞう → "drip" |
 | マリ | Mari | Girls' Commercial, George Tsuji's girlfriend |
 | ツジ ジョージ | George Tsuji | Big Four No.1, Gold Emperor, boxer, Skylion owner |
 | オニジマ | Onijima | police officer (Kansai speech, kept plain UK copper: "You're nicked!") |
@@ -88,7 +88,7 @@ Width checker counts each as 7 letters.
 | JP | EN |
 |---|---|
 | さてん「マイ」 | cafe "Mai" |
-| カクイデパート | Kakui Dept. Store |
+| カクイデパート | Kakui Dept. Store (full name); casually "Kakui's" or "the shop" — never "the store" alone |
 | みなみおおはし | Minami Bridge |
 | シカイライン | Skylion (car; parody of Skyline) — provisional |
 | パトカー | police car / panda car |
@@ -96,6 +96,13 @@ Width checker counts each as 7 letters.
 | イイバイ (sake brand; Hakata "it's good") | "Canny" (Geordie "good") — pun reused in 0C6 |
 | イカンバイ (2nd sake; Hakata "no good / can't") | "Cannit" (Geordie "can't") — "ah cannit give ye... a bottle of Cannit" |
 | ブロマイド | pin-up (photo) |
+| どすこい | "Hup!" (Nobuo's sumo-style chant) |
+| かお (well-known) | "a face" |
+| さけぶ (verb) | "Shout" — 1BA refers to the command by name; keep in sync with verb list |
+| ヤングマガジン | Young Magazine (real magazine that ran the manga; kept) |
+| N かい (floors) | "floor N" — Japanese numbering kept, avoids UK ground-floor mismatch |
+| ズガガガ ドピューン (kiddie ride) | "Vroom vroom... Neeeeow!" (1A5 / 1FC) |
+| ひがしまちえき / みなとえき | Higashimachi / Minato station |
 | みなとの そうこ | warehouse at the docks |
 | ホクトジム | Hokuto Gym (Nishiyama Building) |
 | おおボケ 3にんぐみ | the three wallies |
@@ -111,4 +118,5 @@ Width checker counts each as 7 letters.
 - [x] msg_000 (2026-10-10)
 - [x] msg_080 (2026-10-10)
 - [x] msg_100 (2026-10-10)
-- [ ] msg_180 · msg_200 · msg_280 · msg_300 · msg_380
+- [x] msg_180 (2026-10-10)
+- [ ] msg_200 · msg_280 · msg_300 · msg_380
