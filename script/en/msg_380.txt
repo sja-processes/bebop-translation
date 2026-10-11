@@ -252,7 +252,7 @@ Tease
 
 @@ 3BA  bank3 $BE89  verb list (fixed address $BE36)
 EN:
-Stakeout
+Case
 
 @@ 3BB  bank3 $BE90  verb list (fixed address $BE36)
 EN:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the English ROM and IPS patch.
 
-usage: tools/insert.py            -> out/bebop_en.nes, out/bebop_en.ips
+usage: tools/insert.py            -> out/bebop_en.nes, out/bebop_en.bps
 
 Steps (see PLAN.md stage 6):
   1. Expand PRG 128 KB -> 256 KB: banks 0-6 unchanged, banks 7-14 free for
@@ -16,6 +16,7 @@ Steps (see PLAN.md stage 6):
 import glob
 import os
 import sys
+import zlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -180,47 +181,175 @@ def build():
     return bytes(rom), out, starts, verb_addr, report
 
 
-def ips(old, new):
-    """IPS patch old -> new (new may be longer)."""
-    out = bytearray(b'PATCH')
+def _bps_num(n):
+    out = bytearray()
+    while True:
+        x, n = n & 0x7F, n >> 7
+        if n == 0:
+            out.append(0x80 | x)
+            return bytes(out)
+        out.append(x)
+        n -= 1
+
+
+def _bps_literal(out, new, i, j, tgt_rel, min_run=16):
+    """Emit new[i:j] as TargetRead, turning runs of one byte value into
+    TargetRead(1) + TargetCopy (overlapping copy = run-length fill)."""
+    k = i
+    while k < j:
+        r = k
+        while r < j and new[r] == new[k]:
+            r += 1
+        if r - k >= min_run:
+            out += _bps_num(1) + new[k:k + 1]                  # TargetRead 1
+            d = k - tgt_rel
+            out += _bps_num(((r - k - 2) << 2) | 3) + _bps_num((abs(d) << 1) | (d < 0))
+            tgt_rel = r - 1
+            k = r
+            continue
+        # literal up to the next long run
+        e = k
+        while e < j and not all(new[x] == new[e] for x in range(e, min(e + min_run, j))) or e == k:
+            e += 1
+            if e >= j:
+                break
+        e = min(e, j)
+        out += _bps_num(((e - k - 1) << 2) | 1) + new[k:e]
+        k = e
+    return tgt_rel
+
+
+def bps(old, new, key=16):
+    """BPS patch old -> new. SourceRead where bytes are unchanged in place,
+    SourceCopy for any run of `key`+ bytes found elsewhere in the original
+    (the CHR ROM and fixed bank moved by the expansion, and message bytes
+    that are pure control codes), TargetRead (with run-length fills) for
+    the rest. The patch therefore carries no original ROM data."""
+    index = {}
+    for k in range(len(old) - key + 1):
+        index.setdefault(old[k:k + key], k)
+    out = bytearray(b'BPS1' + _bps_num(len(old)) + _bps_num(len(new)) + _bps_num(0))
+    same = lambda i: i < len(old) and old[i] == new[i]
+
+    def source_at(i):
+        """Best source offset for new[i:], or None."""
+        chunk = new[i:i + key]
+        if len(chunk) < key:
+            return None
+        for cand in (src_rel,):
+            if old[cand:cand + key] == chunk:
+                return cand
+        return index.get(chunk)
+
+    src_rel = tgt_rel = 0
     i = 0
     while i < len(new):
-        if i < len(old) and old[i] == new[i]:
-            i += 1
-            continue
         j = i
-        while j < len(new) and j - i < 0xFFFF and not (
-                j < len(old) and old[j:j + 6] == new[j:j + 6]):
-            j += 1
-        chunk = new[i:j]
-        assert i != 0x454F46
-        if len(set(chunk)) == 1 and len(chunk) > 8:
-            out += i.to_bytes(3, 'big') + b'\0\0' + len(chunk).to_bytes(2, 'big') + chunk[:1]
+        if all(same(k) for k in range(i, min(i + 4, len(new)))):
+            while j < len(new) and same(j):
+                j += 1
+            out += _bps_num(((j - i - 1) << 2) | 0)
+        elif source_at(i) is not None:
+            src = source_at(i)
+            while j < len(new) and src + (j - i) < len(old) and old[src + j - i] == new[j]:
+                j += 1
+            d = src - src_rel
+            out += _bps_num(((j - i - 1) << 2) | 2) + _bps_num((abs(d) << 1) | (d < 0))
+            src_rel = src + (j - i)
         else:
-            out += i.to_bytes(3, 'big') + len(chunk).to_bytes(2, 'big') + chunk
+            j += 1
+            while j < len(new) and not (
+                    all(same(k) for k in range(j, min(j + 4, len(new))))
+                    or source_at(j) is not None):
+                j += 1
+            tgt_rel = _bps_literal(out, new, i, j, tgt_rel)
         i = j
-    out += b'EOF'
+    out += zlib.crc32(old).to_bytes(4, 'little') + zlib.crc32(new).to_bytes(4, 'little')
+    out += zlib.crc32(out).to_bytes(4, 'little')
     return bytes(out)
 
 
-def apply_ips(old, patch):
-    data = bytearray(old)
-    i = 5
-    while patch[i:i + 3] != b'EOF':
-        off = int.from_bytes(patch[i:i + 3], 'big')
-        size = int.from_bytes(patch[i + 3:i + 5], 'big')
-        i += 5
-        if size == 0:
-            size = int.from_bytes(patch[i:i + 2], 'big')
-            chunk = patch[i + 2:i + 3] * size
-            i += 3
+def apply_bps(old, patch):
+    pos = 4
+
+    def num():
+        nonlocal pos
+        n, shift = 0, 1
+        while True:
+            x = patch[pos]
+            pos += 1
+            n += (x & 0x7F) * shift
+            if x & 0x80:
+                return n
+            shift <<= 7
+            n += shift
+
+    assert patch[:4] == b'BPS1'
+    assert zlib.crc32(old) == int.from_bytes(patch[-12:-8], 'little'), 'wrong source ROM'
+    num()
+    size = num()
+    meta = num()
+    pos += meta
+    out = bytearray()
+    src_rel = tgt_rel = 0
+    while pos < len(patch) - 12:
+        d = num()
+        kind, length = d & 3, (d >> 2) + 1
+        if kind == 0:
+            out += old[len(out):len(out) + length]
+        elif kind == 1:
+            out += patch[pos:pos + length]
+            pos += length
         else:
-            chunk = patch[i:i + size]
-            i += size
-        if len(data) < off + size:
-            data += bytes(off + size - len(data))
-        data[off:off + size] = chunk
-    return bytes(data)
+            o = num()
+            o = -(o >> 1) if o & 1 else o >> 1
+            if kind == 2:
+                src_rel += o
+                out += old[src_rel:src_rel + length]
+                src_rel += length
+            else:
+                tgt_rel += o
+                for _ in range(length):
+                    out.append(out[tgt_rel])
+                    tgt_rel += 1
+    assert len(out) == size
+    assert zlib.crc32(out) == int.from_bytes(patch[-8:-4], 'little')
+    return bytes(out)
+
+
+def check_no_rom_data(old, patch, limit=64):
+    """Fail if any TargetRead literal of `limit`+ bytes appears verbatim in
+    the original ROM (the patch must not redistribute game data)."""
+    pos = 4
+
+    def num():
+        nonlocal pos
+        n, shift = 0, 1
+        while True:
+            x = patch[pos]
+            pos += 1
+            n += (x & 0x7F) * shift
+            if x & 0x80:
+                return n
+            shift <<= 7
+            n += shift
+
+    num()
+    num()
+    meta = num()
+    pos += meta
+    while pos < len(patch) - 12:
+        d = num()
+        kind, length = d & 3, (d >> 2) + 1
+        if kind == 1:
+            lit = patch[pos:pos + length]
+            pos += length
+            if length >= limit and len(set(lit)) > 1:
+                for k in range(0, length - limit + 1, limit // 2):
+                    assert lit[k:k + limit] not in old, \
+                        'patch literal contains original ROM bytes'
+        elif kind >= 2:
+            num()
 
 
 def main():
@@ -228,15 +357,18 @@ def main():
     outdir = os.path.join(ROOT, 'out')
     os.makedirs(outdir, exist_ok=True)
     open(os.path.join(outdir, 'bebop_en.nes'), 'wb').write(new)
-    patch = ips(old, new)
-    assert apply_ips(old, patch) == new
-    open(os.path.join(outdir, 'bebop_en.ips'), 'wb').write(patch)
+    # BPS only: an IPS cannot copy the CHR ROM that the expansion moves,
+    # so it would have to contain the original graphics verbatim.
+    bpatch = bps(old, new)
+    assert apply_bps(old, bpatch) == new
+    check_no_rom_data(old, bpatch)
+    open(os.path.join(outdir, 'bebop_en.bps'), 'wb').write(bpatch)
     for b, used in sorted(report.items()):
         print('bank %2d: %5d bytes used, %5d free' % (b, used, TEXT_LIMIT - 0x8000 - used))
     print('bank start IDs:', ', '.join('%03X@%d' % s for s in starts))
     print('verb list: bank %d $%04X' % verb_addr)
-    print('wrote out/bebop_en.nes (%d bytes), out/bebop_en.ips (%d bytes)'
-          % (len(new), len(patch)))
+    print('wrote out/bebop_en.nes (%d bytes), out/bebop_en.bps (%d bytes)'
+          % (len(new), len(bpatch)))
 
 
 if __name__ == '__main__':

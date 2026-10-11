@@ -14,7 +14,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 4 — Script dump (2026-10-10)
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — first pass of all 8 files done 2026-10-10; review/polish pending
 - [x] Stage 6a — Font, ROM expansion, inserter; English intro verified (2026-10-11)
-- [ ] Stage 6b — Verb menu width, menus/other screens check, patch polish (BPS?), newline-step decision
+- [x] Stage 6b — Verb menu width, screens check, BPS patch, newline decision (2026-10-11)
 - [ ] Stage 7 — Graphics (title logo kanji, menus)
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
@@ -59,8 +59,8 @@ for the delinquent schoolboy banter where an equivalent fits, rather than
 American phrasing. This is mostly
 language work and can be done in a normal Claude chat (cheaper) in batches.
 
-**6. Insertion.** Inserter that re-encodes English, repoints, and emits an
-IPS/BPS patch. A likely need: an 8×8 Latin font in CHR and possibly DTE/
+**6. Insertion.** Inserter that re-encodes English, repoints, and emits a
+BPS patch. A likely need: an 8×8 Latin font in CHR and possibly DTE/
 word compression or text relocation if space runs out (MMC1 128 KB PRG can
 be expanded to 256 KB if necessary).
 
@@ -295,9 +295,9 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   "Skylion" car name; Gen's Geordie and the "Canny"/"Cannit" sake puns.
 
 ### Insertion (stage 6a)
-- `python3 tools/insert.py` → `out/bebop_en.nes` + `out/bebop_en.ips`
-  (`out/` gitignored). The IPS is built against the original ROM (SHA-1
-  above) and self-verified by re-applying it. Needs `script/jp/` only for
+- `python3 tools/insert.py` → `out/bebop_en.nes` + `out/bebop_en.bps`
+  (`out/` gitignored). The BPS is built against the original ROM (SHA-1
+  above) and self-verified by re-applying it (see stage 6b for why no IPS). Needs `script/jp/` only for
   `encheck`, not for building.
 - ROM layout: PRG 256 KB (header byte 4 = 16). Banks 0-6 original;
   banks 7-14 new (FF + the 16-byte `$BFF0` reset stub copied from bank 0);
@@ -318,10 +318,41 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - Verified in Mesen: intro (message $238) shows English, 4-line page and
   page wait work. Not yet checked: verb menu, other screens.
 
+### Stage 6b results
+- **Verb menu:** slots are at columns 9 and 17 (rows 6/8/10, PPU
+  `$20C9` + `$DEB3` row-0 offsets); the selected verb is shown by a
+  palette change, not a box. A 7-letter verb fits in either column (left
+  column leaves a 1-tile gap; right column ends one tile before the
+  portrait). **Max 7 letters.** Only "Stakeout" (8) was too long →
+  "Case" (per glossary). Verified in Mesen with a test build that opens
+  menu `$2B` (Search / Go up / Go down / Case / Shout / Move).
+- Menu table `$DEB3` is larger than first thought: 6 bytes × ~106 rows,
+  `$DEB3`-`$E131`; script uses menu IDs up to `$64`.
+- **Status panel** (left of the menu: きりょく / うんせい / どつぼ and
+  the pip gauge) still shows kana; drawn from other tiles, not the font
+  slots, so it is intact → translate as graphics in stage 7.
+- **Patch format: BPS only.** The expansion moves the CHR ROM and fixed
+  bank; IPS cannot copy, so an IPS would have to contain ~150 KB of the
+  original ROM verbatim. `tools/insert.py` writes `out/bebop_en.bps`
+  (~44 KB): SourceRead/SourceCopy for anything already in the original
+  (including code-only messages), TargetRead with run-length fills for
+  the rest. `check_no_rom_data()` fails the build if any 64-byte literal
+  in the patch appears in the original ROM. The BPS also carries CRC32s
+  so patchers (Floating IPS/Flips, beat, ROM Patcher JS) reject a wrong
+  source ROM.
+- **Newline step:** left at 2 rows (4 lines/page) since the whole script
+  was written to that limit. Revisit only if playtesting wants denser
+  boxes (`ADC #$44` at `$E137` → `#$24`, plus box-clear and page logic).
+- Page-wait `▼` on pages that end with blank lines is drawn on the box's
+  bottom border row (same as the Japanese, since trailing newlines are
+  preserved) — check how it looks during stage 8.
+- Intro and following school-corridor scene play through in English
+  without errors (to ~frame 3500).
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
-- `tools/insert.py` — build English ROM + IPS (stage 6a).
+- `tools/insert.py` — build English ROM + BPS patch.
 - `tools/font.py` — English font + char→tile map.
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
