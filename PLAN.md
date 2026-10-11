@@ -13,7 +13,8 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 3 — Trace the text engine (2026-10-10)
 - [x] Stage 4 — Script dump (2026-10-10)
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — first pass of all 8 files done 2026-10-10; review/polish pending
-- [ ] Stage 6 — Insertion tooling
+- [x] Stage 6a — Font, ROM expansion, inserter; English intro verified (2026-10-11)
+- [ ] Stage 6b — Verb menu width, menus/other screens check, patch polish (BPS?), newline-step decision
 - [ ] Stage 7 — Graphics (title logo kanji, menus)
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
@@ -293,9 +294,35 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   considered but not adopted); "well fit" in 0E3; dog warden line 0F2;
   "Skylion" car name; Gen's Geordie and the "Canny"/"Cannit" sake puns.
 
+### Insertion (stage 6a)
+- `python3 tools/insert.py` → `out/bebop_en.nes` + `out/bebop_en.ips`
+  (`out/` gitignored). The IPS is built against the original ROM (SHA-1
+  above) and self-verified by re-applying it. Needs `script/jp/` only for
+  `encheck`, not for building.
+- ROM layout: PRG 256 KB (header byte 4 = 16). Banks 0-6 original;
+  banks 7-14 new (FF + the 16-byte `$BFF0` reset stub copied from bank 0);
+  bank 15 = old fixed bank 7 + patches. English text packed from bank 8:
+  bank 8 (IDs 000-113), bank 9 (114-229), bank 10 (22A-3C1, ~8 KB free).
+  Banks 7 and 11-14 spare. Old JP text in banks 2/3 is now unused.
+- Fixed-bank patches: `$DBEE` → `JMP $FD00` (new lookup: start-ID table
+  at `$FD40`/`$FD43`/`$FD46` lo/hi/bank, selects bank via `$C049`,
+  subtracts the start ID, `JMP $DC05` into the original skip loop);
+  `$DE88` → `JSR $FD49` (`LDA #10 / JMP $C049`) and `$DE8C`/`$DE90` =
+  verb list address (currently bank 10 `$A039`). Verb block is kept in
+  one bank by the packer. Free fixed-bank space left: `$FD4E`-`$FFCF`.
+- Font: `tools/font.py` (original design, 66 glyphs): A-Z `$00-$19`,
+  a-z `$1A-$33`, `! ? . , ' " - : ; ( ) / & %` = `$34-$41`; digits keep
+  `$42-$4B`, ♥ `$59`, space `$FE`. Written to CHR banks 30 and 31; ink =
+  colour 0, background = colour 1 (same as the kana). Kana slots still
+  free for DTE later: `$4C-$4F`, `$51-$58`, `$5A-$5D`, `$60-$8D`.
+- Verified in Mesen: intro (message $238) shows English, 4-line page and
+  page wait work. Not yet checked: verb menu, other screens.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
+- `tools/insert.py` — build English ROM + IPS (stage 6a).
+- `tools/font.py` — English font + char→tile map.
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
