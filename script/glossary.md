@@ -150,7 +150,7 @@ Width checker counts each as 7 letters.
 | 3B7 | のぼる | Go up | |
 | 3B8 | おりる | Go down | |
 | 3B9 | ひやかす | Tease | |
-| 3BA | はりこませる | Case | Nobuo stakes a place out ("case the joint"); "Stakeout" was 8 letters, menu max is 7 (stage 6b) |
+| 3BA | はりこませる | Watch | Nobuo stakes a place out; "Stakeout" was 8 letters (menu max 7), "Case" judged unclear as a bare command |
 | 3BB | かう | Buy | |
 | 3BC | おがみたおす | Beg | |
 | 3BD | わたす | Give | |

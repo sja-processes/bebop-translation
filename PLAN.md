@@ -324,8 +324,8 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   palette change, not a box. A 7-letter verb fits in either column (left
   column leaves a 1-tile gap; right column ends one tile before the
   portrait). **Max 7 letters.** Only "Stakeout" (8) was too long →
-  "Case" (per glossary). Verified in Mesen with a test build that opens
-  menu `$2B` (Search / Go up / Go down / Case / Shout / Move).
+  "Watch" (clearer than "Case" as a bare command). Verified in Mesen with a test build that opens
+  menu `$2B` (Search / Go up / Go down / Stakeout→now Watch / Shout / Move).
 - Menu table `$DEB3` is larger than first thought: 6 bytes × ~106 rows,
   `$DEB3`-`$E131`; script uses menu IDs up to `$64`.
 - **Status panel** (left of the menu: きりょく / うんせい / どつぼ and
