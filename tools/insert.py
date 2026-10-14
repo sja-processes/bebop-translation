@@ -22,6 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import encheck  # noqa: E402
 import font     # noqa: E402
+import title    # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -174,6 +175,8 @@ def build():
         for cb in FONT_CHR_BANKS:
             o = cb * 0x1000 + tile * 16
             chr_[o:o + 16] = font.tile_bytes(rows)
+
+    title.apply(new, chr_)
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)

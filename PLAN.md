@@ -15,7 +15,9 @@ each session so the next one doesn't re-derive anything.
 - [ ] Stage 5 — Translation (several sessions, mostly you + Claude chat) — first pass of all 8 files done 2026-10-10; review/polish pending
 - [x] Stage 6a — Font, ROM expansion, inserter; English intro verified (2026-10-11)
 - [x] Stage 6b — Verb menu width, screens check, BPS patch, newline decision (2026-10-11)
-- [ ] Stage 7 — Graphics (title logo kanji, menus)
+- [x] Stage 7a — Title menu in English (2026-10-14)
+- [ ] Stage 7b — Title subtitle kanji + author credit (needs wording decision)
+- [ ] Stage 7c — In-game status panel labels; identify bank 7 kana grid screen
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
 ## Stages
@@ -349,11 +351,36 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - Intro and following school-corridor scene play through in English
   without errors (to ~frame 3500).
 
+### Graphics (stage 7a)
+- **Title screen** = raw nametable in PRG bank 1 `$AAC0` (960 tiles +
+  64 attribute bytes), drawn with CHR bank 12 (`$1000`; `$7D`=15 for
+  `$0000`). Rows: logo 3-11, kanji subtitle 13-14 (tiles `$C0`-`$CD`,
+  `$D0`-`$DD`, 28 tiles), menu 17-22, copyright 25 ("©1988 DATA EAST
+  CORP.") and 27 ("© <author name in kana> / YOUNG MAGAZINE").
+- Title capitals in CHR 12 (three colour bands: rows 0-2 colour 1, 3-4
+  colour 2, 5-7 colour 3): A `B7` C `BD` D `B6` E `B9` G `9D`/`7E` I `A4`
+  K `6F` M `7F` N `A9` O `BE`/`8D` P `B2` R `BF` S `BC` T `B8` U `A8`
+  Y `9F` Z `A3`, © `A2`, "." `88`, digits `AC`-`AE`. Drawn in 7a: H `27`.
+- Tiles freed by the old menu kana (only used there): `28 39 48 49 59 67
+  6A 77 78 79 7A 7B 7C EE FE` (`27` now H). `68` (dakuten) is also used
+  by the author credit, so keep it until that is redone.
+- `tools/title.py` (called by `insert.py`): clears menu rows 17-22,
+  writes TORU NAKAMA / HIROSHI KATO / CONTINUE at column 11, and sets the
+  attribute quadrants under the menu to the text palette (the English
+  lines are wider than the kana ones). Verified in Mesen.
+- **Open for 7b (user decision):** the kanji subtitle (高校極楽伝説,
+  "Koukousei Gokuraku Densetsu") — keep as a logo, or redraw in English
+  (14×2 tiles = 112×16 px). And whether to romanise the author credit on
+  row 27 (it's in kana; 8 tiles + dakuten).
+- **For 7c:** the status panel left of the verb menu (きりょく / うんせい
+  / どつぼ + pip gauge) and the bank 7 `$F94A`-`$FCD3` kana grid.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
 - `tools/insert.py` — build English ROM + BPS patch.
 - `tools/font.py` — English font + char→tile map.
+- `tools/title.py` — title-screen menu patch (stage 7a).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
