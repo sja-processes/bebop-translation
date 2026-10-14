@@ -16,7 +16,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 6a — Font, ROM expansion, inserter; English intro verified (2026-10-11)
 - [x] Stage 6b — Verb menu width, screens check, BPS patch, newline decision (2026-10-11)
 - [x] Stage 7a — Title menu in English (2026-10-14)
-- [ ] Stage 7b — Title subtitle kanji + author credit (needs wording decision)
+- [x] Stage 7b — Title subtitle (English line under kanji) + romanised author credit (2026-10-14)
 - [ ] Stage 7c — In-game status panel labels; identify bank 7 kana grid screen
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
@@ -368,10 +368,20 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   writes TORU NAKAMA / HIROSHI KATO / CONTINUE at column 11, and sets the
   attribute quadrants under the menu to the text palette (the English
   lines are wider than the kana ones). Verified in Mesen.
-- **Open for 7b (user decision):** the kanji subtitle (高校極楽伝説,
-  "Koukousei Gokuraku Densetsu") — keep as a logo, or redraw in English
-  (14×2 tiles = 112×16 px). And whether to romanise the author credit on
-  row 27 (it's in kana; 8 tiles + dakuten).
+- **Stage 7b (decided with Stephen):** kanji subtitle kept; an English
+  line "Legend of High-School Paradise" sits on row 15 under it (not
+  beside: no room), centred on the kanji, in an original italic script
+  rendered by `title.py` (ink colour 1 + colour-2 drop shadow, like the
+  kanji; palette 0 shared with the kanji rows). It uses 18 of the freed
+  tiles (6 spare). Wording is `SUBTITLE` in `title.py`.
+- Author credit romanised as "©K.KIUCHI/YOUNG MAGAZINE" on row 27 (col
+  6), keeping the original blank row 26 between credit lines. The
+  full-name version needed two touching rows (title letters are 8 px
+  tall); Stephen chose the one-line layout from a side-by-side mock-up.
+  Row 26 is cleared only from column 6 so the DECO logo (cols 2-5, rows
+  25-26) survives. `$7D` is the "/" glyph and `$88` is ".".
+- The copyright lines' white→green banding is original, not a palette
+  bug.
 - **For 7c:** the status panel left of the verb menu (きりょく / うんせい
   / どつぼ + pip gauge) and the bank 7 `$F94A`-`$FCD3` kana grid.
 
