@@ -23,6 +23,7 @@ sys.path.insert(0, HERE)
 import encheck  # noqa: E402
 import font     # noqa: E402
 import title    # noqa: E402
+import status   # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -49,6 +50,9 @@ def english_messages():
             msgs[mid] = text
     ids = sorted(msgs)
     assert ids == list(range(len(ids))), 'missing message IDs'
+    # luck grades are drawn in the status panel's own glyph tiles; their
+    # words live in tools/status.py (the EN file keeps the JP raw tiles)
+    msgs.update(status.grade_texts())
     return [msgs[i] for i in ids]
 
 
@@ -177,6 +181,7 @@ def build():
             chr_[o:o + 16] = font.tile_bytes(rows)
 
     title.apply(new, chr_)
+    status.apply(new, chr_)
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)

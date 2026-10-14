@@ -17,7 +17,8 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 6b — Verb menu width, screens check, BPS patch, newline decision (2026-10-11)
 - [x] Stage 7a — Title menu in English (2026-10-14)
 - [x] Stage 7b — Title subtitle (English line under kanji) + romanised author credit (2026-10-14)
-- [ ] Stage 7c — In-game status panel labels; identify bank 7 kana grid screen
+- [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
+- [ ] Stage 7d — Ending staff credits (CHR bank 29 + layout streams at bank 7 `$F941`…)
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
 ## Stages
@@ -385,12 +386,46 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - **For 7c:** the status panel left of the verb menu (きりょく / うんせい
   / どつぼ + pip gauge) and the bank 7 `$F94A`-`$FCD3` kana grid.
 
+### Status panel (stage 7c)
+- Panel left of the verb menu uses CHR bank 30 at `$1000` (font bank) and
+  palette 3 throughout: colour 0 black, 1 white, 2 pink (pip fill), 3
+  light blue (background; the screen is filled with tile `$FF`).
+- Labels are layout tiles in PRG bank 0: `$AEAB` (row 5) and `$AF2B`
+  (row 9), starting column 2; the verb box border is column 8, so ≤ 6
+  tiles. Now **NERVE** and **LUCK** (Stephen's choice; NERVE over STEAM
+  because "steam" reads oddly as a stat), black as in the original, in the
+  old inverse-kana tiles `$8E`-`$95` (letters only used here; `$9D` must
+  never be used as it is a message control code).
+- Gauge pips (row 7) are tiles `$FB` full / `$FC` half / `$FD` empty.
+- Luck grade = message `$37A + level`, printed by `$EB6C` at PPU `$2162`
+  (row 11, col 2) without clearing first. Grades worst→best: **JINX /
+  BAD / FAIR / GOOD / CHARM** (Stephen's choice; originally どつぼ / 凶 /
+  中吉 / 大吉 / ばりきち). Padded to 5 tiles (the original footprint) so
+  a shorter grade fully overwrites a longer one. QoL change agreed with
+  Stephen: grades are pink like the filled pips, with a black drop
+  shadow for contrast, so the level stands apart from the black label.
+  Grade glyph tiles are katakana slots `$60`-`$6E` in font banks 30/31.
+- `tools/status.py` (called by `insert.py`) owns all of this; the grade
+  words override messages `$37A`-`$37E` at build time (the EN file still
+  holds the JP raw tiles for those five, which is expected).
+- Verified in Mesen with test builds showing JINX and (forced) CHARM.
+
+### Ending credits (found in 7c, for 7d)
+- `$EE42` (ending sequence) sets CHR `$7E` = `$1D` (bank 29), points
+  `($62)` at `$F941` and draws layout streams with `$EEED`: tile numbers,
+  `$F5` = next row, `$FE` = blank, `$FF` = end. The streams run through
+  `$F941`-`$FCD3`. Tables at `$EECC`/`$EED7` drive the sequence.
+- CHR bank 29 holds the staff-roll glyphs: kanji role titles (原作, 企画,
+  音楽 …) and katakana names. The earlier "kana grid" guess was wrong —
+  the stream's tile numbers just coincide with dialogue-font kana slots.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
 - `tools/insert.py` — build English ROM + BPS patch.
 - `tools/font.py` — English font + char→tile map.
-- `tools/title.py` — title-screen menu patch (stage 7a).
+- `tools/title.py` — title-screen menu, subtitle and credit (stage 7a/b).
+- `tools/status.py` — status panel labels and luck grades (stage 7c).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
