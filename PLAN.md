@@ -19,6 +19,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7b — Title subtitle (English line under kanji) + romanised author credit (2026-10-14)
 - [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
 - [x] Stage 7d — Ending staff credits in English (2026-10-14; wording open for Stephen's review)
+- [ ] Stage 7e — Japanese text in scene art: survey, Stephen sorts flavour vs gameplay, add English captions only for gameplay ones
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
 ## Stages
@@ -68,6 +69,14 @@ word compression or text relocation if space runs out (MMC1 128 KB PRG can
 be expanded to 256 KB if necessary).
 
 **7. Graphics.** Title kanji subtitle, any graphic menus/signs.
+
+**7e. Scene-art text.** Policy agreed with Stephen: Japanese painted into
+background art is kept for local flavour; where it carries meaning the
+player needs (e.g. 閉店 "Closed" on a shop shutter, which is why the only
+option there is Leave), add a small English caption beside it rather than
+replacing it. Steps: (1) survey every scene CHR bank / layout for
+Japanese text and list meaning + where it appears; (2) Stephen marks each
+as flavour or gameplay; (3) add captions only for the gameplay ones.
 
 **8. Playtest.** Scripted playthroughs in Mesen, checking for overflowing
 boxes, broken control codes and crashes.

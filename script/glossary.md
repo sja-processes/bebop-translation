@@ -140,7 +140,7 @@ Width checker counts each as 7 letters.
 | 3AD | なぐる | Thump | "Thump me all you like" (073) |
 | 3AE | とる | Take | |
 | 3AF | ねる | Sleep | (menu word stays plain; dialogue can still say "kip") |
-| 3B0 | いどうする | Move | |
+| 3B0 | いどうする | Leave | "move/relocate": the command that takes you out of the current location; "Move" read like moving an object (changed 2026-10-14) |
 | 3B1 | ごまする | Grovel | "nice grovelling" (0F1) |
 | 3B2 | おちゃする | Coffee | お茶する = go for a drink at a cafe (chat-up line); drink served is coffee, so related lines say coffee too (083, 0D1, 0FA) |
 | 3B3 | つかう | Use | |

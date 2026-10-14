@@ -212,7 +212,7 @@ Sleep
 
 @@ 3B0  bank3 $BE50  verb list (fixed address $BE36)
 EN:
-Move
+Leave
 
 @@ 3B1  bank3 $BE57  verb list (fixed address $BE36)
 EN:
