@@ -24,6 +24,7 @@ import encheck  # noqa: E402
 import font     # noqa: E402
 import title    # noqa: E402
 import status   # noqa: E402
+import credits  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -182,6 +183,10 @@ def build():
 
     title.apply(new, chr_)
     status.apply(new, chr_)
+    # credits reuse the English font just written to CHR bank 30
+    fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
+    credits.apply(fx, chr_)
+    new[FIXED * BANK:(FIXED + 1) * BANK] = fx
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)

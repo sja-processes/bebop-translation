@@ -18,7 +18,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7a — Title menu in English (2026-10-14)
 - [x] Stage 7b — Title subtitle (English line under kanji) + romanised author credit (2026-10-14)
 - [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
-- [ ] Stage 7d — Ending staff credits (CHR bank 29 + layout streams at bank 7 `$F941`…)
+- [x] Stage 7d — Ending staff credits in English (2026-10-14; wording open for Stephen's review)
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
 ## Stages
@@ -419,6 +419,39 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   音楽 …) and katakana names. The earlier "kana grid" guess was wrong —
   the stream's tile numbers just coincide with dialogue-font kana slots.
 
+### Ending credits (stage 7d)
+- Stream format (`$EEED`): byte 0 = low byte of PPU `$20xx`; then tiles;
+  `$F5` = upload the run and move down a row (same start column); `$F6 n`
+  = move the start column right by n; `$FF` = end. 12 streams: 0 =
+  opening exclamation (drawn once before the loop), 1-10 = role screens,
+  11 = 終. The loop (`$EE83`, counter `$6C` to 11) clears the top 13
+  rows (`$EF50`), changes the lower scene, draws a stream, waits 256
+  frames; ~310 frames per screen. The English version keeps the same
+  timing to within ~25 frames.
+- **CHR bank 29 is not credits-only.** Eight tiles never appear in the
+  credit streams — `$81 $BB $FF` (ending frame graphics) plus blanks
+  `$E6 $F0 $F1 $F5 $F6`. Overwriting `$81` broke the sprite-0 hit that
+  the NMI waits for before its mid-screen CHR switch (`$7F` = bank 6 for
+  the lower scene), which hangs the game. `credits.py` starts from the
+  original bank and never touches those tiles.
+- `tools/credits.py` (called by `insert.py`) rebuilds bank 29: the
+  dialogue font at the same tile numbers (so names use `font.char_map`),
+  white-on-black role letters (1 px left margin), and pixel-doubled 16×16
+  letters for the big opening/closing text; streams are regenerated into
+  `$F941`-`$FCFC` (526 of 956 bytes).
+- Current English (defaults, for Stephen to review): opening "ARGH!"
+  (JP: a large "んがっ"); roles ORIGINAL STORY / PLANNING / GRAPHICS ×2
+  / MUSIC ×2 / PROGRAMMING ×2 / SPECIAL THANKS ×2 (原作 / 企画 / 絵画 /
+  音楽 / プログラム / 協力); staff names romanised from the hiragana in
+  Western order, Hepburn without macrons; closing THE END (終).
+  Uncertain readings: じちょう (JICHO), ぐもん (GUMON), しんきゅう
+  けいゆう (KEIYU SHINKYU).
+- Verified in Mesen with a test build where a spare control code
+  (`cmdDB`) is pointed at `JSR $EE42` and placed at the start of the
+  intro: every stream is reached in order, opening/closing big text and
+  all ten role screens render, no hang. (The test build returns to the
+  intro afterwards; that is an artefact of the hack.)
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
@@ -426,6 +459,7 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - `tools/font.py` — English font + char→tile map.
 - `tools/title.py` — title-screen menu, subtitle and credit (stage 7a/b).
 - `tools/status.py` — status panel labels and luck grades (stage 7c).
+- `tools/credits.py` — ending staff credits (stage 7d).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
