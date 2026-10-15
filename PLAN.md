@@ -461,6 +461,30 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   all ten role screens render, no hang. (The test build returns to the
   intro afterwards; that is an artefact of the hack.)
 
+### Scene-art text survey (stage 7e, step 1)
+Scene graphics are CHR banks 0-11 and 13-28 (12 = title, 29 = credits,
+30/31 = font). Banks 16-28 are portrait/face pieces with no text. Text
+found (bank, tiles as col,row in the 16x16 tile grid):
+
+| # | Bank / tiles | Japanese | Meaning | My read on gameplay value |
+|---|---|---|---|---|
+| 1 | 8 / 0-4,8-A | 閉店 | "Closed" (shop shutter) | **Gameplay**: explains why only Leave works |
+| 2 | 3 / C-F,A-B | 東町駅 | Higashimachi Station | Useful: names the location the dialogue refers to |
+| 3 | 3 / 9-A,1-2 | 全 (or 金?) | "all" / "gold, money" — rooftop sign | Unclear; likely flavour |
+| 4 | 3 / 5-B,8-9 | ＋ 第一 | cross + "Daiichi" (No. 1) — clinic/hospital sign? | Possibly useful if the player must find a hospital |
+| 5 | 3 / E-F,4 | small kana, unclear | shop sign | Flavour |
+| 6 | 5 / 0-3,A-B | 酒蔵 | sake store / brewery | Flavour (maybe location ID) |
+| 7 | 5 / 5-6,8-9 | コーヒー under a cup | "Coffee" | Flavour (the cup says it) |
+| 8 | 9 / 3-4,8 | 両替 | "Change" (coin exchange, arcade) | Flavour |
+| 9 | 9 / E,5-7 | vertical "…円…" | price sign, e.g. "N yen" | Flavour |
+| 10 | 14 / 2-3,4-7 | 大売出 | "Big Sale" banner (a sprite) | Flavour |
+
+Already English in the art: DECO (banks 0, 7), GAME, AFTER BURNER,
+OSCAR (bank 9), COFEE (bank 5), DARK… (bank 7).
+Next: Stephen marks each as flavour/gameplay; then find the scene layout
+that places the marked tiles and add an English caption beside them
+(free tiles in the same CHR bank permitting).
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
