@@ -504,9 +504,12 @@ flavour. #2-#7 and #10 to be judged once seen in context (stage 8).
 rejected after checking: dialogue bubbles use row 12 for their bottom
 border (intro: rows 2-12, tail into row 13), and pictures change
 mid-dialogue, so drawing or clearing there would corrupt bubbles. Instead
-`tools/sceneart.py` puts a black plate reading CLOSED on the shutter
-(picture `$1D` row 6, cols 6-13) under the kanji, in spare CHR bank 8
-tiles. Spare = unused by every picture on that bank AND not a frame tile:
+`tools/sceneart.py` draws "CLOSED" (with quotes) on the shutter under the
+kanji (picture `$1D` row 6, cols 6-13), in spare CHR bank 8 tiles.
+Stephen chose the 'overlay' style: letters drawn over the original art
+tiles in plain white (no plate, no shadow) so as little artwork as
+possible is covered. Choose the style per caption; a black shadow
+(`('overlay', 3, 0)`) or a plate may suit other backgrounds better. Spare = unused by every picture on that bank AND not a frame tile:
 the frame round every picture is drawn from the scene bank with tiles
 `$02` (left), `$07` (right), `$2A` (bottom), `$FF` (surround) — reusing
 `$02`/`$2A` broke the frame in the first attempt.
