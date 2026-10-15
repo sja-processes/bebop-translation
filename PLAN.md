@@ -19,7 +19,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7b — Title subtitle (English line under kanji) + romanised author credit (2026-10-14)
 - [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
 - [x] Stage 7d — Ending staff credits in English (2026-10-14; wording open for Stephen's review)
-- [ ] Stage 7e — Japanese text in scene art: survey, Stephen sorts flavour vs gameplay, add English captions only for gameplay ones
+- [x] Stage 7e — Scene-art text: survey done, CLOSED caption added, 8/9 flavour (2026-10-15); street-area signs #2-#7, #10 deferred to stage 8 (judge in context)
 - [ ] Stage 8 — Playtest & polish (several sessions)
 
 ## Stages
