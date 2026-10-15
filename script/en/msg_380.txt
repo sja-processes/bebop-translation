@@ -196,7 +196,7 @@ Ask
 
 @@ 3AC  bank3 $BE3E  verb list (fixed address $BE36)
 EN:
-Menace
+Lean on
 
 @@ 3AD  bank3 $BE43  verb list (fixed address $BE36)
 EN:

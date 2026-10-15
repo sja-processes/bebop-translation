@@ -136,7 +136,7 @@ Width checker counts each as 7 letters.
 |---|---|---|---|
 | 3AA | はなす | Talk | |
 | 3AB | きく | Ask | |
-| 3AC | おどす | Menace | "Threaten me all you like" (072) |
+| 3AC | おどす | Lean on | intimidate with threats/attitude (verbal, not physical: that is 3AD Thump). Changed from Menace 2026-10-15 ("Threaten" is 8 letters). Responses checked: most fear/defiance; several say "threaten" (072, 03D, 0D6, 0EB); 293 is a bomb-threat phone call |
 | 3AD | なぐる | Thump | "Thump me all you like" (073) |
 | 3AE | とる | Take | |
 | 3AF | ねる | Sleep | (menu word stays plain; dialogue can still say "kip") |
