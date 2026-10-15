@@ -20,7 +20,8 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
 - [x] Stage 7d — Ending staff credits in English (2026-10-14; wording open for Stephen's review)
 - [x] Stage 7e — Scene-art text: survey done, CLOSED caption added, 8/9 flavour (2026-10-15); street-area signs #2-#7, #10 deferred to stage 8 (judge in context)
-- [ ] Stage 8 — Playtest & polish (several sessions)
+- [ ] Stage 8a — Automated checks: render every message page, every picture and menu, the real ending
+- [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
 
 ## Stages
 
@@ -78,8 +79,28 @@ replacing it. Steps: (1) survey every scene CHR bank / layout for
 Japanese text and list meaning + where it appears; (2) Stephen marks each
 as flavour or gameplay; (3) add captions only for the gameplay ones.
 
-**8. Playtest.** Scripted playthroughs in Mesen, checking for overflowing
-boxes, broken control codes and crashes.
+**8. Playtest.** Agreed approach (2026-10-15): split by who is better at
+what, which also saves usage (stepping through the game frame by frame in
+the emulator costs many tokens; Stephen playing costs none).
+- **Claude, systematic checks first (8a):** a tool that renders all 962
+  messages page by page as they appear in the text box, scanned for
+  overflowing lines, too many lines per page, stray tiles and broken
+  control codes (no emulator needed); quick test builds to view all 37
+  scene pictures and every verb menu (with the menu/box on screen, see
+  7e lesson); the full ending in the real game flow, not just the
+  `cmdDB` shortcut; emulator traces only where something looks wrong.
+- **Stephen, real play (8b onwards):** play naturally and judge the
+  English. Watch for: text running past or cut off at the box edge, odd
+  wrapping, lines that read awkwardly or don't fit the scene; menu
+  responses that don't match the chosen action; flicker or garbage,
+  especially around the picture frame and status panel; leftover Japanese
+  that seems to matter (street-area signs #2-#7, #10 from the 7e survey —
+  screenshot them when met); branches that misbehave or crash.
+- **Reporting:** a screenshot plus a short note; a Mesen save state just
+  before the problem for anything that needs tracing.
+- **Rhythm:** 8a first so obvious problems are fixed before Stephen
+  invests play time; then he plays in his own chunks and sends findings,
+  fixed in batches, one session per batch.
 
 ## Findings
 
