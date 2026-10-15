@@ -25,6 +25,7 @@ import font     # noqa: E402
 import title    # noqa: E402
 import status   # noqa: E402
 import credits  # noqa: E402
+import sceneart # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -174,6 +175,15 @@ def build():
     assert fixed[f(0xDE8B)] == 0xA9 and fixed[f(0xDE8F)] == 0xA9
     fixed[f(0xDE8C)] = verb_addr[1] & 0xFF
     fixed[f(0xDE90)] = verb_addr[1] >> 8
+    # Menu highlight (8 sprites behind the text, $EA0D): the JP layout put
+    # 2 on the dakuten row and 6 on the text row, so a 7-letter English
+    # verb lost its last letter's highlight. Move one sprite down to give
+    # 7 on the text row; the spare stays on the row above (hidden behind
+    # the opaque background), keeping the per-scanline sprite count.
+    for addr, was, now in ((0xEA80, '00 00 08 08 08 08 08 08', '00 08 08 08 08 08 08 08'),
+                           (0xEA88, '08 10 00 08 10 18 20 28', '00 00 08 10 18 20 28 30')):
+        assert fixed[f(addr):f(addr) + 8] == bytes.fromhex(was)
+        fixed[f(addr):f(addr) + 8] = bytes.fromhex(now)
     new += fixed
 
     for ch, (tile, rows) in font.build().items():
@@ -183,6 +193,7 @@ def build():
 
     title.apply(new, chr_)
     status.apply(new, chr_)
+    sceneart.apply(new, chr_)
     # credits reuse the English font just written to CHR bank 30
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     credits.apply(fx, chr_)

@@ -497,7 +497,29 @@ Where each sign appears:
   message — capture them during stage 8 playtesting.
 - #10 大売出 is in sprite bank 14 (a character holding a banner).
 
-Next: Stephen marks each as flavour/gameplay; then find the scene layout
+Decisions (Stephen, 2026-10-15): #1 gets a caption; #8 and #9 are
+flavour. #2-#7 and #10 to be judged once seen in context (stage 8).
+
+**Caption for #1 (done):** a caption above the picture (row 12) was
+rejected after checking: dialogue bubbles use row 12 for their bottom
+border (intro: rows 2-12, tail into row 13), and pictures change
+mid-dialogue, so drawing or clearing there would corrupt bubbles. Instead
+`tools/sceneart.py` puts a black plate reading CLOSED on the shutter
+(picture `$1D` row 6, cols 6-13) under the kanji, in spare CHR bank 8
+tiles. Spare = unused by every picture on that bank AND not a frame tile:
+the frame round every picture is drawn from the scene bank with tiles
+`$02` (left), `$07` (right), `$2A` (bottom), `$FF` (surround) — reusing
+`$02`/`$2A` broke the frame in the first attempt.
+
+**Menu highlight fix:** the highlight is 8 sprites behind the menu text
+(`$EA0D`, offsets `$EA80` Y / `$EA88` X); JP covered 6 tiles + 2 on the
+dakuten row, so 7-letter verbs (Promise, Go down) lost their last letter.
+Now 7 on the text row + 1 parked on the row above (same per-scanline
+sprite count). Patched in `insert.py`; verified on "Go down".
+
+Next: once #2-#7/#10 are seen, caption any marked gameplay with
+`sceneart.py` (street-area signs will need the bank 6 area engine, not
+the picture loader); then find the scene layout
 that places the marked tiles and add an English caption beside them
 (free tiles in the same CHR bank permitting).
 
@@ -509,6 +531,7 @@ that places the marked tiles and add an English caption beside them
 - `tools/title.py` — title-screen menu, subtitle and credit (stage 7a/b).
 - `tools/status.py` — status panel labels and luck grades (stage 7c).
 - `tools/credits.py` — ending staff credits (stage 7d).
+- `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
