@@ -481,6 +481,22 @@ found (bank, tiles as col,row in the 16x16 tile grid):
 
 Already English in the art: DECO (banks 0, 7), GAME, AFTER BURNER,
 OSCAR (bank 9), COFEE (bank 5), DARK… (bank 7).
+Where each sign appears:
+- **Scene pictures** (lower window): loaded by `$EC7A` with a picture
+  number (`[cmdF0 xx]` in the script, also the credits loop). CHR bank =
+  `$ED2E[pic]` (into `$7F`); tile layout = PRG bank 1 `$8000 +
+  $ED53[pic] × $130`: 20×14 tiles then 24 attribute bytes (written at
+  `$23D9`+). 37 pictures, CHR banks 6-13 and 28 only. Signs: #1 閉店 in
+  picture `$1D`; #8 両替 (red door) and #9 vertical "…円ゲーム" ("N-yen
+  games") in picture `$10` (the arcade). Captured in Mesen with a test
+  build whose intro is `[cmdF0 xx][page]`.
+- **Street areas** (walking views): `[cmdEC area x y]` → bank 6 `$9AEC`
+  object/placement engine; area BG bank = `$C676[area]` (areas 0-5 →
+  CHR banks 0-5). Signs #2-#5 are in area 3, #6-#7 in area 5. These are
+  only drawn in walking mode, so they could not be captured from a test
+  message — capture them during stage 8 playtesting.
+- #10 大売出 is in sprite bank 14 (a character holding a banner).
+
 Next: Stephen marks each as flavour/gameplay; then find the scene layout
 that places the marked tiles and add an English caption beside them
 (free tiles in the same CHR bank permitting).
