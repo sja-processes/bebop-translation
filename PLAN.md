@@ -512,7 +512,13 @@ possible is covered. Choose the style per caption; a black shadow
 (`('overlay', 3, 0)`) or a plate may suit other backgrounds better. Spare = unused by every picture on that bank AND not a frame tile:
 the frame round every picture is drawn from the scene bank with tiles
 `$02` (left), `$07` (right), `$2A` (bottom), `$FF` (surround) — reusing
-`$02`/`$2A` broke the frame in the first attempt.
+`$02`/`$2A` broke the frame in the first attempt. Also `$BB`: row 13
+(just above the picture) holds the frame's top line (`$BB`) in menu and
+dialogue mode, and the NMI's CHR switch happens partway down that row, so
+its lower scanlines come from the scene bank. Reusing `$BB` gave a
+flickering strip of letter fragments above the picture (seen by Stephen
+in real play; my first test had no menu/box so missed it). Test captions
+with the verb menu on screen, not just the bare picture.
 
 **Menu highlight fix:** the highlight is 8 sprites behind the menu text
 (`$EA0D`, offsets `$EA80` Y / `$EA88` X); JP covered 6 tiles + 2 on the

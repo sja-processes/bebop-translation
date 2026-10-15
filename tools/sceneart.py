@@ -27,7 +27,10 @@ CAPTIONS = {
 # The frame drawn round every picture (outside its 20x14 layout) uses
 # these tile numbers in the scene bank too: left edge, right edge, bottom
 # row, and the blank surround. Never reuse them.
-FRAME_TILES = {0x02, 0x07, 0x2A, 0xFF}
+# Row 13 (just above the picture) is where the NMI switches CHR banks
+# mid-row, so its tiles are drawn partly from the scene bank too: $BB is
+# the frame's top line there in menu/dialogue mode.
+FRAME_TILES = {0x02, 0x07, 0x2A, 0xBB, 0xFF}
 
 
 def _tables(prg):
