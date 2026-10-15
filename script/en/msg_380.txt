@@ -216,7 +216,7 @@ Leave
 
 @@ 3B1  bank3 $BE57  verb list (fixed address $BE36)
 EN:
-Grovel
+Flatter
 
 @@ 3B2  bank3 $BE5D  verb list (fixed address $BE36)
 EN:

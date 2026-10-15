@@ -141,7 +141,7 @@ Width checker counts each as 7 letters.
 | 3AE | とる | Take | |
 | 3AF | ねる | Sleep | (menu word stays plain; dialogue can still say "kip") |
 | 3B0 | いどうする | Leave | "move/relocate": the command that takes you out of the current location; "Move" read like moving an object (changed 2026-10-14) |
-| 3B1 | ごまする | Grovel | "nice grovelling" (0F1) |
+| 3B1 | ごまする | Flatter | "grind sesame" = butter someone up; distinct from 3BC おがみたおす (Beg = plead until they give in). Changed from Grovel 2026-10-15; in 298 it leads to 044 (same as Beg) |
 | 3B2 | おちゃする | Coffee | お茶する = go for a drink at a cafe (chat-up line); drink served is coffee, so related lines say coffee too (083, 0D1, 0FA) |
 | 3B3 | つかう | Use | |
 | 3B4 | やくそくする | Promise | |
@@ -152,7 +152,7 @@ Width checker counts each as 7 letters.
 | 3B9 | ひやかす | Tease | |
 | 3BA | はりこませる | Watch | Nobuo stakes a place out; "Stakeout" was 8 letters (menu max 7), "Case" judged unclear as a bare command |
 | 3BB | かう | Buy | |
-| 3BC | おがみたおす | Beg | |
+| 3BC | おがみたおす | Beg | "pray at them till they give in": persistent pleading. 0F1 ("Mm, nice grovelling.") is the reaction to Beg in 367 (JP: "I like how humble you are") |
 | 3BD | わたす | Give | |
 | 3BE | さけぶ | Shout | named in dialogue (1BA) |
 | 3BF | のる | Ride | kiddie ride, trains |
