@@ -24,7 +24,7 @@ EN:
 [cmdEF 32][cmdEE 0a]Got tickets for Joto.
 [cmdEE 00]Oh, Nobuo, you said your
 face gets you on the
-underground free, right?[setflag 27][page+goto da 02]
+underground free, yeah?[setflag 27][page+goto da 02]
 
 
 @@ 204  bank3 $9C36
