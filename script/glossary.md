@@ -14,7 +14,17 @@ add new names as they turn up.
   letters ("Eeek", "Hello-o"), but never where the stretched word looks
   like another word or an accent ("looot" read as "loot"). ♥ kept.
 - Stammers kept ("I-I-I d-don't"), hyphen style.
-- うんせい (game stat) → **luck**.
+- うんせい (game stat) → **luck**; status panel labels are **NERVE** (きりょく)
+  and **LUCK**; luck grades worst→best **JINX / BAD / FAIR / GOOD / CHARM**
+  (どつぼ / 凶 / 中吉 / 大吉 / ばりきち) — set in `tools/status.py`.
+- **Self-reference by name**: cutesy name-for-"I" (e.g. Megumi, 02B) →
+  plain "I" with the cuteness carried by wording ("I'm ever so scared!").
+  Boastful third person stays: tough guys ("Picking a fight with
+  Toshimitsu Yamada?", "the great Kikunaga") and Nobuo's running gag of
+  always using his full name ("Nobuo Kaneko'll prove he's a real man").
+- やくそくする (Promise) can mean "arrange to meet" with girls; where a
+  response treats it as a date, bridge it in the reply ("Promise to meet
+  up? A date?!"), since no 7-letter verb covers both senses.
 - Plain ASCII plus ♥ only (no é, curly quotes) so the stage 6 font stays small.
 
 ## Name codes
@@ -131,7 +141,7 @@ Width checker counts each as 7 letters.
 - [x] msg_300 (2026-10-10) — only 338/339/33B/36F/370/375 have text
 - [x] msg_380 (2026-10-10) — first pass of the whole script complete
 
-## Verb menu ($3AA-$3C1, provisional, max 8 letters)
+## Verb menu ($3AA-$3C1, max 7 letters — measured in stage 6b)
 | ID | JP | EN | Notes |
 |---|---|---|---|
 | 3AA | はなす | Talk | |
