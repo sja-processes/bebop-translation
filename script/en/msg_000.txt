@@ -280,7 +280,7 @@ Ooh, I dunno[cmdED]...[page]
 [cmdEE 00]I'm flattered, but the
 girls warned me about
 [cmdE2] from Aitoku's
-patter[cmdED]... Sorry.
+sweet talk[cmdED]... Sorry.
 
 @@ 02B  bank2 $88C9
 EN:
