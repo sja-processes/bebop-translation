@@ -198,7 +198,8 @@ EN:
 [cmdEF 34][cmdEE 0f]Guv, let me do it.
 Nobuo Kaneko'll prove
 he's a real man.[page]
-[cmdEA 01][cmdEF 34][cmdEE 13]Guv, Nobuo's a man now.[page]
+[cmdEA 01][cmdEF 34][cmdEE 13]Guv, Nobuo Kaneko is
+a man now![page]
 [cmdEE 07]Them dodgy types Junko
 mentioned? Only
 extremists![page]
