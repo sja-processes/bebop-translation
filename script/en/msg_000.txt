@@ -120,8 +120,8 @@ cafe called "Mai".
 
 @@ 014  bank2 $82C4
 EN:
-[cmdEE 03][cmdDD 05][flash][shake][delay 1e][cmdEE 01]Oi! Wh-where d'you
-think you're searching?!
+[cmdEE 03][cmdDD 05][flash][shake][delay 1e][cmdEE 01]Oi! Wh-what d'you think
+you're looking at?!
 
 @@ 015  bank2 $82E1
 EN:
@@ -284,10 +284,10 @@ patter[cmdED]... Sorry.
 
 @@ 02B  bank2 $88C9
 EN:
-Eh, a date? But if you
-know Shingo from Kita
-High[cmdED]...
-Megumi's a bit scared.
+Promise to meet up? A
+date?! But if you know
+Shingo from Kita High[cmdED]...
+I'm ever so scared!
 
 @@ 02C  bank2 $8902
 EN:
