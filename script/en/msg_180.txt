@@ -68,8 +68,7 @@ EN:
 [cmdEF 34]Guv,
 if you're not tucked up
 by nightfall, you'll run
-out of steam.
-[setflag 03][page+goto 61 02]
+out of steam.[setflag 03][page+goto 61 02]
 
 
 @@ 189  bank3 $84D8
@@ -135,8 +134,7 @@ EN:
 [cmdEF 34][cmdEE 0f]Right, Guv. From today,
 I'll walk about carrying
 the Kakui sign.
-[cmdEE 07]Watch me show some guts.
-[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
+[cmdEE 07]Watch me show some guts.[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
 
 
 @@ 192  bank3 $86CF

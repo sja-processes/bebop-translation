@@ -93,8 +93,7 @@ EN:
 Promise to give Iwamoto
 his camera back, and
 I'll let you take a
-pin-up of Junko.
-[setflag 48][page+goto 74 02]
+pin-up of Junko.[setflag 48][page+goto 74 02]
 
 
 @@ 110  bank2 $AF77
@@ -173,8 +172,7 @@ EN:
 [cmdEE 02]Th-this is a photo
 of J-Junko!
 Well, if I must, I'll
-take it off your hands.
-[cmdDE 21][setflag 4b][page+goto 23 03]
+take it off your hands.[cmdDE 21][setflag 4b][page+goto 23 03]
 
 
 @@ 11E  bank2 $B159
@@ -248,8 +246,7 @@ I went for a cuppa.[page]
 I was fuming, so I
 slapped him. His false
 teeth flew out and he
-ran off crying. Harsh?
-[setflag 4d][clrflag 44][page+goto 2c 03]
+ran off crying. Harsh?[setflag 4d][clrflag 44][page+goto 2c 03]
 
 
 @@ 128  bank2 $B3CA
@@ -334,8 +331,7 @@ EN:
 [cmdEF 02][cmdEE 01][cmdD1]Well, well, [cmdE2].
 Playing pachinko too,
 are we?
-[cmdEE 03]You're coming with me.
-[setflag 14][cmdEC 01 17 3e][page+goto 96 02]
+[cmdEE 03]You're coming with me.[setflag 14][cmdEC 01 17 3e][page+goto 96 02]
 
 
 @@ 134  bank2 $B5F1
@@ -381,8 +377,7 @@ EN:
 [cmdDE 28][cmdEF 1b]Well, well, Grand Boss
 Tomezo! If you say so,
 sir[cmdED]...
-Go on through, sir.
-[page+goto 34 03]
+Go on through, sir.[page+goto 34 03]
 
 
 @@ 13B  bank2 $B757

@@ -206,8 +206,7 @@ EN:
 [cmdEF 32][cmdEE 0b][cmdED]Oh, [cmdE1]! [cmdEE 01]There's a
 set of false teeth down
 there. Must be worth
-700,000 yen.
-[setflag 4f][page+goto 30 03]
+700,000 yen.[setflag 4f][page+goto 30 03]
 
 
 @@ 224  bank3 $A0C8
@@ -283,8 +282,7 @@ EN:
 [cmdEF 07][cmdEE 02]Howay, lad!
 [cmdEE 00]This where we're
 plantin' the bomb?
-[cmdEE 01]Reet, here we gan!
-[page+goto 7f 01]
+[cmdEE 01]Reet, here we gan![page+goto 7f 01]
 
 
 @@ 231  bank3 $A2B1
@@ -292,8 +290,7 @@ EN:
 [cmdDE 28][cmdEF 05][cmdEE 01]Hold it, hold it, Ken!
 [cmdDD 2e][cmdDA][cmdDD 2e][cmdDA]These gentlemen saved
 me. For my sake, let
-them pass!
-[page+goto 3a 01]
+them pass![page+goto 3a 01]
 
 
 @@ 232  bank3 $A2FD
@@ -330,8 +327,7 @@ EN:
 [cmdD1]Beggin' your pardon,
 young sir, but I'm bound
 by honour not to let you
-pass. Kindly turn back.
-[page+goto 31 02]
+pass. Kindly turn back.[page+goto 31 02]
 
 
 @@ 238  bank3 $A3B6
@@ -356,8 +352,7 @@ know the one you fancy,[page]
 [cmdEA 0e][cmdDE 1e][cmdF0 0b][cmdEF 14]Here, [cmdE1]. Didn't
 Shingo seem dead serious
 yesterday? Never seen
-him that rattled before.
-[delay 78][page]
+him that rattled before.[delay 78][page]
 [cmdEF 00][cmdDE 2e][delay 5a][cmdDE 2b][cmdEF 36]Kato! Nakama! It's
 terrible! This morning,
 Shingo was snatched by
@@ -460,13 +455,11 @@ as a friend, like.[page]
 [cmdEE 03]Tsuji was chuffed to
 bits, we got pally, and
 now I'm round his place
-all the time.
-[cmdED][delay 1e][page]
+all the time.[cmdED][delay 1e][page]
 [cmdEE 03]Loads of girls come
 round here,
 and, well, you could say
-this is
-[delay 1e][page]
+this is[delay 1e][page]
 [cmdEE 02]the flat nearest heaven.
 [cmdED][delay 3c][page]
 

@@ -135,8 +135,7 @@ EN:
 [cmdEF 03]Hmm. The way to Joto
 High, eh? I'll tell you
 if you promise to come
-to school properly.
-[setflag 25][page+goto d5 02]
+to school properly.[setflag 25][page+goto d5 02]
 
 
 @@ 097  bank2 $991D
@@ -343,8 +342,7 @@ EN:
 [cmdDD 07][cmdEE 03]A-alright! The black
 Skylion'll be parked by
 the Nishiyama Building
-in the next town.
-[cmdDE 2e][cmdDA][cmdDE 2b][page]
+in the next town.[cmdDE 2e][cmdDA][cmdDE 2b][page]
 It's a Gold Emperor car,
 no doubt about it.
 [cmdDE 2e][delay 5a][cmdDE 2e][delay 5a][cmdDE 2b][setflag 2c][setflag 7e][clrflag 7c][clrflag 7d][page+goto f2 02]
@@ -660,8 +658,7 @@ EN:
 [cmdEE 02]Oi, you hooligans, keep
 back.
 [cmdEE 00]There was a phone threat
-to bomb Minami Bridge.
-[cmdDE 2e][delay 5a][cmdDE 22][cmdDA][page]
+to bomb Minami Bridge.[cmdDE 2e][delay 5a][cmdDE 22][cmdDA][page]
 You don't want to get
 hurt, do you?
 [cmdEE 02]Go on, off home with
@@ -743,8 +740,7 @@ EN:
 [cmdDE 22][cmdDD 0e][cmdEF 02][cmdEE 03]Right, you've finally
 done it. I always knew
 you two were dodgy.
-You're nicked! Nicked!!
-[page+goto c4 01]
+You're nicked! Nicked!![page+goto c4 01]
 
 
 @@ 0F6  bank2 $AA17

@@ -677,8 +677,7 @@ EN:
 [cmdEF 05]Shuch a shmooth talker
 for one sho young!
 Not much, but have
-theshe pachinko ballsh.
-[setflag 1c][page+goto b8 02]
+theshe pachinko ballsh.[setflag 1c][page+goto b8 02]
 
 
 @@ 06D  bank2 $92DF
