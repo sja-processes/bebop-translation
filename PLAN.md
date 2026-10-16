@@ -20,7 +20,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7c — Status panel (NERVE / LUCK / luck grades); bank 7 "kana grid" identified as ending credits (2026-10-14)
 - [x] Stage 7d — Ending staff credits in English (2026-10-14; wording open for Stephen's review)
 - [x] Stage 7e — Scene-art text: survey done, CLOSED caption added, 8/9 flavour (2026-10-15); street-area signs #2-#7, #10 deferred to stage 8 (judge in context)
-- [ ] Stage 8a — Automated checks: render every message page, every picture and menu, the real ending
+- [x] Stage 8a — Automated checks (2026-10-16): text-box layout, change audit, raw tiles, verbs
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
 
 ## Stages
@@ -553,6 +553,30 @@ the picture loader); then find the scene layout
 that places the marked tiles and add an English caption beside them
 (free tiles in the same CHR bank permitting).
 
+### Stage 8a results
+- `tools/pagecheck.py` replays every dialogue message through a model of
+  the text engine (start `$2084`, F5 = 2 rows, page cursor drawn one
+  space after the last character, box interior cols 3-28 / border col 29,
+  4 lines) and reports problems the English has but the Japanese did not.
+  Found and fixed: 19 pages with 4 lines + a line break before the page
+  code (cursor on the bottom border; break removed, no wording change);
+  7 pages ending on a 24-character line (cursor on the right border;
+  trimmed by a word, Stephen approved each); 375 jumping into 1C4 with
+  the cursor below the box (reflowed to 3 lines). Now 0 issues. **Rule:**
+  the last line before a page wait must be <= 23 characters; name codes
+  count as 7 (given) / 6 (surname).
+- Change audit (built ROM vs original): every changed byte belongs to a
+  deliberate change (header, labels, title layout, picture 1D caption,
+  fixed-bank patches, text banks 8-10, CHR 8/12/29/30/31 tiles). Banks 7
+  and 11-14 unused. CHR 29 tile `$81` untouched (sprite-0 split).
+- No English message other than the luck grades prints raw tiles, so the
+  reused inverse-kana tiles cannot leak. All 24 verbs <= 7 letters.
+- Ending: verified via the `cmdDB` shortcut (same `$E770` → `$EE42`
+  call as the real game); the build-up in real play is left for 8b.
+- Wording fixes from Stephen's play so far: Promise bridge in 02B, 014
+  retort, Nobuo's full-name gag in 19A, 203 "face pass" joke; glossary
+  style notes on self-reference and Promise.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
@@ -562,6 +586,7 @@ that places the marked tiles and add an English caption beside them
 - `tools/status.py` — status panel labels and luck grades (stage 7c).
 - `tools/credits.py` — ending staff credits (stage 7d).
 - `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
+- `tools/pagecheck.py` — text-box layout check for every message (stage 8a); run after any script edit.
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
