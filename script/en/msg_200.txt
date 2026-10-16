@@ -370,8 +370,8 @@ mine.[page]
 as thick as you hasn't a
 chance. You don't even
 know who took Shingo.[page]
-[cmdEE 02]Hm? Team up[cmdED]...?
-Well, alright.[page]
+[cmdEE 02]Hm? You want to team
+up[cmdED]...? Well, alright.[page]
 [cmdEE 01][cmdE1]'ll be next
 to no use, though.[page]
 [cmdEE 00]Anyway, whoever rescues
