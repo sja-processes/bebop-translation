@@ -264,9 +264,9 @@ Pleased to meet you♥
 @@ 028  bank2 $87F7
 EN:
 Shingo? From Kita High?
-The older girls said to
-keep 100 metres away. So
-I don't know a thing.
+The older girls said not
+to go within 100 metres!
+So I don't know a thing.
 
 @@ 029  bank2 $8852
 EN:
