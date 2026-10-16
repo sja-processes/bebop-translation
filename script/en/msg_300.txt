@@ -516,9 +516,8 @@ EN:
 A-are you alright?
 Guv?![page]
 [cmdEF 32][cmdEE 01]Charging at a car like
-that, [cmdE1]. You've
-got more guts than
-anyone in Japan.
+that, [cmdE1]! More guts
+than anyone in Japan.
 [goto c4 01]
 
 @@ 376  bank3 $BC23

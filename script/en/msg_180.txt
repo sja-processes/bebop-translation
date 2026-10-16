@@ -21,7 +21,7 @@ I'll get serious.
 EN:
 [cmdEF 22]Yeah, I grabbed Shingo
 from Kita High. He got
-on the wrong side of me.[page]
+on my bad side.[page]
 [cmdEE 01]........But[cmdED]........
 go on, see for yourself.
 He's at my place. The
@@ -134,7 +134,7 @@ EN:
 [cmdEF 34][cmdEE 0f]Right, Guv. From today,
 I'll walk about carrying
 the Kakui sign.
-[cmdEE 07]Watch me show some guts.[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
+[cmdEE 07]You'll see some guts.[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
 
 
 @@ 192  bank3 $86CF
@@ -561,7 +561,7 @@ EN:
 @@ 1CF  bank3 $93AC
 EN:
 [cmdEF 34][cmdEE 14]Samejima? [cmdEE 12]That drip is
-Kyokuto's Big Four No.4?[page]
+Kyokuto Big Four No.4?[page]
 [cmdEE 14]Guv, [cmdEE 10]this'll be a
 doddle.
 

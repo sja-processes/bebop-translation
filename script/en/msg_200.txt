@@ -24,7 +24,7 @@ EN:
 [cmdEF 32][cmdEE 0a]Got tickets for Joto.
 [cmdEE 00]Oh, Nobuo, you said they
 know your face on the
-underground, didn't you?[setflag 27][page+goto da 02]
+underground, right?[setflag 27][page+goto da 02]
 
 
 @@ 204  bank3 $9C36
@@ -352,7 +352,7 @@ know the one you fancy,[page]
 [cmdEA 0e][cmdDE 1e][cmdF0 0b][cmdEF 14]Here, [cmdE1]. Didn't
 Shingo seem dead serious
 yesterday? Never seen
-him that rattled before.[delay 78][page]
+him so rattled before.[delay 78][page]
 [cmdEF 00][cmdDE 2e][delay 5a][cmdDE 2b][cmdEF 36]Kato! Nakama! It's
 terrible! This morning,
 Shingo was snatched by

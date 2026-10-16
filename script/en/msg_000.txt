@@ -132,7 +132,7 @@ bad, you won't find me.
 
 @@ 016  bank2 $8324
 EN:
-[cmdEE 01]Shingo from Kita High[cmdED]...[page]
+[cmdEE 01]Shingo of Kita High[cmdED]...[page]
 [cmdEE 01]All I know is he's mad
 about girls. You lot
 should know more about
