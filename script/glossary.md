@@ -96,6 +96,7 @@ Width checker counts each as 7 letters.
 | (priest) | かしこみ → "O spirits, hear us!" | luck-raising ritual |
 
 ## Places & things
+- かげきは (過激派) → **extremists** (1980s militant radical groups; the Minami Bridge bomb plot, 03B/0F6/10C/19A). Kept over "radicals" (Stephen, 2026-10-16).
 | JP | EN |
 |---|---|
 | さてん「マイ」 | cafe "Mai" |
