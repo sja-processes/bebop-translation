@@ -1,4 +1,4 @@
-"""Caretaker's room picture draft: 160x112 (20x14 tiles), one palette per 16x16 block.
+"""Caretaker's room picture draft (no clock: the game's time of day changes): 160x112 (20x14 tiles), one palette per 16x16 block.
 
 Colours: 'k' black (universal), P0 wood 'b' 07 'm' 17 't' 27,
 P1 grey 'G' 00 'l' 10 'W' 30, P2 red 'r' 16 'p' 26 'W' 30.
@@ -104,23 +104,6 @@ def draw():
         "kkkkkkkkk",
     ])
     pc.rect(43, 61, 47, 63, 'G'); pc.rect(43, 61, 47, 61, 'k'); pc.rect(43, 63, 47, 63, 'k')
-    # wall clock above his head: block x 64..79 y 16..31 (P1)
-    pc.patch(64, 17, [
-        "     kkkkkk     ",
-        "   kkWWWWWWkk   ",
-        "  kWWWWkWWWWWk  ",
-        " kWWWWWkWWWWWWk ",
-        " kWWWWWkWWWWWWk ",
-        "kWWWWWWkWWWWWWWk",
-        "kWWWWWWkkkkkWWWk",
-        "kWWWWWWWWWWWWWWk",
-        "kWWWWWWWWWWWWWWk",
-        " kWWWWWWWWWWWWk ",
-        " kWWWWWWWWWWWWk ",
-        "  kWWWWWWWWWWk  ",
-        "   kkWWWWWWkk   ",
-        "     kkkkkk     ",
-    ])
     # calendar: x 96..111 y 16..47 (P2: red header, white page, red dates)
     pc.rect(96, 16, 111, 47, 'W')
     pc.rect(98, 18, 109, 45, 'W')

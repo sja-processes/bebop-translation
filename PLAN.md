@@ -703,10 +703,11 @@ through here...").
   - **Art drafts:** `tools/caretaker/` (`char.py`, `room.py`, `mock.py`).
     - Caretaker: bald, grey sides, bushy brows, moustache, kindly closed
       eyes, navy jacket over a grey waistcoat; mouth-open talking frame.
-    - Room: wooden ceiling, window (school outside), clock, calendar, key
+    - Room: wooden ceiling, window (school outside), calendar, key
       board, desk with kettle and mug, fire extinguisher, broom,
       floorboards.
-    - Awaiting Stephen's verdict on the mock-up.
+    - **Approved by Stephen (2026-10-17)**, with the clock removed (it
+      could never show the game's changing time of day).
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
