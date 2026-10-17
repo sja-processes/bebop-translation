@@ -107,7 +107,7 @@ today.
 EN:
 [cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 01]Cor, look at that! Your
 fortune slip says the
-world's yours today!
+world's your oyster!
 [setflag 17][page+goto a3 02]
 
 
