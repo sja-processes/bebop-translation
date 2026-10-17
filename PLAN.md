@@ -731,8 +731,9 @@ through here...").
       - Credits: only the letters the names use are copied now. C and H
         moved off the frame tiles `$02`/`$07`. The credit screens were
         checked identical.
-    - Tested in the headless Nestopia: door → room → Talk (8 pages, mouth
-      animates) → menu → Leave → back on the street.
+    - Tested in the headless Nestopia and in Mesen, with the same result:
+      door → room → Talk (8 pages, mouth animates) → menu → Leave → back
+      on the street.
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
