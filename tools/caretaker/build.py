@@ -115,10 +115,13 @@ def room_data(chr_, used):
 
 
 def palette_record():
-    """3 x 13 bytes (morning/evening/night): bg + 4 palettes x 3; the
-    room is indoors, so all three are the same. Palette 3 = dialogue."""
-    rec = bytes([0x0F]) + bytes(c for p in room.PALS for c in p) + bytes([0x20, 0x36, 0x21])
-    return rec * 3
+    """3 x 13 bytes (morning/evening/night, chosen by $71B9): bg + 4
+    palettes x 3; palette 3 is the dialogue's. Evening and night are
+    tinted like the school corridor."""
+    rec = b''
+    for pals in (room.PALS, room.EVENING_PALS, room.NIGHT_PALS):
+        rec += bytes([0x0F]) + bytes(c for p in pals for c in p) + bytes([0x20, 0x36, 0x21])
+    return rec
 
 
 def char_data(free):

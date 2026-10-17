@@ -726,6 +726,10 @@ through here...").
         at `$DBEE` (the message lookup) swaps `$3C5` for one of `$3C6`-
         `$3C9`, picked by frame counter `$6E` & 3: bins / boiler / wipe
         your feet / tea's going cold.
+      - the room changes with the time of day (Stephen chose this):
+        evening sepia and night pale blue, like the school corridor (the
+        palette record holds three sets, chosen by `$71B9`). The game also
+        dims sprites at night, so he darkens like any other character.
     - The door entry is area 1, (`$14`,`$4B`). The door table, palette
       record and hooks take ~490 bytes from `$FD50`. Layout and record are
       in PRG bank 14.
