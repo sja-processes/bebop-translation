@@ -642,10 +642,41 @@ through here...").
     (`#$97`/`#$EF`). Leave the old table in place for warps and starts.
   - Scene message: `[cmdDE 22][cmdF0 pic][cmdEF face][menu-call 41 talk
     09 03]`. Menu `$41` = Talk / Leave; `0309` is the empty Leave message.
-  - Portraits: `cmdEF` (`$E208` → `$F88D`) uses ids `$00`-`$37`, with a
-    pointer table at `$8000` of the bank picked by `$C08F`. Art is in CHR
-    banks 16-28 and tiles `$A0`-`$FF` of banks 30/31. A new face means a
-    new id: not yet decoded.
+  - **Decision (Stephen):** the caretaker is a proper animated scene
+    character (like the teacher), drawn over a new room picture. Fallback:
+    paint him into the room picture (static). The small face beside the
+    menu is the player's own face, so it needs no change.
+  - **Scene characters (decoded):** `[cmdEF id]` picks the character drawn
+    over the scene picture (`$7006`, handler `$E208` → loader `$F88D`), and
+    `[cmdEE n]` picks his expression (`$7007`). With no `cmdEF`, the picture
+    is drawn empty.
+    - Record pointers are at PRG bank 5 `$8000` + id×2, ids `$00`-`$36`.
+      The data follows at `$806E`, so the table can't grow in place.
+      `$34` and `$37` are special-cased to bank 6 `$B500` and `$BD00`
+      (`$F8AC`, and again at `$F92C` when drawing).
+    - Record layout:
+      - byte 0: CHR bank for the sprites (16-26);
+      - bytes 1-4: unknown (usually 0);
+      - bytes 5-13: 3 sprite palettes × 3 colours;
+      - from byte 14 ($0E): frame pointers, 2 per expression (offset
+        $0E + 4n = mouth closed, $10 + 4n = talking frame).
+    - Frame layout: byte 0 (→ `$9D`), then triplets (cell 0-143,
+      attribute, tile), ending with `$FF`. Cells form a 12×12 grid of 8×8
+      sprites. Frame 0 is the full body; the other frames are deltas.
+      `$F660` converts it to OAM from `$0700+$24`, with the origin at
+      x `$50`, y `$88` for ordinary characters.
+    - **Hardware limit: at most 8 non-empty cells per row** (the teacher
+      uses 4-8 per row), or sprites drop out on a real NES.
+    - Teacher (id `$03`): CHR bank 16, frames `$8873`/`$8907`/`$88FF`/`$8907`.
+      Rendered correctly from ROM by a script in the scratchpad (`char.py`).
+  - **Plan for the new character (id `$38`):**
+    - Put the record in a spare PRG bank (7 or 11-14).
+    - Hook `$F8AC` and `$F92C` so that id `$38` selects that bank, with a
+      pointer to the record.
+    - Tiles: bank 26 is only partly used by characters (94 of 256 tiles
+      referenced). Check what else uses banks 26/27 before claiming tiles.
+      Bank 29 (credits) has ~120 free tiles for the room picture.
+    - Art budget: about 50-60 sprite tiles, 9 colours, 2 frames.
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
