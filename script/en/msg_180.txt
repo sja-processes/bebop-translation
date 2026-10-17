@@ -163,9 +163,10 @@ the main building.[page]
 
 @@ 195  bank3 $87AB
 EN:
-[cmdEF 34][cmdEE 01]Leave it out, Guv!
-It's not Noboru.
-It's Nobuo, honestly.
+[cmdEF 34][cmdEE 01]Up? Guv, we're already
+on the roof! Any higher
+and we'd be dodging
+aeroplanes, honestly.
 
 @@ 196  bank3 $87DB
 EN:
