@@ -677,6 +677,36 @@ through here...").
       referenced). Check what else uses banks 26/27 before claiming tiles.
       Bank 29 (credits) has ~120 free tiles for the room picture.
     - Art budget: about 50-60 sprite tiles, 9 colours, 2 frames.
+  - **Tile space (checked 2026-10-17):**
+    - CHR is at the MMC1 maximum, so everything must fit in existing gaps.
+    - Banks 26 and 27 are full (27 holds artwork used elsewhere).
+    - Unreferenced picture tiles: bank 6 = 55, 10 = 54, 11 = 51.
+    - Bank 29 has 116 tiles left after the credits. Credits use only
+      uppercase, so the 25 lowercase tiles (not `$2A`) are free too.
+    - In a scene, `$7E` = font bank (top), `$7D` = sprite bank (character,
+      default 16), `$7F` = picture bank (default 6, `$DB76`). Sprite 0 is
+      tile `$19` at y `$69` (the font's "Z", above the split).
+    - Plan: **room picture in bank 29** (draft needs 84 unique tiles).
+      Copy frame tiles `$02`/`$07`/`$2A` in from bank 10; `$BB`/`$FF`
+      already match. Move the credits' C and H (font tiles `$02`/`$07`) to
+      free tiles in credits.py. **Caretaker sprites in bank 6**, using its
+      55 tiles that no picture uses (draft needs 47).
+    - Picture palettes: 13-byte records in the fixed bank from `$D356`
+      (background colour + 4×3). Picture n uses record 20+n; record 3 is
+      the text palette `20 36 21`.
+    - Attributes: picture block (bx,by) → attribute byte
+      ((6+2bx)/4 − 1) + 6·((14+2by)/4 − 3), quadrant from the remainders.
+      Quadrants outside the picture keep palette 3.
+    - A new picture (number 37) needs hooks for the loader tables
+      (`$ED2E`/`$ED53`), the layout (bank 1 is full after `$A990`) and
+      the palette record.
+  - **Art drafts:** `tools/caretaker/` (`char.py`, `room.py`, `mock.py`).
+    - Caretaker: bald, grey sides, bushy brows, moustache, kindly closed
+      eyes, navy jacket over a grey waistcoat; mouth-open talking frame.
+    - Room: wooden ceiling, window (school outside), clock, calendar, key
+      board, desk with kettle and mug, fire extinguisher, broom,
+      floorboards.
+    - Awaiting Stephen's verdict on the mock-up.
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
