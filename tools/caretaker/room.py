@@ -161,15 +161,15 @@ def draw():
     ])
     # straw broom (houki) leaning on the wall: handle over the wall in grey
     # (P1 blocks), straw head on the floor in browns (P0 blocks, x 128..143)
-    for i in range(44):
-        y = 50 + i
-        x = 143 - i // 5
+    for i in range(39):
+        y = 51 + i
+        x = 141 - i // 6
         c1, c2 = ('k', 'G') if y < 80 else ('k', 'b')
         pc.set(x - 1, y, c1); pc.set(x, y, c2); pc.set(x + 1, y, 'k')
-    cx = 134
-    pc.patch(cx - 3, 92, ["kkkkkkk", "kmbmbmk", "kkkkkkk"])     # cord binding
-    for y in range(95, 110):
-        w = 3 + (y - 95) * 0.45
+    cx = 135
+    pc.patch(cx - 2, 88, ["kkkkk", "kmbmk", "kkkkk"])           # cord binding
+    for y in range(91, 100):
+        w = 2 + (y - 91) * 0.55
         x0, x1 = int(cx - w), int(cx + w)
         for x in range(x0, x1 + 1):
             if x in (x0, x1):
@@ -180,8 +180,16 @@ def draw():
                 if (x + y) % 7 == 0:
                     c = 'k'
             pc.set(x, y, c)
-    for x in range(int(cx - 9.3), int(cx + 9.3) + 1):
-        pc.set(x, 110, 'k')
+    # ragged bristle ends: strands of uneven length, a few splaying out
+    lengths = [1, 3, 2, 0, 3, 1, 2, 4, 1, 2, 0, 3, 2, 1]
+    x0 = int(cx - 6.4)
+    for k, x in enumerate(range(x0, int(cx + 6.4) + 1)):
+        n = lengths[k % len(lengths)]
+        for d in range(n + 1):
+            pc.set(x, 100 + d, 'b' if (x + d) % 2 else 'm')
+        pc.set(x, 101 + n, 'k') if n >= 2 else None
+    for (x, y) in ((x0 - 1, 99), (x0 - 2, 100), (x0 - 3, 101), (int(cx + 6.4) + 1, 99), (int(cx + 6.4) + 2, 101)):
+        pc.set(x, y, 'b')
     return pc
 
 
