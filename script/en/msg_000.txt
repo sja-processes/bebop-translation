@@ -408,12 +408,12 @@ Mmm, er[cmdED]...
 
 @@ 03F  bank2 $8C6F
 EN:
-Hm,[delay 1e][cmdEE 01] you two are up to
+Hm,[delay 1e][cmdEE 01] you lot are up to
 something again!
 
 @@ 040  bank2 $8C8C
 EN:
-[cmdEE 01]Honestly, you two, stop
+[cmdEE 01]Honestly, you lot, stop
 turning up at school in
 a police car.
 

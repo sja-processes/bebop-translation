@@ -739,7 +739,7 @@ EN:
 EN:
 [cmdDE 22][cmdDD 0e][cmdEF 02][cmdEE 03]Right, you've finally
 done it. I always knew
-you two were dodgy.
+you lot were dodgy.
 You're nicked! Nicked!![page+goto c4 01]
 
 
