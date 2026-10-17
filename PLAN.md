@@ -22,6 +22,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7e — Scene-art text: survey done, CLOSED caption added, 8/9 flavour (2026-10-15); street-area signs #2-#7, #10 deferred to stage 8 (judge in context)
 - [x] Stage 8a — Automated checks (2026-10-16): text-box layout, change audit, raw tiles, verbs
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
+  - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
 - [ ] Optional — In-game help pages on Select (NERVE, LUCK, saving, daily routine); see "Optional: help pages" below
 
 ## Stages
@@ -608,6 +609,32 @@ the mechanics are opaque without the manual (see `docs/manual-guide.md`).
 - Fallbacks if the Select hook is awkward: Select on the title screen
   shows the help; or a one-off help scene (Nobuo explaining the basics)
   at the start of a new game.
+
+### Stage 8b batch 1 (2026-10-16/17)
+Fixed from Stephen's play (screenshots and save states):
+- Wording: 02B Promise as "meet up / a date" bridge; 014 "what d'you
+  think you're looking at?!"; 028 Megumi's 100-metre rule; 02A "sweet
+  talk" (not "patter"); 19A Nobuo's full-name gag; 203 Nobuo's "face
+  pass" on the underground; 238 "You want to team up...?"; "you two" ->
+  "you lot" (03F, 040, 0F5); 195/199 Noboru pun replaced with English
+  jokes; shrine fortune slips (189-18D, 1F7, CHARM = "the world's your
+  oyster!").
+- Verbs: Grovel -> Flatter, Menace -> Lean on (all responses checked).
+- QoL: added message `$3C2`, the out-of-NERVE explanation.
+- Manual: `docs/manual-guide.md` (English guide to the 1988 booklet,
+  mechanics mapped to our names).
+- Decided to keep: "extremists"; tough-guy third-person boasts and
+  Nobuo's full-name gag; the vague shared game-over line for the arrest
+  and car-charge endings.
+Open:
+- Junko: glossary says she refers to herself as "Junko" — review her
+  lines against the self-reference rule (cutesy name-for-I -> "I").
+- Street-area signs #2-#7, #10 (stage 7e survey) when Stephen meets them.
+- Optional help pages on Select (see below).
+- Reading Stephen's save states: `~/.config/MesenCE/SaveStates/
+  bebop_en_N.mss`; the first zlib stream (offset 35) is a 256x240 16-bit
+  screenshot (NES palette index in the low 6 bits). Use it to identify
+  the scene, then find the message in the script.
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
