@@ -611,6 +611,41 @@ through here...").
   that building/door ever used (story flags, time of day, a 閉店 shop)?
   Trace how map doors link to scenes. Fallback: the caretaker standing
   on the street nearby (below).
+- **Findings (2026-10-17): the building is unused.** Its orange door is
+  plain wall (no door attribute), and the door table has no entry for it.
+  How map doors work:
+  - Town = area 1. The map is stored raw in bank 0 at `$800F`, $18 blocks
+    wide, one byte per 4×4-metatile block. The game copies it to `$6803`.
+    The building is block `$0F` at block (5,$12); block `$0F` is used 15
+    times, so don't edit it.
+  - Per-area tables, indexed by area `$3F`:
+    - `$C6C9`: block definitions (area 1: `$8827`, $48 blocks of 16 bytes,
+      ending where the metatile table starts at `$8CA7`);
+    - `$C6D5`: metatiles (4 tiles each);
+    - `$C6E1`: metatile attributes (area 1: `$A8D2`). In the attribute
+      byte, bit $20 = door, bit $10 = solid, low bits = palette.
+  - **Block `$3D` is never used in area 1**, and no code writes it, so it
+    can be redefined as a copy of `$0F` with the door metatiles
+    `$4A`/`$4B` → `$50`/`$5A`. `$50`/`$5A` is the dark open doorway used
+    by the school and the awning shop. Then set map (5,$12) to `$3D`.
+    The door metatile `$5A` sits at (x $14, y $4B).
+  - Bumping a door tile → `$C517` scans the door table at `$EF97`. Each
+    entry is 6 bytes: area, x, y (metatiles = pixel position / 16),
+    message lo, message hi, flag. The list ends with `$FF`.
+    - Flag `$80`+n: message, with n → `$037D`.
+    - Flag `$01`: warp, where "message" is a pointer to another entry.
+    - Flag `$00`: nothing.
+    - Entry 0 (area 1, $17, $40) is the new-game start position (`$C67C`
+      indexes entries ×6 from `$EF97`). Don't remove it.
+  - To add the room: copy the table plus the new entry (01 14 4B id `$80`)
+    into free fixed-bank space, and patch the scan base at `$C51F`/`$C525`
+    (`#$97`/`#$EF`). Leave the old table in place for warps and starts.
+  - Scene message: `[cmdDE 22][cmdF0 pic][cmdEF face][menu-call 41 talk
+    09 03]`. Menu `$41` = Talk / Leave; `0309` is the empty Leave message.
+  - Portraits: `cmdEF` (`$E208` → `$F88D`) uses ids `$00`-`$37`, with a
+    pointer table at `$8000` of the bank picked by `$C08F`. Art is in CHR
+    banks 16-28 and tiles `$A0`-`$FF` of banks 30/31. A new face means a
+    new id: not yet decoded.
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
