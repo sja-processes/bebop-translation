@@ -704,7 +704,7 @@ through here...").
     - Caretaker: bald, grey sides, bushy brows, moustache, kindly closed
       eyes, navy jacket over a grey waistcoat; mouth-open talking frame.
     - Room: wooden ceiling, window (school outside), calendar, key
-      board, desk with kettle and mug, fire extinguisher, broom,
+      board, desk with kettle and mug, fire extinguisher, straw broom,
       floorboards.
     - **Approved by Stephen (2026-10-17)**, with the clock removed (it
       could never show the game's changing time of day).

@@ -159,21 +159,29 @@ def draw():
         " krrrrrrk   ",
         "  kkkkkk    ",
     ])
-    # broom leaning on the wall: x 128..143 y 64..111 (P0)
-    
-    for i in range(30):
-        c1, c2 = ('k', 'G') if 64 + i < 80 else ('b', 'm')
-        pc.set(141 - i // 4, 64 + i, c1); pc.set(142 - i // 4, 64 + i, c2)
-    pc.patch(129, 94, [
-        "  kkkkkkk  ",
-        " kbbbbbbbk ",
-        "kttttttttk ",
-        "ktmtmtmtmtk",
-        "kttttttttttk",
-        "ktmtmtmtmtmk",
-        "kttttttttttk",
-        " kkkkkkkkkk ",
-    ])
+    # straw broom (houki) leaning on the wall: handle over the wall in grey
+    # (P1 blocks), straw head on the floor in browns (P0 blocks, x 128..143)
+    for i in range(44):
+        y = 50 + i
+        x = 143 - i // 5
+        c1, c2 = ('k', 'G') if y < 80 else ('k', 'b')
+        pc.set(x - 1, y, c1); pc.set(x, y, c2); pc.set(x + 1, y, 'k')
+    cx = 134
+    pc.patch(cx - 3, 92, ["kkkkkkk", "kmbmbmk", "kkkkkkk"])     # cord binding
+    for y in range(95, 110):
+        w = 3 + (y - 95) * 0.45
+        x0, x1 = int(cx - w), int(cx + w)
+        for x in range(x0, x1 + 1):
+            if x in (x0, x1):
+                c = 'k'
+            else:
+                strand = int((x - cx) * 6 / (w + 1))
+                c = 'm' if strand % 2 == 0 else 'b'
+                if (x + y) % 7 == 0:
+                    c = 'k'
+            pc.set(x, y, c)
+    for x in range(int(cx - 9.3), int(cx + 9.3) + 1):
+        pc.set(x, 110, 'k')
     return pc
 
 
