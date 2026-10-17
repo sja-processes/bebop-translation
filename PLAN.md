@@ -23,7 +23,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 8a — Automated checks (2026-10-16): text-box layout, change audit, raw tiles, verbs
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
-- [ ] Optional — In-game help from a school caretaker on the map (NERVE, LUCK, saving, daily routine); see "Optional: help pages" below
+- [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
 
 ## Stages
 
@@ -709,6 +709,28 @@ through here...").
       floorboards.
     - **Approved by Stephen (2026-10-17)**, with the clock removed (it
       could never show the game's changing time of day).
+  - **Built (2026-10-17):** `tools/caretaker/build.py`, applied by
+    `insert.py` after the credits. Scene `$3C3` and help `$3C4` are in
+    `tools/additions.py`, using wording B (Stephen). Two changes from the
+    draft: pupils do the sweeping in Japanese schools, so he's "keeping
+    this place going"; and "lads" (he's talking to both heroes).
+    - The door entry is area 1, (`$14`,`$4B`). The door table, palette
+      record and hooks take ~490 bytes from `$FD50`. Layout and record are
+      in PRG bank 14.
+    - Things found while building:
+      - Every character bank shares sprite tiles `$F6`-`$FE`: the speech
+        tail (`$F6`-`$FB`) and the menu highlight (`$FE`, solid colour 3).
+        Sprite 0 is tile `$19` of the character bank.
+      - Bank 6 got the shared sprite tiles. Its picture tiles on `$FA`-`$FD`
+        moved to free tiles, with those layouts repointed. Pictures 1, 3,
+        `$0D` and `$21` were checked pixel-identical.
+      - The caretaker reuses mirrored tiles via the sprite flip bits
+        (36 tiles).
+      - Credits: only the letters the names use are copied now. C and H
+        moved off the frame tiles `$02`/`$07`. The credit screens were
+        checked identical.
+    - Tested in the headless Nestopia: door → room → Talk (8 pages, mouth
+      animates) → menu → Leave → back on the street.
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a

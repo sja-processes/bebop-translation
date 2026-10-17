@@ -20,7 +20,26 @@ OUT_OF_NERVE = (
     "[page+goto 1b 02]\n"
 )
 
-MESSAGES = {FIRST_ID: OUT_OF_NERVE}
+# Caretaker's room (optional help, PLAN.md): the scene opened by the new
+# door (tools/caretaker/build.py) and his help pages. Picture $25 and
+# character $38 are new. Menu $41 = Talk / Leave; $0309 is the game's own
+# empty Leave target.
+CARETAKER_SCENE = FIRST_ID + 1
+CARETAKER_TALK = FIRST_ID + 2
+SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][menu-call 41 %02x %02x 09 03]\n" % (
+    CARETAKER_TALK & 0xFF, CARETAKER_TALK >> 8)
+HELP = (
+    "[cmdEE 00]Hm? Oh, it's you lot.\nI'm the caretaker. Been\nkeeping this place going\nsince before your time.[page]\n"
+    "I've seen plenty of\nlads like you come\nthrough. Here's some\nadvice for nothing.[page]\n"
+    "That NERVE of yours.\nLose a scrap, or get\nknocked back by a girl,\nand down it goes.[page]\n"
+    "Run out, and you're\ndone for. A good night's\nsleep at home puts it\nright.[page]\n"
+    "Don't go wandering about\nafter dark, either. Wears\nyou out, and the police\nwill have you.[page]\n"
+    "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
+    "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
+    "Oh, and you can only\nsave at home. Now clear\noff. I've the bins to\ndo.\n"
+)
+
+MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP}
 
 # (CPU address in the fixed bank, original bytes, new bytes)
 PATCHES = [

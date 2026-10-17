@@ -23,6 +23,11 @@ STREAMS = (0xF941, 0xFCFD)       # fixed-bank range the original streams use
 # they (and the blanks) are left exactly as they are.
 KEEP = (0x81, 0xBB, 0xE6, 0xF0, 0xF1, 0xF5, 0xF6, 0xFF)
 
+# Scene-picture frame tiles ($02/$07/$2A, drawn from the picture's own CHR
+# bank; $BB/$FF are in KEEP). The caretaker's room picture uses this bank,
+# so tools/caretaker/build.py puts the frame graphics on these tiles.
+SCENE_FRAME = (0x02, 0x07, 0x2A)
+
 # (PPU low byte, big text) for the opening line and the closing screen.
 OPENING = (0xAA, 'ARGH!')        # original: a large exclamation at $20AC
 CLOSING = (0x89, 'THE END')      # original: a large 終 at $208D
@@ -66,17 +71,27 @@ def build(chr_font_bank, original):
     (already holding the English font), used for the name lettering;
     original = the original CHR bank 29."""
     glyphs = {ch: rows for ch, (_, rows) in font.build().items()}
-    cmap = font.char_map()
+    font_map = font.char_map()
     bank = bytearray(original)
-    free = [t for t in range(0x4C, 0x100)
-            if t not in KEEP and t not in cmap.values()]
-    for ch, tile in cmap.items():                       # name lettering
-        bank[tile * 16:tile * 16 + 16] = chr_font_bank[tile * 16:tile * 16 + 16]
+    # name lettering: only the characters the names use, at their font
+    # tile numbers -- except those on SCENE_FRAME tiles, which move to
+    # free tiles so the caretaker's room picture can use this bank
+    name_chars = sorted(set(''.join(''.join(n) for _, n in SCREENS)))
+    free = [t for t in range(0x00, 0x100)
+            if t not in KEEP and t not in SCENE_FRAME
+            and t not in [font_map[c] for c in name_chars]]
+    cmap = {}
 
     def put(rows, colours):
         t = free.pop(0)
         bank[t * 16:t * 16 + 16] = _bytes(rows, colours)
         return t
+
+    for ch in name_chars:
+        src = font_map[ch]
+        tile = free.pop(0) if src in SCENE_FRAME else src
+        bank[tile * 16:tile * 16 + 16] = chr_font_bank[src * 16:src * 16 + 16]
+        cmap[ch] = tile
 
     # role letters sit one pixel right so the black strip has a left
     # margin (the glyphs are at most 7 px wide, so a 1 px gap remains)
@@ -116,7 +131,12 @@ def build(chr_font_bank, original):
     big_stream(*CLOSING)
     room = STREAMS[1] - STREAMS[0]
     assert len(out) <= room, (len(out), room)
+    global USED
+    USED = set(KEEP) | set(cmap.values()) | set(t for t in range(256) if t not in free)
     return bytes(bank), bytes(out) + b'\xFF' * (room - len(out))
+
+
+USED = None    # tiles of CHR bank 29 the credits need (set by build())
 
 
 def apply(fixed, chr_):

@@ -27,6 +27,8 @@ import status   # noqa: E402
 import credits  # noqa: E402
 import sceneart # noqa: E402
 import additions # noqa: E402
+sys.path.insert(0, os.path.join(HERE, 'caretaker'))
+import build as caretaker  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -204,6 +206,8 @@ def build():
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     credits.apply(fx, chr_)
     new[FIXED * BANK:(FIXED + 1) * BANK] = fx
+    # caretaker's room: uses the bank-29 tiles the credits leave free
+    caretaker.apply(new, chr_, additions.CARETAKER_SCENE)
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)

@@ -1,9 +1,9 @@
-"""Caretaker character draft v2: 64x64 sprite bust, cells 8x8, one palette per cell.
+"""The caretaker: 64x64 sprite bust, cells 8x8, one palette per cell (build.py).
 
 Colour codes: '.' transparent, '#' black (any palette)
   A (head):   's' skin, 'g' grey hair
   B (jacket): 'j' navy, 'J' blue
-  C (towel):  'c' grey, 'w' white
+  C (shirt):  'c' grey, 'w' white
 """
 PALS = {'A': (0x0F, 0x36, 0x10), 'B': (0x0F, 0x01, 0x11), 'C': (0x0F, 0x00, 0x30)}
 CODE = {'s': ('A', 2), 'g': ('A', 3), 'j': ('B', 2), 'J': ('B', 3), 'c': ('C', 2), 'w': ('C', 3)}
