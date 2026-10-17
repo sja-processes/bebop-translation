@@ -3,7 +3,8 @@
 Colours: 'k' black (universal), P0 wood 'b' 07 'm' 17 't' 27,
 P1 grey 'G' 00 'l' 10 'W' 30, P2 red 'r' 16 'p' 26 'W' 30.
 """
-PALS = [(0x07, 0x17, 0x27), (0x00, 0x10, 0x30), (0x16, 0x26, 0x30)]
+PALS = [(0x07, 0x17, 0x27), (0x00, 0x10, 0x30), (0x16, 0x00, 0x30)]
+PROP = 'toolbox'                 # 'toolbox' or 'broom', bottom right
 NESIDX = {'b': 0x07, 'm': 0x17, 't': 0x27, 'G': 0x00, 'l': 0x10, 'W': 0x30, 'r': 0x16, 'p': 0x26, 'k': 0x0F}
 W, H = 160, 112
 
@@ -133,7 +134,7 @@ def draw():
                 "kkkk",
             ])
     # fire extinguisher on a wall bracket: x 144..159 y 48..79 (P2)
-    pc.patch(146, 50, [
+    pc.patch(146, 48, [
         "   kkkk     ",
         "  kkrrkkkk  ",
         "   kkkk  kk ",
@@ -159,6 +160,72 @@ def draw():
         " krrrrrrk   ",
         "  kkkkkk    ",
     ])
+    (toolbox if PROP == 'toolbox' else broom)(pc)
+    return pc
+
+
+def toolbox(pc):
+    """Open wooden tool box (dogubako) on the floor (P0 blocks, y 80..95)
+    with a spanner and a screwdriver sticking up against the wall (P2
+    blocks x 128..159, y 64..79: grey metal, red handle)."""
+    # spanner, leaning left: grey shaft, open jaw at the top
+    pc.patch(129, 64, [
+        " kkk kkk  ",
+        "kGGGkGGGk ",
+        "kGGk kGGk ",
+        "kGGGkGGGk ",
+        " kGGGGGk  ",
+        "  kGGGk   ",
+        "  kGGGk   ",
+        "   kGGGk  ",
+        "   kGGGk  ",
+        "    kGGGk ",
+        "    kGGGk ",
+        "     kGGGk",
+        "     kGGGk",
+        "      kGGk",
+        "      kGGk",
+        "      kGGk",
+    ])
+    # screwdriver, upright: red handle, grey shaft into the box
+    pc.patch(140, 66, [
+        " kkkk ",
+        "krrrrk",
+        "krWrrk",
+        "krWrrk",
+        "krrrrk",
+        "krrrrk",
+        "krrrrk",
+        " kkkk ",
+        "  kGk ",
+        "  kGk ",
+        "  kGk ",
+        "  kGk ",
+        "  kGk ",
+        "  kGk ",
+    ])
+    # hammer handle end, short, at the right
+    pc.patch(149, 74, [
+        "kkkkkkk ",
+        "kGGGGGGk",
+        "kkkkkkk ",
+        "   kGk  ",
+        "   kGk  ",
+        "   kGk  ",
+    ])
+    # the box: wooden, open-topped
+    rows = ["kkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+            "kttttttttttttttttttttttttttk"]
+    for i in range(14):
+        rows.append("kmbbbbbbbbbbbbbbbbbbbbbbbbmk" if i % 4 == 1 else "kmmmmmmmmmmmmmmmmmmmmmmmmmmk")
+    rows += ["kkkkkkkkkkkkkkkkkkkkkkkkkkkk",
+             " bbbbbbbbbbbbbbbbbbbbbbbbbb "]
+    pc.patch(128, 80, rows)
+    # rope handles on the ends
+    pc.patch(130, 85, ["kk", "tk", "kk"]); pc.patch(152, 85, ["kk", "kt", "kk"])
+
+
+def broom(pc):
     # straw broom (houki) leaning on the wall: handle over the wall in grey
     # (P1 blocks), straw head on the floor in browns (P0 blocks, x 128..143)
     for i in range(39):
@@ -190,7 +257,6 @@ def draw():
         pc.set(x, 101 + n, 'k') if n >= 2 else None
     for (x, y) in ((x0 - 1, 99), (x0 - 2, 100), (x0 - 3, 101), (int(cx + 6.4) + 1, 99), (int(cx + 6.4) + 2, 101)):
         pc.set(x, y, 'b')
-    return pc
 
 
 def blocks(pc):

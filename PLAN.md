@@ -704,8 +704,10 @@ through here...").
     - Caretaker: bald, grey sides, bushy brows, moustache, kindly closed
       eyes, navy jacket over a grey waistcoat; mouth-open talking frame.
     - Room: wooden ceiling, window (school outside), calendar, key
-      board, desk with kettle and mug, fire extinguisher, small straw broom
-      (standing back from the frame edge, loose uneven bristles),
+      board, desk with kettle and mug, fire extinguisher, and a wooden
+      tool box (spanner, screwdriver, hammer). The tool box replaced the
+      broom (Stephen): pupils do the sweeping in Japanese schools. The
+      broom is kept as `room.PROP = 'broom'`.
       floorboards.
     - **Approved by Stephen (2026-10-17)**, with the clock removed (it
       could never show the game's changing time of day).
