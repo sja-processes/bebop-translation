@@ -347,9 +347,10 @@ ashtray for?
 
 @@ 035  bank2 $8AA5
 EN:
-What d'you want to buy?
-[cmdEE 01]Answer wrong and the
-screen'll flash.
+Buy what? I'm not on the
+menu, you know.
+[cmdEE 01]Wrong answer, and you'll
+get a slap.
 
 @@ 036  bank2 $8AD1
 EN:

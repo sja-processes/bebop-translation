@@ -167,7 +167,7 @@ Width checker counts each as 7 letters.
 | 3B8 | おりる | Go down | |
 | 3B9 | ひやかす | Tease | |
 | 3BA | はりこませる | Watch | Nobuo stakes a place out; "Stakeout" was 8 letters (menu max 7), "Case" judged unclear as a bare command |
-| 3BB | かう | Buy | |
+| 3BB | かう | Buy | 買う also means paying for a woman (女を買う); a girl answers Buy on a date with that reading (035: "Buy what? I'm not on the menu, you know.") |
 | 3BC | おがみたおす | Beg | "pray at them till they give in": persistent pleading. 0F1 ("Mm, nice grovelling.") is the reaction to Beg in 367 (JP: "I like how humble you are") |
 | 3BD | わたす | Give | |
 | 3BE | さけぶ | Shout | named in dialogue (1BA) |
