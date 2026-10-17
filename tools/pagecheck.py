@@ -22,6 +22,7 @@ sys.path.insert(0, HERE)
 import encheck  # noqa: E402
 import font     # noqa: E402
 import script   # noqa: E402
+import additions  # noqa: E402
 
 ROOT = os.path.dirname(HERE)
 LEFT, RIGHT_BORDER = 4, 29
@@ -83,9 +84,11 @@ def main():
     for f in glob.glob(os.path.join(ROOT, 'script/en/*.txt')):
         en.update(encheck.parse(f, 'EN'))
     msgs = {mid: m for mid, _, _, m in script.all_messages(prg)}
+    for mid, text in additions.MESSAGES.items():   # check additions too
+        en[mid] = (None, text)
     total = 0
     for mid in sorted(en):
-        if mid in NOT_DIALOGUE or mid not in msgs:
+        if mid in NOT_DIALOGUE:
             continue
         try:
             data = script.encode(tbl, en[mid][1])
@@ -94,7 +97,8 @@ def main():
             total += 1
             continue
         mine = simulate(prg, data)
-        orig = {(k, p) for k, p, _ in simulate(prg, msgs[mid])}
+        orig = ({(k, p) for k, p, _ in simulate(prg, msgs[mid])}
+                if mid in msgs else set())
         for k, p, d in mine:
             shared = (k, p) in orig
             if shared and not show_all:

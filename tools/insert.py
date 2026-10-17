@@ -26,6 +26,7 @@ import title    # noqa: E402
 import status   # noqa: E402
 import credits  # noqa: E402
 import sceneart # noqa: E402
+import additions # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -55,7 +56,9 @@ def english_messages():
     # luck grades are drawn in the status panel's own glyph tiles; their
     # words live in tools/status.py (the EN file keeps the JP raw tiles)
     msgs.update(status.grade_texts())
-    return [msgs[i] for i in ids]
+    assert min(additions.MESSAGES) == len(ids), 'additions must follow the script'
+    msgs.update(additions.MESSAGES)
+    return [msgs[i] for i in sorted(msgs)]
 
 
 def encode_all(texts):
@@ -184,6 +187,9 @@ def build():
                            (0xEA88, '08 10 00 08 10 18 20 28', '00 00 08 10 18 20 28 30')):
         assert fixed[f(addr):f(addr) + 8] == bytes.fromhex(was)
         fixed[f(addr):f(addr) + 8] = bytes.fromhex(now)
+    for addr, was, now in additions.PATCHES:
+        assert fixed[f(addr):f(addr) + len(was)] == was
+        fixed[f(addr):f(addr) + len(now)] = now
     new += fixed
 
     for ch, (tile, rows) in font.build().items():

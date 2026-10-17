@@ -577,6 +577,19 @@ that places the marked tiles and add an English caption beside them
   retort, Nobuo's full-name gag in 19A, 203 "face pass" joke; glossary
   style notes on self-reference and Promise.
 
+### Added messages (QoL)
+- `tools/additions.py` holds messages the translation adds, with IDs
+  after the last original one (`$3C1`), and the fixed-bank patches that
+  use them; `insert.py` appends them and `pagecheck.py` checks them.
+- `$3C2` out-of-NERVE line (Stephen, 2026-10-17): the `$E8` "lose a NERVE
+  pip" handler jumps to the shared ending `1C4` when the gauge empties
+  (`$E8D7`); `1C4` is also the arrest (`0F5`) and car-charge (`375`)
+  ending, so the original never said why. `$E8DE` now points at `$3C2`, a
+  copy of `1C4` whose first page reads "Guv, you've lost your nerve.
+  We're finished!". Verified in Mesen by draining the gauge with `cmdE8`.
+- NERVE is `$71B8`, counted in half-pips (5 pips = 10); each `cmdE8`
+  removes one and waits for a button.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
@@ -587,6 +600,7 @@ that places the marked tiles and add an English caption beside them
 - `tools/credits.py` — ending staff credits (stage 7d).
 - `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
 - `tools/pagecheck.py` — text-box layout check for every message (stage 8a); run after any script edit.
+- `tools/additions.py` — messages added by the translation (new IDs from `$3C2`).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
