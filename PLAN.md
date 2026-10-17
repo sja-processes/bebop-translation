@@ -636,24 +636,29 @@ Open:
   screenshot (NES palette index in the low 6 bits). Use it to identify
   the scene, then find the message in the script.
 
-### Map corruption on other emulators (2026-10-17, fix awaiting test)
-Stephen sees rows of stray tiles on the town map after Leave on his
-handheld (RetroArch lr-nestopia), in the Japanese ROM too; never in Mesen.
-Cause (likely): the map code calls the NMI's own uploaders directly from
-the main loop — `$D121`/`$D13D` (JSR `$D0C2` then JSR `$D207`) and
-`$C86B` (STA `$1C` then JSR `$D21F`). If an NMI lands between setting up
-a job and uploading it, the NMI uploads it and clears the length; `$D207`
-then loops 256 times = ~8 rows of junk. Emulator timing decides whether
-the NMI lands in that window.
-Fix in `tools/fixes.py`: hold `$19` (the NMI's "may work" flag) at 0
-around each direct upload, saving/restoring it, so an NMI in the window
-only counts the frame. Map entry renders identically to the unpatched
-ROM in Mesen. **Lesson:** `$19` is not an "NMI enabled" flag — the
-bank-switch helpers set it to 1 even with the screen off; a version that
-waited for the NMI instead hung. Needs Stephen to test on the handheld.
-If it persists: install the Nestopia core locally (`libretro-nestopia`)
-to reproduce, and look at mid-frame PPU writes and the `$C15C` vblank
-poll (it polls `$2002` with the NMI on).
+### Map corruption on other emulators (2026-10-17, solved: emulator setting)
+Stephen saw every other metatile row of the town map left blank (the
+cleared fill tile) after Leave on his handheld (ArkOS, RetroArch 1.20.0,
+Nestopia 1.52.0), in the Japanese ROM too; never in Mesen or his desktop
+Nestopia. Decoding the handheld's RetroArch states (`#RZIPv` container ->
+zlib -> Nestopia `NST` chunks: CPU RAM, PPU `NMT`, mapper `MM1`) showed
+normal registers and half the rows simply missing.
+**Cause: the core option `nestopia_overclock = "2x"`.** The overclock
+adds extra scanlines per frame; this game redraws the map with the screen
+off as fast as it can, and the writes landing in the inserted lines are
+lost. Setting Overclock to 1x fixes it. A speculative ROM-side fix (an
+NMI guard around the map's direct uploads) was tried and removed; the
+ROM's code is unchanged here.
+
+### Release notes (for the patch readme)
+- **Emulator settings:** set **Overclock to 1x** (no overclocking). With
+  overclocking (e.g. RetroArch Nestopia's "Overclock 2x", common on
+  handheld setups) the town map is half-drawn after Leave — every other
+  row stays blank until you walk over it. The original Japanese game
+  does the same. In RetroArch: Quick Menu -> Core Options -> Overclock ->
+  1x, then Manage Core Options -> Save Game Options to keep it for this
+  game only.
+- Apply the BPS patch to the original Japanese ROM (SHA-1 above).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
@@ -666,7 +671,6 @@ poll (it polls `$2002` with the NMI on).
 - `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
 - `tools/pagecheck.py` — text-box layout check for every message (stage 8a); run after any script edit.
 - `tools/additions.py` — messages added by the translation (new IDs from `$3C2`).
-- `tools/fixes.py` — fixes to timing bugs in the original code (map upload race).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
