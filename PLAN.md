@@ -22,6 +22,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 7e — Scene-art text: survey done, CLOSED caption added, 8/9 flavour (2026-10-15); street-area signs #2-#7, #10 deferred to stage 8 (judge in context)
 - [x] Stage 8a — Automated checks (2026-10-16): text-box layout, change audit, raw tiles, verbs
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
+- [ ] Optional — In-game help pages on Select (NERVE, LUCK, saving, daily routine); see "Optional: help pages" below
 
 ## Stages
 
@@ -589,6 +590,24 @@ that places the marked tiles and add an English caption beside them
   We're finished!". Verified in Mesen by draining the gauge with `cmdE8`.
 - NERVE is `$71B8`, counted in half-pips (5 pips = 10); each `cmdE8`
   removes one and waits for a button.
+
+### Optional: help pages (idea, 2026-10-17; not scheduled)
+Stephen's idea: pressing Select shows a short help on the basics, since
+the mechanics are opaque without the manual (see `docs/manual-guide.md`).
+- Trigger: a hook in the verb-menu loop (`$EA0D`) checking for a fresh
+  Select press (new presses are in `$82`). First confirm Select isn't
+  already used anywhere (e.g. the map screen).
+- Content: 3-4 dialogue pages as an added message in `tools/additions.py`
+  (NERVE drains/restores, LUCK from the shrine each morning, save only at
+  home, home by evening), shown by the normal text engine.
+- Hard part: returning to the menu afterwards, redrawn as it was — model
+  it on the existing call-then-redo-menu behaviour (`menu-call` codes,
+  `$EDA1`).
+- Room: ~7.9 KB free in text bank 10; ~600 bytes free in the fixed bank
+  (`$FD4E`-`$FFCF`) for the hook.
+- Fallbacks if the Select hook is awkward: Select on the title screen
+  shows the help; or a one-off help scene (Nobuo explaining the basics)
+  at the start of a new game.
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
