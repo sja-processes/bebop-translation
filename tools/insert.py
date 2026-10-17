@@ -27,6 +27,7 @@ import status   # noqa: E402
 import credits  # noqa: E402
 import sceneart # noqa: E402
 import additions # noqa: E402
+import fixes    # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -187,7 +188,7 @@ def build():
                            (0xEA88, '08 10 00 08 10 18 20 28', '00 00 08 10 18 20 28 30')):
         assert fixed[f(addr):f(addr) + 8] == bytes.fromhex(was)
         fixed[f(addr):f(addr) + 8] = bytes.fromhex(now)
-    for addr, was, now in additions.PATCHES:
+    for addr, was, now in additions.PATCHES + fixes.PATCHES:
         assert fixed[f(addr):f(addr) + len(was)] == was
         fixed[f(addr):f(addr) + len(now)] = now
     new += fixed

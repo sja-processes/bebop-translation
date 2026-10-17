@@ -636,6 +636,25 @@ Open:
   screenshot (NES palette index in the low 6 bits). Use it to identify
   the scene, then find the message in the script.
 
+### Map corruption on other emulators (2026-10-17, fix awaiting test)
+Stephen sees rows of stray tiles on the town map after Leave on his
+handheld (RetroArch lr-nestopia), in the Japanese ROM too; never in Mesen.
+Cause (likely): the map code calls the NMI's own uploaders directly from
+the main loop — `$D121`/`$D13D` (JSR `$D0C2` then JSR `$D207`) and
+`$C86B` (STA `$1C` then JSR `$D21F`). If an NMI lands between setting up
+a job and uploading it, the NMI uploads it and clears the length; `$D207`
+then loops 256 times = ~8 rows of junk. Emulator timing decides whether
+the NMI lands in that window.
+Fix in `tools/fixes.py`: hold `$19` (the NMI's "may work" flag) at 0
+around each direct upload, saving/restoring it, so an NMI in the window
+only counts the frame. Map entry renders identically to the unpatched
+ROM in Mesen. **Lesson:** `$19` is not an "NMI enabled" flag — the
+bank-switch helpers set it to 1 even with the screen off; a version that
+waited for the NMI instead hung. Needs Stephen to test on the handheld.
+If it persists: install the Nestopia core locally (`libretro-nestopia`)
+to reproduce, and look at mid-frame PPU writes and the `$C15C` vblank
+poll (it polls `$2002` with the NMI on).
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
@@ -647,6 +666,7 @@ Open:
 - `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
 - `tools/pagecheck.py` — text-box layout check for every message (stage 8a); run after any script edit.
 - `tools/additions.py` — messages added by the translation (new IDs from `$3C2`).
+- `tools/fixes.py` — fixes to timing bugs in the original code (map upload race).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
