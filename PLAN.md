@@ -603,6 +603,14 @@ him opens a scene with Talk / Leave; Talk gives a few help pages: NERVE
 shrine each morning), saving only at home, being home by evening. Plain,
 readable lines, mildly in character ("Seen plenty of lads like you come
 through here...").
+- **Preferred placement (Stephen, 2026-10-17):** his room is inside the
+  always-shut building just south of the Aitoku High school building. Its
+  door gets the open-door map tile (as on the Mai restaurant when open);
+  walking in opens a scene (picture + Talk / Leave), like any shop. No
+  new walking character on the map, so less risk. **Check first:** is
+  that building/door ever used (story flags, time of day, a 閉店 shop)?
+  Trace how map doors link to scenes. Fallback: the caretaker standing
+  on the street nearby (below).
 - Must be on the map, not in the intro: Continue on the title screen
   (with no game in progress) starts without the intro.
 - Reuse existing old-man graphics (a townsperson walking sprite and a
