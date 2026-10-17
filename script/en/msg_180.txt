@@ -73,37 +73,41 @@ out of steam.[setflag 03][page+goto 61 02]
 
 @@ 189  bank3 $84D8
 EN:
-[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 08]Guv, you've got death
-written all over you.
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 08]Guv, your fortune slip
+says death's written
+all over you.
 [cmdEE 04][cmdED][delay 3c][setflag 17][page+goto a5 02]
 
 
 @@ 18A  bank3 $8504
 EN:
-[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 14]Best not cross any
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 14]Guv, your fortune slip
+says best not cross any
 dodgy bridges today.
 [setflag 17][page+goto a5 02]
 
 
 @@ 18B  bank3 $8538
 EN:
-[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Now you can live like
-a normal person.
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Guv, your fortune slip
+says you can live like
+a normal person today.
 [setflag 17][page+goto a3 02]
 
 
 @@ 18C  bank3 $8562
 EN:
-[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Guv, you're on top form
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 0a]Guv, your fortune slip
+says you're on top form
 today.
 [setflag 17][page+goto a3 02]
 
 
 @@ 18D  bank3 $858D
 EN:
-[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 01]Cor, look at that!
-The world's yours today,
-Guv.
+[cmdDE 2d][delay 5a][cmdDE 27][cmdEF 34][cmdEE 01]Cor, look at that! Your
+fortune slip says the
+world's yours today!
 [setflag 17][page+goto a3 02]
 
 
@@ -796,8 +800,9 @@ Let's go home and kip.
 
 @@ 1F7  bank3 $99E8
 EN:
-[cmdEF 32][cmdEE 05][cmdE1], you'll
-tempt fate.
+[cmdEF 32][cmdEE 05][cmdE1], getting a
+fortune slip without
+paying'll tempt fate.
 
 @@ 1F8  bank3 $99FE
 EN:

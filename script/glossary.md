@@ -97,6 +97,7 @@ Width checker counts each as 7 letters.
 | (priest) | かしこみ → "O spirits, hear us!" | luck-raising ritual |
 
 ## Places & things
+- おみくじ (omikuji) → **fortune slip**, never bare "fortune" (reads as money). Shrine: Buy draws one (results 189-18D, "Guv, your fortune slip says..."); Take (1F7) is getting one without paying, which brings バチ (divine punishment). Buy/Take can't be renamed: both are used in many scenes.
 - のぼる/Noboru pun (Go up on a roof, 195 and 199): Go up = のぼる, also the name Noboru, close to Nobuo, so Nobuo protests he isn't Noboru. Untranslatable; replaced with English jokes: 195 "Any higher and we'd be dodging aeroplanes", and the repeat 199 gets a fresh line, "There's nothing up there but sky" (an English joke repeated falls flat where the Japanese name gag repeated well). No drug double meanings: the original never alludes to drugs.
 - おまえら (plural "you", no number) → **you lot**, not "you two": the player's party is three (hero, tag-along, Nobuo).
 - 口車に乗る (be taken in by smooth talk) → **sweet talk**, not "patter" (to Stephen's British ear, patter is a salesman's or market trader's spiel) — 02A.
