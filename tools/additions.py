@@ -26,20 +26,34 @@ OUT_OF_NERVE = (
 # empty Leave target.
 CARETAKER_SCENE = FIRST_ID + 1
 CARETAKER_TALK = FIRST_ID + 2
+# The last page ends by going to CARETAKER_SIGNOFF; tools/caretaker/build.py
+# makes the message lookup swap that ID for one of the four SIGNOFFS,
+# picked by the frame counter, so repeat visits get a different parting
+# shot. Each finishes the page: line 3 (<= 25) and line 4 (<= 23).
+CARETAKER_SIGNOFF = FIRST_ID + 3
+SIGNOFFS = [
+    "off. I've the bins to\ndo.\n",
+    "off. That boiler won't\nfix itself.\n",
+    "off, and wipe your feet\non the way out!\n",
+    "off. My tea's going\ncold.\n",
+]
+SIGNOFF_FIRST = FIRST_ID + 4
 SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][menu-call 41 %02x %02x 09 03]\n" % (
     CARETAKER_TALK & 0xFF, CARETAKER_TALK >> 8)
 HELP = (
-    "[cmdEE 00]Hm? Oh, it's you lot.\nI'm the caretaker. Been\nkeeping this place going\nsince before your time.[page]\n"
+    "[cmdEE 00]Hm? Oh, it's you lot.\nBeen keeping this place\ngoing as caretaker since\nbefore your time.[page]\n"
     "I've seen plenty of\nlads like you come\nthrough. Here's some\nadvice for nothing.[page]\n"
     "That NERVE of yours.\nLose a scrap, or get\nknocked back by a girl,\nand down it goes.[page]\n"
-    "Run out, and you're\ndone for. A good night's\nsleep at home puts it\nright.[page]\n"
+    "A good night's sleep at\nhome puts it right. But\nrun out completely, and\nyou're done for.[page]\n"
     "Don't go wandering about\nafter dark, either. Wears\nyou out, and the police\nwill have you.[page]\n"
     "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
     "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
-    "Oh, and you can only\nsave at home. Now clear\noff. I've the bins to\ndo.\n"
+    "Oh, and you can only\nsave at home. Now clear\n[goto %02x %02x]\n" % (CARETAKER_SIGNOFF & 0xFF, CARETAKER_SIGNOFF >> 8)
 )
 
-MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP}
+MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP,
+            CARETAKER_SIGNOFF: SIGNOFFS[0]}
+MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
 
 # (CPU address in the fixed bank, original bytes, new bytes)
 PATCHES = [

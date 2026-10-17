@@ -716,6 +716,16 @@ through here...").
     `tools/additions.py`, using wording B (Stephen). Two changes from the
     draft: pupils do the sweeping in Japanese schools, so he's "keeping
     this place going"; and "lads" (he's talking to both heroes).
+    - Later tweaks (Stephen):
+      - page 1 is now "Been keeping this place going as caretaker since
+        before your time": they already know him, so it's a habitual
+        grumble rather than an introduction;
+      - the NERVE page puts sleep first, then "But run out completely,
+        and you're done for", so running out is clearly final;
+      - **random sign-off**: the last page ends `[goto $3C5]`, and a hook
+        at `$DBEE` (the message lookup) swaps `$3C5` for one of `$3C6`-
+        `$3C9`, picked by frame counter `$6E` & 3: bins / boiler / wipe
+        your feet / tea's going cold.
     - The door entry is area 1, (`$14`,`$4B`). The door table, palette
       record and hooks take ~490 bytes from `$FD50`. Layout and record are
       in PRG bank 14.

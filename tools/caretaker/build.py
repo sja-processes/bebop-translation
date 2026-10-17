@@ -13,7 +13,9 @@ What changes (all original data is checked before it is overwritten):
     to free space with the new door added, and its scan ($C51E) repointed.
   - Fixed bank hooks, each a JMP that falls back to the original code:
       $EC7A picture CHR bank, $EC98 picture layout, $D2D3 palette,
-      $F8AC character record, $F92C character data bank.
+      $F8AC character record, $F92C character data bank,
+      $DBEE message lookup: the sign-off ID becomes one of four variants,
+      picked by the frame counter $6E.
   - PRG bank 14 (spare): the room layout and the caretaker record.
   - CHR bank 29: room tiles in tiles the credits don't use, plus the
     picture-frame tiles $02/$07/$2A copied from bank 10.
@@ -31,6 +33,7 @@ sys.path.insert(0, os.path.dirname(HERE))
 import char     # noqa: E402
 import room     # noqa: E402
 import credits  # noqa: E402
+import additions  # noqa: E402
 
 BANK = 0x4000
 FIXED = 15
@@ -208,6 +211,17 @@ def hooks(base, table_addr, pal_addr):
     code += bytes([0xAD, 0x06, 0x70, 0xC9, CHAR_ID, 0xD0, 0x05,
                    0xA9, DATA_BANK, 0x4C, 0x49, 0xC0,     # LDA #bank / JMP $C049
                    0x4C, 0x2F, 0xF9])                     # JMP $F92F
+    # $DBEE JMP $FD00 (the message lookup) -> random sign-off variant
+    sign, first = additions.CARETAKER_SIGNOFF, additions.SIGNOFF_FIRST
+    assert len(additions.SIGNOFFS) == 4 and lo(first) + 3 <= 0xFF
+    here = base + len(code)
+    patches.append((0xDBEE, bytes([0x4C, 0x00, 0xFD]), bytes([0x4C, lo(here), hi(here)])))
+    code += bytes([0xC0, hi(sign), 0xD0, 0x0E,            # CPY #hi / BNE go
+                   0xE0, lo(sign), 0xD0, 0x0A,            # CPX #lo / BNE go
+                   0xA5, 0x6E, 0x29, 0x03, 0x18,          # LDA $6E / AND #3 / CLC
+                   0x69, lo(first), 0xAA,                 # ADC #lo(first) / TAX
+                   0xA0, hi(first),                       # LDY #hi(first)
+                   0x4C, 0x00, 0xFD])                     # go: JMP $FD00
     # door table scan base: $C51E LDA #$97 ... $C524 LDA #$EF
     patches.append((0xC51E, bytes([0xA9, 0x97]), bytes([0xA9, lo(table_addr)])))
     patches.append((0xC524, bytes([0xA9, 0xEF]), bytes([0xA9, hi(table_addr)])))
