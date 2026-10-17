@@ -32,9 +32,9 @@ CARETAKER_TALK = FIRST_ID + 2
 # shot. Each finishes the page: line 3 (<= 25) and line 4 (<= 23).
 CARETAKER_SIGNOFF = FIRST_ID + 3
 SIGNOFFS = [
-    "off. I've the bins to\ndo.\n",
+    "off. Those gutters won't\nclear themselves.\n",
     "off. That boiler won't\nfix itself.\n",
-    "off, and wipe your feet\non the way out!\n",
+    "off. There's a leaky tap\nwith my name on it.\n",
     "off. My tea's going\ncold.\n",
 ]
 SIGNOFF_FIRST = FIRST_ID + 4

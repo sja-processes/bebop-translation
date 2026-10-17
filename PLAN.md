@@ -724,8 +724,9 @@ through here...").
         and you're done for", so running out is clearly final;
       - **random sign-off**: the last page ends `[goto $3C5]`, and a hook
         at `$DBEE` (the message lookup) swaps `$3C5` for one of `$3C6`-
-        `$3C9`, picked by frame counter `$6E` & 3: bins / boiler / wipe
-        your feet / tea's going cold.
+        `$3C9`, picked by frame counter `$6E` & 3: gutters / boiler /
+        leaky tap / tea's going cold (Stephen: no bins, less degrading;
+        no doors, since the map shows his door always open).
       - the room changes with the time of day (Stephen chose this):
         evening sepia and night pale blue, like the school corridor (the
         palette record holds three sets, chosen by `$71B9`). The game also
