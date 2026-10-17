@@ -54,6 +54,7 @@ Width checker counts each as 7 letters.
 | タチバナ | Tachibana (Minoru's school) |
 
 ## People
+- 黒田晋平 **Shinpei Kuroda** (Toru's tag-along) and 大前均太郎 **Kintaro Omae** (Hiroshi's tag-along; goes berserk if called "Pig") — names from the manual.
 | JP | EN | Who |
 |---|---|---|
 | シンゴ | Shingo | Kita High womaniser, kidnapped |
