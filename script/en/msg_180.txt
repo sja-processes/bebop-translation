@@ -189,8 +189,9 @@ still a face round here,
 
 @@ 199  bank3 $888C
 EN:
-[cmdEF 34][cmdEE 12]Guv, not again!
-[cmdEE 05]It's No-bu-o! Honestly!
+[cmdEF 34][cmdEE 12]Guv, not again! There's
+[cmdEE 05]nothing up there but
+sky, honestly!
 
 @@ 19A  bank3 $88B0
 EN:
