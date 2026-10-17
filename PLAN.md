@@ -23,7 +23,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Stage 8a — Automated checks (2026-10-16): text-box layout, change audit, raw tiles, verbs
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
-- [ ] Optional — In-game help pages on Select (NERVE, LUCK, saving, daily routine); see "Optional: help pages" below
+- [ ] Optional — In-game help from a school caretaker on the map (NERVE, LUCK, saving, daily routine); see "Optional: help pages" below
 
 ## Stages
 
@@ -592,23 +592,34 @@ that places the marked tiles and add an English caption beside them
 - NERVE is `$71B8`, counted in half-pips (5 pips = 10); each `cmdE8`
   removes one and waits for a button.
 
-### Optional: help pages (idea, 2026-10-17; not scheduled)
-Stephen's idea: pressing Select shows a short help on the basics, since
-the mechanics are opaque without the manual (see `docs/manual-guide.md`).
-- Trigger: a hook in the verb-menu loop (`$EA0D`) checking for a fresh
-  Select press (new presses are in `$82`). First confirm Select isn't
-  already used anywhere (e.g. the map screen).
-- Content: 3-4 dialogue pages as an added message in `tools/additions.py`
-  (NERVE drains/restores, LUCK from the shrine each morning, save only at
-  home, home by evening), shown by the normal text engine.
-- Hard part: returning to the menu afterwards, redrawn as it was — model
-  it on the existing call-then-redo-menu behaviour (`menu-call` codes,
-  `$EDA1`).
-- Room: ~7.9 KB free in text bank 10; ~600 bytes free in the fixed bank
-  (`$FD4E`-`$FFCF`) for the hook.
-- Fallbacks if the Select hook is awkward: Select on the title screen
-  shows the help; or a one-off help scene (Nobuo explaining the basics)
-  at the start of a new game.
+### Optional: help pages (idea 2026-10-17, design agreed; not scheduled)
+Goal: explain the basic mechanics in-game, since they are opaque without
+the manual (see `docs/manual-guide.md`).
+**Chosen design (Stephen):** an original, nameless **school caretaker**
+(用務員, yōmuin — the familiar "caretaker man" of Japanese school
+stories) standing on the map near Aitoku High, the starting area. Meeting
+him opens a scene with Talk / Leave; Talk gives a few help pages: NERVE
+(what drains it, sleep at home to restore it), LUCK (fortune slip at the
+shrine each morning), saving only at home, being home by evening. Plain,
+readable lines, mildly in character ("Seen plenty of lads like you come
+through here...").
+- Must be on the map, not in the intro: Continue on the title screen
+  (with no game in progress) starts without the intro.
+- Reuse existing old-man graphics (a townsperson walking sprite and a
+  picture/portrait), so no new art.
+- Main work: decode the map object engine (bank 6 `$9AEC` via
+  `[cmdEC area x y]`; per-area object tables around `$0494`, `$937D`,
+  `$93CD`, `$9416`): how objects are placed, table sizes, and how an
+  encounter starts a scene and its menu. Same knowledge helps caption the
+  street-area signs (#2-#7).
+- Then: add the object, a scene (picture + menu) and the help messages
+  via `tools/additions.py`; check with encheck/pagecheck; test with the
+  menu/box on screen and on Stephen's handheld (Overclock 1x).
+- Risks: table space, disturbing an area's existing logic.
+- Rejected: Select-button help (needs a menu hook, less discoverable);
+  Nobuo after the intro (intro already long, skipped by Continue); Tomezo
+  (his lisp makes help hard to read); the shrine priest (odd on a street).
+- Estimate: 2-3 sessions.
 
 ### Stage 8b batch 1 (2026-10-16/17)
 Fixed from Stephen's play (screenshots and save states):
