@@ -62,6 +62,7 @@ def english_messages():
     assert min(additions.MESSAGES) == len(ids), 'additions must follow the script'
     msgs.update(additions.MESSAGES)
     storepics.retarget(msgs)        # department store picture variants
+    additions.retarget(msgs)        # 2EB Use -> its own copy of 1B3
     return [msgs[i] for i in sorted(msgs)]
 
 

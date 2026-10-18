@@ -52,9 +52,32 @@ HELP = (
     "Oh, and you can only\nsave at home. Now clear\n[goto %02x %02x]\n" % (CARETAKER_SIGNOFF & 0xFF, CARETAKER_SIGNOFF >> 8)
 )
 
+# 1B3 (Nobuo charges off) answers two verbs: Flatter (ごまする, butter
+# up) in the Risa scene 2C6 -- you butter Nobuo up and he gets carried
+# away -- and Use (つかう) in scene 2EB. The English 1B3 bridges the
+# flattery ("Oh, you flatter me, Guv..."), so Use gets a copy
+# that keeps the original opening; 2EB's menu is pointed at it at build
+# time (the script files keep the Japanese-matching targets).
+NOBUO_USE = FIRST_ID + 8
+NOBUO_USE_OPENING = "[cmdEF 34][cmdEE 14]Leave it to me, Guv.[page]\n"
+
+
+def retarget(msgs):
+    """Build-time script changes that would break encheck's JP match."""
+    flatter = msgs[0x1B3]
+    first, rest = flatter.split('[page]\n', 1)
+    assert 'flatter' in first, first
+    msgs[NOBUO_USE] = NOBUO_USE_OPENING + rest
+    menu = '[menu 63 e1 01 b3 01 b0 01 b1 01 b2 01 09 03]'
+    assert msgs[0x2EB].count(menu) == 1, msgs[0x2EB]
+    msgs[0x2EB] = msgs[0x2EB].replace(menu, '[menu 63 e1 01 %02x %02x b0 01 b1 01 b2 01 09 03]'
+                                      % (NOBUO_USE & 0xFF, NOBUO_USE >> 8))
+
+
 MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP,
             CARETAKER_SIGNOFF: SIGNOFFS[0]}
 MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
+MESSAGES[NOBUO_USE] = ''          # filled in by retarget() from 1B3
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
 # message starts wherever the last line left off; the original's one-line

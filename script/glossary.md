@@ -168,7 +168,7 @@ Width checker counts each as 7 letters.
 | 3AE | とる | Take | |
 | 3AF | ねる | Sleep | (menu word stays plain; dialogue can still say "kip") |
 | 3B0 | いどうする | Leave | "move/relocate": the command that takes you out of the current location; "Move" read like moving an object (changed 2026-10-14) |
-| 3B1 | ごまする | Flatter | "grind sesame" = butter someone up; distinct from 3BC おがみたおす (Beg = plead until they give in). Changed from Grovel 2026-10-15; in 298 it leads to 044 (same as Beg) |
+| 3B1 | ごまする | Flatter | "grind sesame" = butter someone up; distinct from 3BC おがみたおす (Beg = plead until they give in). Changed from Grovel 2026-10-15; in 298 it leads to 044 (same as Beg). In Risa's scene 2C6 you butter up *Nobuo*, who charges off (1B3), so 1B3 opens "Oh, you flatter me, Guv. That's got me all psyched up!"; Use in 2EB shares 1B3 in JP, so it gets its own copy opening "Leave it to me, Guv." (additions.retarget) |
 | 3B2 | おちゃする | Coffee | お茶する = go for a drink at a cafe (chat-up line); drink served is coffee, so related lines say coffee too (083, 0D1, 0FA) |
 | 3B3 | つかう | Use | |
 | 3B4 | やくそくする | Promise | |

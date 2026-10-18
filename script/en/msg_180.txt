@@ -369,16 +369,18 @@ doing.
 
 @@ 1B3  bank3 $8DE3
 EN:
-[cmdEF 34][cmdEE 14]Leave it to me, Guv.[page]
+[cmdEF 34][cmdEE 14]Oh, you flatter me, Guv.
+That's got me all
+psyched up![page]
 Nobuo Kaneko, a real
 man, will charge to the
 ends of hell for you,
 Guv.[page]
-[cmdEE 17][cmdED]Come on, come on,
-here I gooo!
+[cmdEE 17][cmdED]Raaah! Raaah!
+Here I gooo!
 [cmdDD 0f][cmdEF 00][cmdDA][cmdDD 0d][cmdDA][cmdDD 04][cmdDA][cmdDD 03][cmdDA][cmdDD 17][cmdDA][cmdDD 10][cmdDA][cmdDD 08][cmdDA][page]
 [cmdEF 32][cmdEE 0b][cmdED]Nobuo[cmdED]............
-[delay 3c][cmdEE 07]He's gone off somewhere.
+[delay 3c][cmdEE 07]He's gone off on one.
 
 @@ 1B4  bank3 $8E82
 EN:
