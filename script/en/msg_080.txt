@@ -23,7 +23,7 @@ EN:
 
 @@ 084  bank2 $95DA
 EN:
-[cmdEF 31]I'm Lisa.
+[cmdEF 31]I'm Risa.
 [page+goto a2 01]
 
 
@@ -70,7 +70,7 @@ finally learnt some
 manners. So I'll let you
 in on a little secret.[page]
 [cmdEE 00]Look for a girl called
-Lisa in the underground
+Risa in the underground
 arcade.[page]
 [cmdEE 02]She's a looker♥
 [clrflag 99]

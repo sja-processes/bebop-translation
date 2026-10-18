@@ -85,7 +85,7 @@ Width checker counts each as 7 letters.
 | ヨシノ | Yoshino | local hard man |
 | シナガワ | Shinagawa | pachinko addict |
 | メグミ, ジュンコ, ミサコ, マリ | Megumi, Junko, Misako, Mari | girls |
-| リサ | Lisa | 17, underground arcade |
+| リサ | Risa | 17, underground arcade (Hepburn R; was "Lisa") |
 | ヤマダ トシミツ | Toshimitsu Yamada | Joto top dog; straight-dealing |
 | テル | Teru | Joto lad secretly in Gold Emperor |
 | かなしみのカズヒロ | Kazuhiro the Heartbroken | lost his girl Rie to Shingo |
