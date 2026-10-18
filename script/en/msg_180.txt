@@ -337,7 +337,7 @@ EN:
 @@ 1AE  bank3 $8CEF
 EN:
 [cmdEF 34][cmdEE 0f]Guv, don't just use me
-as your gofer. Let me
+as your dogsbody. Let me
 prove I'm a man.
 
 @@ 1AF  bank3 $8D1D
