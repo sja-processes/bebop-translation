@@ -266,7 +266,7 @@ EN:
 @@ 1A3  bank3 $8ABE
 EN:
 [cmdEF 34][cmdEE 0d]Guv, I'm a bit fussy
-about me coffee, me.
+about my coffee, me.
 
 @@ 1A4  bank3 $8AE3
 EN:
