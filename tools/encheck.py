@@ -21,7 +21,8 @@ MAX_W, MAX_L = 25, 4
 # Messages whose control codes deliberately differ from the Japanese
 # (each one decided with Stephen); reported as a note, not an error.
 CODE_CHANGES = {
-    0x196: "Nobuo's grin + pause after 'a face' removed (2026-10-18)",
+    0x196: "Nobuo holds his smug look (EE 0f) through the pause after 'a face' (JP "
+           "switches it straight back off before pausing) (2026-10-18)",
 }   # the box holds 25 (cols 4-28; pagecheck simulates borders)
 
 

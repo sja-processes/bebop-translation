@@ -176,7 +176,7 @@ aeroplanes, honestly.
 EN:
 [cmdEF 34][cmdEE 0a]This way, Guv, to the
 main building. I've been
-a face here since I was
+a face[cmdEE 0f][delay 14][cmdEE 0a] here since I was
 a nipper.
 
 @@ 197  bank3 $882C
