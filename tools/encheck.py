@@ -17,7 +17,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOK = re.compile(r'\[[^\]]*\]|<[0-9A-Fa-f]{2}>')
 NAME_CODES = {'cmdE1', 'cmdE2', 'cmdDF', 'cmdE0'}
 NAME_LEN = 7
-MAX_W, MAX_L = 25, 4   # the box holds 25 (cols 4-28; pagecheck simulates borders)
+MAX_W, MAX_L = 25, 4
+# Messages whose control codes deliberately differ from the Japanese
+# (each one decided with Stephen); reported as a note, not an error.
+CODE_CHANGES = {
+    0x196: "Nobuo's grin + pause after 'a face' removed (2026-10-18)",
+}   # the box holds 25 (cols 4-28; pagecheck simulates borders)
 
 
 def parse(path, block):
@@ -68,8 +73,11 @@ def check_file(path, jp):
         codes = lambda t: [x for x in TOK.findall(t) if x.startswith('[')]
         tiles = lambda t: [x for x in TOK.findall(t) if x.startswith('<')]
         if codes(text) != codes(jtext):
-            print('%03X: codes differ\n  JP %s\n  EN %s' % (
-                mid, codes(jtext), codes(text))); errs += 1
+            if mid in CODE_CHANGES:
+                print('%03X: ok, codes changed on purpose: %s' % (mid, CODE_CHANGES[mid]))
+            else:
+                print('%03X: codes differ\n  JP %s\n  EN %s' % (
+                    mid, codes(jtext), codes(text))); errs += 1
         if tiles(text) != tiles(jtext):
             print('%03X: warn raw tiles differ JP %s EN %s' % (
                 mid, tiles(jtext), tiles(text))); warns += 1
