@@ -757,7 +757,7 @@ down.
 
 @@ 1EF  bank3 $98A1
 EN:
-[cmdEF 32][cmdEE 0b][cmdED]Hello, fag ends[cmdED]...
+[cmdEF 32][cmdEE 0b][cmdED]Hello, cigarette ends[cmdED]...
 [cmdEE 03]Just like Junko said, [cmdEE 04]
 this looks dodgy.
 [setflag 0f][clrflag a9]

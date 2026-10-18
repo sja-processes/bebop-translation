@@ -26,6 +26,8 @@ add new names as they turn up.
   response treats it as a date, bridge it in the reply ("Promise to meet
   up? A date?!"), since no 7-letter verb covers both senses.
 - Plain ASCII plus ♥ only (no é, curly quotes) so the stage 6 font stays small.
+- Avoid UK slang that reads as a slur or obscenity elsewhere: no "fag"
+  for cigarette (1EF: タバコのすいがら → "cigarette ends", Stephen 2026-10-18).
 
 ## Name codes
 | Code | Expands to | Notes |
