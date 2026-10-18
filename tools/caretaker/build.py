@@ -18,7 +18,8 @@ What changes (all original data is checked before it is overwritten):
       picked by the frame counter $6E.
   - PRG bank 14 (spare): the room layout and the caretaker record.
   - CHR bank 29: room tiles in tiles the credits don't use, plus the
-    picture-frame tiles $02/$07/$2A copied from bank 10.
+    picture-frame tiles $02/$07/$2A and the blank $00 (the loader clears
+    the picture area with it first) copied from bank 10.
   - CHR bank 6: caretaker tiles in tiles no bank-6 picture references,
     plus the sprite tiles every character bank shares ($F6-$FE). Four
     bank-6 picture tiles sat there; they move to free tiles and those
@@ -43,7 +44,7 @@ PAL = PIC + 6                  # its palette record number ($EC82: pic + 6)
 CHAR_ID = 0x38                 # new character (originals: $00-$37)
 ROOM_CHR, CHAR_CHR = 29, 6
 FRAME_SRC_CHR = 10             # a picture bank to copy the frame tiles from
-SCENE_FRAME = (0x02, 0x07, 0x2A, 0xBB, 0xFF)
+SCENE_FRAME = (0x00, 0x02, 0x07, 0x2A, 0xBB, 0xFF)   # + the blank $00 the loader clears with
 # Sprite tiles every scene takes from the character's CHR bank: $19 is
 # sprite 0 (the mid-screen split, must stay opaque); $F6-$FE are identical
 # in every original character bank (speech-bubble tail $F6-$FB, menu

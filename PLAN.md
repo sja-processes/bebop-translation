@@ -591,6 +591,27 @@ that places the marked tiles and add an English caption beside them
   We're finished!". Verified in Mesen by draining the gauge with `cmdE8`.
 - NERVE is `$71B8`, counted in half-pips (5 pips = 10); each `cmdE8`
   removes one and waits for a button.
+- **How NERVE changes** (traced 2026-10-18, after Stephen saw sleep not
+  raise it):
+  - A new game sets it to 5 (2½ pips, `$DA91`). `$E891` adds ½ (capped at
+    10); `$E8B5` takes off ½ (game over at 0).
+  - **Up, only by:**
+    - winning a fight: the fight sub-commands (`cmdEA` `06`, `0F`-`11`,
+      `14`-`20`) run `$E2FF`; a win (carry clear) gives +½ and a loss −½;
+    - one date: `07B` "Go on then, I'll let you treat me" (`cmdE9`).
+      It's the only `cmdE9` in the script.
+  - **Down:**
+    - losing fights;
+    - being turned down and other put-downs (`cmdE8`);
+    - the clock running out (`339` "If you don't sleep at night...");
+    - the teacher catching you out late;
+    - Sleep at night.
+  - **Sleep never raises it.** `cmdEA 09` (`$E41F`) takes ½ off if the
+    night flag `$71AC` is set; in the morning or evening it does nothing.
+    `$71AA`/`$71AB`/`$71AC` are the morning/evening/night flags
+    (index `$71B9`).
+  - The caretaker's help was wrong ("sleep puts it right") and is now
+    corrected.
 
 ### Optional: help pages (idea 2026-10-17, design agreed; not scheduled)
 Goal: explain the basic mechanics in-game, since they are opaque without
@@ -746,6 +767,11 @@ through here...").
       - Credits: only the letters the names use are copied now. C and H
         moved off the frame tiles `$02`/`$07`. The credit screens were
         checked identical.
+    - Loading flash fixed (2026-10-18, seen by Stephen): the loader fills
+      the picture area with tile `$00` before drawing it. `$00` is blank in
+      every picture bank, but in bank 29 it was the credits' "A". `$00` now
+      joins the frame tiles: the credits' A moves elsewhere, and the blank
+      is copied in. Credits re-checked identical.
     - Tested in the headless Nestopia and in Mesen, with the same result:
       door → room → Talk (8 pages, mouth animates) → menu → Leave → back
       on the street.

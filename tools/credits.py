@@ -23,10 +23,11 @@ STREAMS = (0xF941, 0xFCFD)       # fixed-bank range the original streams use
 # they (and the blanks) are left exactly as they are.
 KEEP = (0x81, 0xBB, 0xE6, 0xF0, 0xF1, 0xF5, 0xF6, 0xFF)
 
-# Scene-picture frame tiles ($02/$07/$2A, drawn from the picture's own CHR
-# bank; $BB/$FF are in KEEP). The caretaker's room picture uses this bank,
-# so tools/caretaker/build.py puts the frame graphics on these tiles.
-SCENE_FRAME = (0x02, 0x07, 0x2A)
+# Tiles every scene picture's CHR bank must provide: the frame ($02/$07/
+# $2A; $BB/$FF are in KEEP) and the blank $00 the loader fills the picture
+# area with before drawing it. The caretaker's room picture uses this bank,
+# so tools/caretaker/build.py puts those graphics on these tiles.
+SCENE_FRAME = (0x00, 0x02, 0x07, 0x2A)
 
 # (PPU low byte, big text) for the opening line and the closing screen.
 OPENING = (0xAA, 'ARGH!')        # original: a large exclamation at $20AC
