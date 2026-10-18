@@ -24,6 +24,7 @@ each session so the next one doesn't re-derive anything.
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
 - [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
+- [ ] Planned — Kakui department store picture variants (floors and roofs look identical; Stephen 2026-10-18); see "Department store variants" below
 
 ## Stages
 
@@ -884,3 +885,35 @@ ROM's code is unchanged here.
   — delete noisy watches immediately and filter events by `handle`.
 - Intro timing: page 1 at frame ~545, A → page 2 (~750), A → page 3
   with bank 3 `$A3F8` read by `$EA08` from frame 760, one char / 3 frames.
+
+### Department store variants (planned 2026-10-18)
+Stephen (save state 7): every floor of the Kakui Department Store looks
+the same, so it feels like a bug until you work it out.
+- **Script map (msg_280):**
+  - annexe ground floor `27F`: picture `$06` (shuttered; the store is
+    改装中, being renovated);
+  - annexe 2F `281`, 3F `282`, 4F `283`/`285`: all picture `$07` (shop
+    counter). Search gives `1E5`-`1E7`;
+  - main building 4F `286` (via Leave once flag `0d` is set): also `$07`;
+  - annexe roof `287` and main building roof (`371` → `288`-`28D`, where
+    the Shingo trail continues): both `$08`.
+- **Terms checked:** べっかん 別館 = annexe, ほんかん 本館 = main building,
+  わたりろうか = covered walkway. Japanese floors count like the US:
+  1階 / 1F = ground floor, 屋上 = roof.
+- **Proposal (pending Stephen):** no floor numbers in the art (Search
+  tells you).
+  - 2F: keep `$07`.
+  - 3F: `$07` with different goods and colours.
+  - Annexe 4F: renovation look (dust sheets, boxes, ladder).
+  - Main 4F: clearly different, a brighter clothes floor.
+  - Main roof: `$08` with a different skyline, plus a water tank or
+    rooftop kiddie ride.
+- **How:**
+  - pictures in bank 10 (54 free tiles), reusing its shop and roof tiles;
+  - generalise the caretaker's picture hooks (`tools/caretaker/build.py`,
+    one picture `$25`) to a table of new pictures (CHR bank, layout in
+    PRG bank 14, palette record);
+  - change `cmdF0` in `282`/`283`/`285`/`286`/`371` to the new numbers;
+  - mock-ups first, then test in both emulators.
+- **Open question:** keep the Japanese floor numbers ("floor 1-4",
+  recommended) or convert to UK ground / first / second / third?
