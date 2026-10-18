@@ -4,8 +4,8 @@
 @@ 180  bank3 $8244
 EN:
 [cmdEF 34][cmdEE 17]Hup![cmdDD 07][cmdDA] Hup! Hup![cmdDD 07][cmdDA] Huuup!
-[delay 3c][cmdEE 05]Guv, did you see the
-guts on me?[page]
+[delay 3c][cmdEE 05]Guv, did you see how
+tough I was?[page]
 [cmdEF 1c]Who's this crew-cut
 kid, then?
 [cmdEA 14]
@@ -130,15 +130,15 @@ Guv. Very handy.
 @@ 190  bank3 $8630
 EN:
 [cmdEF 34][cmdEE 17][cmdED][cmdEE 17][cmdDD 03]Hup! Hup![cmdDD 04] Hup! Huuup![cmdDD 03][page]
-[cmdEE 01]Guv, did you see the
-guts on me?
+[cmdEE 01]Guv, did you see how
+tough I was?
 
 @@ 191  bank3 $8673
 EN:
 [cmdEF 34][cmdEE 0f]Right, Guv. From today,
 I'll walk about carrying
 the Kakui sign.
-[cmdEE 07]You'll see some guts.[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
+[cmdEE 07]You'll see my mettle.[setflag 09][setflag 60][clrflag 07][page+goto 7b 02]
 
 
 @@ 192  bank3 $86CF
@@ -770,8 +770,8 @@ EN:
 EN:
 [cmdEF 32][cmdEE 07][cmdED]So Nobuo spent all night
 [cmdED]in this bin.[page]
-[cmdEE 09]That takes guts, that
-does. [cmdEE 04]What a man.
+[cmdEE 09]What determination!
+[cmdEE 04]What a man!
 [cmdEE 00][delay 3c]
 
 @@ 1F2  bank3 $9949

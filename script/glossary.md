@@ -26,9 +26,14 @@ add new names as they turn up.
   response treats it as a date, bridge it in the reply ("Promise to meet
   up? A date?!"), since no 7-letter verb covers both senses.
 - Plain ASCII plus ♥ only (no é, curly quotes) so the stage 6 font stays small.
-- こんじょう (根性) = grit / determination, not courage: "grit" where it's
-  endurance or effort (193 the wardrobe on his back), "guts" only where
-  it's daring (Stephen 2026-10-18).
+- こんじょう (根性) = grit / determination, not courage (Stephen 2026-10-18).
+  Pick by context:
+  - 193 the wardrobe on his back: "takes grit";
+  - 180/190 Nobuo after heaving the sign: "did you see how tough I was?";
+  - 191 carrying the sign: "You'll see my mettle";
+  - 1F1 the night in the bin: "What determination!";
+  - "guts" only where it's daring (0E4, 375).
+  Keep the on-his-back joke for the wardrobe only.
 - Avoid UK slang that reads as a slur or obscenity elsewhere: no "fag"
   for cigarette (1EF: タバコのすいがら → "cigarette ends", Stephen 2026-10-18).
 
