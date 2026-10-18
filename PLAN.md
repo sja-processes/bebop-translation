@@ -612,6 +612,14 @@ that places the marked tiles and add an English caption beside them
     (index `$71B9`).
   - The caretaker's help was wrong ("sleep puts it right") and is now
     corrected.
+  - **Home menu by time** (`25F` → `260` / `36D`):
+    - first visit (flag `03` clear): Search / Save / Leave. Search gives
+      Nobuo's tip (`188`) and sets flag `03`;
+    - morning (`$71AA`): Save / Shout / Leave, with **no Sleep**;
+    - evening and night: Sleep / Save / Leave.
+    - So bed is only possible from evening. Sleeping in the evening is
+      free; at night it costs ½ pip (Stephen noticed no Sleep by day,
+      2026-10-18).
 
 ### Optional: help pages (idea 2026-10-17, design agreed; not scheduled)
 Goal: explain the basic mechanics in-game, since they are opaque without
