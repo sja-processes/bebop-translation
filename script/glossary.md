@@ -32,6 +32,7 @@ add new names as they turn up.
   - 180/190 Nobuo after heaving the sign: "did you see how tough I was?";
   - 191 carrying the sign: "You'll see my mettle";
   - 1F1 the night in the bin: "What determination!";
+  - 1DF Sleep at the wrong time: "show a bit more grit";
   - "guts" only where it's daring (0E4, 375).
   Keep the on-his-back joke for the wardrobe only.
 - Avoid UK slang that reads as a slur or obscenity elsewhere: no "fag"

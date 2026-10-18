@@ -668,7 +668,7 @@ junior-high kid.
 @@ 1DF  bank3 $9690
 EN:
 [cmdEF 32][cmdEE 05][cmdE1], show a bit
-more guts.
+more grit.
 
 @@ 1E0  bank3 $96AF
 EN:
