@@ -70,7 +70,7 @@ Width checker counts each as 7 letters.
 |---|---|---|
 | シンゴ | Shingo | Kita High womaniser, kidnapped |
 | レミ | Remi | Chuo Girls', Shingo's girlfriend |
-| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", Cor, Blimey, "a face" round here; plain "my", not "me" = my: Stephen 2026-10-18, 1A3 "my coffee, me"). The JP "Noboru" name gag (see below) is replaced in English |
+| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", me = my, Cor, Blimey, "a face" round here; but not two "me"s in one sentence: 1A3 is "fussy about my coffee, me", Stephen 2026-10-18). The JP "Noboru" name gag (see below) is replaced in English |
 | (EF32 companion) | | polite junior, calls hero by name, "Nobuo"; the voice of reason |
 | イナガキ | Inagaki | Nichu No.2 |
 | ハヤシ | Hayashi | Nichu top dog |
