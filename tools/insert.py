@@ -29,6 +29,7 @@ import sceneart # noqa: E402
 import additions # noqa: E402
 sys.path.insert(0, os.path.join(HERE, 'caretaker'))
 import build as caretaker  # noqa: E402
+import storepics  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -60,6 +61,7 @@ def english_messages():
     msgs.update(status.grade_texts())
     assert min(additions.MESSAGES) == len(ids), 'additions must follow the script'
     msgs.update(additions.MESSAGES)
+    storepics.retarget(msgs)        # department store picture variants
     return [msgs[i] for i in sorted(msgs)]
 
 
@@ -206,8 +208,17 @@ def build():
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     credits.apply(fx, chr_)
     new[FIXED * BANK:(FIXED + 1) * BANK] = fx
-    # caretaker's room: uses the bank-29 tiles the credits leave free
-    caretaker.apply(new, chr_, additions.CARETAKER_SCENE)
+    # department store variants ($26-$29, CHR bank 10's free tiles), then
+    # the caretaker's room ($25, the bank-29 tiles the credits leave free),
+    # which also builds the hooks for all the new pictures
+    used10 = caretaker._picture_tiles_used(new, storepics.CHR_BANK)
+    free10 = [t for t in range(256) if t not in used10 and t not in caretaker.SCENE_FRAME]
+    store, store_tiles = storepics.build(read_rom(), used10, free10)
+    for t, data in store_tiles.items():
+        o = storepics.CHR_BANK * 0x1000 + t * 16
+        chr_[o:o + 16] = data
+    caretaker.apply(new, chr_, additions.CARETAKER_SCENE,
+                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store])
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)

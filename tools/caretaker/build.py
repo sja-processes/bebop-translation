@@ -39,8 +39,8 @@ import additions  # noqa: E402
 BANK = 0x4000
 FIXED = 15
 DATA_BANK = 14
-PIC = 0x25                     # new picture number (originals: $00-$24)
-PAL = PIC + 6                  # its palette record number ($EC82: pic + 6)
+FIRST_PIC = 0x25               # new pictures from here (originals: $00-$24)
+PIC = 0x25                     # the caretaker's room
 CHAR_ID = 0x38                 # new character (originals: $00-$37)
 ROOM_CHR, CHAR_CHR = 29, 6
 FRAME_SRC_CHR = 10             # a picture bank to copy the frame tiles from
@@ -57,6 +57,7 @@ SHARED_SRC_CHR = 16
 
 LAYOUT_ADDR = 0x8000           # in DATA_BANK
 RECORD_ADDR = 0x8140
+PICTURES_ADDR = 0x8400         # other new pictures' layouts and palettes
 CODE_ADDR = 0xFD50             # free fixed-bank space after the text lookup
 
 # town map (PRG bank 0): blocks at $8827, map at $800F, $18 blocks wide
@@ -171,7 +172,7 @@ def door_table(fixed, scene_id):
     return bytes(fixed[o:end]) + entry + b'\xFF'
 
 
-def hooks(base, table_addr, pal_addr):
+def hooks(base, table_addr, tabs):
     """-> (code, [(addr, original bytes, new bytes)]) for the fixed bank."""
     code = bytearray()
     patches = []
@@ -180,28 +181,41 @@ def hooks(base, table_addr, pal_addr):
         here = base + len(code)
         patches.append((at, bytes(was), bytes([0x4C, lo(here), hi(here)])))
 
+    # New pictures $25.. come from tables (CHR bank, layout and palette
+    # record addresses in DATA_BANK); originals fall through unchanged.
     # $EC7A PHA / TAY / LDX $ED2E,Y -> picture CHR bank
     jmp(0xEC7A, [0x48, 0xA8, 0xBE])
-    code += bytes([0xC9, PIC, 0xD0, 0x06,                 # CMP #PIC / BNE normal
-                   0x48, 0xA2, ROOM_CHR, 0x4C, 0x7F, 0xEC,  # PHA / LDX #bank / JMP $EC7F
-                   0x48, 0xA8, 0xBE, 0x2E, 0xED,          # normal: PHA / TAY / LDX $ED2E,Y
-                   0x4C, 0x7F, 0xEC])                     # JMP $EC7F
+    code += bytes([0x48, 0xA8,                            # PHA / TAY
+                   0xC0, FIRST_PIC, 0xB0, 0x06,           # CPY #first / BCS new
+                   0xBE, 0x2E, 0xED, 0x4C, 0x7F, 0xEC,    # LDX $ED2E,Y / JMP $EC7F
+                   0xBE, lo(tabs['chr'] - FIRST_PIC), hi(tabs['chr'] - FIRST_PIC),
+                   0x4C, 0x7F, 0xEC])                     # new: LDX chr,Y / JMP $EC7F
     # $EC98 LDA $ED53,Y -> picture layout (bank, address)
     jmp(0xEC98, [0xB9, 0x53, 0xED])
-    code += bytes([0xC0, PIC, 0xF0, 0x06,                 # CPY #PIC / BEQ mine
+    code += bytes([0xC0, FIRST_PIC, 0xB0, 0x06,           # CPY #first / BCS mine
                    0xB9, 0x53, 0xED, 0x4C, 0x9B, 0xEC,    # LDA $ED53,Y / JMP $EC9B
-                   0xA9, lo(LAYOUT_ADDR), 0x85, 0x0E,     # mine: $0E/$0F = layout
-                   0xA9, hi(LAYOUT_ADDR), 0x85, 0x0F,
+                   0xB9, lo(tabs['laylo'] - FIRST_PIC), hi(tabs['laylo'] - FIRST_PIC),
+                   0x85, 0x0E,                            # mine: $0E/$0F = layout
+                   0xB9, lo(tabs['layhi'] - FIRST_PIC), hi(tabs['layhi'] - FIRST_PIC),
+                   0x85, 0x0F,
                    0xA5, 0x7C, 0x48,                      # LDA $7C / PHA (restored at $ED1D)
                    0xA9, DATA_BANK, 0x20, 0x49, 0xC0,     # LDA #bank / JSR $C049
                    0x4C, 0xBB, 0xEC])                     # JMP $ECBB
-    # $D2D3 STA $12 / LDA #$27 -> palette record pointer
+    # $D2D3 STA $12 / LDA #$27 -> palette record (originals use records
+    # $00-$2A only: pictures $00-$24 + 6, street areas 0-5)
+    first_pal = FIRST_PIC + 6
     jmp(0xD2D3, [0x85, 0x12, 0xA9])
-    code += bytes([0xC9, PAL, 0xF0, 0x07,                 # CMP #PAL / BEQ mine
+    code += bytes([0xC9, first_pal, 0xB0, 0x07,           # CMP #first / BCS mine
                    0x85, 0x12, 0xA9, 0x27, 0x4C, 0xD7, 0xD2,
-                   0xA9, lo(pal_addr), 0x85, 0x00,        # mine: ($00) = record
-                   0xA9, hi(pal_addr), 0x85, 0x01,
-                   0x4C, 0xEB, 0xD2])                     # JMP $D2EB (adds time of day)
+                   0xA8,                                  # mine: TAY
+                   0xB9, lo(tabs['pallo'] - first_pal), hi(tabs['pallo'] - first_pal),
+                   0x85, 0x00,                            # ($00) = record in DATA_BANK
+                   0xB9, lo(tabs['palhi'] - first_pal), hi(tabs['palhi'] - first_pal),
+                   0x85, 0x01,
+                   0xA5, 0x7C, 0x48,                      # LDA $7C / PHA
+                   0xA9, DATA_BANK, 0x20, 0x49, 0xC0,     # LDA #bank / JSR $C049
+                   0x20, 0xEB, 0xD2,                      # JSR $D2EB (adds time of day)
+                   0x68, 0x4C, 0x49, 0xC0])               # PLA / JMP $C049
     # $F8AC LDA $7006 -> character record
     jmp(0xF8AC, [0xAD, 0x06, 0x70])
     code += bytes([0xAD, 0x06, 0x70, 0xC9, CHAR_ID, 0xF0, 0x05,
@@ -232,8 +246,10 @@ def hooks(base, table_addr, pal_addr):
     return bytes(code), patches
 
 
-def apply(new, chr_, scene_id):
-    """new = the expanded PRG (bytearray, 16 banks), chr_ = CHR ROM."""
+def apply(new, chr_, scene_id, extra=()):
+    """new = the expanded PRG (bytearray, 16 banks), chr_ = CHR ROM;
+    extra = further new pictures [(number, CHR bank, layout, palette
+    record)], numbered on from PIC."""
     # town map
     b = BLOCKS + SHUT_BLOCK * 16
     shut = bytes(new[b:b + 16])
@@ -284,18 +300,41 @@ def apply(new, chr_, scene_id):
         chr_[cb + t * 16:cb + t * 16 + 16] = data
     # data bank
     d = DATA_BANK * BANK
-    assert set(new[d:d + 0x400]) == {0xFF}
+    assert set(new[d:d + 0x2000]) == {0xFF}
     new[d + LAYOUT_ADDR - 0x8000:d + LAYOUT_ADDR - 0x8000 + len(layout)] = layout
     assert LAYOUT_ADDR + len(layout) <= RECORD_ADDR
     new[d + RECORD_ADDR - 0x8000:d + RECORD_ADDR - 0x8000 + len(record)] = record
-    # fixed bank: door table, palette, hooks
+    # new pictures: layouts and palette records in DATA_BANK
+    pics = [(PIC, ROOM_CHR, layout, palette_record())] + list(extra)
+    assert [p[0] for p in pics] == list(range(FIRST_PIC, FIRST_PIC + len(pics)))
+    lay_addr, pal_addr = [], []
+    a = PICTURES_ADDR
+    for n, (num, bank, lay, pal) in enumerate(pics):
+        if n == 0:
+            lay_addr.append(LAYOUT_ADDR)
+        else:
+            new[d + a - 0x8000:d + a - 0x8000 + len(lay)] = lay
+            lay_addr.append(a)
+            a += len(lay)
+        new[d + a - 0x8000:d + a - 0x8000 + len(pal)] = pal
+        pal_addr.append(a)
+        a += len(pal)
+    assert a <= 0xBFF0
+    # fixed bank: door table, picture tables, hooks
     table = door_table(new[fixed:fixed + BANK], scene_id)
-    pal = palette_record()
     table_addr = CODE_ADDR
-    pal_addr = table_addr + len(table)
-    code_addr = pal_addr + len(pal)
-    code, patches = hooks(code_addr, table_addr, pal_addr)
-    blob = table + pal + code
+    t = table_addr + len(table)
+    tabs = {}
+    blob_tabs = b''
+    for name, vals in (('chr', [p[1] for p in pics]), ('laylo', [lo(x) for x in lay_addr]),
+                       ('layhi', [hi(x) for x in lay_addr]), ('pallo', [lo(x) for x in pal_addr]),
+                       ('palhi', [hi(x) for x in pal_addr])):
+        tabs[name] = t
+        blob_tabs += bytes(vals)
+        t += len(vals)
+    code_addr = t
+    code, patches = hooks(code_addr, table_addr, tabs)
+    blob = table + blob_tabs + code
     assert code_addr + len(code) <= 0xFFD0, hex(code_addr + len(code))
     assert set(new[f(CODE_ADDR):f(CODE_ADDR) + len(blob)]) == {0xFF}
     new[f(CODE_ADDR):f(CODE_ADDR) + len(blob)] = blob

@@ -24,7 +24,7 @@ each session so the next one doesn't re-derive anything.
 - [ ] Stage 8b+ — Stephen's playthrough findings, fixed in batches (one session per batch)
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
 - [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
-- [ ] Planned — Kakui department store picture variants (floors and roofs look identical; Stephen 2026-10-18); see "Department store variants" below
+- [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 
 ## Stages
 
@@ -915,5 +915,37 @@ the same, so it feels like a bug until you work it out.
     PRG bank 14, palette record);
   - change `cmdF0` in `282`/`283`/`285`/`286`/`371` to the new numbers;
   - mock-ups first, then test in both emulators.
-- **Open question:** keep the Japanese floor numbers ("floor 1-4",
-  recommended) or convert to UK ground / first / second / third?
+- **Decided (Stephen):** keep the Japanese floor numbers. Build the five
+  ideas, changed as below.
+- **Built (2026-10-18):** `tools/storepics.py` (art, built on the
+  original pictures' pixels) and `tools/pictures.py` (read and render any
+  picture).
+  - **New pictures:**
+    - `$26` annexe 3F: the **furniture floor**. Take there says "There's
+      only wardrobes here" (`193`), so two wardrobes replace the shelves.
+      Dark teal tint.
+    - `$27` annexe 4F: renovation (dust sheet over the counter and till,
+      ladder against the pillar, boxes).
+    - `$28` main building 4F: lights on, wooden canopy, clothes rail.
+      Warmer in the evening, dimmer at night.
+    - `$29` annexe roof: skyline halves swapped and the box removed. The
+      main roof keeps `$08`, because Watch hides behind the box there.
+      Stephen dropped the planned kiddie ride.
+    - Annexe floors stay the same at every time of day, like the
+      original unlit `$07`. The roof uses `$08`'s three time sets.
+  - **Tiles:** 41 new tiles in bank 10's 54 free slots. Tiles any bank-10
+    picture already uses are shared, so detail is drawn on the 8×8 grid.
+  - **Script:** `storepics.retarget()` swaps the `cmdF0` numbers in
+    `282`, `283`, `285`, `286` and `287` at build time. The script files
+    keep the Japanese-matching numbers, so encheck stays clean.
+  - **Hooks:** `tools/caretaker/build.py` hooks are now table-driven for
+    pictures `$25`+. The fixed-bank tables hold the CHR bank and the
+    layout and palette addresses; layouts and palette records live in
+    PRG bank 14 (from `$8400`). The palette hook switches to bank 14
+    around `$D2EB`. Originals only use palette records `$00`-`$2A`.
+  - **Checks:**
+    - all 37 original pictures are byte-identical to the pre-caretaker
+      build;
+    - walked 2F → 3F → 4F → roof, and 4F → Leave → main 4F → main roof,
+      in Nestopia;
+    - the four new pictures checked in Mesen, and at all three times.
