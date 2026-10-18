@@ -85,7 +85,7 @@ Width checker counts each as 7 letters.
 | ヨシノ | Yoshino | local hard man |
 | シナガワ | Shinagawa | pachinko addict |
 | メグミ, ジュンコ, ミサコ, マリ | Megumi, Junko, Misako, Mari | girls |
-| リサ | Risa | 17, underground arcade (Hepburn R; was "Lisa") |
+| リサ | Risa | 17, underground shopping centre (Hepburn R; was "Lisa") |
 | ヤマダ トシミツ | Toshimitsu Yamada | Joto top dog; straight-dealing |
 | テル | Teru | Joto lad secretly in Gold Emperor |
 | かなしみのカズヒロ | Kazuhiro the Heartbroken | lost his girl Rie to Shingo |
@@ -142,7 +142,8 @@ Width checker counts each as 7 letters.
 | おおボケ 3にんぐみ | the three wallies |
 | さけ / ABC "B" (147) | "a bit more than a snog" |
 | さかや | offie (off-licence) |
-| ちかがい | underground arcade |
+| ちかがい | underground shopping centre (地下街; was "underground arcade", clashed with the games arcade) |
+| ゲームセンター | arcade (video games; plain "arcade" = amusement arcade in the UK) |
 | カベチョロ (cafe) | cafe "Gecko" |
 | ニシヤマビル | Nishiyama Building |
 | フルーツパフェ | knickerbocker glory |

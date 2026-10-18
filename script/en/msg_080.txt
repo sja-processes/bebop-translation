@@ -71,7 +71,7 @@ manners. So I'll let you
 in on a little secret.[page]
 [cmdEE 00]Look for a girl called
 Risa in the underground
-arcade.[page]
+shopping centre.[page]
 [cmdEE 02]She's a looker♥
 [clrflag 99]
 
@@ -553,9 +553,10 @@ EN:
 
 @@ 0DB  bank2 $A3FC
 EN:
-[cmdEE 02]Listen, go down the
-underground arcade to
-chat up girls.[page]
+[cmdEE 02]Listen, if you go down
+the underground shopping
+centre, you can chat up
+girls.[page]
 But steer clear of Mari
 from Girls' Commercial.
 [cmdDE 2e][delay 5a][cmdDE 22][page]
