@@ -152,9 +152,9 @@ it.
 @@ 193  bank3 $8701
 EN:
 [cmdEF 34][cmdEE 12]Take something[cmdED]...?
-There's only wardrobes
-here. Lugging one about
-takes guts, Guv.
+It's all wardrobes here.
+Lugging one round on your
+back takes grit, Guv.
 
 @@ 194  bank3 $874B
 EN:

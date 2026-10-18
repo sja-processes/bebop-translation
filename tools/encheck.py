@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOK = re.compile(r'\[[^\]]*\]|<[0-9A-Fa-f]{2}>')
 NAME_CODES = {'cmdE1', 'cmdE2', 'cmdDF', 'cmdE0'}
 NAME_LEN = 7
-MAX_W, MAX_L = 24, 4
+MAX_W, MAX_L = 25, 4   # the box holds 25 (cols 4-28; pagecheck simulates borders)
 
 
 def parse(path, block):
