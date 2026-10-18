@@ -56,8 +56,19 @@ MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP
             CARETAKER_SIGNOFF: SIGNOFFS[0]}
 MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
 
+# The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
+# message starts wherever the last line left off; the original's one-line
+# first page fitted, but ours has two. A helper at $FFC0 runs the
+# original box routine then $E9AC (cursor back to the top-left).
+NERVE_HELPER = 0xFFC0
+
 # (CPU address in the fixed bank, original bytes, new bytes)
 PATCHES = [
+    (NERVE_HELPER, b'\xFF' * 6,
+     bytes([0x20, 0xF5, 0xEA,                                 # JSR $EAF5
+            0x4C, 0xAC, 0xE9])),                              # JMP $E9AC
+    (0xE8DB, bytes([0x20, 0xF5, 0xEA]),                       # JSR $EAF5
+     bytes([0x20, NERVE_HELPER & 0xFF, NERVE_HELPER >> 8])),
     (0xE8DE, bytes([0xA2, 0xC4, 0xA0, 0x01]),                 # LDX #$C4 / LDY #$01
      bytes([0xA2, FIRST_ID & 0xFF, 0xA0, FIRST_ID >> 8])),
 ]

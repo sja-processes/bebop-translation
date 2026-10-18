@@ -590,6 +590,11 @@ that places the marked tiles and add an English caption beside them
   ending, so the original never said why. `$E8DE` now points at `$3C2`, a
   copy of `1C4` whose first page reads "Guv, you've lost your nerve.
   We're finished!". Verified in Mesen by draining the gauge with `cmdE8`.
+  - That path never resets the text cursor, so the message started where
+    the last line ended and ran into the border (Stephen, 2026-10-18).
+    `$E8DB` now calls a helper at `$FFC0` (`JSR $EAF5` / `JMP $E9AC`), which
+    puts the cursor back at the top. Checked in both emulators, with and
+    without the fix.
 - NERVE is `$71B8`, counted in half-pips (5 pips = 10); each `cmdE8`
   removes one and waits for a button.
 - **How NERVE changes** (traced 2026-10-18, after Stephen saw sleep not
