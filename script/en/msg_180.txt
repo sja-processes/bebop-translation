@@ -427,7 +427,7 @@ does it?
 EN:
 [cmdEF 34][cmdEE 0f]Guv, by Nobuo Kaneko's
 reckoning, the black
-Skylion bloke trains at
+Skyline bloke trains at
 this gym.
 
 @@ 1BC  bank3 $8FAB

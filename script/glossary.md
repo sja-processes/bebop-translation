@@ -92,7 +92,7 @@ Width checker counts each as 7 letters.
 | ゲン (ひやといにんぷ) | Gen, navvy | **Kyushu dialect → light Geordie** (howay, reet, cannit, toon, me = my) |
 | ツボタ サルキチ | Sarukichi Tsubota | fake yakuza in sunglasses; シャバぞう → "drip" |
 | マリ | Mari | Girls' Commercial, George Tsuji's girlfriend |
-| ツジ ジョージ | George Tsuji | Big Four No.1, Gold Emperor, boxer, Skylion owner |
+| ツジ ジョージ | George Tsuji | Big Four No.1, Gold Emperor, boxer, Skyline owner |
 | オニジマ | Onijima | police officer (Kansai speech, kept plain UK copper: "You're nicked!") |
 | タチバナのミノル | Minoru of Tachibana | |
 | キクナガ | Kikunaga | Minoru's boss, lovesick for Junko |
@@ -118,7 +118,7 @@ Width checker counts each as 7 letters.
 | さてん「マイ」 | cafe "Mai" |
 | カクイデパート | Kakui Dept. Store (full name); casually "Kakui's" or "the shop" — never "the store" alone |
 | みなみおおはし | Minami Bridge |
-| シカイライン | Skylion (car; parody of Skyline) — provisional |
+| シカイライン | Skyline (car; JP alters one kana of スカイライン, which reads instantly in Japanese but not in English, so we use the real name. No 'Nissan', no 'GT-R' (badge unused 1973–89). First mention, 057, says 'a black car, a Skyline' as the JP does with という くるま) |
 | パトカー | police car / panda car |
 | たま (パチンコ) | pachinko balls |
 | イイバイ (sake brand; Hakata "it's good") | "Canny" (Geordie "good") — pun reused in 0C6 |

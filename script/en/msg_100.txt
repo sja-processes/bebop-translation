@@ -633,7 +633,7 @@ EN:
 
 @@ 167  bank2 $BD2E
 EN:
-[cmdEF 2a][cmdEE 01]Black Skylion? That's
+[cmdEF 2a][cmdEE 01]Black Skyline? That's
 our Tsuji's car.[page]
 But if you know what's
 good for you, keep your
@@ -657,7 +657,7 @@ EN:
 [cmdEE 05][cmdED]It w-was our Tsuji who
 snatched Shingo from
 Kita High. The black
-Skylion's his car.[page]
+Skyline's his car.[page]
 Seems Shingo chatted up
 Tsuji's girlfriend and
 got on the wrong side

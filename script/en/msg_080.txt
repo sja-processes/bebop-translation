@@ -335,13 +335,13 @@ to Toshimitsu.
 @@ 0B6  bank2 $9E63
 EN:
 [cmdEE 03]Gold Emperor's
-black Skylion?
+black Skyline?
 Dunno.
 
 @@ 0B7  bank2 $9E84
 EN:
 [cmdDD 07][cmdEE 03]A-alright! The black
-Skylion'll be parked by
+Skyline'll be parked by
 the Nishiyama Building
 in the next town.[cmdDE 2e][cmdDA][cmdDE 2b][page]
 It's a Gold Emperor car,
@@ -366,7 +366,7 @@ I really don't know.
 
 @@ 0BB  bank2 $9F50
 EN:
-[cmdDD 07][cmdEE 03]Th-the black Skylion,
+[cmdDD 07][cmdEE 03]Th-the black Skyline,
 right? I told you!
 Oi oi, don't look at
 me like that.

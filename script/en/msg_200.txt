@@ -104,7 +104,7 @@ see where he runs?
 
 @@ 210  bank3 $9E32
 EN:
-[cmdEF 32][cmdEE 02]It's the black Skylion!
+[cmdEF 32][cmdEE 02]It's the black Skyline!
 [setflag 2f][clrflag 7b]
 
 @@ 211  bank3 $9E4B

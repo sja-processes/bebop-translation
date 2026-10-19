@@ -540,7 +540,7 @@ there's 10,000, easy.
 
 @@ 055  bank2 $8F6F
 EN:
-[cmdDD 07][cmdEE 01]A-a Skylion[cmdED]...
+[cmdDD 07][cmdEE 01]A-a Skyline[cmdED]...
 [cmdED].....................
 [setflag 18][page+goto ae 02]
 
@@ -556,7 +556,7 @@ EN:
 [cmdEE 00]It's only what I heard,
 but someone saw Shingo
 being dragged into a
-black Skylion[cmdED]...
+black car, a Skyline[cmdED]...
 [setflag 19]
 
 @@ 058  bank2 $900B
@@ -613,7 +613,7 @@ don't know.
 
 @@ 062  bank2 $912E
 EN:
-A black Skylion?
+A black Skyline?
 [cmdEE 03]Probably one of that
 Gold Emperor biker
 gang's cars.
