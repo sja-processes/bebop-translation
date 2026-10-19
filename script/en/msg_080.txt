@@ -61,7 +61,8 @@ single lead. [delay 3c][cmdEE 03]Not one.
 EN:
 Right! A promise is a
 promise! I'll tell you
-the minute I hear owt.
+the minute I hear
+anything.
 
 @@ 08B  bank2 $96E8
 EN:
