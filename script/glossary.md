@@ -97,7 +97,7 @@ Width checker counts each as 7 letters.
 | タチバナのミノル | Minoru of Tachibana | |
 | キクナガ | Kikunaga | Minoru's boss, lovesick for Junko |
 | (rival) | the *other* hero ([cmdDF]); EF14 portrait | competes for Remi: "whoever rescues Shingo first gets Remi" |
-| (old man) = トメゾウ | Tomezo, "Grand Boss" (おおおやぶん) | lisps s → sh while his false teeth are lost; speaks normally once they're back (132) |
+| (old man) = トメゾウ | Tomezo, "Grand Boss" (おおおやぶん) | lisps s → sh while his false teeth are lost; speaks normally once they're back (132). ニイヒャン(たち) = lisped ニイチャン → "Young lads" (06A), "Lads" (06E); not "Shonny", which read as a mystery word |
 | イワモト | Iwamoto | timid Aitoku camera nerd, blurts history dates |
 | ジュンコ | Junko | refers to herself as "Junko"; Kikunaga is smitten |
 | タナカ | Tanaka | Kyokuto's only swot; every committee |

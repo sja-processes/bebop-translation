@@ -663,7 +663,7 @@ I'm up for anything!
 
 @@ 06A  bank2 $925D
 EN:
-[cmdEF 05]Shonny lads,
+[cmdEF 05]Young lads,
 would you lishen
 to an old man?
 
@@ -691,7 +691,7 @@ It'sh sho shad.
 
 @@ 06E  bank2 $930D
 EN:
-[cmdEF 05]Shonny,
+[cmdEF 05]Lads,
 you musht look after
 your teeth.
 
