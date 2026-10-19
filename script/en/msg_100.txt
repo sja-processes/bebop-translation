@@ -111,7 +111,8 @@ Make me look nice♥
 @@ 112  bank2 $AFB0
 EN:
 Don't you go using my
-photo for owt funny.
+photo for anything
+funny.
 
 @@ 113  bank2 $AFCA
 EN:
