@@ -657,7 +657,8 @@ anything, though.
 
 @@ 069  bank2 $9244
 EN:
-[setflag 99][cmdDD 04][cmdEE 01]Yeah, I'll do anything!
+[setflag 99][cmdDD 04][cmdEE 01]Yeah, bring it on!
+I'm up for anything!
 [cmdEA 10]
 
 @@ 06A  bank2 $925D
