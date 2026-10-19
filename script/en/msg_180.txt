@@ -260,7 +260,9 @@ today. [cmdEE 10]Another time, eh?
 
 @@ 1A2  bank3 $8AB2
 EN:
-[cmdEF 34][cmdEE 03]Guuuv!
+[cmdEF 34][cmdEE 03]Guuuv! It's no fun
+being a third wheel!
+Get on with it!
 [delay 3c]
 
 @@ 1A3  bank3 $8ABE
