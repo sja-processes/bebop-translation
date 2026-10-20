@@ -824,7 +824,7 @@ he's lying.
 EN:
 [cmdEF 32][cmdEE 06]True enough.
 Three blokes having
-coffee is no fun.
+coffee is no fun.[page]
 [cmdE8][cmdDE 26]
 
 @@ 1FB  bank3 $9A7E
