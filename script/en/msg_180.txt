@@ -273,8 +273,8 @@ about my coffee, me.
 
 @@ 1A4  bank3 $8AE3
 EN:
-[cmdEF 34][cmdEE 0e]Th-this is the real
-deal!
+[cmdEF 34][cmdEE 0e]Th-this is proper
+coffee, this is!
 
 @@ 1A5  bank3 $8AFA
 EN:
