@@ -249,7 +249,8 @@ of balls. Go on, use
 
 @@ 1A0  bank3 $8A55
 EN:
-[cmdEF 34][cmdEE 07]Miss, would you do
+[cmdEF 34][cmdEE 07]Cor, you flatter me, Guv!
+Miss, would you do
 Nobuo Kaneko the honour
 of coming along?
 
