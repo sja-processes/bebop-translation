@@ -444,7 +444,7 @@ me, will you?
 
 @@ 045  bank2 $8D4F
 EN:
-[cmdEF 03]Mm, good. Off you go.
+[cmdEF 03]Mm, good. Off you go.[page]
 [setflag 16][clrflag 15][cmdE8][cmdDE 26][goto 99 02]
 
 @@ 046  bank2 $8D6D
@@ -770,7 +770,7 @@ yourself, [cmdE2].
 EN:
 [cmdE2], you're a real
 catch, but[cmdED]...
-not today. Sorry.
+not today. Sorry.[page]
 [cmdE8][clrflag c8][goto a1 01]
 
 @@ 07B  bank2 $94F5

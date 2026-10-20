@@ -12,7 +12,7 @@ Never heard of you.
 
 @@ 082  bank2 $95A7
 EN:
-[cmdEF 31]You're having a laugh.
+[cmdEF 31]You're having a laugh.[page]
 [cmdE8][cmdDE 22][cmdD1][goto 8e 01]
 
 @@ 083  bank2 $95C1

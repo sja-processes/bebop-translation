@@ -364,7 +364,7 @@ your way, then try it.
 @@ 138  bank2 $B6C8
 EN:
 [cmdDD 03][flash][cmdEE 01]Fear not. I used the
-back of the blade.
+back of the blade.[page]
 [cmdE8][cmdDE 28]
 
 @@ 139  bank2 $B6E4

@@ -23,6 +23,10 @@ MAX_W, MAX_L = 25, 4
 CODE_CHANGES = {
     0x196: "Nobuo holds his smug look (EE 0f) through the pause after 'a face' (JP "
            "switches it straight back off before pausing) (2026-10-18)",
+    0x045: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
+    0x07A: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
+    0x082: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
+    0x138: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "
            "text the moment it finishes, too fast to read (Stephen, 2026-10-20)",
 }   # the box holds 25 (cols 4-28; pagecheck simulates borders)
