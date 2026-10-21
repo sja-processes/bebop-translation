@@ -803,7 +803,7 @@ starters[cmdED]......
 
 @@ 07F  bank2 $957E
 EN:
-[cmdEF 30]Oh[cmdED]...
+[cmdEF 30]Wh-[cmdED]what?!
 [page+goto b6 01]
 
 

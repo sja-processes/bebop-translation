@@ -61,6 +61,17 @@ HELP = (
 NOBUO_USE = FIRST_ID + 8
 NOBUO_USE_OPENING = "[cmdEF 34][cmdEE 14]Leave it to me, Guv.[page]\n"
 
+# Misako's coffee-shop date (scene 2C5, menu $20, used nowhere else): the
+# JP menu offers のる (Ride) as a cheeky option, but English "Ride" reads
+# as an outright request. Stephen (2026-10-21): use Give instead ("give
+# her a present" / "give her one"), one byte in the menu table. Her reply
+# 07F becomes "Wh-what?!", and Nobuo's yelp after Give and Sleep gets its
+# own copy of 1B6, which the sake shop girl's scene still shares as a
+# lovestruck "Guuuv!".
+NOBUO_STEADY = FIRST_ID + 9
+MISAKO_MENU_GIVE = 0xDEB3 + 0x20 * 6 + 4          # menu $20, slot 5
+VERB_RIDE, VERB_GIVE = 0x16, 0x14
+
 
 def retarget(msgs):
     """Build-time script changes that would break encheck's JP match."""
@@ -73,11 +84,21 @@ def retarget(msgs):
     msgs[0x2EB] = msgs[0x2EB].replace(menu, '[menu 63 e1 01 %02x %02x b0 01 b1 01 b2 01 09 03]'
                                       % (NOBUO_USE & 0xFF, NOBUO_USE >> 8))
 
+    assert msgs[0x1B6].count('Guuuv!') == 1, msgs[0x1B6]
+    msgs[NOBUO_STEADY] = msgs[0x1B6].replace('Guuuv!', 'Cor, Guv! Steady on!')
+    steady = '%02x %02x' % (NOBUO_STEADY & 0xFF, NOBUO_STEADY >> 8)
+    menu = '[menu-call 20 7c 00 7d 00 b6 01 7e 00 7f 00 09 03]'
+    assert msgs[0x2C5].count(menu) == 1, msgs[0x2C5]
+    msgs[0x2C5] = msgs[0x2C5].replace(menu, '[menu-call 20 7c 00 7d 00 %s 7e 00 7f 00 09 03]' % steady)
+    assert msgs[0x07F].count('[page+goto b6 01]') == 1, msgs[0x07F]
+    msgs[0x07F] = msgs[0x07F].replace('[page+goto b6 01]', '[page+goto %s]' % steady)
+
 
 MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP,
             CARETAKER_SIGNOFF: SIGNOFFS[0]}
 MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
 MESSAGES[NOBUO_USE] = ''          # filled in by retarget() from 1B3
+MESSAGES[NOBUO_STEADY] = ''       # filled in by retarget() from 1B6
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
 # message starts wherever the last line left off; the original's one-line
@@ -94,4 +115,5 @@ PATCHES = [
      bytes([0x20, NERVE_HELPER & 0xFF, NERVE_HELPER >> 8])),
     (0xE8DE, bytes([0xA2, 0xC4, 0xA0, 0x01]),                 # LDX #$C4 / LDY #$01
      bytes([0xA2, FIRST_ID & 0xFF, 0xA0, FIRST_ID >> 8])),
+    (MISAKO_MENU_GIVE, bytes([VERB_RIDE]), bytes([VERB_GIVE])),
 ]
