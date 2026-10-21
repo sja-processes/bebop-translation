@@ -25,6 +25,8 @@ CODE_CHANGES = {
            "switches it straight back off before pausing) (2026-10-18)",
     0x045: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x07A: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
+    0x07B: "page wait before the move to the coffee shop: Misako's yes vanished "
+           "at once (Stephen, 2026-10-21)",
     0x082: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x138: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "

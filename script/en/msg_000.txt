@@ -776,7 +776,7 @@ not today. Sorry.[page]
 @@ 07B  bank2 $94F5
 EN:
 Go on then, I'll let
-you treat me.
+you treat me.[page]
 [cmdEC 05 14 24][cmdE9][setflag c8][goto c5 02]
 
 @@ 07C  bank2 $9517
