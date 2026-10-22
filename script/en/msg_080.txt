@@ -239,7 +239,7 @@ EN:
 @@ 0A7  bank2 $9BC8
 EN:
 [cmdEF 0d][cmdDD 08][cmdEE 01]Honestly, what a
-weird pair.
+weird lot.
 
 @@ 0A8  bank2 $9BE3
 EN:
