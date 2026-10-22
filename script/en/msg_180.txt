@@ -346,7 +346,8 @@ prove I'm a man.
 @@ 1AF  bank3 $8D1D
 EN:
 [cmdEF 34][cmdEE 13]Oi!
-Who you eyeballing, eh?!
+Who d'you think you're
+staring at, eh?!
 [page+goto 1e 02]
 
 
