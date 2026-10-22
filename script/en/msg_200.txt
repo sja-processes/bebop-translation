@@ -62,8 +62,10 @@ EN:
 
 @@ 209  bank3 $9CF0
 EN:
-[cmdEF 32][cmdEE 06][cmdED]Nobuo, practise your
-[cmdED]one-on-ones at home.
+[cmdEF 32][cmdEE 06][cmdED]Nobuo, you're staring at
+your own reflection!
+[cmdED]Practise your hard-man
+act at home.
 [cmdED][delay 3c]
 
 @@ 20A  bank3 $9D20
@@ -317,8 +319,10 @@ EN:
 
 @@ 236  bank3 $A359
 EN:
-[cmdEF 34][cmdEE 13]Oi! Who you eyeballing,
-eh?!
+[cmdEF 34][cmdEE 13]Yeah, Guv, I'll shout at
+whoever's in the car![page]
+Oi! Who d'you think
+you're staring at, eh?!
 [page+goto 09 02]
 
 
