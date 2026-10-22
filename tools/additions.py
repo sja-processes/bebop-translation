@@ -6,6 +6,8 @@ script/en/ mirror the Japanese dump one-to-one, so additions live here.
 Each entry: ID -> (text in dump format, fixed-bank patches that use it).
 """
 
+import re
+
 FIRST_ID = 0x3C2
 
 # QoL (Stephen, 2026-10-17): running out of NERVE ($E8 handler, $E8D7)
@@ -72,6 +74,15 @@ NOBUO_STEADY = FIRST_ID + 9
 MISAKO_MENU_GIVE = 0xDEB3 + 0x20 * 6 + 4          # menu $20, slot 5
 VERB_RIDE, VERB_GIVE = 0x16, 0x14
 
+# 1AE (Nobuo: "don't just use me as your dogsbody") answers Watch on the
+# roof, Search at the station and Use at the car (2E9/2EA). At the car the
+# JP is a pun: Use (つかう) sounds like using *him*, and his complaint
+# つかいっぱしり (errand boy) starts with つかい. The car gets its own copy
+# that says so (Stephen, 2026-10-22).
+NOBUO_USED = FIRST_ID + 10
+NOBUO_USED_TEXT = ("[cmdEF 34][cmdEE 0f]Using me again, Guv? I'm\n"
+                   "not just your dogsbody.\nLet me prove I'm a man.\n")
+
 
 def retarget(msgs):
     """Build-time script changes that would break encheck's JP match."""
@@ -93,12 +104,20 @@ def retarget(msgs):
     assert msgs[0x07F].count('[page+goto b6 01]') == 1, msgs[0x07F]
     msgs[0x07F] = msgs[0x07F].replace('[page+goto b6 01]', '[page+goto %s]' % steady)
 
+    used = '%02x %02x' % (NOBUO_USED & 0xFF, NOBUO_USED >> 8)
+    for scene in (0x2E9, 0x2EA):
+        menu = re.search(r'\[menu 4f 97 01 ae 01 ([0-9a-f]{2} [0-9a-f]{2}) 36 02 09 03\]', msgs[scene])
+        assert menu, msgs[scene]
+        msgs[scene] = msgs[scene].replace(menu.group(0), '[menu 4f 97 01 %s %s 36 02 09 03]'
+                                          % (used, menu.group(1)))
+
 
 MESSAGES = {FIRST_ID: OUT_OF_NERVE, CARETAKER_SCENE: SCENE, CARETAKER_TALK: HELP,
             CARETAKER_SIGNOFF: SIGNOFFS[0]}
 MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
 MESSAGES[NOBUO_USE] = ''          # filled in by retarget() from 1B3
 MESSAGES[NOBUO_STEADY] = ''       # filled in by retarget() from 1B6
+MESSAGES[NOBUO_USED] = NOBUO_USED_TEXT
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
 # message starts wherever the last line left off; the original's one-line
