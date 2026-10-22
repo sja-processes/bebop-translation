@@ -50,9 +50,12 @@ they knew your face?
 
 @@ 207  bank3 $9CAE
 EN:
-[cmdEF 32][cmdEE 09]Well, he's Joto's top
-dog. He's got real
-presence.
+[cmdEF 32][cmdEE 09]We're in the presence of
+such a cool guy here, no
+wonder he's top dog of
+Joto![page]
+Got to admire his
+style, really.
 [page+goto 9d 01]
 
 

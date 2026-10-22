@@ -29,6 +29,7 @@ CODE_CHANGES = {
            "at once (Stephen, 2026-10-21)",
     0x082: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x138: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
+    0x207: "page added: Stephen's longer admiring line needs a second page (2026-10-22)",
     0x236: "page added: Nobuo's new bridge ('I'll shout at whoever's in the car!') "
            "before his challenge, so Shout reads as him shouting (Stephen, 2026-10-22)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "
