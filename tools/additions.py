@@ -46,7 +46,9 @@ SIGNOFF_FIRST = FIRST_ID + 4
 # going back to CHOOSER, so the menu switches straight after Beg.
 FIRST_EXTRA = FIRST_ID + 11
 (CHOOSER, MENU_SMALL, MENU_BIG, CARETAKER_ASK, BEG, BEG_FIRST, BEG_AGAIN, BEG_BEFORE,
- BEG_AFTER, PROMISE, PROMISE_FIRST, PROMISE_AGAIN, FLATTER) = range(FIRST_EXTRA, FIRST_EXTRA + 13)
+ BEG_AFTER, PROMISE, PROMISE_FIRST, PROMISE_AGAIN, FLATTER, ASK_SIGNOFF) = range(FIRST_EXTRA, FIRST_EXTRA + 14)
+# Sign-offs are split: Talk ends at CARETAKER_SIGNOFF (-> SIGNOFFS 0/1),
+# Ask at ASK_SIGNOFF (-> SIGNOFFS 2/3), so one visit never repeats one.
 FLAG_BEGGED, FLAG_CHEAT = 0x0B, 0x0C       # unused by script and code; saved with the game
 MENU_SMALL_ID, MENU_BIG_ID = 0x09, 0x0A    # all-zero rows the script never uses
 MENU_TABLE = 0xDEB3
@@ -99,7 +101,7 @@ ASK_TEXT = (
     "[cmdEE 00]I turn a blind eye to\nwhat the students get up\nto, but I'll tell you\nthis...[page]\n"
     "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
     "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
-    "Oh, and you can only\nsave at home. Now clear\n[goto %02x %02x]\n" % (CARETAKER_SIGNOFF & 0xFF, CARETAKER_SIGNOFF >> 8)
+    "Oh, and you can only\nsave at home. Now clear\n[goto %s]\n" % _id(ASK_SIGNOFF)
 )
 
 # 1B3 (Nobuo charges off) answers two verbs: Flatter (ごまする, butter
@@ -168,6 +170,7 @@ MESSAGES[NOBUO_STEADY] = ''       # filled in by retarget() from 1B6
 MESSAGES[NOBUO_USED] = NOBUO_USED_TEXT
 MESSAGES.update(EXTRAS)
 MESSAGES[CARETAKER_ASK] = ASK_TEXT
+MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
 # message starts wherever the last line left off; the original's one-line

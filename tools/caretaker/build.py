@@ -234,10 +234,16 @@ def hooks(base, table_addr, tabs):
     assert len(additions.SIGNOFFS) == 4 and lo(first) + 3 <= 0xFF
     here = base + len(code)
     patches.append((0xDBEE, bytes([0x4C, 0x00, 0xFD]), bytes([0x4C, lo(here), hi(here)])))
-    code += bytes([0xC0, hi(sign), 0xD0, 0x0E,            # CPY #hi / BNE go
-                   0xE0, lo(sign), 0xD0, 0x0A,            # CPX #lo / BNE go
-                   0xA5, 0x6E, 0x29, 0x03, 0x18,          # LDA $6E / AND #3 / CLC
-                   0x69, lo(first), 0xAA,                 # ADC #lo(first) / TAX
+    # Talk's sign-off ID -> SIGNOFFS 0/1, Ask's -> SIGNOFFS 2/3 (frame bit 0)
+    ask = additions.ASK_SIGNOFF
+    assert hi(ask) == hi(sign) == hi(first)
+    code += bytes([0xC0, hi(sign), 0xD0, 23,              # CPY #hi / BNE go
+                   0xE0, lo(sign), 0xF0, 8,               # CPX #talk / BEQ t
+                   0xE0, lo(ask), 0xD0, 15,               # CPX #ask / BNE go
+                   0xA2, lo(first) + 2, 0xD0, 2,          # LDX #first+2 / BNE p
+                   0xA2, lo(first),                       # t: LDX #first
+                   0xA5, 0x6E, 0x4A,                      # p: LDA $6E / LSR A
+                   0x8A, 0x69, 0x00, 0xAA,                # TXA / ADC #0 / TAX
                    0xA0, hi(first),                       # LDY #hi(first)
                    0x4C, 0x00, 0xFD])                     # go: JMP $FD00
     # door table scan base: $C51E LDA #$97 ... $C524 LDA #$EF
