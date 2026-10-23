@@ -53,8 +53,8 @@ EN:
 
 @@ 38A  bank3 $BD04
 EN:
-[cmdEF 34][cmdEE 13]He's baffled, Guv! Quick,
-let's slip past him![page]
+[cmdEF 34][cmdEE 13]He fell for it, Guv!
+Quick, let's slip past![page]
 [cmdD1]Now you see me, now
 you doooon't!!
 [delay 3c][cmdDD 0b][cmdEE 00][delay 1e][cmdEE 01][delay 1e][cmdEE 02][delay 1e][cmdEE 03][delay 1e][cmdEE 04][delay 1e][cmdEE 05][delay 1e][cmdEE 0d][delay 5a][cmdEF 00][setflag 5f][clrflag 3e]

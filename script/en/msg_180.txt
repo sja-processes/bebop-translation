@@ -454,8 +454,9 @@ life's not fair, is it?
 
 @@ 1BF  bank3 $9030
 EN:
-[setflag 3e][cmdEF 34][cmdEE 17][cmdED]No, no, no,
-[cmdED]one, two, three!
+[setflag 3e][cmdEF 34][cmdEE 17][cmdED]Blimey!
+[cmdED]Isn't that your bird
+with another bloke?!
 [page+goto e8 00]
 
 
