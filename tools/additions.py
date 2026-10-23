@@ -42,8 +42,7 @@ SIGNOFFS = [
 SIGNOFF_FIRST = FIRST_ID + 4
 # Caretaker extras (PLAN.md, 2026-10-23): the scene now goes to CHOOSER,
 # which shows menu $09 (Talk / Ask / Beg / Leave) until Beg sets
-# FLAG_BEGGED, then menu $0A (+ Promise / Flatter). Every answer ends by
-# going back to CHOOSER, so the menu switches straight after Beg.
+# FLAG_BEGGED, then menu $0A (+ Promise / Flatter).
 FIRST_EXTRA = FIRST_ID + 11
 (CHOOSER, MENU_SMALL, MENU_BIG, CARETAKER_ASK, BEG, BEG_FIRST, BEG_AGAIN, BEG_BEFORE,
  BEG_AFTER, PROMISE, PROMISE_FIRST, PROMISE_AGAIN, FLATTER, ASK_SIGNOFF) = range(FIRST_EXTRA, FIRST_EXTRA + 14)
@@ -61,10 +60,15 @@ def _id(n):
     return '%02x %02x' % (n & 0xFF, n >> 8)
 
 
-BACK = '[page+goto %s]\n' % _id(CHOOSER)
+# Each answer just ends: [menu] runs it as a nested call, and CHOOSER's
+# ifflag-call then re-runs CHOOSER, so the menu reflects FLAG_BEGGED at
+# once. (Ending answers with a goto back to the menu instead left a call
+# frame on the 6502 stack every time round, and a long visit crashed;
+# Stephen, 2026-10-23.)
+BACK = ''
 SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][goto %s]\n" % _id(CHOOSER)
 EXTRAS = {
-    CHOOSER: '[ifflag %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
+    CHOOSER: '[ifflag-call %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
     MENU_SMALL: '[menu %02x %s %s %s 09 03]\n' % (
         MENU_SMALL_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(BEG)),
     MENU_BIG: '[menu %02x %s %s %s %s %s 09 03]\n' % (

@@ -943,9 +943,16 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   - Flatter: "Ooh, such kind words." (Stephen; not "you charmers", which echoes Risa's 086) + hint. Stage 1 placeholder: "You're only
     just starting / out. Have a wander round / and talk to folk."
 - **Built (stage 1, 2026-10-23)** in `tools/additions.py`: messages
-  $3CD-$3D9 (CHOOSER = `[ifflag 0b]` picks menu $09 or $0A; every answer
-  ends `[page+goto CHOOSER]`, the sign-offs too, so the menu is plain
-  `[menu]`, not `menu-call`). Talk = $3C4 (NERVE pages + "Right, that's
+  $3CD-$3DA (CHOOSER = `[ifflag-call 0b]` picks menu $09 or $0A; each
+  answer just ends, and the call loops back to CHOOSER, so the menu
+  switches right after Beg). **Engine rule (crash found by Stephen,
+  2026-10-23):** `[menu]` (`$DDB4`) runs the chosen target as a nested
+  call (`JSR $EDA3`); a target that ends with a goto back to a menu
+  leaves that call frame on the 6502 stack, so a loop overflows it after
+  a few dozen choices (Leave then crashed). Loops must return: use
+  `*-call` + targets that end. Fixed build: SP 163 at the menu before and
+  after a full Ask (Mesen); 40 Flatter rounds then Leave work (the old
+  build crashed during them). Talk = $3C4 (NERVE pages + "Right, that's
   your lot. Now clear off." + sign-off 0/1: gutters, boiler); Ask = $3D0
   (ends at $3DA → sign-off 2/3: leaky tap, tea; picked by frame bit 0 in
   the `$DBEE` hook), so one visit never repeats a sign-off. Flags $0B (begged)
