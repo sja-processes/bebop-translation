@@ -40,8 +40,52 @@ SIGNOFFS = [
     "off. My tea's going\ncold.\n",
 ]
 SIGNOFF_FIRST = FIRST_ID + 4
-SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][menu-call 41 %02x %02x 09 03]\n" % (
-    CARETAKER_TALK & 0xFF, CARETAKER_TALK >> 8)
+# Caretaker extras (PLAN.md, 2026-10-23): the scene now goes to CHOOSER,
+# which shows menu $09 (Talk / Ask / Beg / Leave) until Beg sets
+# FLAG_BEGGED, then menu $0A (+ Promise / Flatter). Every answer ends by
+# going back to CHOOSER, so the menu switches straight after Beg.
+FIRST_EXTRA = FIRST_ID + 11
+(CHOOSER, MENU_SMALL, MENU_BIG, CARETAKER_ASK, BEG, BEG_FIRST, BEG_AGAIN, BEG_BEFORE,
+ BEG_AFTER, PROMISE, PROMISE_FIRST, PROMISE_AGAIN, FLATTER) = range(FIRST_EXTRA, FIRST_EXTRA + 13)
+FLAG_BEGGED, FLAG_CHEAT = 0x0B, 0x0C       # unused by script and code; saved with the game
+MENU_SMALL_ID, MENU_BIG_ID = 0x09, 0x0A    # all-zero rows the script never uses
+MENU_TABLE = 0xDEB3
+V_TALK, V_ASK, V_LEAVE, V_FLATTER, V_PROMISE, V_BEG = 0x01, 0x02, 0x07, 0x08, 0x0B, 0x13
+MENU_ROWS = {MENU_SMALL_ID: [V_TALK, V_ASK, V_BEG, V_LEAVE, 0, 0],
+             MENU_BIG_ID: [V_TALK, V_ASK, V_BEG, V_PROMISE, V_FLATTER, V_LEAVE]}
+
+
+def _id(n):
+    return '%02x %02x' % (n & 0xFF, n >> 8)
+
+
+BACK = '[page+goto %s]\n' % _id(CHOOSER)
+SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][goto %s]\n" % _id(CHOOSER)
+EXTRAS = {
+    CHOOSER: '[ifflag %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
+    MENU_SMALL: '[menu %02x %s %s %s 09 03]\n' % (
+        MENU_SMALL_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(BEG)),
+    MENU_BIG: '[menu %02x %s %s %s %s %s 09 03]\n' % (
+        MENU_BIG_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(BEG), _id(PROMISE), _id(FLATTER)),
+    BEG: '[ifflag %02x %s %s]\n' % (FLAG_BEGGED, _id(BEG_FIRST), _id(BEG_AGAIN)),
+    BEG_FIRST: ('[setflag %02x]' % FLAG_BEGGED +
+                "Got yourselves into a bit\nof bother, lads? Well, I\nknow people. Comes with\nmy age, that does.[page]\n"
+                "Now, this isn't how\nthings are meant to be.\nIt's an easier road than\nlads like you deserve.[page]\n"
+                "First, I can see to it\nyou always draw the very\nbest fortune slip at the\nshrine.[page]\n"
+                "You'll have to promise\nto use it for good deeds,\nmind. Once it's done,\nthere's no going back.[page]\n"
+                "I also hear things on the\ngrapevine. Flatter me a\nbit, and I'll give you\nthe latest lowdown." + BACK),
+    BEG_AGAIN: '[ifflag %02x %s %s]\n' % (FLAG_CHEAT, _id(BEG_BEFORE), _id(BEG_AFTER)),
+    BEG_BEFORE: "Still thinking, lads?\nPromise me, and the best\nfortune's yours. Flatter\nme for the lowdown." + BACK,
+    BEG_AFTER: "You've had your favours,\nlads. Flatter me for\nthe lowdown." + BACK,
+    PROMISE: '[ifflag %02x %s %s]\n' % (FLAG_CHEAT, _id(PROMISE_FIRST), _id(PROMISE_AGAIN)),
+    PROMISE_FIRST: ('[setflag %02x]' % FLAG_CHEAT +
+                    "I trust you, lads. It's\ndone. The priest owes me\nfor all the odd jobs I've\ndone round the shrine." + BACK),
+    PROMISE_AGAIN: "Your fortune's already\nsorted, lads. A promise\nis a promise." + BACK,
+    # stage 1 placeholder; stage 2 picks a hint by story progress
+    FLATTER: "Ooh, such kind words.\nYou're only just starting\nout. Have a wander round\nand talk to folk." + BACK,
+}
+SIGNOFFS = [t.rstrip('\n') + BACK for t in SIGNOFFS]
+# Talk = how NERVE works; Ask = luck and saving (split 2026-10-23)
 HELP = (
     "[cmdEE 00]Hm? Oh, it's you lot.\nBeen keeping this place\ngoing as caretaker since\nbefore your time.[page]\n"
     "I've seen plenty of\nlads like you come\nthrough. Here's some\nadvice for nothing.[page]\n"
@@ -49,6 +93,10 @@ HELP = (
     "Run out completely, and\nyou're done for. And\nsleep won't top it up,\nmind.[page]\n"
     "Get home to bed in\nthe evening before\nnightfall.[page]\n"
     "Stay out late and it\nwears you down, or the\npolice nab you.[page]\n"
+    "Right, that's your lot.\nNow clear\n[goto %s]\n" % _id(CARETAKER_SIGNOFF)
+)
+ASK_TEXT = (
+    "[cmdEE 00]I turn a blind eye to\nwhat the students get up\nto, but I'll tell you\nthis...[page]\n"
     "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
     "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
     "Oh, and you can only\nsave at home. Now clear\n[goto %02x %02x]\n" % (CARETAKER_SIGNOFF & 0xFF, CARETAKER_SIGNOFF >> 8)
@@ -118,6 +166,8 @@ MESSAGES.update({SIGNOFF_FIRST + i: t for i, t in enumerate(SIGNOFFS)})
 MESSAGES[NOBUO_USE] = ''          # filled in by retarget() from 1B3
 MESSAGES[NOBUO_STEADY] = ''       # filled in by retarget() from 1B6
 MESSAGES[NOBUO_USED] = NOBUO_USED_TEXT
+MESSAGES.update(EXTRAS)
+MESSAGES[CARETAKER_ASK] = ASK_TEXT
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
 # message starts wherever the last line left off; the original's one-line
@@ -135,4 +185,24 @@ PATCHES = [
     (0xE8DE, bytes([0xA2, 0xC4, 0xA0, 0x01]),                 # LDX #$C4 / LDY #$01
      bytes([0xA2, FIRST_ID & 0xFF, 0xA0, FIRST_ID >> 8])),
     (MISAKO_MENU_GIVE, bytes([VERB_RIDE]), bytes([VERB_GIVE])),
+]
+for _mid, _row in MENU_ROWS.items():
+    PATCHES.append((MENU_TABLE + _mid * 6, bytes(6), bytes(_row)))
+
+# Luck cheat: the fortune slip roll ($E382) starts JSR $EE37 (clear the
+# luck flags $71AD-$71B1), then rolls Y = 0..4 and sets $71AD,Y at $E391.
+# The helper clears as before; with FLAG_CHEAT set it drops the return
+# address and jumps to $E391 with Y = 4 (CHARM).
+CHEAT_HELPER = 0xFFB0
+_cheat = bytes([0x20, 0x37, 0xEE,                        # JSR $EE37
+                0xAD, FLAG_CHEAT, 0x71,                  # LDA $71xx (cheat flag)
+                0xF0, 0x07,                              # BEQ rts
+                0x68, 0x68,                              # PLA / PLA
+                0xA0, 0x04,                              # LDY #4 (CHARM)
+                0x4C, 0x91, 0xE3,                        # JMP $E391
+                0x60])                                   # rts: RTS
+assert len(_cheat) == 16
+PATCHES += [
+    (CHEAT_HELPER, b'\xFF' * len(_cheat), _cheat),
+    (0xE382, bytes([0x20, 0x37, 0xEE]), bytes([0x20, CHEAT_HELPER & 0xFF, CHEAT_HELPER >> 8])),
 ]

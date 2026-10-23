@@ -25,7 +25,7 @@ each session so the next one doesn't re-derive anything.
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
 - [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
-- [ ] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; see "Caretaker extras" below
+- [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
 
 ## Stages
@@ -942,6 +942,17 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
     a promise."
   - Flatter: "Ooh, such kind words." (Stephen; not "you charmers", which echoes Risa's 086) + hint. Stage 1 placeholder: "You're only
     just starting / out. Have a wander round / and talk to folk."
+- **Built (stage 1, 2026-10-23)** in `tools/additions.py`: messages
+  $3CD-$3D9 (CHOOSER = `[ifflag 0b]` picks menu $09 or $0A; every answer
+  ends `[page+goto CHOOSER]`, the sign-offs too, so the menu is plain
+  `[menu]`, not `menu-call`). Talk = $3C4 (NERVE pages + "Right, that's
+  your lot. Now clear" + random sign-off); Ask = $3D0. Flags $0B (begged)
+  and $0C (cheat) live in `$7100` page, which save/load copies whole
+  (`$E8FC`, `$E91D`); no code clears flags in bulk. Menu rows $09/$0A
+  patched in the menu table. Cheat: `$E382` JSR → helper at `$FFB0` (16
+  bytes; caretaker code must end before it). Tested in Nestopia and Mesen:
+  every menu path, and 6 slip rolls without (mixed) / with (all CHARM)
+  the cheat. Not yet tested: a real save and reload.
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
