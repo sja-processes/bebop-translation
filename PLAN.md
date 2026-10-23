@@ -25,6 +25,8 @@ each session so the next one doesn't re-derive anything.
   - [x] Batch 1 (2026-10-16/17): see "Stage 8b batch 1" below. Next: more of Stephen's play; Junko's self-reference lines to review; street-area signs when met
 - [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
+- [ ] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; see "Caretaker extras" below
+- [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
 
 ## Stages
 
@@ -890,6 +892,38 @@ ROM's code is unchanged here.
   — delete noisy watches immediately and filter events by `handle`.
 - Intro timing: page 1 at frame ~545, A → page 2 (~750), A → page 3
   with bank 3 `$A3F8` read by `$EA08` from frame 760, one char / 3 frames.
+
+### Caretaker extras (agreed 2026-10-23)
+Optional QoL on top of the caretaker's room (see "Optional: help pages").
+- **Menu:** before Beg: Talk / Ask / Beg / Leave. After Beg (flag set):
+  Talk / Ask / Beg / Promise / Flatter / Leave (six slots, the maximum).
+  The scene picks the menu row by flag. Menu ids $01, $09, $0A, $28, $4A
+  and $4D are never used by the script: check the code doesn't use them
+  either, then take two.
+- **Talk:** first half of the current help (NERVE, home before nightfall).
+- **Ask:** opens like an Ask about Shingo ("I turn a blind eye to what
+  the students get up to, but I'll tell you this..."), then fortune
+  slips, LUCK and saving.
+- **Beg:** he tells you about the cheat and the hints, and asks you to
+  promise not to abuse the luck. Sets the flag that shows the big menu.
+- **Promise:** turns the cheat on for good (saved with the game; no off
+  switch). The cheat must be clearly explained before this.
+- **Cheat:** fortune slip roll at `$E382` (clear luck flags, roll `$70`
+  against thresholds `$E397`, set one of `$71AD`-`$71B1` = flags
+  $AD JINX ... $B1 CHARM). Hook: if the cheat flag is set, set CHARM. It
+  needs an unused flag (check that the script never uses it, and what a new
+  game does to it). JINX/BAD slips lead to the shrine priest's ritual
+  (2A5, Beg x5, `cmdE7` luck +1); with the cheat that never happens. Note:
+  `cmdE7` at CHARM overflows (`$E8E6`: clears every luck flag, so the grade is blank
+  and Misako refuses); unreachable now, so guard it if that ever changes.
+- **Flatter (hints):** stage 1 shows one placeholder hint to prove the
+  flow. Stage 2: one hint per story milestone, chosen by a firstclear
+  chain on progress flags; the same hint until the state changes (no
+  "ask again for more"); some hints may mix vague and specific guidance.
+  Only seen if the player chooses Flatter.
+- Luck checks in the script (for reference): fortune slip 2A4, Risa
+  coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
+  trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
 
 ### Department store variants (planned 2026-10-18)
 Stephen (save state 7): every floor of the Kakui Department Store looks
