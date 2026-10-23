@@ -101,7 +101,7 @@ ASK_TEXT = (
     "[cmdEE 00]I turn a blind eye to\nwhat the students get up\nto, but I'll tell you\nthis...[page]\n"
     "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
     "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
-    "Oh, and you can only\nsave at home.[page]\nNow clear off.\n[goto %s]\n" % _id(ASK_SIGNOFF)
+    "Oh, and you can only save\nat home. Now clear off.\n[goto %s]\n" % _id(ASK_SIGNOFF)
 )
 
 # 1B3 (Nobuo charges off) answers two verbs: Flatter (ごまする, butter
