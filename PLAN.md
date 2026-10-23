@@ -940,7 +940,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
     all the odd jobs I've / done round the shrine."
   - Promise again: "Your fortune's already / sorted, lads. A promise / is
     a promise."
-  - Flatter: "Ooh, go on then." + hint. Stage 1 placeholder: "You're only
+  - Flatter: "Ooh, such kind words." (Stephen) + hint. Stage 1 placeholder: "You're only
     just starting / out. Have a wander round / and talk to folk."
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
