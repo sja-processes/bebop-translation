@@ -31,13 +31,13 @@ CARETAKER_TALK = FIRST_ID + 2
 # The last page ends by going to CARETAKER_SIGNOFF; tools/caretaker/build.py
 # makes the message lookup swap that ID for one of the four SIGNOFFS,
 # picked by the frame counter, so repeat visits get a different parting
-# shot. Each finishes the page: line 3 (<= 25) and line 4 (<= 23).
+# shot. Each finishes the page after "Now clear off.": lines 3-4 (<= 23).
 CARETAKER_SIGNOFF = FIRST_ID + 3
 SIGNOFFS = [
-    "off. Those gutters won't\nunblock themselves.\n",
-    "off. That boiler won't\nfix itself.\n",
-    "off. There's a leaky tap\nwith my name on it.\n",
-    "off. My tea's going\ncold.\n",
+    "Those gutters won't\nunblock themselves.\n",
+    "That boiler won't\nfix itself.\n",
+    "There's a leaky tap\nwith my name on it.\n",
+    "My tea's going cold.\n",
 ]
 SIGNOFF_FIRST = FIRST_ID + 4
 # Caretaker extras (PLAN.md, 2026-10-23): the scene now goes to CHOOSER,
@@ -95,13 +95,13 @@ HELP = (
     "Run out completely, and\nyou're done for. And\nsleep won't top it up,\nmind.[page]\n"
     "Get home to bed in\nthe evening before\nnightfall.[page]\n"
     "Stay out late and it\nwears you down, or the\npolice nab you.[page]\n"
-    "Right, that's your lot.\nNow clear\n[goto %s]\n" % _id(CARETAKER_SIGNOFF)
+    "Right, that's your lot.\nNow clear off.\n[goto %s]\n" % _id(CARETAKER_SIGNOFF)
 )
 ASK_TEXT = (
     "[cmdEE 00]I turn a blind eye to\nwhat the students get up\nto, but I'll tell you\nthis...[page]\n"
     "First thing each day,\npop up to the shrine and\nbuy a fortune slip. It\nsays how your LUCK is.[page]\n"
     "Luck's everything, lads.\nGood luck, and folk open\nup to you. Bad luck, and\nnothing goes right.[page]\n"
-    "Oh, and you can only\nsave at home. Now clear\n[goto %s]\n" % _id(ASK_SIGNOFF)
+    "Oh, and you can only\nsave at home.[page]\nNow clear off.\n[goto %s]\n" % _id(ASK_SIGNOFF)
 )
 
 # 1B3 (Nobuo charges off) answers two verbs: Flatter (ごまする, butter

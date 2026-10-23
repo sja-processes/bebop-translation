@@ -946,7 +946,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   $3CD-$3D9 (CHOOSER = `[ifflag 0b]` picks menu $09 or $0A; every answer
   ends `[page+goto CHOOSER]`, the sign-offs too, so the menu is plain
   `[menu]`, not `menu-call`). Talk = $3C4 (NERVE pages + "Right, that's
-  your lot. Now clear" + sign-off 0/1: gutters, boiler); Ask = $3D0
+  your lot. Now clear off." + sign-off 0/1: gutters, boiler); Ask = $3D0
   (ends at $3DA → sign-off 2/3: leaky tap, tea; picked by frame bit 0 in
   the `$DBEE` hook), so one visit never repeats a sign-off. Flags $0B (begged)
   and $0C (cheat) live in `$7100` page, which save/load copies whole
