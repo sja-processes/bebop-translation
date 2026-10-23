@@ -104,8 +104,9 @@ EN:
 @@ 20F  bank3 $9E0B
 EN:
 [cmdEF 32][cmdEE 05]Wait, [cmdE1].
-[cmdEE 09]Why not let Teru go and
-see where he runs?
+[cmdEE 09]Why not let Teru go, and
+we can tail him to see
+where he goes?
 
 @@ 210  bank3 $9E32
 EN:
