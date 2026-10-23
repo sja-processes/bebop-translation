@@ -392,8 +392,7 @@ time for lessons.
 for Shingo.[page]
 [cmdEF 34][cmdEE 07]Guv! Your number one
 sidekick, Nobuo Kaneko,
-is coming too.
-[delay 3c]
+is coming too.[delay 3c][page]
 
 @@ 239  bank3 $A702
 EN:

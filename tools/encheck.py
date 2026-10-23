@@ -30,6 +30,7 @@ CODE_CHANGES = {
     0x082: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x138: "page wait before the NERVE loss, as 1FA (Stephen, 2026-10-20)",
     0x207: "page added: Stephen's longer admiring line needs a second page (2026-10-22)",
+    0x238: "intro's last line waits for A before the town map (it cut straight to the map) (Stephen, 2026-10-23)",
     0x236: "page added: Nobuo's new bridge ('I'll shout at whoever's in the car!') "
            "before his challenge, so Shout reads as him shouting (Stephen, 2026-10-22)",
     0x388: "page added: bridge before Nobuo's Sneak shout (tailing Teru: ninja) (Stephen, 2026-10-23)",
