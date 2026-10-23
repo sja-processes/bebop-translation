@@ -921,6 +921,27 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   chain on progress flags; the same hint until the state changes (no
   "ask again for more"); some hints may mix vague and specific guidance.
   Only seen if the player chooses Flatter.
+- **Agreed wording (2026-10-23; boxes are 4 lines, max 25, last before a
+  wait max 23).** Shrine odd jobs are plausible: local parishioners
+  (ujiko) do upkeep as favours; only major work needs shrine carpenters.
+  - Beg, first time (5 boxes): "Got yourselves into a bit / of bother,
+    lads? Well, I / know people. Comes with / my age, that does." |
+    "Now, this isn't how / things are meant to be. / It's an easier road
+    than / lads like you deserve." | "First, I can see to it / you always
+    draw the very / best fortune slip at the / shrine." | "You'll have to
+    promise / to use it for good deeds, / mind. Once it's done, / there's
+    no going back." | "I also hear things on the / grapevine. Flatter me a
+    / bit, and I'll give you / the latest lowdown."
+  - Beg again, before Promise: "Still thinking, lads? / Promise me, and
+    the best / fortune's yours. Flatter / me for the lowdown."
+  - Beg again, after Promise: "You've had your favours, / lads. Flatter
+    me for / the lowdown."
+  - Promise: "I trust you, lads. It's / done. The priest owes me / for
+    all the odd jobs I've / done round the shrine."
+  - Promise again: "Your fortune's already / sorted, lads. A promise / is
+    a promise."
+  - Flatter: "Ooh, go on then." + hint. Stage 1 placeholder: "You're only
+    just starting / out. Have a wander round / and talk to folk."
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
