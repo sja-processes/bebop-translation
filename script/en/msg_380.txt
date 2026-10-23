@@ -42,7 +42,9 @@ EN:
 
 @@ 388  bank3 $BCC6
 EN:
-[cmdEF 34][cmdEE 13][cmdD1]Transfoooorm!!
+[cmdEF 34][cmdEE 13]Tail him, Guv? Then we
+need to go incognito![page]
+[cmdD1]Ninja transfoooorm!!
 [delay 3c][cmdDD 0b][cmdEE 00][delay 1e][cmdEE 01][delay 1e][cmdEE 02][delay 1e][cmdEE 03][delay 1e][cmdEE 04][delay 1e][cmdEE 05][delay 1e][cmdEE 0d][delay 5a][cmdEF 00][clrflag 7a][setflag 7b]
 
 @@ 389  bank3 $BCFF
@@ -51,7 +53,10 @@ EN:
 
 @@ 38A  bank3 $BD04
 EN:
-[cmdEF 34][cmdEE 13][cmdD1]Transfoooorm!!
+[cmdEF 34][cmdEE 13]He's baffled, Guv! Quick,
+let's slip past him![page]
+[cmdD1]Now you see me, now
+you doooon't!!
 [delay 3c][cmdDD 0b][cmdEE 00][delay 1e][cmdEE 01][delay 1e][cmdEE 02][delay 1e][cmdEE 03][delay 1e][cmdEE 04][delay 1e][cmdEE 05][delay 1e][cmdEE 0d][delay 5a][cmdEF 00][setflag 5f][clrflag 3e]
 
 @@ 38B  bank3 $BD3D

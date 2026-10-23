@@ -32,6 +32,8 @@ CODE_CHANGES = {
     0x207: "page added: Stephen's longer admiring line needs a second page (2026-10-22)",
     0x236: "page added: Nobuo's new bridge ('I'll shout at whoever's in the car!') "
            "before his challenge, so Shout reads as him shouting (Stephen, 2026-10-22)",
+    0x388: "page added: bridge before Nobuo's Sneak shout (tailing Teru: ninja) (Stephen, 2026-10-23)",
+    0x38A: "page added: bridge before Nobuo's Sneak shout (slipping past the thug: vanishing trick) (Stephen, 2026-10-23)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "
            "text the moment it finishes, too fast to read (Stephen, 2026-10-20)",
 }   # the box holds 25 (cols 4-28; pagecheck simulates borders)
