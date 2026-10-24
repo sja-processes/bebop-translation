@@ -449,8 +449,9 @@ Sarukichi Tsubota!
 
 @@ 1BE  bank3 $9013
 EN:
-[cmdEF 34][cmdEE 12]Cor, Guv,
-life's not fair, is it?
+[cmdEF 34][cmdEE 12]Cor, Guv, the hard nuts
+always get the girls.
+Life's not fair, is it?
 
 @@ 1BF  bank3 $9030
 EN:
