@@ -331,7 +331,9 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
 - **Parked wording to revisit after playtesting (Stephen's call):**
   policeman 03B "Right, let's be 'avin' you" (a Sweeney-style line was
   considered but not adopted); "well fit" in 0E3; dog warden line 0F2;
-  "Skylion" car name (done: now "Skyline", 2026-10-19); Gen's Geordie and the "Canny"/"Cannit" sake puns.
+  "Skylion" car name (done: now "Skyline", 2026-10-19); 12D "fountain in the park" (こうえん:
+  check whether it looks like a park or a playground when reached; 0B1 is
+  now "playground"); Gen's Geordie and the "Canny"/"Cannit" sake puns.
 
 ### Insertion (stage 6a)
 - `python3 tools/insert.py` → `out/bebop_en.nes` + `out/bebop_en.bps`
