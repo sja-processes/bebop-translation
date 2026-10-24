@@ -629,6 +629,18 @@ that places the marked tiles and add an English caption beside them
       free; at night it costs ½ pip (Stephen noticed no Sleep by day,
       2026-10-18).
 
+- **Clock bug fix (original game, found by Stephen 2026-10-24).** Time:
+  `$71C5` minutes (+1 every 64 frames, `$C411`), `$71C6` hour, `$71C8`
+  day; 1 in-game hour = 56 ticks, about 1 real minute. At minute 0 the
+  hour is checked against `$C31C` (7 morning, 17 evening, 20 night, 0);
+  at 7:00 `$C33F` resets luck to JINX, sets flag $A9 and clears flag $17
+  (today's slip). The new-day routines (sleep, overnight stakeout `cmdEA
+  03`) set 7:00 but INC the minutes; from minute 54/55 that skips past
+  the `CMP #$38 / BNE` rollover, the minutes wrap round with the hour
+  stuck at 7, and the 7:00 reset fires again (luck lost after buying the
+  slip). `$C41F` BNE → BCC. Tested in Mesen and Nestopia (minute 57 at
+  7:xx: old build back to 7:10 + JINX, fixed build 8:04 → 11:39, CHARM).
+
 ### Optional: help pages (idea 2026-10-17, design agreed; not scheduled)
 Goal: explain the basic mechanics in-game, since they are opaque without
 the manual (see `docs/manual-guide.md`).

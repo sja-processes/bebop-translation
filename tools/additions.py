@@ -209,6 +209,15 @@ _cheat = bytes([0x20, 0x37, 0xEE,                        # JSR $EE37
                 0x4C, 0x91, 0xE3,                        # JMP $E391
                 0x60])                                   # rts: RTS
 assert len(_cheat) == 16
+# Original bug (found by Stephen, 2026-10-24): the clock tick ($C411) adds
+# a minute ($71C5) and moves to the next hour only when it EQUALS $38. The
+# new-day routines (sleep, Nobuo's overnight stakeout: $C3F5, $C3D1) set
+# 7:00 but INC the minutes instead of clearing them, so from minute
+# $36/$37 they skip past $38; the minutes then run round to 0 (~3.5 real
+# minutes) with the hour still 7, and the 7:00 reset fires again: luck
+# back to JINX, today's slip forgotten. BNE -> BCC: roll over at >= $38.
+PATCHES.append((0xC41F, bytes([0xD0, 0x23]), bytes([0x90, 0x23])))
+
 PATCHES += [
     (CHEAT_HELPER, b'\xFF' * len(_cheat), _cheat),
     (0xE382, bytes([0x20, 0x37, 0xEE]), bytes([0x20, CHEAT_HELPER & 0xFF, CHEAT_HELPER >> 8])),
