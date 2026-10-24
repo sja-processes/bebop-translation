@@ -163,13 +163,13 @@ def char_data(free):
     return bytes(rec), {t: _2bpp(k) for k, t in tiles.items()}
 
 
-def door_table(fixed, scene_id):
+def door_table(fixed, scene_id, extra=()):
     o = DOOR_TABLE - 0xC000
     end = o
     while fixed[end] != 0xFF:
         end += 6
     entry = bytes(DOOR) + bytes([lo(scene_id), hi(scene_id), 0x80])
-    return bytes(fixed[o:end]) + entry + b'\xFF'
+    return bytes(fixed[o:end]) + entry + b''.join(extra) + b'\xFF'
 
 
 def hooks(base, table_addr, tabs):
@@ -252,7 +252,7 @@ def hooks(base, table_addr, tabs):
     return bytes(code), patches
 
 
-def apply(new, chr_, scene_id, extra=()):
+def apply(new, chr_, scene_id, extra=(), doors=()):
     """new = the expanded PRG (bytearray, 16 banks), chr_ = CHR ROM;
     extra = further new pictures [(number, CHR bank, layout, palette
     record)], numbered on from PIC."""
@@ -327,7 +327,7 @@ def apply(new, chr_, scene_id, extra=()):
         a += len(pal)
     assert a <= 0xBFF0
     # fixed bank: door table, picture tables, hooks
-    table = door_table(new[fixed:fixed + BANK], scene_id)
+    table = door_table(new[fixed:fixed + BANK], scene_id, doors)
     table_addr = CODE_ADDR
     t = table_addr + len(table)
     tabs = {}

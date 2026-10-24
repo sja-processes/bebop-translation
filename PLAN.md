@@ -27,7 +27,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
-- [ ] Optional — Visible cars in the Nishiyama Building car park (two car scenes have no car on the map); see "Car park cars" below
+- [x] Optional — Visible cars in the Nishiyama Building car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
 
 ## Stages
 
@@ -910,6 +910,8 @@ Beyond the translation itself. Details in the sections named.
 - **Menu:** Misako's coffee date offers Give instead of Ride (one byte in
   that menu only).
 - **Expression timing:** 196, Nobuo keeps his smug look through the pause.
+- **Map:** cars drawn in the Nishiyama Building car park for both car
+  scenes (the red car always; Teru's black car while you're tailing him).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
@@ -1018,7 +1020,22 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
 
-### Car park cars (requested 2026-10-24, not started)
+### Car park cars (requested 2026-10-24; built 2026-10-24, `tools/carpark.py`)
+- **Built:** both cars share one 32x48 design (22 tiles in CHR bank 1's
+  25 free) and differ only by map palette: car 1 = palette 2 (red-brown /
+  brown / dark blue), car 2 = palette 0 (charcoal / brown / dark blue);
+  Stephen chose this over separate designs (42 tiles, don't fit). Map
+  grid is $18 x $2C blocks shared by areas 0-2 (town rows $C-$1B; count
+  block usage only there). Car 1: block $2D edited, car squares solid
+  (a door only fires when you step onto it), and the 3 squares beside it
+  (x $45) are new door metatiles + door entries → scene 2E8 (after
+  Leave you stand beside the car). Car 2: block $1C = $2C + car (solid),
+  written over ($10,$17) by a hook at `$CAA0` (helper at `$FCC0`, next
+  to the game's own flag-$B2 map patch) when flag $7B is set in area 1;
+  the map is re-copied after every scene, so it appears/disappears at
+  once. Tested in Nestopia (all 3 times of day, triggers, solidity, flag
+  set inside a scene) and Mesen (map + trigger).
+- Original request notes:
 Stephen: walking into the car scenes feels like bumping into a building
 or thin air. Draw the cars on the town map, in the map's top-down style,
 coloured like each car's scene picture, with the map's morning / evening

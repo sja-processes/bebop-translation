@@ -29,7 +29,8 @@ import sceneart # noqa: E402
 import additions # noqa: E402
 sys.path.insert(0, os.path.join(HERE, 'caretaker'))
 import build as caretaker  # noqa: E402
-import storepics  # noqa: E402
+import storepics
+import carpark  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -218,8 +219,14 @@ def build():
     for t, data in store_tiles.items():
         o = storepics.CHR_BANK * 0x1000 + t * 16
         chr_[o:o + 16] = data
+    # cars in the Nishiyama Building car park (town map + CHR bank 1)
+    car_doors, _ = carpark.apply(new, chr_)
     caretaker.apply(new, chr_, additions.CARETAKER_SCENE,
-                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store])
+                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store],
+                    car_doors)
+    fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
+    carpark.apply_hook(fx)
+    new[FIXED * BANK:(FIXED + 1) * BANK] = fx
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)
