@@ -27,6 +27,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
+- [ ] Optional — Visible cars in the Nishiyama Building car park (two car scenes have no car on the map); see "Car park cars" below
 
 ## Stages
 
@@ -1016,6 +1017,33 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
+
+### Car park cars (requested 2026-10-24, not started)
+Stephen: walking into the car scenes feels like bumping into a building
+or thin air. Draw the cars on the town map, in the map's top-down style,
+coloured like each car's scene picture, with the map's morning / evening
+/ night palettes. Mock-ups first; Stephen picks.
+- Both are the same car park (white bays, cobbled bank and water below).
+  Stephen's Mesen save states: **8** (just before car 1), **9** (before
+  Teru arrives), **10** (Teru there, party disguised as plant + signs).
+- **Car 1 = door** entry 21 in the door table: area 1, metatile
+  ($47, $5E) → scene 2E8 (picture $11, the red car; menu by flags
+  $2A/$2C/$2E). The trigger is just right of the bottom-right bay, against
+  the building side. Draw a car in the bottom-right bay as background
+  metatiles (map edit, like the caretaker door). Always available, so a
+  permanent car fits; confirm nothing removes it. Check: free tiles in
+  the map CHR bank, tiles not shared with other spots, no walker routes.
+- **Car 2 = invisible map character**, scene 2F3 (picture $12: "Teru's
+  getting in that car" → 210 "It's the black Skyline!"). Town character
+  list (bank 6 `$A312` table) area 6 slot 29, time mask ME, gate byte $0D
+  → `$716E+$0D` = flag $7B (set by the Teru Sneak 388, cleared by 210 and
+  0B1). Teru stands at the top-left bay; put the car in the bay just
+  south of him so it doesn't overlap. Do it as a sprite tied to the same
+  flag so it appears/disappears with the scene; needs ~8 sprite tiles
+  (32x16), sprite palette per time of day, and a look at how that slot's
+  sprite/movement is defined (probably stationary). Mind the 8-sprites-
+  per-line limit next to walkers. Check the door-table area numbering vs
+  the character-table area index (1 vs 6) before assuming one map.
 
 ### Department store variants (planned 2026-10-18)
 Stephen (save state 7): every floor of the Kakui Department Store looks
