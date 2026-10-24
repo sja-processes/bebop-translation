@@ -134,6 +134,13 @@ VERB_RIDE, VERB_GIVE = 0x16, 0x14
 # つかいっぱしり (errand boy) starts with つかい. The car gets its own copy
 # that says so (Stephen, 2026-10-22).
 NOBUO_USED = FIRST_ID + 10
+# 199 (Nobuo: "Guv, not again! There's nothing up there but sky") answers
+# Go up on the school roof and at the pylon (scene 315). The sky joke only
+# works on the roof; the pylon gets its own copy (Stephen, 2026-10-24).
+# (JP 199 is just "Oh, come on! Even No-bu-o's had enough".)
+NOBUO_PYLON = FIRST_ID + 25
+NOBUO_PYLON_TEXT = ("[cmdEF 34][cmdEE 12]Guv, climb that pylon?\n"
+                    "[cmdEE 05]You're having me on!\nI'd get fried up there!")
 NOBUO_USED_TEXT = ("[cmdEF 34][cmdEE 0f]Using me again, Guv? I'm\n"
                    "not just your dogsbody.\nLet me prove I'm a man.\n")
 
@@ -158,6 +165,11 @@ def retarget(msgs):
     assert msgs[0x07F].count('[page+goto b6 01]') == 1, msgs[0x07F]
     msgs[0x07F] = msgs[0x07F].replace('[page+goto b6 01]', '[page+goto %s]' % steady)
 
+    menu = '[menu-call 47 c0 01 e1 01 c1 01 99 01 c2 01 09 03]'
+    assert msgs[0x315].count(menu) == 1, msgs[0x315]
+    msgs[0x315] = msgs[0x315].replace(menu, '[menu-call 47 c0 01 e1 01 c1 01 %s c2 01 09 03]'
+                                      % _id(NOBUO_PYLON))
+
     used = '%02x %02x' % (NOBUO_USED & 0xFF, NOBUO_USED >> 8)
     for scene in (0x2E9, 0x2EA):
         menu = re.search(r'\[menu 4f 97 01 ae 01 ([0-9a-f]{2} [0-9a-f]{2}) 36 02 09 03\]', msgs[scene])
@@ -174,6 +186,7 @@ MESSAGES[NOBUO_STEADY] = ''       # filled in by retarget() from 1B6
 MESSAGES[NOBUO_USED] = NOBUO_USED_TEXT
 MESSAGES.update(EXTRAS)
 MESSAGES[CARETAKER_ASK] = ASK_TEXT
+MESSAGES[NOBUO_PYLON] = NOBUO_PYLON_TEXT
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
