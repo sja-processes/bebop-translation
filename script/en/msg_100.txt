@@ -425,7 +425,7 @@ girl.
 
 @@ 141  bank2 $B8E3
 EN:
-[cmdEF 13]Whey, what ye deein'?
+[cmdEF 13]Whassh you lot doin'?
 
 @@ 142  bank2 $B8F0
 EN:

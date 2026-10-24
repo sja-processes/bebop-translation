@@ -102,7 +102,7 @@ Width checker counts each as 7 letters.
 | ジュンコ | Junko | refers to herself as "Junko"; Kikunaga is smitten |
 | タナカ | Tanaka | Kyokuto's only swot; every committee |
 | (Kazuhiro) | | 13E-140 by the sea, wants to jump; keep it plain |
-| (Gen, drunk) | | "Whey, what ye deein'?" (EF13 speaker = Gen) |
+| (drunk schoolboy, EF $13) | | 141 "Whassh you lot doin'?": JP なんばしようと〜 is Hakata (Kyushu) dialect, but he isn't Gen, so a drunk slur, not Geordie (Stephen, 2026-10-24); 142/143 are drunk noises |
 | トツカ (teacher) | Mr Totsuka; "Not good... Mm." catchphrase (イカんなぁ) | |
 | (policeman) | "Right, let's be 'avin' you" — NOT "Now then, now then" (Savile association) | |
 | (priest) | かしこみ → "O spirits, hear us!" | luck-raising ritual |
