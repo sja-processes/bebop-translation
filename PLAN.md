@@ -871,6 +871,38 @@ ROM's code is unchanged here.
   game only.
 - Apply the BPS patch to the original Japanese ROM (SHA-1 above).
 
+### Quality-of-life changes (keep up to date; for the patch readme)
+Beyond the translation itself. Details in the sections named.
+- **New content**
+  - Caretaker's room (new door south of Aitoku High): Talk (NERVE,
+    nightfall), Ask (fortune slips, LUCK, saving), Beg → Promise (optional
+    luck cheat: every slip is CHARM; saved, permanent), Flatter (hints;
+    stage 2 to do). Own picture and character, evening/night tints, random
+    sign-offs split between Talk and Ask. See "Optional: help pages",
+    "Caretaker extras".
+  - Department store picture variants: annexe 3F/4F, main 4F and annexe
+    roof each look different. See "Department store variants".
+- **Bug fixes (original game)**
+  - Clock: after sleeping or an overnight stakeout, a new day could
+    repeat the 7:00 reset later that morning (luck back to JINX, today's
+    slip forgotten). `$C41F` BNE → BCC (2026-10-24).
+  - Running out of NERVE started its message mid-box (cursor not reset).
+- **Clearer feedback**
+  - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
+    finished!") instead of the shared arrest/crash ending.
+  - Status panel: luck grade in pink with a drop shadow, like the pips.
+  - Verb menu: the last letter of a highlighted verb is highlighted too.
+- **Text that vanished before it could be read now waits for A:** 1FA,
+  045, 07A, 082, 138 (before a NERVE loss); 07B (Misako agrees to
+  coffee); 238 (the intro's last line).
+- **Extra pages / bridge lines so a joke or action is clear:** 236 (car
+  Shout), 388 (tailing Teru), 38A (slipping past the thug), 207 (the Joto
+  boss), and scene-only copies of shared Nobuo lines (Use, Misako's date,
+  car Use).
+- **Menu:** Misako's coffee date offers Give instead of Ride (one byte in
+  that menu only).
+- **Expression timing:** 196, Nobuo keeps his smug look through the pause.
+
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
 - `tools/bebop.tbl` — script table (see above).
