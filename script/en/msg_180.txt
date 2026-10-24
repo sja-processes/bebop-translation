@@ -304,9 +304,9 @@ me that!
 
 @@ 1A9  bank3 $8BB6
 EN:
-[flash][cmdDD 05][cmdDA][cmdEF 34][cmdEE 0f]Guv, she's got Shingo's
-mark on her thigh, sure
-enough.[page]
+[flash][cmdDD 05][cmdDA][cmdEF 34][cmdEE 0f]Guv, she's got one of
+Shingo's love bites on
+her thigh, sure enough.[page]
 [cmdED]........
 [cmdEE 02]Guv, you alright?
 Your cheek's bright red.
