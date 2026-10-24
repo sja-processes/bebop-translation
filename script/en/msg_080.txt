@@ -203,9 +203,9 @@ as top dog here.
 @@ 0A1  bank2 $9ABF
 EN:
 [cmdEE 01]Sure, I'll come along.
-[cmdEE 00]But I'm having a
-knickerbocker glory.
-[delay 1e][cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 02]Got the bottle for that?
+[cmdEE 00]But I'm having an
+ice cream sundae.
+[delay 1e][cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 02]Can you handle that?
 [cmdEE 00]
 
 @@ 0A2  bank2 $9B0C
