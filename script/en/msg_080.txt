@@ -304,8 +304,8 @@ Gold Emperor?
 [cmdEE 00]Right. I'll get to the
 bottom of this and sort
 it out.[page]
-Come to the park up
-north tomorrow.
+Come to the playground
+up north tomorrow.
 [setflag 30][clrflag a9][clrflag 7b]
 
 @@ 0B2  bank2 $9DBA
