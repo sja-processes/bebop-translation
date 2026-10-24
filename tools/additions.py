@@ -98,7 +98,7 @@ HELP = (
     "Win a scrap, and your\nNERVE goes up. Lose one,\nor get knocked back by a\ngirl, and down it goes.[page]\n"
     "Run out completely, and\nyou're done for. And\nsleep won't top it up,\nmind.[page]\n"
     "Get home to bed in\nthe evening before\nnightfall.[page]\n"
-    "Stay out late and it\nwears you down.[page]\n"
+    "Stay out late, and you'll\nend up back home\nexhausted.[page]\n"
     "Right, that's your lot.\nNow clear off.\n[goto %s]\n" % _id(CARETAKER_SIGNOFF)
 )
 ASK_TEXT = (

@@ -633,7 +633,8 @@ that places the marked tiles and add an English caption beside them
   on flag $71; they only block the school exits at the start and are gone
   after the bomb-threat call (038 clears $71). Picked up at night (flag
   $AC) → teacher fetches you (33B), −½ NERVE. Not a night patrol, so the
-  caretaker no longer says "or the police nab you" (Stephen, 2026-10-24).
+  caretaker no longer says "or the police nab you"; now "Stay out late, and
+  you'll end up back home exhausted." (Stephen, 2026-10-24).
   Staying out to midnight is the `$C352` return home (339).
 - **Clock bug fix (original game, found by Stephen 2026-10-24).** Time:
   `$71C5` minutes (+1 every 64 frames, `$C411`), `$71C6` hour, `$71C8`
