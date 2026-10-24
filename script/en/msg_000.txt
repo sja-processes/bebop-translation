@@ -321,8 +321,8 @@ the table for?
 EN:
 [cmdEE 01]Why look for Shingo?
 [delay 3c][cmdEE 02]Folk round here are
-partying 'cos the enemy
-of women's gone.
+partying 'cos the local
+womaniser's gone.
 
 @@ 032  bank2 $89FC
 EN:

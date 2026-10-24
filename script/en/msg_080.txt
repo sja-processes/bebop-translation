@@ -169,8 +169,8 @@ EN:
 EN:
 [cmdDE 2e][delay 5a][cmdDE 22]Shingo?!
 [cmdDD 05][flash][shake][page]
-You know Shingo? He's
-the enemy of women!
+You know Shingo? He's a
+right love rat!
 I'll find him and give
 him what for.
 
