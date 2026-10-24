@@ -12,7 +12,7 @@ kid, then?
 
 @@ 181  bank3 $82A0
 EN:
-[cmdEF 22][cmdDD 07]Oi. I'm George Tsuji.
+[cmdEF 22][cmdDD 07]Oi. I'm Joji Tsuji.
 I run Kyokuto High.
 Push me any more and
 I'll get serious.

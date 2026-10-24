@@ -91,8 +91,8 @@ Width checker counts each as 7 letters.
 | かなしみのカズヒロ | Kazuhiro the Heartbroken | lost his girl Rie to Shingo |
 | ゲン (ひやといにんぷ) | Gen, navvy | **Kyushu dialect → light Geordie** (howay, reet, cannit, toon, me = my) |
 | ツボタ サルキチ | Sarukichi Tsubota | fake yakuza in sunglasses; シャバぞう → "drip" |
-| マリ | Mari | Girls' Commercial, George Tsuji's girlfriend |
-| ツジ ジョージ | George Tsuji | Big Four No.1, Gold Emperor, boxer, Skyline owner |
+| マリ | Mari | Girls' Commercial, Joji Tsuji's girlfriend |
+| ツジ ジョージ | Joji Tsuji | Big Four No.1, Gold Emperor, boxer, Skyline owner. Hepburn like every other name; was "George" (Stephen, 2026-10-24) |
 | オニジマ | Onijima | police officer (Kansai speech, kept plain UK copper: "You're nicked!") |
 | タチバナのミノル | Minoru of Tachibana | |
 | キクナガ | Kikunaga | Minoru's boss, lovesick for Junko |

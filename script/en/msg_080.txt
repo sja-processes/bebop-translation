@@ -592,11 +592,11 @@ you're after.
 EN:
 [cmdEE 01]Oi, d'you know who
 you're chatting up?[page]
-My boyfriend's George
+My boyfriend's Joji
 Tsuji. He runs
 Kyokuto High.
 [cmdDE 2e][delay 5a][cmdDE 21][page]
-George is high up in
+Joji is high up in
 Gold Emperor, and he
 boxes. He's dead hard.
 [setflag 3c][page+goto 10 03]
@@ -612,11 +612,11 @@ the street!
 EN:
 They say you're hard,
 [cmdE2]. But you're no
-match for George.
+match for Joji.
 
 @@ 0E3  bank2 $A61C
 EN:
-[cmdDD 0a][cmdEE 02]Oh yes, me and George
+[cmdDD 0a][cmdEE 02]Oh yes, me and Joji
 are ever so close.
 And he's not just hard,
 he's well fit too.[page]
@@ -630,15 +630,15 @@ his photo[cmdED]......
 EN:
 Still after me, [cmdE2],
 even knowing about
-George? You've got
+Joji? You've got
 guts.[page]
 [cmdEE 02]But no. I could
-never betray George.
+never betray Joji.
 
 @@ 0E5  bank2 $A700
 EN:
 [cmdEE 02]No way!
-I'm George's girl.
+I'm Joji's girl.
 
 @@ 0E6  bank2 $A71C
 EN:
