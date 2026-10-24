@@ -1029,7 +1029,10 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   block usage only there). Car 1: block $2D edited, car squares solid
   (a door only fires when you step onto it), and the 3 squares beside it
   (x $45) are new door metatiles + door entries → scene 2E8 (after
-  Leave you stand beside the car). Car 2: block $1C = $2C + car (solid),
+  Leave you stand beside the car). Triggering from above was considered
+  and dropped (Stephen, 2026-10-24): the aisle above is a through route, a
+  walkable car top leaves the party on the car, and bump-to-trigger needs
+  new collision code; not worth it. Car 2: block $1C = $2C + car (solid),
   written over ($10,$17) by a hook at `$CAA0` (helper at `$FCC0`, next
   to the game's own flag-$B2 map patch) when flag $7B is set in area 1;
   the map is re-copied after every scene, so it appears/disappears at
