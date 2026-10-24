@@ -128,8 +128,8 @@ here.
 @@ 213  bank3 $9EAA
 EN:
 [cmdEF 32][cmdEE 04]Toshimitsu Yamada of
-Joto has a bit of a
-name. He won't lie.
+Joto is well respected.
+He won't lie.
 
 @@ 214  bank3 $9EE6
 EN:
