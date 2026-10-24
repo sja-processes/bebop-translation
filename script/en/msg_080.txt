@@ -437,9 +437,9 @@ that is. Canny!
 
 @@ 0C7  bank2 $A126
 EN:
-Tea's canny an' all, but[cmdEE 01]
-ah'm dyin' for a proper
-drink, man.
+Coffee's canny an' all,
+but[cmdEE 01] ah'm dyin' for a
+proper drink, man.
 
 @@ 0C8  bank2 $A14A
 EN:
