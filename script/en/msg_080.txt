@@ -579,9 +579,9 @@ Hmm, so you're this
 
 @@ 0DE  bank2 $A4DD
 EN:
-Well, my type is,
-[cmdEE 02]blood type B, and
-star sign is[cmdED]...
+Umm, the boys I like
+[cmdEE 02]are blood type B, and
+their star sign is[cmdED]...
 
 @@ 0DF  bank2 $A50A
 EN:
