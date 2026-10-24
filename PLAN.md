@@ -629,6 +629,12 @@ that places the marked tiles and add an English caption beside them
       free; at night it costs ½ pip (Stephen noticed no Sleep by day,
       2026-10-18).
 
+- **Police (scene 294):** town-map characters (area 6 slots 33-35), gated
+  on flag $71; they only block the school exits at the start and are gone
+  after the bomb-threat call (038 clears $71). Picked up at night (flag
+  $AC) → teacher fetches you (33B), −½ NERVE. Not a night patrol, so the
+  caretaker no longer says "or the police nab you" (Stephen, 2026-10-24).
+  Staying out to midnight is the `$C352` return home (339).
 - **Clock bug fix (original game, found by Stephen 2026-10-24).** Time:
   `$71C5` minutes (+1 every 64 frames, `$C411`), `$71C6` hour, `$71C8`
   day; 1 in-game hour = 56 ticks, about 1 real minute. At minute 0 the
