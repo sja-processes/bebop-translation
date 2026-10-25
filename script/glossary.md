@@ -184,7 +184,7 @@ Width checker counts each as 7 letters.
 | 3B9 | ひやかす | Tease | |
 | 3BA | はりこませる | Watch | Nobuo stakes a place out; "Stakeout" was 8 letters (menu max 7), "Case" judged unclear as a bare command |
 | 3BB | かう | Buy | 買う also means paying for a woman (女を買う); a girl answers Buy on a date with that reading (035: "Buy what? I'm not on the menu, you know.") |
-| 3BC | おがみたおす | Beg | "pray at them till they give in": persistent pleading. 0F1 ("Mm, nice grovelling.") is the reaction to Beg in 367 (JP: "I like how humble you are") |
+| 3BC | おがみたおす | Beg | "pray at them till they give in": persistent pleading. After beating Kitamura (1D8) the JP has Nobuo put his palms together (おがむ) as for the dead: "キタムラも 成仏"; English: "Make him beg for mercy? Too late, Guv. He's a goner... Kitamura, rest in peace." (Stephen, 2026-10-25). 0F1 ("Mm, nice grovelling.") is the reaction to Beg in 367 (JP: "I like how humble you are") |
 | 3BD | わたす | Give | |
 | 3BE | さけぶ | Shout | named in dialogue (1BA) |
 | 3BF | のる | Ride | kiddie ride, trains. Tanaka (1D5): のる = "be up for it" and Nobuo gets むしゃぶるい (pre-fight shivers); English ties it to Ride: "Ride roughshod over a swot, Guv? Ooh, I'm shaking with excitement!" (Stephen, 2026-10-25). Not in Misako's coffee-shop date (menu $20): there the JP のる is a cheeky option that reads as an outright request in English, so that one slot shows Give instead ("give her a present" / "give her one"); she answers "Wh-what?!" (07F) and Nobuo "Cor, Guv! Steady on!" (additions.NOBUO_STEADY, also after Sleep). Stephen, 2026-10-21 |

@@ -630,8 +630,10 @@ you're going?
 
 @@ 1D8  bank3 $950E
 EN:
-[cmdEF 34][cmdEE 17][cmdED][delay 1e][cmdEE 11]Kitamura can rest in
-peace now.
+[cmdEF 34][cmdEE 17][cmdED][delay 1e][cmdEE 11]Make him beg for mercy?
+Too late, Guv. He's a
+goner...
+Kitamura, rest in peace.
 
 @@ 1D9  bank3 $9535
 EN:
