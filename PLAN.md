@@ -330,7 +330,7 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   written to the current limit of 4 lines/page, so this is optional.
 - **Parked wording to revisit after playtesting (Stephen's call):**
   policeman 03B "Right, let's be 'avin' you" (a Sweeney-style line was
-  considered but not adopted); "well fit" in 0E3; dog warden line 0F2;
+  considered but not adopted); "well fit" in 0E3; dog warden line 0F2 (done: "rounded up with the other strays", 2026-10-25);
   "Skylion" car name (done: now "Skyline", 2026-10-19); 12D "fountain in the park" (こうえん:
   check whether it looks like a park or a playground when reached; 0B1 is
   now "playground"); Gen's Geordie and the "Canny"/"Cannit" sake puns.

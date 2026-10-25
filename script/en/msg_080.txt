@@ -720,9 +720,9 @@ could topple any time.
 @@ 0F2  bank2 $A941
 EN:
 [cmdEF 2e]Oi, [cmdE1]. Found
-Shingo? [cmdEE 02]Not yet? The
-dog warden's finally
-caught him, I bet.
+Shingo? [cmdEE 02]Not yet? Bet
+he's been rounded up
+with the other strays.
 
 @@ 0F3  bank2 $A97C
 EN:

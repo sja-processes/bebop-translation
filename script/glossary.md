@@ -150,7 +150,7 @@ Width checker counts each as 7 letters.
 | カベチョロ (cafe) | cafe "Gecko" |
 | ニシヤマビル | Nishiyama Building |
 | フルーツパフェ | knickerbocker glory |
-| ほけんじょ (catches strays) | dog warden ("finally caught him" — jibe calling Shingo a stray; revisit if unclear) |
+| ほけんじょ (catches strays) | 0F2: "Bet he's been rounded up with the other strays" (jibe calling Shingo a stray mutt; "dog warden" didn't land; Stephen, 2026-10-25) |
 
 ## Progress
 - [x] msg_000 (2026-10-10)
