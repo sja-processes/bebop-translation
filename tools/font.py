@@ -5,8 +5,11 @@ always background, matching the game's kana). In CHR the game draws text
 ink as colour 0 on colour 1 background (1bpp in the low plane only).
 
 TILES maps each character to the tile number it replaces in CHR banks
-30 and 31. Digits ($42-$4B), the heart ($59), the blinking cursor ($50)
-and the inverse-kana tiles ($8E-$9F) keep the game's own glyphs.
+30 and 31. The heart ($59), the blinking cursor ($50) and the
+inverse-kana tiles ($8E-$9F) keep the game's own glyphs. Digits keep
+their tiles ($42-$4B) but are redrawn thin to match the letters, with a
+slashed 0 and a plain 1 so they don't read as O and I/l (Stephen,
+2026-10-25; the game's own digits were bold).
 """
 
 UPPER = """
@@ -106,6 +109,17 @@ PUNCT = """
 .#..... ...#... .#..... #...... ....... .......
 """
 
+DIGITS = """
+.###... ..#.... .###... #####.. ...#... #####.. ..##... #####.. .###... .###...
+#...#.. .##.... #...#.. ...#... ..##... #...... .#..... ....#.. #...#.. #...#..
+#..##.. ..#.... ....#.. ..#.... .#.#... ####... #...... ...#... #...#.. #...#..
+#.#.#.. ..#.... ...#... ...#... #..#... ....#.. ####... ..#.... .###... .####..
+##..#.. ..#.... ..#.... ....#.. #####.. ....#.. #...#.. .#..... #...#.. ....#..
+#...#.. ..#.... .#..... #...#.. ...#... #...#.. #...#.. .#..... #...#.. ...#...
+.###... ..#.... #####.. .###... ...#... .###... .###... .#..... .###... .##....
+....... ....... ....... ....... ....... ....... ....... ....... ....... .......
+"""
+
 
 def _parse(block):
     rows = [r for r in block.strip('\n').split('\n')]
@@ -123,7 +137,8 @@ def build():
     for chars, block, base in ((
             'ABCDEFGHIJKLMNOPQRSTUVWXYZ', UPPER, 0x00),
             ('abcdefghijklmnopqrstuvwxyz', LOWER, 0x1A),
-            (PUNCT_CHARS, PUNCT, 0x34)):
+            (PUNCT_CHARS, PUNCT, 0x34),
+            ('0123456789', DIGITS, 0x42)):
         glyphs = _parse(block)
         assert len(glyphs) == len(chars), (chars, len(glyphs))
         for i, ch in enumerate(chars):
@@ -139,8 +154,7 @@ def tile_bytes(rows):
 
 
 # Characters that keep existing game tiles.
-KEEP = {str(d): 0x42 + d for d in range(10)}
-KEEP.update({'♥': 0x59, ' ': 0xFE})
+KEEP = {'♥': 0x59, ' ': 0xFE}
 
 
 def char_map():

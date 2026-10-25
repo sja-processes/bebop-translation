@@ -353,7 +353,7 @@ text-like area in bank 7 around $F800 or bank 3 after $AC00).
   one bank by the packer. Free fixed-bank space left: `$FD4E`-`$FFCF`.
 - Font: `tools/font.py` (original design, 66 glyphs): A-Z `$00-$19`,
   a-z `$1A-$33`, `! ? . , ' " - : ; ( ) / & %` = `$34-$41`; digits keep
-  `$42-$4B`, ♥ `$59`, space `$FE`. Written to CHR banks 30 and 31; ink =
+  `$42-$4B` (redrawn thin, slashed 0, plain 1; 2026-10-25), ♥ `$59`, space `$FE`. Written to CHR banks 30 and 31; ink =
   colour 0, background = colour 1 (same as the kana). Kana slots still
   free for DTE later: `$4C-$4F`, `$51-$58`, `$5A-$5D`, `$60-$8D`.
 - Verified in Mesen: intro (message $238) shows English, 4-line page and
@@ -905,6 +905,8 @@ Beyond the translation itself. Details in the sections named.
     finished!") instead of the shared arrest/crash ending.
   - Status panel: luck grade in pink with a drop shadow, like the pips.
   - Verb menu: the last letter of a highlighted verb is highlighted too.
+  - Digits redrawn thin to match the letters (the game's were bold), with
+    a slashed 0 and a plain 1 (2026-10-25).
 - **Text that vanished before it could be read now waits for A:** 1FA,
   045, 07A, 082, 138 (before a NERVE loss); 07B (Misako agrees to
   coffee); 238 (the intro's last line).
