@@ -704,7 +704,7 @@ So please don't hit me.
 @@ 16F  bank2 $BFC5
 EN:
 [cmdDD 03][cmdEE 05][cmdED]Eeek, mercy!
-I've told you it all!
+I've told you everything!
 
 @@ 170  bank3 $8000
 EN:
