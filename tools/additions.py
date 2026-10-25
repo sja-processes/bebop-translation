@@ -141,6 +141,13 @@ NOBUO_USED = FIRST_ID + 10
 NOBUO_PYLON = FIRST_ID + 25
 NOBUO_PYLON_TEXT = ("[cmdEF 34][cmdEE 12]Guv, climb that pylon?\n"
                     "[cmdEE 05]You're having me on!\nI'd get fried up there!")
+# 195 (Nobuo: "we're already on the roof!") also answers Go up at the
+# warehouse at the docks (325/326) and at the pylon once you have the bomb
+# (316): JP 195 is a Noboru name pun that fits anywhere. The docks get their
+# own line, the pylon its other Go up line (Stephen, 2026-10-25).
+NOBUO_DOCK = FIRST_ID + 26
+NOBUO_DOCK_TEXT = ("[cmdEF 34][cmdEE 01]Climb the warehouse, Guv?\n"
+                   "I'm no cat burglar.\nI might fall in the dock!")
 NOBUO_USED_TEXT = ("[cmdEF 34][cmdEE 0f]Using me again, Guv? I'm\n"
                    "not just your dogsbody.\nLet me prove I'm a man.\n")
 
@@ -170,6 +177,16 @@ def retarget(msgs):
     msgs[0x315] = msgs[0x315].replace(menu, '[menu-call 47 c0 01 e1 01 c1 01 %s c2 01 09 03]'
                                       % _id(NOBUO_PYLON))
 
+    menu = '[menu-call 46 c0 01 e1 01 c3 01 c1 01 95 01 09 03]'
+    assert msgs[0x316].count(menu) == 1, msgs[0x316]
+    msgs[0x316] = msgs[0x316].replace(menu, '[menu-call 46 c0 01 e1 01 c3 01 c1 01 %s 09 03]'
+                                      % _id(NOBUO_PYLON))
+    for scene, verb in ((0x325, 'fb'), (0x326, 'cc')):
+        menu = '[menu-call 49 e4 01 %s 01 95 01 b5 01 b7 01 09 03]' % verb
+        assert msgs[scene].count(menu) == 1, msgs[scene]
+        msgs[scene] = msgs[scene].replace(menu, '[menu-call 49 e4 01 %s 01 %s b5 01 b7 01 09 03]'
+                                          % (verb, _id(NOBUO_DOCK)))
+
     used = '%02x %02x' % (NOBUO_USED & 0xFF, NOBUO_USED >> 8)
     for scene in (0x2E9, 0x2EA):
         menu = re.search(r'\[menu 4f 97 01 ae 01 ([0-9a-f]{2} [0-9a-f]{2}) 36 02 09 03\]', msgs[scene])
@@ -187,6 +204,7 @@ MESSAGES[NOBUO_USED] = NOBUO_USED_TEXT
 MESSAGES.update(EXTRAS)
 MESSAGES[CARETAKER_ASK] = ASK_TEXT
 MESSAGES[NOBUO_PYLON] = NOBUO_PYLON_TEXT
+MESSAGES[NOBUO_DOCK] = NOBUO_DOCK_TEXT
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
