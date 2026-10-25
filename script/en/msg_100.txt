@@ -71,7 +71,7 @@ wallies.
 
 @@ 10C  bank2 $AE96
 EN:
-Oh, those dodgy types on
+Those dodgy types on
 the Kakui roof all got
 arrested. Extremists,
 apparently.
