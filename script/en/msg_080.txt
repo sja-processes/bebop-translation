@@ -799,7 +799,7 @@ Sigh...
 
 @@ 0FC  bank2 $ABF5
 EN:
-[cmdEF 10][cmdEE 01]Crush Gold Emperor?
+[cmdEF 10][cmdEE 01]Defeat Gold Emperor?
 [cmdED][cmdDE 2e][delay 5a][cmdDE 2b][cmdEE 00]Then beat
 Kyokuto's Big Four.
 That's quicker.[page]
