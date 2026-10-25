@@ -30,6 +30,7 @@ import additions # noqa: E402
 sys.path.insert(0, os.path.join(HERE, 'caretaker'))
 import build as caretaker  # noqa: E402
 import storepics
+import corridorpics  # noqa: E402
 import carpark  # noqa: E402
 import sitesign  # noqa: E402
 import script   # noqa: E402
@@ -64,6 +65,7 @@ def english_messages():
     assert min(additions.MESSAGES) == len(ids), 'additions must follow the script'
     msgs.update(additions.MESSAGES)
     storepics.retarget(msgs)        # department store picture variants
+    corridorpics.retarget(msgs)     # corridor floors (Nishiyama Building, flats)
     additions.retarget(msgs)        # 2EB Use -> its own copy of 1B3
     return [msgs[i] for i in sorted(msgs)]
 
@@ -220,12 +222,22 @@ def build():
     for t, data in store_tiles.items():
         o = storepics.CHR_BANK * 0x1000 + t * 16
         chr_[o:o + 16] = data
+    # corridor floor variants ($2A-$2E, also bank 10): first point the
+    # original pictures at one copy of each duplicated tile to free slots
+    store_used = {t for _, lay, _ in store for t in lay[:280]}
+    corridorpics.dedupe(new, chr_, set(caretaker.SCENE_FRAME) | store_used)
+    used10 = caretaker._picture_tiles_used(new, storepics.CHR_BANK) | store_used
+    free10 = [t for t in range(256) if t not in used10 and t not in caretaker.SCENE_FRAME]
+    cb10 = storepics.CHR_BANK * 0x1000
+    corr, corr_tiles = corridorpics.build(read_rom(), bytes(chr_[cb10:cb10 + 0x1000]), used10, free10)
+    for t, data in corr_tiles.items():
+        chr_[cb10 + t * 16:cb10 + t * 16 + 16] = data
     # cars in the Nishiyama Building car park (town map + CHR bank 1)
     car_doors, _ = carpark.apply(new, chr_)
     # English "SAFETY FIRST" sign on the Higashimachi building site (area 3)
     sitesign.apply(new, chr_, new[FIXED * BANK:(FIXED + 1) * BANK])
     caretaker.apply(new, chr_, additions.CARETAKER_SCENE,
-                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store],
+                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store + corr],
                     car_doors)
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     carpark.apply_hook(fx)
