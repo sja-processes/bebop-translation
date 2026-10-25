@@ -225,8 +225,8 @@ teeth out.
 
 @@ 225  bank3 $A10C
 EN:
-[cmdEF 32][cmdEE 0a][cmdE1], word is the
-machines in the 19s are
+[cmdEF 32][cmdEE 0a][cmdE1], word is
+machines 190 to 199 are
 paying out today.
 
 @@ 226  bank3 $A131

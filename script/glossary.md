@@ -124,6 +124,7 @@ Width checker counts each as 7 letters.
 | シカイライン | Skyline (car; JP alters one kana of スカイライン, which reads instantly in Japanese but not in English, so we use the real name. No 'Nissan', no 'GT-R' (badge unused 1973–89). First mention, 057, says 'a black car, a Skyline' as the JP does with という くるま) |
 | パトカー | police car / panda car |
 | たま (パチンコ) | pachinko balls |
+| 19ばんだい (パチンコ) | machines 190 to 199 (番台 = a block of machine numbers; was "the 19s"; 225, Stephen, 2026-10-25) |
 | イイバイ (sake brand; Hakata "it's good") | "Canny" (Geordie "good") — pun reused in 0C6 |
 | イカンバイ (2nd sake; Hakata "no good / can't") | "Cannit" (Geordie "can't") — "ah cannit give ye... a bottle of Cannit" |
 | ブロマイド | glamorous shot (a star's glossy portrait photo; "pin-up" read as risqué. 10F: Junko's third-person ジュンコさん → "me": "a glamorous shot of me"; Stephen, 2026-10-25) |
