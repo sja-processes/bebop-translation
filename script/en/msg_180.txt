@@ -506,7 +506,7 @@ Young Magazine.
 EN:
 [cmdEF 34][cmdEE 08]Aaah!
 There's a bomb in here!
-[cmdEE 04][delay 1e][setflag 41][page+goto 8e 02]
+[cmdEE 04][delay 1e][setflag 41]
 
 
 @@ 1C7  bank3 $91A8
@@ -519,7 +519,7 @@ up high feels great.
 EN:
 [cmdEF 34][cmdEE 04]Let's carry it gently.
 Geeently.
-[setflag 42][page+goto 8f 02]
+[setflag 42]
 
 
 @@ 1C9  bank3 $9205

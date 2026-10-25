@@ -897,6 +897,9 @@ Beyond the translation itself. Details in the sections named.
     repeat the 7:00 reset later that morning (luck back to JINX, today's
     slip forgotten). `$C41F` BNE → BCC (2026-10-24).
   - Running out of NERVE started its message mid-box (cursor not reset).
+  - Kakui roof: after Search (bomb, 1C6) and Take (1C8), Go down needed
+    three presses (each message jumped into a fresh roof menu, nesting a
+    level). They now just end, back to the menu you were on (2026-10-25).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.

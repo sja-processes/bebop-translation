@@ -35,6 +35,8 @@ CODE_CHANGES = {
            "before his challenge, so Shout reads as him shouting (Stephen, 2026-10-22)",
     0x388: "page added: bridge before Nobuo's Sneak shout (tailing Teru: ninja) (Stephen, 2026-10-23)",
     0x38A: "page added: bridge before Nobuo's Sneak shout (slipping past the thug: vanishing trick) (Stephen, 2026-10-23)",
+    0x1C6: "ends instead of jumping to the next roof menu: each jump left a menu level open, so Go down needed extra presses (original-game bug, Stephen 2026-10-25)",
+    0x1C8: "as 1C6 (taking the bomb)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "
            "text the moment it finishes, too fast to read (Stephen, 2026-10-20)",
 }   # the box holds 25 (cols 4-28; pagecheck simulates borders)
