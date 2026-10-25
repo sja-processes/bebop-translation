@@ -900,6 +900,9 @@ Beyond the translation itself. Details in the sections named.
   - Kakui roof: after Search (bomb, 1C6) and Take (1C8), Go down needed
     three presses (each message jumped into a fresh roof menu, nesting a
     level). They now just end, back to the menu you were on (2026-10-25).
+  - Pachinko Shout: the cop's line waited for A before it appeared, then
+    cut straight to the police station. The wait is now at the end
+    (2BE/134, 2026-10-25).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.

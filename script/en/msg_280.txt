@@ -251,7 +251,7 @@ EN:
 
 @@ 2BE  bank3 $AFDE
 EN:
-[cmdDE 22][cmdEF 02][page+goto 34 01]
+[cmdDE 22][cmdEF 02][goto 34 01]
 
 
 @@ 2BF  bank3 $AFE6
