@@ -232,7 +232,8 @@ paying out today.
 @@ 226  bank3 $A131
 EN:
 [cmdEF 32][cmdEE 02]Bad news, [cmdE1].
-This is Onijima's local,
+That copper Onijima
+plays here all the time,
 apparently.
 
 @@ 227  bank3 $A15D
