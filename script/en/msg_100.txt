@@ -339,8 +339,12 @@ are we?
 EN:
 [cmdEF 02][cmdDD 0a][cmdDA]What's all the shouting?
 [cmdEE 01]Oh, it's [cmdE2]!
-Pachinko in uniform?
-[cmdEE 03]You're coming with me.[setflag 14][cmdEC 01 17 3e][page+goto 96 02]
+Playing pachinko in your
+school uniform?[page]
+[cmdEE 03]You've got some nerve.
+You know school kids
+can't be in here.
+You're coming with me.[setflag 14][cmdEC 01 17 3e][page+goto 96 02]
 
 @@ 135  bank2 $B650
 EN:
