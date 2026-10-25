@@ -232,9 +232,9 @@ paying out today.
 @@ 226  bank3 $A131
 EN:
 [cmdEF 32][cmdEE 02]Bad news, [cmdE1].
-That copper Onijima
-plays here all the time,
-apparently.
+This is one of that
+copper Onijima's regular
+haunts.
 
 @@ 227  bank3 $A15D
 EN:
