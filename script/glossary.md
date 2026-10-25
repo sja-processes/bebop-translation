@@ -187,7 +187,7 @@ Width checker counts each as 7 letters.
 | 3BC | おがみたおす | Beg | "pray at them till they give in": persistent pleading. 0F1 ("Mm, nice grovelling.") is the reaction to Beg in 367 (JP: "I like how humble you are") |
 | 3BD | わたす | Give | |
 | 3BE | さけぶ | Shout | named in dialogue (1BA) |
-| 3BF | のる | Ride | kiddie ride, trains. Not in Misako's coffee-shop date (menu $20): there the JP のる is a cheeky option that reads as an outright request in English, so that one slot shows Give instead ("give her a present" / "give her one"); she answers "Wh-what?!" (07F) and Nobuo "Cor, Guv! Steady on!" (additions.NOBUO_STEADY, also after Sleep). Stephen, 2026-10-21 |
+| 3BF | のる | Ride | kiddie ride, trains. Tanaka (1D5): のる = "be up for it" and Nobuo gets むしゃぶるい (pre-fight shivers); English ties it to Ride: "Ride roughshod over a swot, Guv? Ooh, I'm shaking with excitement!" (Stephen, 2026-10-25). Not in Misako's coffee-shop date (menu $20): there the JP のる is a cheeky option that reads as an outright request in English, so that one slot shows Give instead ("give her a present" / "give her one"); she answers "Wh-what?!" (07F) and Nobuo "Cor, Guv! Steady on!" (additions.NOBUO_STEADY, also after Sleep). Stephen, 2026-10-21 |
 | 3C0 | かくれあるく | Sneak | |
 | 3C1 | おいかける | Chase | |
 Menu slot width is unknown (JP max 6 kana): confirm in stage 6 before finalising.

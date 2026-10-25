@@ -610,9 +610,9 @@ face at this station.
 
 @@ 1D5  bank3 $94B0
 EN:
-[cmdEF 34][cmdEE 0d]Oooh,
-[cmdEE 0f]I'm shaking with
-excitement, Guv.
+[cmdEF 34][cmdEE 0d]Ride roughshod over a
+swot, Guv? [cmdEE 0f]Ooh, I'm
+shaking with excitement!
 
 @@ 1D6  bank3 $94D0
 EN:
