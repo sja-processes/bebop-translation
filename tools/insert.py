@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.join(HERE, 'caretaker'))
 import build as caretaker  # noqa: E402
 import storepics
 import carpark  # noqa: E402
+import sitesign  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -221,6 +222,8 @@ def build():
         chr_[o:o + 16] = data
     # cars in the Nishiyama Building car park (town map + CHR bank 1)
     car_doors, _ = carpark.apply(new, chr_)
+    # English "SAFETY FIRST" sign on the Higashimachi building site (area 3)
+    sitesign.apply(new, chr_, new[FIXED * BANK:(FIXED + 1) * BANK])
     caretaker.apply(new, chr_, additions.CARETAKER_SCENE,
                     [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store],
                     car_doors)

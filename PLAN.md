@@ -922,6 +922,10 @@ Beyond the translation itself. Details in the sections named.
 - **Expression timing:** 196, Nobuo keeps his smug look through the pause.
 - **Map:** cars drawn in the Nishiyama Building car park for both car
   scenes (the red car always; Teru's black car while you're tailing him).
+- **Map:** an English "SAFETY ✓ FIRST" sign above the Japanese 安全✚第一
+  on the Higashimachi building site, so the big, clear Japanese sign
+  reads as the standard slogan, not a clue (`tools/sitesign.py`; area 3,
+  block $14 + spare block 0, CHR bank 3; 2026-10-25).
 
 ### Tools
 - `tools/dis6502.py BANK ADDR [N]` — quick disassembler over the ROM.
