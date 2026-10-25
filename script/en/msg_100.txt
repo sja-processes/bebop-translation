@@ -93,7 +93,7 @@ EN:
 Promise to give Iwamoto
 his camera back, and
 I'll let you take a
-pin-up of Junko.[setflag 48][page+goto 74 02]
+glamorous shot of me.[setflag 48][page+goto 74 02]
 
 
 @@ 110  bank2 $AF77

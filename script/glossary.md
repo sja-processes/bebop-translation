@@ -126,7 +126,7 @@ Width checker counts each as 7 letters.
 | たま (パチンコ) | pachinko balls |
 | イイバイ (sake brand; Hakata "it's good") | "Canny" (Geordie "good") — pun reused in 0C6 |
 | イカンバイ (2nd sake; Hakata "no good / can't") | "Cannit" (Geordie "can't") — "ah cannit give ye... a bottle of Cannit" |
-| ブロマイド | pin-up (photo) |
+| ブロマイド | glamorous shot (a star's glossy portrait photo; "pin-up" read as risqué. 10F: Junko's third-person ジュンコさん → "me": "a glamorous shot of me"; Stephen, 2026-10-25) |
 | どすこい | "Hup!" (Nobuo's sumo-style chant) |
 | かお (well-known) | "a face" |
 | さけぶ (verb) | "Shout" — 1BA refers to the command by name; keep in sync with verb list |
