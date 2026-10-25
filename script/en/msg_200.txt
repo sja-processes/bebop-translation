@@ -194,7 +194,7 @@ that photo tight.
 
 @@ 220  bank3 $A03D
 EN:
-[cmdEF 32][cmdEE 04]The ones who ran were
+[cmdEF 32][cmdEE 04]Those who ran were
 Gold Emperor, no doubt
 about it.
 
