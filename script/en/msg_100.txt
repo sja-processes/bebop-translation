@@ -123,7 +123,7 @@ What about him?
 EN:
 [cmdEE 00][delay 3c][cmdDD 05][flash][cmdF0 04][cmdEE 00]Whoa there!
 Keep the photo, but
-Junko'll give the camera
+I'll give the camera
 back to Iwamoto.
 [setflag 4a][clrflag 84][setflag 72]
 
