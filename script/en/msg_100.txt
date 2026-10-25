@@ -459,8 +459,8 @@ let's do it!
 @@ 147  bank2 $B93F
 EN:
 All right, all right.
-[cmdEE 03]Next time, a bit more
-than a snog[cmdED]......
+[cmdEE 03]When I win Remi, it'll
+be more than a snog[cmdED]......
 
 @@ 148  bank2 $B95C
 EN:

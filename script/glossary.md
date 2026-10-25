@@ -144,7 +144,7 @@ Width checker counts each as 7 letters.
 | みなとの そうこ | warehouse at the docks |
 | ホクトジム | Hokuto Gym (Nishiyama Building) |
 | おおボケ 3にんぐみ | the three wallies |
-| さけ / ABC "B" (147) | "a bit more than a snog" |
+| さけ / ABC "B" (147) | "more than a snog" (80s ABC of romance: A kiss, B petting; the rival's Promise answer: "When I win Remi, it'll be more than a snog……", naming Remi as the JP leaves her implied; Stephen, 2026-10-25) |
 | さかや | offie (off-licence) |
 | ちかがい | underground shopping centre (地下街; was "underground arcade", clashed with the games arcade) |
 | ゲームセンター | arcade (video games; plain "arcade" = amusement arcade in the UK) |
