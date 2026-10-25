@@ -497,9 +497,10 @@ EN:
 
 @@ 1C5  bank3 $914E
 EN:
-[cmdEF 34][cmdEE 0f]Leave it to me, Guv.
-Young Magazine? Course
-I've bought it.
+[cmdEF 34][cmdEE 0f]Looking for a mag to
+read, Guv? I've already
+bought this week's
+Young Magazine.
 
 @@ 1C6  bank3 $917C
 EN:
