@@ -465,7 +465,8 @@ a snog[cmdED]......
 
 @@ 148  bank2 $B95C
 EN:
-[cmdEE 03]I know[cmdED]...
+[cmdEE 03]I know what you're
+after[cmdED]...
 [cmdEE 00]But Remi's mine.
 [clrflag a0]
 
