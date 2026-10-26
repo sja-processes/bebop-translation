@@ -133,6 +133,7 @@ Width checker counts each as 7 letters.
 | さけぶ (verb) | "Shout" — 1BA refers to the command by name; keep in sync with verb list |
 | ヤングマガジン | Young Magazine (real magazine that ran the manga; kept) |
 | てんごくの やかた | the House of Heaven (Tsuji's flat, ending) |
+| てんごくに いちばん ちかい マンション (242) | "this place is close to heaven" (parodies the 1984 film 天国にいちばん近い島; English keeps the place, not the title; Stephen, 2026-10-26) |
 | エスケープ (skip class) | skive off |
 | N かい (floors) | "floor N" — Japanese numbering kept, avoids UK ground-floor mismatch |
 | おどりうち (pachinko) | trick shot |

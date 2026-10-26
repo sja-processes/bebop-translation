@@ -466,9 +466,10 @@ now I'm round his place
 all the time.[cmdED][delay 1e][page]
 [cmdEE 03]Loads of girls come
 round here,
-and, well, you could say
-this is[delay 1e][page]
-[cmdEE 02]the flat nearest heaven.
+and, well, you could
+say...[delay 1e][page]
+[cmdEE 02]this place is close to
+heaven.
 [cmdED][delay 3c][page]
 
 
