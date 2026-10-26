@@ -1,16 +1,16 @@
 """Corridor picture variants (Stephen, 2026-10-25): both three-storey
 buildings used the same corridor picture ($19) on every floor.
 
-- Nishiyama Building (town; Hokuto Gym on 4F, a business building): each
-  floor gets an office nameplate high on the door, above the handle, and
-  its own door colour; 3F also has a fire extinguisher.
+- Nishiyama Building (town; Hokuto Gym on 4F, a business building): its
+  own door colour on each floor, and a fire extinguisher on 3F.
     $2A 1F (2FD) violet door      $2B 2F (2E4) teal door
     $2C 3F (2FE) wooden door + extinguisher
-- Block of flats (area 0): homely touches. 3F stays $19, because the
-  Shingo scenes there (364, 23F) are a story point.
+- Block of flats (area 0): a nameplate high on every door, above the
+  handle (Search on 3F reads Tsuji's nameplate, 1DA), plus homely touches:
     $2D 1F (361) navy door + potted plant on the floor, right of the door
     $2E 2F (362) dark red door + closed red umbrella standing by the door
     (shoes would sit inside, in the genkan, not in a shared corridor)
+    $2F 3F (360, and the Shingo rescue 23F) the original door + nameplate
 1F of the two buildings differ as well. The door is palette 1 (a new set
 per variant, by time of day). The extinguisher, plant and umbrella need
 one more colour on the grey wall: palette 3 is the status panel's, so
@@ -111,32 +111,32 @@ def plant(cv):
 
 
 def umbrella(cv):
+    """A closed red umbrella standing by the door, about a third of the
+    door's height: x51-61, y34-63 (tile rows 4-7)."""
     _accent(cv, (0x16, 0x16, 0x06), [(3, 2), (3, 3)])
-    cv.patch(52, 40, [              # 24 rows: tile rows 5-7 only
-        "     00  ",                # hooked handle, curling over to the right
-        "    0  0 ",
-        "    0   0",
-        "    0   0",
-        "    0    ",
-        "0   0   0",                # scalloped canopy top
-        "30 030 03",
-        "033303330",
-        "033313330",
-        "033313330",
-        " 0331330 ",
-        " 0331330 ",
-        " 0331330 ",
-        "  03130  ",
-        "  03130  ",
-        "  03130  ",
-        "  03130  ",
-        "   010   ",
-        "   010   ",
-        "   010   ",
-        "    0    ",
-        "    3    ",                # tip
-        "    3    ",
-        "    0    "])
+    x0, y0, c = 51, 34, 56
+    cv.patch(x0, y0, [
+        "      000  ",              # hooked handle, curling over to the right
+        "     0   0 ",
+        "     0    0",
+        "     0    0",
+        "     0     ",
+        "     0     "])
+    tops = [0, 1, 2, 1, 0, 1, 0, 1, 2, 1, 0]   # scalloped top between rib tips
+    for i in range(21):
+        hw = round(5 * (1 - i / 21))
+        for x in range(c - hw, c + hw + 1):
+            top = tops[x - x0] if i < 3 else 0
+            if i < top:
+                continue
+            if i == top or x in (c - hw, c + hw):
+                v = 0
+            elif x == c and i >= 3:
+                v = 1                          # the centre fold
+            else:
+                v = 3
+            cv.set(x, y0 + 6 + i, v)
+    cv.set(c, y0 + 27, 3); cv.set(c, y0 + 28, 3); cv.set(c, y0 + 29, 0)   # tip
 
 
 # door colours (morning, evening, night): main, highlight, main
@@ -146,29 +146,32 @@ WOOD = [(0x07, 0x17, 0x07), (0x07, 0x17, 0x07), (0x0C, 0x1C, 0x0C)]
 NAVY = [(0x02, 0x12, 0x02), (0x17, 0x27, 0x17), (0x0C, 0x1C, 0x0C)]
 RED = [(0x06, 0x16, 0x06), (0x07, 0x17, 0x07), (0x02, 0x12, 0x02)]
 
-VARIANTS = [  # (picture, name, scene, door, details)
-    (0x2A, 'Nishiyama 1F', 0x2FD, VIOLET, (nameplate,)),
-    (0x2B, 'Nishiyama 2F', 0x2E4, TEAL, (nameplate,)),
-    (0x2C, 'Nishiyama 3F', 0x2FE, WOOD, (nameplate, extinguisher)),
-    (0x2D, 'Flats 1F', 0x361, NAVY, (plant,)),
-    (0x2E, 'Flats 2F', 0x362, RED, (umbrella,)),
+VARIANTS = [  # (picture, name, scenes, door (None: as $19), details)
+    (0x2A, 'Nishiyama 1F', (0x2FD,), VIOLET, ()),
+    (0x2B, 'Nishiyama 2F', (0x2E4,), TEAL, ()),
+    (0x2C, 'Nishiyama 3F', (0x2FE,), WOOD, (extinguisher,)),
+    (0x2D, 'Flats 1F', (0x361,), NAVY, (nameplate, plant)),
+    (0x2E, 'Flats 2F', (0x362,), RED, (nameplate, umbrella)),
+    (0x2F, 'Flats 3F', (0x360, 0x23F), None, (nameplate,)),
 ]
 
 
 def canvas(base, door, details):
     cv = Canvas(base)
-    cv.palette(1, door)
+    if door:
+        cv.palette(1, door)
     for d in details:
         d(cv)
     return cv
 
 
 def retarget(msgs):
-    """Swap [cmdF0 19] for the variant in each floor's scene."""
-    for pic, _, mid, _, _ in VARIANTS:
-        tag = '[cmdF0 %02x]' % BASE
-        assert msgs[mid].count(tag) == 1, (hex(mid), msgs[mid])
-        msgs[mid] = msgs[mid].replace(tag, '[cmdF0 %02x]' % pic)
+    """Swap [cmdF0 19] for the variant in each floor's scenes."""
+    for pic, _, mids, _, _ in VARIANTS:
+        for mid in mids:
+            tag = '[cmdF0 %02x]' % BASE
+            assert msgs[mid].count(tag) == 1, (hex(mid), msgs[mid])
+            msgs[mid] = msgs[mid].replace(tag, '[cmdF0 %02x]' % pic)
 
 
 def dedupe(new, chr_, keep):

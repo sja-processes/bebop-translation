@@ -892,10 +892,10 @@ Beyond the translation itself. Details in the sections named.
     "Caretaker extras".
   - Department store picture variants: annexe 3F/4F, main 4F and annexe
     roof each look different. See "Department store variants".
-  - Corridor floors: the Nishiyama Building (1F-3F: nameplates, own door
-    colours, extinguisher on 3F) and the area-0 flats (1F potted plant,
-    2F umbrella; 3F unchanged for the Shingo scenes) no longer share one
-    picture. See "Corridor variants".
+  - Corridor floors: the Nishiyama Building (1F-3F: own door colours,
+    extinguisher on 3F) and the area-0 flats (nameplates on every door, as
+    Search on 3F reads Tsuji's; 1F potted plant, 2F umbrella) no longer
+    share one picture. See "Corridor variants".
 - **Bug fixes (original game)**
   - Clock: after sleeping or an overnight stakeout, a new day could
     repeat the 7:00 reset later that morning (luck back to JINX, today's
@@ -1044,24 +1044,27 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   `2E4`, 3F `2FE`, gym on 4F `300`) and the block of flats in area 0
   (door → `361`; 1F `361`, 2F `362`, 3F `360` → `363`/`364`; the Shingo
   rescue `23F` also uses `$19`).
-- New pictures `$2A`-`$2E` (Stephen chose the art from mock-ups):
-  Nishiyama 1F violet / 2F teal / 3F wooden door, each with a nameplate
-  high on the door, 3F a fire extinguisher; flats 1F navy door + potted
-  plant on the floor, 2F dark red door + closed red umbrella. Flats 3F
-  stays `$19` (story point). `corridorpics.retarget()` swaps `cmdF0` in
-  those five scenes at build time.
+- New pictures `$2A`-`$2F` (Stephen chose the art from mock-ups):
+  Nishiyama 1F violet / 2F teal / 3F wooden door, 3F a fire extinguisher;
+  flats: a nameplate high on every door (Search on 3F, `1DA`: "the
+  nameplate on this door says Tsuji!"), 1F navy door + potted plant on
+  the floor, 2F dark red door + closed red umbrella (about a third of the
+  door's height), 3F the original door (`$2F`, used by `360` and the
+  Shingo rescue `23F`). `corridorpics.retarget()` swaps `cmdF0` in those
+  scenes at build time. (2026-10-26: nameplates moved from the Nishiyama
+  doors to the flats, umbrella enlarged.)
 - Colour: palette 3 of a picture is the status panel's (changing it
   turned the whole backdrop red), so the extinguisher / plant / umbrella
   take their colour from the window's palette 2, and on those three
   floors the window glass is drawn in the greys.
 - Tiles: CHR bank 10 had 13 free after the store variants; ten tiles
   were stored twice, so the original bank-10 pictures now point at one
-  copy (same pixels, checked) — 23 free, all 23 used. The plant and
-  umbrella are sized to the 8-px grid to fit. Fixed bank: 48 bytes left
-  before `$FFB0`.
+  copy (same pixels, checked) — 23 free. The plant and umbrella are
+  sized to the 8-px grid to fit. Fixed bank: 43 bytes left before
+  `$FFB0`.
 - Checked: all original pictures render identically; the nine new
   pictures' tiles match their art; walked 1F→3F→1F (Nishiyama) and
-  1F→3F (flats) in Nestopia and Mesen.
+  1F→3F (flats), and the Shingo scene, in Nestopia and Mesen.
 
 ### Car park cars (requested 2026-10-24; built 2026-10-24, `tools/carpark.py`)
 - **Built:** both cars share one 32x48 design (22 tiles in CHR bank 1's
