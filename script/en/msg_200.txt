@@ -485,7 +485,7 @@ come in.[page]
 @@ 244  bank3 $A980
 EN:
 Oi, [cmdE1], it's great
-here! Come on up!
+here! Come on in!
 
 @@ 245  bank3 $A99D
 EN:
