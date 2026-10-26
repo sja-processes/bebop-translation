@@ -162,7 +162,7 @@ that photo to Kikunaga?!
 
 @@ 11B  bank2 $B0F2
 EN:
-[cmdEE 03][cmdDD 05][flash][cmdEE 01]Hands off Junko!
+[cmdEE 03][cmdDD 05][flash][cmdEE 01]Keep your hands off me!
 
 @@ 11C  bank2 $B10D
 EN:
