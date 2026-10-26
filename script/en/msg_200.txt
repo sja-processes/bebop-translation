@@ -286,10 +286,10 @@ flats has three floors.
 
 @@ 230  bank3 $A27B
 EN:
-[cmdEF 07][cmdEE 02]Howay, lad!
+[cmdEF 07][cmdEE 02]Howay, lads!
 [cmdEE 00]This where we're
 plantin' the bomb?
-[cmdEE 01]Reet, here we gan![page+goto 7f 01]
+[cmdEE 01]Reet, here goes![page+goto 7f 01]
 
 
 @@ 231  bank3 $A2B1

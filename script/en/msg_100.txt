@@ -759,7 +759,7 @@ out this bully meself.
 
 @@ 178  bank3 $815E
 EN:
-[cmdEE 01]Reet, let's gan!
+[cmdEE 01]Reet, let's go!
 
 @@ 179  bank3 $816D
 EN:
