@@ -722,8 +722,8 @@ Want to try me, then?
 
 @@ 173  bank3 $8038
 EN:
-[cmdEE 02]Howay, lad, what's up?
-Face like a wet weekend.
+[cmdEE 02]Howay, lads, what's up?
+Faces like wet weekends.
 If summat's botherin'
 ye, tell yer uncle Gen.
 
