@@ -292,9 +292,9 @@ I'm ever so scared!
 @@ 02C  bank2 $8902
 EN:
 [cmdEE 00]Your treat, obviously.
-[cmdEE 02]A date with Junko, eh?
-You've gone up in the
-world, [cmdE1].
+[cmdEE 02]A date with yours truly,
+eh? You've gone up in
+the world, [cmdE1].
 
 @@ 02D  bank2 $893D
 EN:
