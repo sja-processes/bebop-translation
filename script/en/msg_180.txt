@@ -158,8 +158,9 @@ back takes grit, Guv.
 
 @@ 194  bank3 $874B
 EN:
-[cmdEF 34][cmdEE 0a]Guv, I'm a bit of a face
-round this shop, see[cmdED]...[page]
+[cmdEF 34][cmdEE 0a]Guv, I'm a bit of a big
+name round this shop,
+see[cmdED]...[page]
 Thing is, the walkway on
 floor 4 joins up with
 the main building.[page]
@@ -176,8 +177,8 @@ aeroplanes, honestly.
 EN:
 [cmdEF 34][cmdEE 0a]This way, Guv, to the
 main building. I've been
-a face[cmdEE 0f][delay 14][cmdEE 0a] here since I was
-a nipper.
+a big name[cmdEE 0f][delay 14][cmdEE 0a] here since I
+was a nipper.
 
 @@ 197  bank3 $882C
 EN:
@@ -188,8 +189,9 @@ who kip, as they say.
 @@ 198  bank3 $8851
 EN:
 [cmdEF 34][cmdEE 0f]Nobody's about, but I'm
-still a face round here,
-[cmdEE 12]so no funny business[cmdED]...
+still a big name round
+here, [cmdEE 12]so no funny
+business[cmdED]...
 
 @@ 199  bank3 $888C
 EN:
@@ -313,7 +315,7 @@ Your cheek's bright red.
 
 @@ 1AA  bank3 $8C10
 EN:
-[cmdEF 34][cmdEE 0a]They know my face here,
+[cmdEF 34][cmdEE 0a]They all know me here,
 so I get in free. You'll
 need tickets, though.
 
@@ -604,8 +606,8 @@ three stops from here.
 
 @@ 1D4  bank3 $947E
 EN:
-[cmdEF 34][cmdEE 11]Guv, they don't know my
-face at this station.
+[cmdEF 34][cmdEE 11]Guv, nobody knows me at
+this station.
 [cmdEE 07]Buy us a ticket.
 
 @@ 1D5  bank3 $94B0

@@ -70,7 +70,7 @@ Width checker counts each as 7 letters.
 |---|---|---|
 | シンゴ | Shingo | Kita High womaniser, kidnapped |
 | レミ | Remi | Chuo Girls', Shingo's girlfriend |
-| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", me = my, Cor, Blimey, "a face" round here; but not two "me"s in one sentence: 1A3 is "fussy about my coffee, me", Stephen 2026-10-18). The JP "Noboru" name gag (see below) is replaced in English |
+| カネコ ノブオ | Nobuo Kaneko | self-appointed sidekick; あっし/〜やす speech → light Cockney wide boy ("Guv", me = my, Cor, Blimey, "a big name" round here; but not two "me"s in one sentence: 1A3 is "fussy about my coffee, me", Stephen 2026-10-18). The JP "Noboru" name gag (see below) is replaced in English |
 | (EF32 companion) | | polite junior, calls hero by name, "Nobuo"; the voice of reason |
 | イナガキ | Inagaki | Nichu No.2 |
 | ハヤシ | Hayashi | Nichu top dog |
@@ -129,7 +129,7 @@ Width checker counts each as 7 letters.
 | イカンバイ (2nd sake; Hakata "no good / can't") | "Cannit" (Geordie "can't") — "ah cannit give ye... a bottle of Cannit" |
 | ブロマイド | glamorous shot (a star's glossy portrait photo; "pin-up" read as risqué. 10F: Junko's third-person ジュンコさん → "me": "a glamorous shot of me"; Stephen, 2026-10-25) |
 | どすこい | "Hup!" (Nobuo's sumo-style chant) |
-| かお (well-known) | "a face" |
+| かお (well-known) / かおパス | Nobuo in the store: "a big name" (194/196/198); at stations: "they all know me" / "nobody knows me" (1AA/1D4), Toru: "they all know you" (203/206). Was "a face" (Cockney, but obscure; Stephen, 2026-10-28) |
 | さけぶ (verb) | "Shout" — 1BA refers to the command by name; keep in sync with verb list |
 | ヤングマガジン | Young Magazine (real magazine that ran the manga; kept) |
 | てんごくの やかた | the House of Heaven (Tsuji's flat, ending) |

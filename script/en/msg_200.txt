@@ -22,9 +22,9 @@ get to Joto High.
 @@ 203  bank3 $9BE6
 EN:
 [cmdEF 32][cmdEE 0a]Got tickets for Joto.
-[cmdEE 00]Oh, Nobuo, you said your
-face gets you on the
-underground free, yeah?[setflag 27][page+goto da 02]
+[cmdEE 00]Oh, Nobuo, you ride the
+underground free 'cos
+they all know you, eh?[setflag 27][page+goto da 02]
 
 
 @@ 204  bank3 $9C36
@@ -43,8 +43,8 @@ ticket man.
 
 @@ 206  bank3 $9C88
 EN:
-[cmdEF 32][cmdEE 00]Eh? Nobuo, I thought
-they knew your face?
+[cmdEF 32][cmdEE 00]Eh? Nobuo, I thought they
+all knew you?
 [cmdED][delay 3c][setflag 28][page+goto dd 02]
 
 
