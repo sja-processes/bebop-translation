@@ -745,8 +745,9 @@ You were asking about
 Gold Emperor, weren't
 you?[page]
 A bloke called Higashi
-who quit them is lying
-low somewhere, I hear.
+who left the gang is
+lying low somewhere, I
+hear.
 [clrflag 1c][clrflag 1d][setflag 1e][clrflag 76]
 
 @@ 077  bank2 $9473
