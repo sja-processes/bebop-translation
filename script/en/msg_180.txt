@@ -355,10 +355,10 @@ staring at, eh?!
 
 @@ 1B0  bank3 $8D3F
 EN:
-[cmdEF 34][cmdEE 07]Looks like this is the
-car park, Guv.[page]
-[cmdEE 0f]Shall I stake it out
-again for you?
+[cmdEF 34][cmdEE 07]This must be the car park
+we heard about, Guv.[page]
+[cmdEE 0f]Shall I do another
+stakeout for you?
 [setflag 2c]
 
 @@ 1B1  bank3 $8D8E
