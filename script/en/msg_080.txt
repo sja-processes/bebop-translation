@@ -423,7 +423,7 @@ mouth's waterin'.
 @@ 0C4  bank2 $A0D6
 EN:
 [cmdDD 0a][cmdEE 02]Aw, howay, man...
-Divvent wind us up.
+Don't wind us up.
 
 @@ 0C5  bank2 $A0E1
 EN:
