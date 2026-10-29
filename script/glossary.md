@@ -89,7 +89,7 @@ Width checker counts each as 7 letters.
 | ヤマダ トシミツ | Toshimitsu Yamada | Joto top dog; straight-dealing |
 | テル | Teru | Joto lad secretly in Gold Emperor |
 | かなしみのカズヒロ | Kazuhiro the Heartbroken | lost his girl Rie to Shingo |
-| ゲン (ひやといにんぷ) | Gen, navvy | **Kyushu dialect → light Geordie** (howay, reet, cannit, toon, me = my). "gan" only where natural ("Ah'll gan and sort out"); いくば〜い is "Reet, here goes!" (230) and "Reet, let's go!" (178), not "gan" (Stephen, 2026-10-26) |
+| ゲン (ひやといにんぷ) | Gen, navvy | **Kyushu dialect → light Geordie** (howay, reet, cannit, toon, me = my). Tease (0C4) そげんな (Kyushu そんな, hurt "aw, come on") = "Aw, howay, man... Divvent wind us up." (was "Is that reet."; Stephen, 2026-10-29). "gan" only where natural ("Ah'll gan and sort out"); いくば〜い is "Reet, here goes!" (230) and "Reet, let's go!" (178), not "gan" (Stephen, 2026-10-26) |
 | ツボタ サルキチ | Sarukichi Tsubota | fake yakuza in sunglasses; シャバぞう → "drip" |
 | マリ | Mari | Girls' Commercial, Joji Tsuji's girlfriend |
 | ツジ ジョージ | Joji Tsuji | Big Four No.1, Gold Emperor, boxer, Skyline owner. Hepburn like every other name; was "George" (Stephen, 2026-10-24) |
