@@ -239,11 +239,12 @@ No.4 Samejima, was it?[page]
 
 @@ 127  bank2 $B31B
 EN:
-Oh, I'm in a rush.[page]
-Mind you, the other day
+Oh, I'm in a rush.
+Mind you, the other day[page]
 some old geezer, Tomezo,
-said he'd buy me diamonds
-for a "nice cuppa".[page]
+offered me diamonds if
+I went for a
+"nice cuppa".[page]
 I was fuming, so I
 slapped him. His false
 teeth flew out and he
