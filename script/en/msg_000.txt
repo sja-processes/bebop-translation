@@ -161,9 +161,9 @@ Go on, ask away.
 EN:
 [cmdEE 01][setflag 21]Higashi, who used to be
 in Gold Emperor[cmdED]...[page]
-In junior high he looked
-like a mandrill, so they
-called him
+At middle school he
+looked like a mandrill,
+so they called him
 "Mandrill Higashi".[page]
 Even now, the words
 "Mandrill Higashi"

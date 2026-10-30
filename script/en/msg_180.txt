@@ -676,7 +676,7 @@ Hnuuuv, hhorry.[page]
 EN:
 [cmdEF 32][cmdEE 06][cmdE1], there's
 no point picking on a
-junior-high kid.
+middle-school kid.
 
 @@ 1DF  bank3 $9690
 EN:

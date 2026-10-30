@@ -55,7 +55,7 @@ Width checker counts each as 7 letters.
 |---|---|
 | アイトク | Aitoku (High) — the heroes' school |
 | キタコウ | Kita High |
-| ニチュウ | Nichu (junior high) |
+| ニチュウ | Nichu (middle school; ちゅうがく = "middle school", not American "junior high", Stephen 2026-10-30) |
 | チュウオウじょしこうこう | Chuo Girls' High |
 | キョクトウこうこう | Kyokuto High |
 | してんのう | the Big Four (Kyokuto) |
