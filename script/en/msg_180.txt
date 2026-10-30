@@ -571,7 +571,7 @@ He's at Kyokuto High.
 
 @@ 1CE  bank3 $937B
 EN:
-[cmdEF 34][cmdEE 17][cmdED]You remembered me.
+[cmdEF 34][cmdEE 17][cmdED]You remembered me...
 [cmdED]Nobuo Kaneko[cmdED]...
 [delay 3c][cmdEE 05][delay 5a]
 
