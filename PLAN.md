@@ -27,7 +27,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
-- [ ] Optional — Day goal: caretaker Coffee tells the day limit for the happiest ending; Select (or B) in a scene swaps LUCK/grade for GOAL / DAY / time. Agreed 2026-10-31, see "Day goal" below
+- [x] Optional — Day goal: caretaker Coffee tells the day limit for the happiest ending; Select in a scene swaps LUCK/grade for GOAL / DAY / time. Built 2026-10-31 (`tools/daygoal.py`), see "Day goal" below. **To do:** Stephen's handheld test
 - [x] Optional — Visible cars in the Nishiyama Building car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
 
 ## Stages
@@ -915,6 +915,9 @@ Beyond the translation itself. Details in the sections named.
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.
+  - Day goal (2026-10-31): the caretaker's Coffee tells you the day limit
+    for the happiest ending; Select in a scene shows GOAL / DAY3/8 /
+    14:05 in place of LUCK (pink once the target is missed).
   - Status panel: luck grade in pink with a drop shadow, like the pips.
   - Verb menu: the last letter of a highlighted verb is highlighted too.
   - Digits redrawn thin to match the letters (the game's were bold), with
@@ -1043,7 +1046,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
 
-### Day goal (agreed with Stephen 2026-10-31; not built)
+### Day goal (agreed with Stephen 2026-10-31; built the same day)
 Ending facts (fixed bank of the original): `$71C8` = day counter, one
 byte, 0 at a new game, +1 at midnight (`$C435`) and on the new-day
 routines after Sleep / overnight stakeout (`$C3CE`, `$C3FD`); no cap,
@@ -1099,9 +1102,29 @@ Research (2026-10-31):
 - Tiles: label set `$8E`-`$9E` (minus `$9D`) has 8 free; grade set
   `$60`-`$8D` has 31 free. Needed: black G O A D Y 0-9 / : (17) and
   pink Y 0-9 / : (13; D, A already pink). Fits. Font has all glyphs.
-- Code: the routine goes in spare PRG bank 11; fixed bank needs ~36
-  bytes of trampolines (menu hook, `$EB6C` hook, bank switch via
-  `$C049`), within the 43 free.
+- Code: the routine is in spare PRG bank 11 ($8000, ~600 bytes);
+  trampolines (30 bytes) in the free run `$FCDE`-`$FCFF` after
+  carpark's helper; bank switch via `$C049`.
+Built (2026-10-31, `tools/daygoal.py`, called last in `insert.py`):
+- Layout A (Stephen): GOAL row 9, day row 11, time row 12; full "DAY".
+  Select only (edge-detected; B untouched). Toggle state `$7600`, last
+  Select `$7601`, scratch `$7602`-`$760D`.
+- The `$EB6C` hook puts LUCK back whenever the grade is reprinted, so a
+  new scene always opens with LUCK (tested: toggle, Leave, next scene).
+- Clock: `$71C5` is ticks (56 an hour), shown as minutes via a table
+  (t x 60 / 56).
+- Caretaker (additions.py): COFFEE `$3DF` (ifflag $B5) -> `$3E0`
+  Hiroshi "9 days" / `$3E1` Toru "8 days". Wording: "Coffee? I'll stick
+  to my / own tea, lads. But since / you offered, here's a / tip: don't
+  waste time.[page] [hero], as it's you, / sort things out within / N
+  days and you'll get / the happiest ending.[page] Press Select in a chat
+  / to see how you're doing." ("here's a tip: don't waste any time"
+  trimmed to fit the 23-character page line.) Beg leaves the menu once
+  used, so BEG_AGAIN / BEG_BEFORE / BEG_AFTER are now unreachable (kept).
+- Tested in Nestopia (save 9 late case DAY15 pink; Toru DAY3/8 and
+  DAY8/8, Hiroshi DAY9/9 black; Hiroshi DAY10, DAY100, DAY256 pink; the
+  caretaker menus, Coffee for both heroes) and in Mesen (toggle on/off
+  in the caretaker's room). No picture corruption from row 12.
 
 ### Corridor variants (built 2026-10-25, `tools/corridorpics.py`)
 - Picture `$19` (corridor, green door) was every floor of both 3-storey

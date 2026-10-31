@@ -51,9 +51,10 @@ FIRST_EXTRA = FIRST_ID + 11
 FLAG_BEGGED, FLAG_CHEAT = 0x0B, 0x0C       # unused by script and code; saved with the game
 MENU_SMALL_ID, MENU_BIG_ID = 0x09, 0x0A    # all-zero rows the script never uses
 MENU_TABLE = 0xDEB3
-V_TALK, V_ASK, V_LEAVE, V_FLATTER, V_PROMISE, V_BEG = 0x01, 0x02, 0x07, 0x08, 0x0B, 0x13
-MENU_ROWS = {MENU_SMALL_ID: [V_TALK, V_ASK, V_BEG, V_LEAVE, 0, 0],
-             MENU_BIG_ID: [V_TALK, V_ASK, V_BEG, V_PROMISE, V_FLATTER, V_LEAVE]}
+V_TALK, V_ASK, V_LEAVE, V_FLATTER, V_COFFEE, V_PROMISE, V_BEG = 0x01, 0x02, 0x07, 0x08, 0x09, 0x0B, 0x13
+# Coffee (day goal hint, 2026-10-31) joins both menus; Beg goes once used
+MENU_ROWS = {MENU_SMALL_ID: [V_TALK, V_ASK, V_COFFEE, V_BEG, V_LEAVE, 0],
+             MENU_BIG_ID: [V_TALK, V_ASK, V_COFFEE, V_PROMISE, V_FLATTER, V_LEAVE]}
 
 
 def _id(n):
@@ -66,13 +67,23 @@ def _id(n):
 # frame on the 6502 stack every time round, and a long visit crashed;
 # Stephen, 2026-10-23.)
 BACK = ''
+# Day goal (PLAN.md "Day goal", Stephen 2026-10-31): Coffee tells the day
+# limit for the quicker ending ($E745: 9 days for Hiroshi, 8 for Toru;
+# hero = $71B5, readable as flag $B5) and points at Select (daygoal.py).
+COFFEE, COFFEE_HIROSHI, COFFEE_TORU = FIRST_ID + 29, FIRST_ID + 30, FIRST_ID + 31
+FLAG_HERO = 0xB5                           # 0 Hiroshi, 1 Toru
+COFFEE_TEXT = ("Coffee? I'll stick to my\nown tea, lads. But since\nyou offered, here's a\n"
+               "tip: don't waste time.[page]\n"
+               "[cmdE1], as it's you,\nsort things out within\n%d days and you'll get\n"
+               "the happiest ending.[page]\n"
+               "Press Select in a chat\nto see how you're doing.")
 SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][goto %s]\n" % _id(CHOOSER)
 EXTRAS = {
     CHOOSER: '[ifflag-call %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
-    MENU_SMALL: '[menu %02x %s %s %s 09 03]\n' % (
-        MENU_SMALL_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(BEG)),
+    MENU_SMALL: '[menu %02x %s %s %s %s 09 03]\n' % (
+        MENU_SMALL_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(COFFEE), _id(BEG)),
     MENU_BIG: '[menu %02x %s %s %s %s %s 09 03]\n' % (
-        MENU_BIG_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(BEG), _id(PROMISE), _id(FLATTER)),
+        MENU_BIG_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(COFFEE), _id(PROMISE), _id(FLATTER)),
     BEG: '[ifflag %02x %s %s]\n' % (FLAG_BEGGED, _id(BEG_FIRST), _id(BEG_AGAIN)),
     BEG_FIRST: ('[setflag %02x]' % FLAG_BEGGED +
                 "Got yourselves into a bit\nof bother, lads? Well, I\nknow people. Comes with\nmy age, that does.[page]\n"
@@ -218,6 +229,9 @@ MESSAGES[NOBUO_DOCK] = NOBUO_DOCK_TEXT
 # [ifflag f clear set]: $9A clear (bomb handed in) -> Nobuo's line, else 1C3
 MESSAGES[NOBUO_BOMB_CHECK] = '[ifflag %02x %s c3 01]\n' % (FLAG_BOMB_HELD, _id(NOBUO_BOMB_GONE))
 MESSAGES[NOBUO_BOMB_GONE] = NOBUO_BOMB_GONE_TEXT
+MESSAGES[COFFEE] = '[ifflag %02x %s %s]\n' % (FLAG_HERO, _id(COFFEE_HIROSHI), _id(COFFEE_TORU))
+MESSAGES[COFFEE_HIROSHI] = COFFEE_TEXT % 9 + BACK
+MESSAGES[COFFEE_TORU] = COFFEE_TEXT % 8 + BACK
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the

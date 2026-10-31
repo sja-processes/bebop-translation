@@ -33,6 +33,7 @@ import storepics
 import corridorpics  # noqa: E402
 import carpark  # noqa: E402
 import sitesign  # noqa: E402
+import daygoal   # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -242,6 +243,8 @@ def build():
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     carpark.apply_hook(fx)
     new[FIXED * BANK:(FIXED + 1) * BANK] = fx
+    # Select in a scene: GOAL / day / time on the status panel (bank 11)
+    daygoal.apply(new, chr_, BANK, FIXED)
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)
