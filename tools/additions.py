@@ -41,11 +41,12 @@ SIGNOFFS = [
 ]
 SIGNOFF_FIRST = FIRST_ID + 4
 # Caretaker extras (PLAN.md, 2026-10-23): the scene now goes to CHOOSER,
-# which shows menu $09 (Talk / Ask / Beg / Leave) until Beg sets
-# FLAG_BEGGED, then menu $0A (+ Promise / Flatter).
+# which shows menu $09 (Talk / Ask / Coffee / Beg / Leave) until Beg sets
+# FLAG_BEGGED, then menu $0A (Beg gone; + Promise / Flatter). Beg can only
+# be chosen once, so it has no repeat answers (removed 2026-10-31).
 FIRST_EXTRA = FIRST_ID + 11
-(CHOOSER, MENU_SMALL, MENU_BIG, CARETAKER_ASK, BEG, BEG_FIRST, BEG_AGAIN, BEG_BEFORE,
- BEG_AFTER, PROMISE, PROMISE_FIRST, PROMISE_AGAIN, FLATTER, ASK_SIGNOFF) = range(FIRST_EXTRA, FIRST_EXTRA + 14)
+(CHOOSER, MENU_SMALL, MENU_BIG, CARETAKER_ASK, BEG, PROMISE, PROMISE_FIRST, PROMISE_AGAIN,
+ FLATTER, ASK_SIGNOFF) = range(FIRST_EXTRA, FIRST_EXTRA + 10)
 # Sign-offs are split: Talk ends at CARETAKER_SIGNOFF (-> SIGNOFFS 0/1),
 # Ask at ASK_SIGNOFF (-> SIGNOFFS 2/3), so one visit never repeats one.
 FLAG_BEGGED, FLAG_CHEAT = 0x0B, 0x0C       # unused by script and code; saved with the game
@@ -70,7 +71,7 @@ BACK = ''
 # Day goal (PLAN.md "Day goal", Stephen 2026-10-31): Coffee tells the day
 # limit for the quicker ending ($E745: 9 days for Hiroshi, 8 for Toru;
 # hero = $71B5, readable as flag $B5) and points at Select (daygoal.py).
-COFFEE, COFFEE_HIROSHI, COFFEE_TORU = FIRST_ID + 29, FIRST_ID + 30, FIRST_ID + 31
+COFFEE, COFFEE_HIROSHI, COFFEE_TORU = FIRST_ID + 25, FIRST_ID + 26, FIRST_ID + 27
 FLAG_HERO = 0xB5                           # 0 Hiroshi, 1 Toru
 COFFEE_TEXT = ("Coffee? I'll stick to my\nown tea, lads. But since\nyou offered, here's a\n"
                "tip: don't waste time.[page]\n"
@@ -84,16 +85,12 @@ EXTRAS = {
         MENU_SMALL_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(COFFEE), _id(BEG)),
     MENU_BIG: '[menu %02x %s %s %s %s %s 09 03]\n' % (
         MENU_BIG_ID, _id(CARETAKER_TALK), _id(CARETAKER_ASK), _id(COFFEE), _id(PROMISE), _id(FLATTER)),
-    BEG: '[ifflag %02x %s %s]\n' % (FLAG_BEGGED, _id(BEG_FIRST), _id(BEG_AGAIN)),
-    BEG_FIRST: ('[setflag %02x]' % FLAG_BEGGED +
-                "Got yourselves into a bit\nof bother, lads? Well, I\nknow people. Comes with\nmy age, that does.[page]\n"
-                "Now, this isn't how\nthings are meant to be.\nIt's an easier road than\nlads like you deserve.[page]\n"
-                "First, I can see to it\nyou always draw the very\nbest fortune slip at the\nshrine.[page]\n"
-                "You'll have to promise\nto use it for good deeds,\nmind. Once it's done,\nthere's no going back.[page]\n"
-                "I also hear things on the\ngrapevine. Flatter me a\nbit, and I'll give you\nthe latest lowdown." + BACK),
-    BEG_AGAIN: '[ifflag %02x %s %s]\n' % (FLAG_CHEAT, _id(BEG_BEFORE), _id(BEG_AFTER)),
-    BEG_BEFORE: "Still thinking, lads?\nPromise me, and the best\nfortune's yours. Flatter\nme for the lowdown." + BACK,
-    BEG_AFTER: "You've had your favours,\nlads. Flatter me for\nthe lowdown." + BACK,
+    BEG: ('[setflag %02x]' % FLAG_BEGGED +
+          "Got yourselves into a bit\nof bother, lads? Well, I\nknow people. Comes with\nmy age, that does.[page]\n"
+          "Now, this isn't how\nthings are meant to be.\nIt's an easier road than\nlads like you deserve.[page]\n"
+          "First, I can see to it\nyou always draw the very\nbest fortune slip at the\nshrine.[page]\n"
+          "You'll have to promise\nto use it for good deeds,\nmind. Once it's done,\nthere's no going back.[page]\n"
+          "I also hear things on the\ngrapevine. Flatter me a\nbit, and I'll give you\nthe latest lowdown." + BACK),
     PROMISE: '[ifflag %02x %s %s]\n' % (FLAG_CHEAT, _id(PROMISE_FIRST), _id(PROMISE_AGAIN)),
     PROMISE_FIRST: ('[setflag %02x]' % FLAG_CHEAT +
                     "I trust you, lads. It's\ndone. The priest owes me\nfor all the odd jobs I've\ndone round the shrine." + BACK),
@@ -149,14 +146,14 @@ NOBUO_USED = FIRST_ID + 10
 # Go up on the school roof and at the pylon (scene 315). The sky joke only
 # works on the roof; the pylon gets its own copy (Stephen, 2026-10-24).
 # (JP 199 is just "Oh, come on! Even No-bu-o's had enough".)
-NOBUO_PYLON = FIRST_ID + 25
+NOBUO_PYLON = FIRST_ID + 21
 NOBUO_PYLON_TEXT = ("[cmdEF 34][cmdEE 12]Guv, climb that pylon?\n"
                     "[cmdEE 05]You're having me on!\nI'd get fried up there!")
 # 195 (Nobuo: "we're already on the roof!") also answers Go up at the
 # warehouse at the docks (325/326) and at the pylon once you have the bomb
 # (316): JP 195 is a Noboru name pun that fits anywhere. The docks get their
 # own line, the pylon its other Go up line (Stephen, 2026-10-25).
-NOBUO_DOCK = FIRST_ID + 26
+NOBUO_DOCK = FIRST_ID + 22
 NOBUO_DOCK_TEXT = ("[cmdEF 34][cmdEE 01]Climb the warehouse, Guv?\n"
                    "I'm no cat burglar.\nI might fall in the dock!")
 # Use at the pylon with the bomb (316 -> 1C3, blow it up) still worked after
@@ -165,8 +162,8 @@ NOBUO_DOCK_TEXT = ("[cmdEF 34][cmdEE 01]Climb the warehouse, Guv?\n"
 # instead would bring back Take on the Kakui roof (288), so Use checks $9A
 # (Stephen, 2026-10-31; the original has the same hole).
 FLAG_BOMB_HELD = 0x9A                      # clear once Onijima has the bomb
-NOBUO_BOMB_CHECK = FIRST_ID + 27
-NOBUO_BOMB_GONE = FIRST_ID + 28
+NOBUO_BOMB_CHECK = FIRST_ID + 23
+NOBUO_BOMB_GONE = FIRST_ID + 24
 NOBUO_BOMB_GONE_TEXT = ("[cmdEF 34][cmdEE 06]Guv, we already gave the\n"
                         "bomb to the police.\nProbably for the best.")
 NOBUO_USED_TEXT = ("[cmdEF 34][cmdEE 0f]Using me again, Guv? I'm\n"

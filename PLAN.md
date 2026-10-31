@@ -1012,10 +1012,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
     promise / to use it for good deeds, / mind. Once it's done, / there's
     no going back." | "I also hear things on the / grapevine. Flatter me a
     / bit, and I'll give you / the latest lowdown."
-  - Beg again, before Promise: "Still thinking, lads? / Promise me, and
-    the best / fortune's yours. Flatter / me for the lowdown."
-  - Beg again, after Promise: "You've had your favours, / lads. Flatter
-    me for / the lowdown."
+  - (Beg again: removed 2026-10-31; Beg leaves the menu once used.)
   - Promise: "I trust you, lads. It's / done. The priest owes me / for
     all the odd jobs I've / done round the shrine."
   - Promise again: "Your fortune's already / sorted, lads. A promise / is
@@ -1023,7 +1020,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   - Flatter: "Ooh, such kind words." (Stephen; not "you charmers", which echoes Risa's 086) + hint. Stage 1 placeholder: "You're only
     just starting / out. Have a wander round / and talk to folk."
 - **Built (stage 1, 2026-10-23)** in `tools/additions.py`: messages
-  $3CD-$3DA (CHOOSER = `[ifflag-call 0b]` picks menu $09 or $0A; each
+  $3CD-$3DA, now $3CD-$3D6 (CHOOSER = `[ifflag-call 0b]` picks menu $09 or $0A; each
   answer just ends, and the call loops back to CHOOSER, so the menu
   switches right after Beg). **Engine rule (crash found by Stephen,
   2026-10-23):** `[menu]` (`$DDB4`) runs the chosen target as a nested
@@ -1034,7 +1031,7 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   after a full Ask (Mesen); 40 Flatter rounds then Leave work (the old
   build crashed during them). Talk = $3C4 (NERVE pages + "Right, that's
   your lot. Now clear off." + sign-off 0/1: gutters, boiler); Ask = $3D0
-  (ends at $3DA → sign-off 2/3: leaky tap, tea; picked by frame bit 0 in
+  (ends at ASK_SIGNOFF, now $3D6 → sign-off 2/3: leaky tap, tea; picked by frame bit 0 in
   the `$DBEE` hook), so one visit never repeats a sign-off. Flags $0B (begged)
   and $0C (cheat) live in `$7100` page, which save/load copies whole
   (`$E8FC`, `$E91D`); no code clears flags in bulk. Menu rows $09/$0A
@@ -1113,14 +1110,16 @@ Built (2026-10-31, `tools/daygoal.py`, called last in `insert.py`):
   new scene always opens with LUCK (tested: toggle, Leave, next scene).
 - Clock: `$71C5` is ticks (56 an hour), shown as minutes via a table
   (t x 60 / 56).
-- Caretaker (additions.py): COFFEE `$3DF` (ifflag $B5) -> `$3E0`
-  Hiroshi "9 days" / `$3E1` Toru "8 days". Wording: "Coffee? I'll stick
+- Caretaker (additions.py): COFFEE `$3DB` (ifflag $B5) -> `$3DC`
+  Hiroshi "9 days" / `$3DD` Toru "8 days". Wording: "Coffee? I'll stick
   to my / own tea, lads. But since / you offered, here's a / tip: don't
   waste time.[page] [hero], as it's you, / sort things out within / N
   days and you'll get / the happiest ending.[page] Press Select in a chat
   / to see how you're doing." ("here's a tip: don't waste any time"
   trimmed to fit the 23-character page line.) Beg leaves the menu once
-  used, so BEG_AGAIN / BEG_BEFORE / BEG_AFTER are now unreachable (kept).
+  used, so its repeat answers ("Still thinking, lads?", "You've had your
+  favours") were removed and the later addition IDs moved down by 4
+  (Stephen, 2026-10-31).
 - Tested in Nestopia (save 9 late case DAY15 pink; Toru DAY3/8 and
   DAY8/8, Hiroshi DAY9/9 black; Hiroshi DAY10, DAY100, DAY256 pink; the
   caretaker menus, Coffee for both heroes) and in Mesen (toggle on/off
