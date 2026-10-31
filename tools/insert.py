@@ -30,6 +30,7 @@ import additions # noqa: E402
 sys.path.insert(0, os.path.join(HERE, 'caretaker'))
 import build as caretaker  # noqa: E402
 import storepics
+import endingpic
 import corridorpics  # noqa: E402
 import carpark  # noqa: E402
 import sitesign  # noqa: E402
@@ -233,15 +234,24 @@ def build():
     corr, corr_tiles = corridorpics.build(read_rom(), bytes(chr_[cb10:cb10 + 0x1000]), used10, free10)
     for t, data in corr_tiles.items():
         chr_[cb10 + t * 16:cb10 + t * 16 + 16] = data
+    # Toru's happiest-ending picture ($30, CHR bank 13's free tiles)
+    used13 = caretaker._picture_tiles_used(new, endingpic.CHR_BANK)
+    free13 = [t for t in range(256) if t not in used13 and t not in caretaker.SCENE_FRAME]
+    cb13 = endingpic.CHR_BANK * 0x1000
+    endp, end_tiles = endingpic.build(read_rom(), bytes(chr_[cb13:cb13 + 0x1000]), used13, free13)
+    for t, data in end_tiles.items():
+        chr_[cb13 + t * 16:cb13 + t * 16 + 16] = data
     # cars in the Nishiyama Building car park (town map + CHR bank 1)
     car_doors, _ = carpark.apply(new, chr_)
     # English "SAFETY FIRST" sign on the Higashimachi building site (area 3)
     sitesign.apply(new, chr_, new[FIXED * BANK:(FIXED + 1) * BANK])
     caretaker.apply(new, chr_, additions.CARETAKER_SCENE,
-                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store + corr],
+                    [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store + corr]
+                    + [(n, endingpic.CHR_BANK, lay, pal) for n, lay, pal in endp],
                     car_doors)
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     carpark.apply_hook(fx)
+    endingpic.apply_hook(fx)
     new[FIXED * BANK:(FIXED + 1) * BANK] = fx
     # Select in a scene: GOAL / day / time on the status panel (bank 11)
     daygoal.apply(new, chr_, BANK, FIXED)

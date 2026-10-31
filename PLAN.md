@@ -908,7 +908,7 @@ Beyond the translation itself. Details in the sections named.
   - Stakeouts (roof Watch, car, cmdEA 01/03) added two days when started
     in the morning or evening: time-skip mode 1 ends in the new-day
     routine, then mode $80 starts another. Mode 1's new day now gives the
-    day back (`$C3A8` -> helper at `$FFA9`); one day per stakeout
+    day back (`$C3A8` -> helper, now at `$FFC6`); one day per stakeout
     (2026-10-31, both emulators).
   - Out at midnight added two days too (the clock's 0:00 day + the trip
     home's new day, `$C352`/`$C361`); now uses the same helper, so you wake
@@ -923,6 +923,17 @@ Beyond the translation itself. Details in the sections named.
     (0F6 clears $9A but leaves $42, which the Kakui roof's Take needs).
     Use now checks $9A: Nobuo "Guv, we already gave the bomb to the
     police. Probably for the best." (additions.py, 2026-10-31).
+  - Happiest ending, Toru's run: the second arrival ("Oh! Someone else is
+    here.", 246) shows picture `$E812[hero]`, `$24` for Hiroshi (Toru in
+    the doorway) or `$25` for Toru, which was never drawn: the original
+    read past its picture tables (garbage), and ours showed the
+    caretaker's room (Stephen, save 6). New picture `$30`
+    (`tools/endingpic.py`): `$24` with Hiroshi's perm in the doorway; the
+    man seated on the right is the same in both runs and stays. Bank 13's
+    free tiles; `$E813` = `$30`. The extra picture-table entries needed
+    the day-fix helper moved from `$FFA9` to `$FFC6` (after the NERVE
+    helper). Checked both heroes in Nestopia, Toru's in Mesen; day fixes
+    re-tested (2026-10-31).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.

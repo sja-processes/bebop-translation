@@ -286,7 +286,7 @@ PATCHES += [
 # one. Mode 1 is only ever followed by mode $80, so its new day ($C3A8)
 # now gives the day back: one day per stakeout, whenever it starts.
 # (Also used by the midnight trip home below.)
-DAYFIX_HELPER = CHEAT_HELPER - 7         # caretaker code must end before it
+DAYFIX_HELPER = 0xFFC6                   # free bytes after NERVE_HELPER, up to $FFD0
 _dayfix = bytes([0x20, 0xE5, 0xC3,       # JSR $C3E5 (new day)
                  0xCE, 0xC8, 0x71,       # DEC $71C8
                  0x60])                  # RTS

@@ -341,7 +341,7 @@ def apply(new, chr_, scene_id, extra=(), doors=()):
     code_addr = t
     code, patches = hooks(code_addr, table_addr, tabs)
     blob = table + blob_tabs + code
-    assert code_addr + len(code) <= additions.DAYFIX_HELPER, hex(code_addr + len(code))
+    assert code_addr + len(code) <= additions.CHEAT_HELPER, hex(code_addr + len(code))
     assert set(new[f(CODE_ADDR):f(CODE_ADDR) + len(blob)]) == {0xFF}
     new[f(CODE_ADDR):f(CODE_ADDR) + len(blob)] = blob
     for at, was, now in patches:
