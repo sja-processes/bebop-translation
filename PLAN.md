@@ -1066,14 +1066,42 @@ Agreed design:
   and grade (row 11, plus row 13) with: `GOAL` / `DAY3/8` / `14:05`
   (shown day = counter + 1; 24-hour clock from `$71C6`:`$71C5`). Once
   past the target: `GOAL` / `DAY12` / `14:05` (no "/8"; up to `DAY256`
-  fits 6 columns). Colours: black while the goal is reachable, pink with
-  black shadow (the grade / pip colour) once it is missed.
+  fits 6 columns). Colours: all black while the goal is reachable; once
+  it is missed GOAL stays black and the DAY and time lines turn pink with
+  black shadow (the grade / pip colour).
 To research first: whether Select or B is free in scenes (joypad byte
 `$17`/`$82`: A $80, B $40, Select $20, Start $10; read at `$C1E0`);
 how the panel is redrawn (rows 9/11/13, `$EB6C` grade print); glyph
 tile budget for digits, "/", ":" and letters in two colours (font
 banks 30/31, `$60`-`$9E` minus grade/label use); fixed-bank space (43
 bytes before `$FFB0`; banks 11-13 unused for code).
+Research (2026-10-31):
+- Buttons: `$82` = held (A $80, B $40, Select $20, Start $10, U/D/L/R
+  $08/$04/$02/$01). The scene verb menu loop (`$EA15`-`$EA6B`) only
+  acts on A and the D-pad; B and Select do nothing there. Hook: the
+  loop's frame wait `JSR $EC22` at `$EA4A` -> trampoline (edge-detect
+  Select with a saved previous state).
+- Screen writes: text goes into the NMI buffer `$02C4` as (PPU hi, PPU
+  lo, tile) triplets, `$64` = bytes used; `$EC16` flushes (`$1C` = `$64`,
+  waits a frame). The grade print (`$EB6C`) sets the cursor `$4F/$50` =
+  `$2162`, instant mode `$20`=1 and runs message `$37A+luck`. Our code
+  can write triplets straight into the buffer (no message engine, so
+  command-code tile numbers don't matter).
+- Panel layout (PRG bank 0, row 5 at `$AEAB`, 32 per row): LUCK row 9,
+  grade row 11 (cols 2-7 free; col 8 is the verb box border), row 12
+  blank, row 13 col 6+ is the picture frame. So three lines must use
+  rows 9/11/12 or 9/10/11 (mock-ups shown to Stephen).
+- `$EB6C` (grade reprint, e.g. after a fortune slip) must undo the
+  toggle first (LUCK label back, extra row blanked, state cleared): hook
+  its `JSR $EB97`.
+- Free RAM: SRAM page `$76xx` is never referenced by the original code
+  and empty in saves.
+- Tiles: label set `$8E`-`$9E` (minus `$9D`) has 8 free; grade set
+  `$60`-`$8D` has 31 free. Needed: black G O A D Y 0-9 / : (17) and
+  pink Y 0-9 / : (13; D, A already pink). Fits. Font has all glyphs.
+- Code: the routine goes in spare PRG bank 11; fixed bank needs ~36
+  bytes of trampolines (menu hook, `$EB6C` hook, bank switch via
+  `$C049`), within the 43 free.
 
 ### Corridor variants (built 2026-10-25, `tools/corridorpics.py`)
 - Picture `$19` (corridor, green door) was every floor of both 3-storey
