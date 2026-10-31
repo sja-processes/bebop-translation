@@ -35,6 +35,7 @@ CODE_CHANGES = {
            "before his challenge, so Shout reads as him shouting (Stephen, 2026-10-22)",
     0x2BE: "pachinko Shout: the cop's line waited for A before it started, not after (original-game bug; Stephen, 2026-10-25)",
     0x134: "pachinko Shout: page wait moved to the end of the cop's line (original-game bug; Stephen, 2026-10-25)",
+    0x241: "blank page removed (original slip; 240 has no blank page) (Stephen, 2026-10-31)",
     0x388: "page added: bridge before Nobuo's Sneak shout (tailing Teru: ninja) (Stephen, 2026-10-23)",
     0x38A: "page added: bridge before Nobuo's Sneak shout (slipping past the thug: vanishing trick) (Stephen, 2026-10-23)",
     0x1C6: "ends instead of jumping to the next roof menu: each jump left a menu level open, so Go down needed extra presses (original-game bug, Stephen 2026-10-25)",

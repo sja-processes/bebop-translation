@@ -442,8 +442,7 @@ EN:
 [cmdEE 04]Oh, I see, I see.
 [cmdEE 02][cmdE1]'s the only real
 mate I've got, eh?
-Mmmmmmm.[page]
-[cmdED][delay 3c][page]
+Mmmmmmm.[cmdED][delay 3c][page]
 
 
 @@ 242  bank3 $A7C0
