@@ -910,6 +910,12 @@ Beyond the translation itself. Details in the sections named.
     routine, then mode $80 starts another. Mode 1's new day now gives the
     day back (`$C3A8` -> helper at `$FFA9`); one day per stakeout
     (2026-10-31, both emulators).
+  - Out at midnight added two days too (the clock's 0:00 day + the trip
+    home's new day, `$C352`/`$C361`); now uses the same helper, so you wake
+    on the next day like going to bed in the evening. Checked the earlier
+    7:00 re-reset fix still holds: after midnight and after stakeouts
+    started at minutes $36/$37, CHARM luck survives four in-game hours
+    (2026-10-31, both emulators).
   - Pachinko Shout: the cop's line waited for A before it appeared, then
     cut straight to the police station. The wait is now at the end
     (2BE/134, 2026-10-25).

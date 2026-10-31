@@ -285,6 +285,7 @@ PATCHES += [
 # morning or evening that is two days; at night mode 1 does nothing, so
 # one. Mode 1 is only ever followed by mode $80, so its new day ($C3A8)
 # now gives the day back: one day per stakeout, whenever it starts.
+# (Also used by the midnight trip home below.)
 DAYFIX_HELPER = CHEAT_HELPER - 7         # caretaker code must end before it
 _dayfix = bytes([0x20, 0xE5, 0xC3,       # JSR $C3E5 (new day)
                  0xCE, 0xC8, 0x71,       # DEC $71C8
@@ -292,4 +293,9 @@ _dayfix = bytes([0x20, 0xE5, 0xC3,       # JSR $C3E5 (new day)
 PATCHES += [
     (DAYFIX_HELPER, b'\xFF' * len(_dayfix), _dayfix),
     (0xC3A8, bytes([0x20, 0xE5, 0xC3]), bytes([0x20, DAYFIX_HELPER & 0xFF, DAYFIX_HELPER >> 8])),
+    # Same double count when out at midnight (Stephen, 2026-10-31): the
+    # clock adds the day at 0:00 ($C435), then the trip home ($C352) runs
+    # the new-day routine again. Out past midnight now wakes on the next
+    # day, as going to bed in the evening does.
+    (0xC361, bytes([0x20, 0xE5, 0xC3]), bytes([0x20, DAYFIX_HELPER & 0xFF, DAYFIX_HELPER >> 8])),
 ]
