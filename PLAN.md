@@ -1115,7 +1115,7 @@ Built (2026-10-31, `tools/daygoal.py`, called last in `insert.py`):
   to my / own tea, lads. But since / you offered, here's a / tip: don't
   waste time.[page] [hero], as it's you, / sort things out within / N
   days and you'll get / the happiest ending.[page] Press Select in a chat
-  / to see how you're doing." ("here's a tip: don't waste any time"
+  / to see how you're doing / for time." ("here's a tip: don't waste any time"
   trimmed to fit the 23-character page line.) Beg leaves the menu once
   used, so its repeat answers ("Still thinking, lads?", "You've had your
   favours") were removed and the later addition IDs moved down by 4

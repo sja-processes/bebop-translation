@@ -77,7 +77,7 @@ COFFEE_TEXT = ("Coffee? I'll stick to my\nown tea, lads. But since\nyou offered,
                "tip: don't waste time.[page]\n"
                "[cmdE1], as it's you,\nsort things out within\n%d days and you'll get\n"
                "the happiest ending.[page]\n"
-               "Press Select in a chat\nto see how you're doing.")
+               "Press Select in a chat\nto see how you're doing\nfor time.")
 SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][goto %s]\n" % _id(CHOOSER)
 EXTRAS = {
     CHOOSER: '[ifflag-call %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
