@@ -277,3 +277,19 @@ PATCHES += [
     (CHEAT_HELPER, b'\xFF' * len(_cheat), _cheat),
     (0xE382, bytes([0x20, 0x37, 0xEE]), bytes([0x20, CHEAT_HELPER & 0xFF, CHEAT_HELPER >> 8])),
 ]
+
+# Original bug (found by Stephen, 2026-10-31): Nobuo's stakeouts (cmdEA 01
+# at $F0FA, cmdEA 03 at $F16A: the roof Watch, the car) set time-skip mode
+# 1 ($02C0 = 1: run on to night, then the new-day routine $C3E5, day + 1)
+# and then mode $80 (next morning via $C3B1, day + 1 again). Started in the
+# morning or evening that is two days; at night mode 1 does nothing, so
+# one. Mode 1 is only ever followed by mode $80, so its new day ($C3A8)
+# now gives the day back: one day per stakeout, whenever it starts.
+DAYFIX_HELPER = CHEAT_HELPER - 7         # caretaker code must end before it
+_dayfix = bytes([0x20, 0xE5, 0xC3,       # JSR $C3E5 (new day)
+                 0xCE, 0xC8, 0x71,       # DEC $71C8
+                 0x60])                  # RTS
+PATCHES += [
+    (DAYFIX_HELPER, b'\xFF' * len(_dayfix), _dayfix),
+    (0xC3A8, bytes([0x20, 0xE5, 0xC3]), bytes([0x20, DAYFIX_HELPER & 0xFF, DAYFIX_HELPER >> 8])),
+]

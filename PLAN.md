@@ -905,6 +905,11 @@ Beyond the translation itself. Details in the sections named.
   - Kakui roof: after Search (bomb, 1C6) and Take (1C8), Go down needed
     three presses (each message jumped into a fresh roof menu, nesting a
     level). They now just end, back to the menu you were on (2026-10-25).
+  - Stakeouts (roof Watch, car, cmdEA 01/03) added two days when started
+    in the morning or evening: time-skip mode 1 ends in the new-day
+    routine, then mode $80 starts another. Mode 1's new day now gives the
+    day back (`$C3A8` -> helper at `$FFA9`); one day per stakeout
+    (2026-10-31, both emulators).
   - Pachinko Shout: the cop's line waited for A before it appeared, then
     cut straight to the police station. The wait is now at the end
     (2BE/134, 2026-10-25).
