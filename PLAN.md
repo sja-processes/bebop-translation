@@ -27,6 +27,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
+- [ ] Optional — Day goal: caretaker Coffee tells the day limit for the happiest ending; Select (or B) in a scene swaps LUCK/grade for GOAL / DAY / time. Agreed 2026-10-31, see "Day goal" below
 - [x] Optional — Visible cars in the Nishiyama Building car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
 
 ## Stages
@@ -1041,6 +1042,38 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
+
+### Day goal (agreed with Stephen 2026-10-31; not built)
+Ending facts (fixed bank of the original): `$71C8` = day counter, one
+byte, 0 at a new game, +1 at midnight (`$C435`) and on the new-day
+routines after Sleep / overnight stakeout (`$C3CE`, `$C3FD`); no cap,
+wraps 255 -> 0 (harmless; nothing else reads it). `$71B5` = hero
+(0 Hiroshi, 1 Toru; also readable as flag $B5). The ending (`$E745`
+table `09 08`, read at `$E74E` and `$EE6C`) plays the quicker version
+if day < 9 (Hiroshi) / < 8 (Toru), else the slower one: two different
+messages. Don't spoil the content to Stephen.
+Agreed design:
+- Caretaker menus: before Beg Talk / Ask / **Coffee** / Beg / Leave;
+  after Beg Talk / Ask / **Coffee** / Promise / Flatter / Leave (Beg
+  dropped once used). Coffee verb = $09.
+- Coffee text (branch on flag $B5; name via `[cmdE1]`):
+  "Coffee? I'll stick to my / own tea, lads. But since / you offered,
+  here's a tip: / don't waste any time.[page] [Toru], as it's you, sort /
+  things out within 8 days / and you'll get the / happiest ending.[page]
+  Press Select in a chat / to see how you're doing." (9 days for
+  Hiroshi; last line names whichever button is used.)
+- Display: in a scene, the button toggles the panel's LUCK label (row 9)
+  and grade (row 11, plus row 13) with: `GOAL` / `DAY3/8` / `14:05`
+  (shown day = counter + 1; 24-hour clock from `$71C6`:`$71C5`). Once
+  past the target: `GOAL` / `DAY12` / `14:05` (no "/8"; up to `DAY256`
+  fits 6 columns). Colours: black while the goal is reachable, pink with
+  black shadow (the grade / pip colour) once it is missed.
+To research first: whether Select or B is free in scenes (joypad byte
+`$17`/`$82`: A $80, B $40, Select $20, Start $10; read at `$C1E0`);
+how the panel is redrawn (rows 9/11/13, `$EB6C` grade print); glyph
+tile budget for digits, "/", ":" and letters in two colours (font
+banks 30/31, `$60`-`$9E` minus grade/label use); fixed-bank space (43
+bytes before `$FFB0`; banks 11-13 unused for code).
 
 ### Corridor variants (built 2026-10-25, `tools/corridorpics.py`)
 - Picture `$19` (corridor, green door) was every floor of both 3-storey
