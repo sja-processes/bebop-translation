@@ -506,7 +506,6 @@ House of Heaven.[page]
 
 @@ 247  bank3 $AA02
 EN:
-[page]
 Whyyy, you...!!
 You rotten lot...!!
 [cmdED]..............

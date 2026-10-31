@@ -941,6 +941,11 @@ Beyond the translation itself. Details in the sections named.
     `[cmdED][delay 3c][page]`, so a blank box waited for A. Removed (240,
     the other branch, has none); listed in encheck's CODE_CHANGES
     (Stephen, save 8; 2026-10-31, both emulators).
+  - Same slip in 247 ("Whyyy, you...!!"): it opens with `[page]`, but 246
+    already ends with one, so a blank box waited for A (the code switches
+    the hero to his angry face in between). Removed, so the face changes
+    as the shout starts; CODE_CHANGES (Stephen, save 9; 2026-10-31, both
+    emulators, both heroes in Nestopia).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.
