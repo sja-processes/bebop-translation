@@ -907,6 +907,10 @@ Beyond the translation itself. Details in the sections named.
   - Pachinko Shout: the cop's line waited for A before it appeared, then
     cut straight to the police station. The wait is now at the end
     (2BE/134, 2026-10-25).
+  - Pylon: Use still blew it up after the bomb was handed to Onijima
+    (0F6 clears $9A but leaves $42, which the Kakui roof's Take needs).
+    Use now checks $9A: Nobuo "Guv, we already gave the bomb to the
+    police. Probably for the best." (additions.py, 2026-10-31).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.

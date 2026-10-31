@@ -148,6 +148,16 @@ NOBUO_PYLON_TEXT = ("[cmdEF 34][cmdEE 12]Guv, climb that pylon?\n"
 NOBUO_DOCK = FIRST_ID + 26
 NOBUO_DOCK_TEXT = ("[cmdEF 34][cmdEE 01]Climb the warehouse, Guv?\n"
                    "I'm no cat burglar.\nI might fall in the dock!")
+# Use at the pylon with the bomb (316 -> 1C3, blow it up) still worked after
+# the bomb went to Onijima (0F6): that clears flag $9A (set by a new game,
+# cleared nowhere else) but leaves $42 (carrying the bomb). Clearing $42
+# instead would bring back Take on the Kakui roof (288), so Use checks $9A
+# (Stephen, 2026-10-31; the original has the same hole).
+FLAG_BOMB_HELD = 0x9A                      # clear once Onijima has the bomb
+NOBUO_BOMB_CHECK = FIRST_ID + 27
+NOBUO_BOMB_GONE = FIRST_ID + 28
+NOBUO_BOMB_GONE_TEXT = ("[cmdEF 34][cmdEE 06]Guv, we already gave the\n"
+                        "bomb to the police.\nProbably for the best.")
 NOBUO_USED_TEXT = ("[cmdEF 34][cmdEE 0f]Using me again, Guv? I'm\n"
                    "not just your dogsbody.\nLet me prove I'm a man.\n")
 
@@ -179,8 +189,8 @@ def retarget(msgs):
 
     menu = '[menu-call 46 c0 01 e1 01 c3 01 c1 01 95 01 09 03]'
     assert msgs[0x316].count(menu) == 1, msgs[0x316]
-    msgs[0x316] = msgs[0x316].replace(menu, '[menu-call 46 c0 01 e1 01 c3 01 c1 01 %s 09 03]'
-                                      % _id(NOBUO_PYLON))
+    msgs[0x316] = msgs[0x316].replace(menu, '[menu-call 46 c0 01 e1 01 %s c1 01 %s 09 03]'
+                                      % (_id(NOBUO_BOMB_CHECK), _id(NOBUO_PYLON)))
     for scene, verb in ((0x325, 'fb'), (0x326, 'cc')):
         menu = '[menu-call 49 e4 01 %s 01 95 01 b5 01 b7 01 09 03]' % verb
         assert msgs[scene].count(menu) == 1, msgs[scene]
@@ -205,6 +215,9 @@ MESSAGES.update(EXTRAS)
 MESSAGES[CARETAKER_ASK] = ASK_TEXT
 MESSAGES[NOBUO_PYLON] = NOBUO_PYLON_TEXT
 MESSAGES[NOBUO_DOCK] = NOBUO_DOCK_TEXT
+# [ifflag f clear set]: $9A clear (bomb handed in) -> Nobuo's line, else 1C3
+MESSAGES[NOBUO_BOMB_CHECK] = '[ifflag %02x %s c3 01]\n' % (FLAG_BOMB_HELD, _id(NOBUO_BOMB_GONE))
+MESSAGES[NOBUO_BOMB_GONE] = NOBUO_BOMB_GONE_TEXT
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
