@@ -945,7 +945,12 @@ Beyond the translation itself. Details in the sections named.
     already ends with one, so a blank box waited for A (the code switches
     the hero to his angry face in between). Removed, so the face changes
     as the shout starts; CODE_CHANGES (Stephen, save 9; 2026-10-31, both
-    emulators, both heroes in Nestopia).
+    emulators, both heroes in Nestopia). The less happy ending ($E81A)
+    reuses 247 after 244 ("Oi, Hiroshi, it's great here! Come on in!"),
+    which had no page wait, so the shout ran on past the box (Stephen,
+    save 7): 244 now ends with `[page]` (only used there), so there too
+    the face changes as the shout starts (both emulators; both heroes in
+    Nestopia).
 - **Clearer feedback**
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.
