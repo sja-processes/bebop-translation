@@ -928,7 +928,9 @@ Beyond the translation itself. Details in the sections named.
     the doorway) or `$25` for Toru, which was never drawn: the original
     read past its picture tables (garbage), and ours showed the
     caretaker's room (Stephen, save 6). New picture `$30`
-    (`tools/endingpic.py`): `$24` with Hiroshi's perm in the doorway; the
+    (`tools/endingpic.py`): `$24` with Hiroshi's perm in the doorway (olive
+    with dark curls as in his scenes, outlined, no wider than his head and
+    tapering in: Stephen chose "B3"); the
     man seated on the right is the same in both runs and stays. Bank 13's
     free tiles; `$E813` = `$30`. The extra picture-table entries needed
     the day-fix helper moved from `$FFA9` to `$FFC6` (after the NERVE

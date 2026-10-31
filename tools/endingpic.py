@@ -4,12 +4,12 @@
 The ending ($E747, cmdEA 23) shows a second arrival at the House of
 Heaven with picture $E812[hero]: $24 for Hiroshi (Toru arriving in the
 doorway) and $25 for Toru. The original never drew $25: its picture
-tables end at $24, so Toru's run read past them and showed garbage. (We had since given $25 to
-the caretaker's room.)
+tables end at $24, so Toru's run read past them and showed garbage.
+(We had since given $25 to the caretaker's room.)
 
-    $30  $24 with Hiroshi's perm in the doorway instead of Toru's regent
-         (the arrival is the other hero; the man seated on the right is
-         the same in both runs, so he stays as he is)
+    $30  $24 with Hiroshi's perm (olive, as in his scenes) in the doorway
+         instead of Toru's regent (the arrival is the other hero; the
+         man seated on the right is the same in both runs, so he stays)
 
 CHR bank 13 ($24's bank), using its free tiles; $E813 points at $30.
 
@@ -31,13 +31,23 @@ HERO_PICS = 0xE812            # fixed bank: [Hiroshi's, Toru's] picture
 
 def canvas(o24):
     cv = Canvas(o24)
-    # doorway: Toru's regent -> Hiroshi's perm (rounder, curls)
-    cx, cy, rx, ry = 83.5, 18, 11, 9.6
-    for y in range(8, 18):
-        for x in range(72, 96):
-            if ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1:
-                curl = (x * 3 + y * 5) % 7 == 0 and y % 2 == (x // 3) % 2
-                cv.set(x, y, 2 if curl else 0)
+    # doorway: Toru's regent -> Hiroshi's perm, olive with dark curls as
+    # in his scenes, outlined in black against the olive door; no wider
+    # than his head (x 75-92), tapering in towards the bottom
+    cx, cy, rx, ry = 83.5, 18, 10, 9.6
+
+    def inside(x, y):
+        lo, hi = 75, 92
+        if y >= 15:
+            lo, hi = lo + (y - 14) // 2, hi - (y - 14) // 2
+        return lo <= x <= hi and ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1
+    hair = {(x, y) for y in range(8, 18) for x in range(70, 98) if inside(x, y)}
+    for x, y in hair:
+        edge = any((x + dx, y + dy) not in hair and y + dy < 18
+                   for dx, dy in ((1, 0), (-1, 0), (0, -1)))
+        k = (x + 2 * y) % 4
+        curl = k == 0 or (k == 1 and y % 2)
+        cv.set(x, y, 0 if edge or curl else 2)
     return cv
 
 
