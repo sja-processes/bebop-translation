@@ -26,7 +26,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Optional — In-game help: the caretaker's room south of Aitoku High (NERVE, LUCK, saving, evenings); built 2026-10-17, see "Optional: help pages" below. **To do:** Stephen's handheld test
 - [x] Kakui department store picture variants (floors and roofs looked identical); built 2026-10-18, see "Department store variants" below. **To do:** Stephen's play test
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
-- [ ] Optional — Caretaker extras, stage 2: real hints, one per story milestone
+- [x] Optional — Caretaker extras, stage 2: real hints, one per story milestone (39 hints, built 2026-11-01; see "Caretaker extras"). **To do:** Stephen's handheld test
 - [x] Optional — Day goal: caretaker Coffee tells the day limit for the happiest ending; Select in a scene swaps LUCK/grade for GOAL / DAY / time. Built 2026-10-31 (`tools/daygoal.py`), see "Day goal" below. **To do:** Stephen's handheld test
 - [x] Optional — Visible cars in the Nishiyama Building car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
 
@@ -577,7 +577,8 @@ that places the marked tiles and add an English caption beside them
 - Change audit (built ROM vs original): every changed byte belongs to a
   deliberate change (header, labels, title layout, picture 1D caption,
   fixed-bank patches, text banks 8-10, CHR 8/12/29/30/31 tiles). Banks 7
-  and 11-14 unused. CHR 29 tile `$81` untouched (sprite-0 split).
+  and 11-14 unused (at the time; since then 11 = day goal, 12 = text, 14 =
+  caretaker data). CHR 29 tile `$81` untouched (sprite-0 split).
 - No English message other than the luck grades prints raw tiles, so the
   reused inverse-kana tiles cannot leak. All 24 verbs <= 7 letters.
 - Ending: verified via the `cmdDB` shortcut (same `$E770` → `$EE42`
@@ -887,8 +888,9 @@ Beyond the translation itself. Details in the sections named.
 - **New content**
   - Caretaker's room (new door south of Aitoku High): Talk (NERVE,
     nightfall), Ask (fortune slips, LUCK, saving), Beg → Promise (optional
-    luck cheat: every slip is CHARM; saved, permanent), Flatter (hints;
-    stage 2 to do). Own picture and character, evening/night tints, random
+    luck cheat: every slip is CHARM; saved, permanent), Flatter (a hint
+    for the next story step, 39 in all, written from Stephen's
+    walkthrough). Own picture and character, evening/night tints, random
     sign-offs split between Talk and Ask. See "Optional: help pages",
     "Caretaker extras".
   - Department store picture variants: annexe 3F/4F, main 4F and annexe
@@ -1040,6 +1042,24 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   chain on progress flags; the same hint until the state changes (no
   "ask again for more"); some hints may mix vague and specific guidance.
   Only seen if the player chooses Flatter.
+  - **Built (stage 2, 2026-11-01):** 39 hints from Stephen's walkthrough
+    notes, reviewed over three drafts (`docs/caretaker-hints.md`;
+    his style: plain steps in the caretaker's voice, one tier, steps that
+    must run without a break in one hint, Gen kept a surprise). Text and
+    opening flags in `tools/caretaker/hints.py` (one box per paragraph,
+    wrapped and size-checked there). Flatter = "Ooh, such kind
+    words.[page]" + `[firstset]` over the opening flags, latest first,
+    default H01; so flags the game clears again (07, 4E, 7E) are harmless.
+    Steps with no lasting flag (begging the rival, the car stakeout,
+    handing over the bomb) share a hint with the next step. Hint IDs
+    `$3DE`-`$405`; `$3FF` is left empty, since its low byte `$FF` inside the
+    chain's arguments would end the message. The text now runs into PRG
+    bank 12 (`insert.TEXT_BANKS` = 8, 9, 10, 12; 11 is daygoal's code); the
+    lookup's fourth bank entry pushed the verb-list select into the
+    lookup's own `$40` bytes (it overflowed into the caretaker code at
+    `$FD50`). Tested in Nestopia: each of the 39 flag states shows its own
+    hint, H06 pages through all six boxes back to the menu, 30 Flatter
+    rounds then Leave work; Mesen: H34 (`$400`, bank 12).
 - **Agreed wording (2026-10-23; boxes are 4 lines, max 25, last before a
   wait max 23).** Shrine odd jobs are plausible: local parishioners
   (ujiko) do upkeep as favours; only major work needs shrine carpenters.

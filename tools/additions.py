@@ -6,7 +6,12 @@ script/en/ mirror the Japanese dump one-to-one, so additions live here.
 Each entry: ID -> (text in dump format, fixed-bank patches that use it).
 """
 
+import os
 import re
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'caretaker'))
+import hints  # noqa: E402
 
 FIRST_ID = 0x3C2
 
@@ -78,6 +83,21 @@ COFFEE_TEXT = ("Coffee? I'll stick to my\nown tea, lads. But since\nyou offered,
                "[cmdE1], as it's you,\nsort things out within\n%d days and you'll get\n"
                "the happiest ending.[page]\n"
                "Press Select in a chat\nto see how you're doing\nfor time.")
+# Flatter hints (Stephen, 2026-11-01): one message each; FLATTER goes to
+# the first whose flag is set, checking the latest step first.
+# ID $3FF is skipped (left empty): its low byte would put $FF, the end
+# of a message, inside the chain's arguments.
+HINT_FIRST = FIRST_ID + 28
+HINT_IDS = [mid for mid in range(HINT_FIRST, HINT_FIRST + len(hints.HINTS) + 1) if mid & 0xFF != 0xFF]
+
+
+def _hint_chain():
+    steps = [(f, mid) for (f, _), mid in zip(hints.HINTS, HINT_IDS) if f is not None]
+    assert hints.HINTS[0][0] is None
+    return '[firstset %s fa %s]\n' % (' '.join('%02x %s' % (f, _id(mid)) for f, mid in reversed(steps)),
+                                       _id(HINT_IDS[0]))
+
+
 SCENE = "[cmdDE 22][cmdF0 25][cmdEF 38][goto %s]\n" % _id(CHOOSER)
 EXTRAS = {
     CHOOSER: '[ifflag-call %02x %s %s]\n' % (FLAG_BEGGED, _id(MENU_SMALL), _id(MENU_BIG)),
@@ -95,8 +115,8 @@ EXTRAS = {
     PROMISE_FIRST: ('[setflag %02x]' % FLAG_CHEAT +
                     "I trust you, lads. It's\ndone. The priest owes me\nfor all the odd jobs I've\ndone round the shrine." + BACK),
     PROMISE_AGAIN: "Your fortune's already\nsorted, lads. A promise\nis a promise." + BACK,
-    # stage 1 placeholder; stage 2 picks a hint by story progress
-    FLATTER: "Ooh, such kind words.\nYou're only just starting\nout. Have a wander round\nand talk to folk." + BACK,
+    # the hint for the furthest story step (tools/caretaker/hints.py)
+    FLATTER: "Ooh, such kind words.[page]\n" + _hint_chain(),
 }
 SIGNOFFS = [t.rstrip('\n') + BACK for t in SIGNOFFS]
 # Talk = how NERVE works; Ask = luck and saving (split 2026-10-23)
@@ -229,6 +249,8 @@ MESSAGES[NOBUO_BOMB_GONE] = NOBUO_BOMB_GONE_TEXT
 MESSAGES[COFFEE] = '[ifflag %02x %s %s]\n' % (FLAG_HERO, _id(COFFEE_HIROSHI), _id(COFFEE_TORU))
 MESSAGES[COFFEE_HIROSHI] = COFFEE_TEXT % 9 + BACK
 MESSAGES[COFFEE_TORU] = COFFEE_TEXT % 8 + BACK
+MESSAGES.update({mid: hints.text(pars) + BACK for (_, pars), mid in zip(hints.HINTS, HINT_IDS)})
+MESSAGES.update({mid: '' for mid in range(HINT_FIRST, HINT_IDS[-1]) if mid not in HINT_IDS})
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the

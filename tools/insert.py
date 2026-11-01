@@ -42,6 +42,8 @@ BANK = 0x4000
 OLD_PRG_BANKS, NEW_PRG_BANKS = 8, 16
 FIXED = NEW_PRG_BANKS - 1
 FIRST_TEXT_BANK = 8
+TEXT_BANKS = (8, 9, 10, 12)   # 11 = daygoal's code, 14 = caretaker data
+assert daygoal.CODE_BANK not in TEXT_BANKS and caretaker.DATA_BANK not in TEXT_BANKS
 TEXT_LIMIT = 0xBFF0           # keep the reset stub at $BFF0-$BFFF
 VERB_FIRST, VERB_LAST = 0x3AA, 0x3C1
 NEW_CODE = 0xFD00             # free $FF run in the fixed bank ($FCFC-$FFCF)
@@ -95,8 +97,8 @@ def pack(encoded):
         need = verb_block if mid == VERB_FIRST else len(data)
         if 0x8000 + len(buf) + need > TEXT_LIMIT:
             banks[bank] = buf
-            bank, buf = bank + 1, bytearray()
-            assert bank < FIXED, 'out of text banks'
+            assert bank != TEXT_BANKS[-1], 'out of text banks'
+            bank, buf = TEXT_BANKS[TEXT_BANKS.index(bank) + 1], bytearray()
             starts.append((mid, bank))
         if mid == VERB_FIRST:
             verb_addr = (bank, 0x8000 + len(buf))
@@ -105,8 +107,10 @@ def pack(encoded):
     return banks, starts, verb_addr
 
 
-def asm_lookup(starts, base):
-    """Message lookup: X/Y = ID -> select bank, X/Y = index, JMP $DC05."""
+def asm_lookup(starts, base, verb_bank):
+    """Message lookup: X/Y = ID -> select bank, X/Y = index, JMP $DC05.
+    Then the verb list's bank select (LDA #bank / JMP $C049), in the same
+    $40 bytes. -> (code, address of the verb select)"""
     n = len(starts)
     tab_lo = base + 0x40
     tab_hi, tab_bank = tab_lo + n, tab_lo + 2 * n
@@ -142,12 +146,14 @@ def asm_lookup(starts, base):
                    0x68, 0xA8,                       # PLA / TAY
                    0x68, 0xAA,                       # PLA / TAX
                    0x4C, 0x05, 0xDC])                # JMP $DC05 (skip loop)
+    vsel = base + len(code)
+    code += bytes([0xA9, verb_bank, 0x4C, 0x49, 0xC0])
     assert len(code) <= 0x40
     code = code.ljust(0x40, b'\xFF')
     code += bytes(lo(s) for s, _ in starts)
     code += bytes(hi(s) for s, _ in starts)
     code += bytes(b for _, b in starts)
-    return bytes(code)
+    return bytes(code), vsel
 
 
 def fix_branches(code, base):
@@ -177,13 +183,11 @@ def build():
         new[b * BANK:b * BANK + len(data)] = data
 
     f = lambda addr: addr - 0xC000
-    code = asm_lookup(starts, NEW_CODE)
+    code, vsel = asm_lookup(starts, NEW_CODE, verb_addr[0])
     fix_branches(code, NEW_CODE)
     fixed[f(NEW_CODE):f(NEW_CODE) + len(code)] = code
     fixed[f(0xDBEE):f(0xDBEE) + 3] = bytes([0x4C, NEW_CODE & 0xFF, NEW_CODE >> 8])
     # verb list: JSR $C087 -> JSR verbsel (LDA #bank / JMP $C049)
-    vsel = NEW_CODE + len(code)
-    fixed[f(vsel):f(vsel) + 5] = bytes([0xA9, verb_addr[0], 0x4C, 0x49, 0xC0])
     assert fixed[f(0xDE88):f(0xDE8B)] == bytes([0x20, 0x87, 0xC0])
     fixed[f(0xDE88):f(0xDE8B)] = bytes([0x20, vsel & 0xFF, vsel >> 8])
     assert fixed[f(0xDE8B)] == 0xA9 and fixed[f(0xDE8F)] == 0xA9
