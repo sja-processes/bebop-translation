@@ -157,6 +157,13 @@ class Core:
         n = self.lib.retro_get_memory_size(0)
         return C.string_at(p, n) if p else b''
 
+    def poke(self, addr, val):
+        """Write one byte of cartridge RAM by CPU address ($6000-$7FFF),
+        e.g. a story flag at $7100+n."""
+        assert 0x6000 <= addr < 0x8000, hex(addr)
+        p = self.lib.retro_get_memory_data(0)
+        C.memmove(p + addr - 0x6000, bytes([val]), 1)
+
     def frame_png(self, path, scale=2):
         from PIL import Image
         w, h, rgb = self.frame

@@ -991,6 +991,14 @@ Beyond the translation itself. Details in the sections named.
 - `tools/sceneart.py` — English captions inside scene pictures (stage 7e).
 - `tools/pagecheck.py` — text-box layout check for every message (stage 8a); run after any script edit.
 - `tools/additions.py` — messages added by the translation (new IDs from `$3C2`).
+- `tools/lrnes.py` — headless Nestopia (libretro) harness: `Core(rom)`,
+  `run`, `press`, `ram`/`sram`, `poke(addr, val)` for cartridge RAM
+  (`$6000`-`$7FFF`, flags at `$7100`+n), `frame_png`.
+- `tools/caretaker/hinttest.py [OUT.png]` — Flatter hint test: checks every
+  script `[clrflag]` against the hint chain, builds `out/hinttest.nes`
+  (new game opens in the caretaker's room), and grids the first box of all
+  39 hints + the cleared-flag cases into `out/hinttest.png` (~3 min). Run
+  after any change to `hints.py` or the story flags.
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
