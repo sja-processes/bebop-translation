@@ -1049,7 +1049,18 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
     opening flags in `tools/caretaker/hints.py` (one box per paragraph,
     wrapped and size-checked there). Flatter = "Ooh, such kind
     words.[page]" + `[firstset]` over the opening flags, latest first,
-    default H01; so flags the game clears again (07, 4E, 7E) are harmless.
+    default H01; so a flag the game clears again is harmless if a later
+    hint's flag is set by then (4E, 7E, 85). Fix (Stephen, 2026-11-02:
+    taking the sign sent Flatter back to H02): 07 (cleared by 191, the
+    sign), 44 (cleared by Misako's coffee 127, which can come before the
+    warehouse) and 53 (tickets, cleared by the ride 3A3/3A4) had nothing
+    later set with them. H03 is now split at 09 (sign taken; "Take
+    whatever you find there, then see how you get on."), Kikunaga's hint
+    opens on 84 (set with 44 by 100), and the Minato and Higashimachi
+    hints are one (51 → 56). Every `[clrflag]` in the script checked
+    against the chain; code writes none of the opening flags. Still 39
+    hints. Tested: all 39 plus the three cases in Nestopia, the sign case
+    in Mesen.
     Steps with no lasting flag (begging the rival, the car stakeout,
     handing over the bomb) share a hint with the next step. Hint IDs
     `$3DE`-`$405`; `$3FF` is left empty, since its low byte `$FF` inside the

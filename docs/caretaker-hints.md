@@ -9,14 +9,17 @@ that step is done. Every box below is shown exactly as it would appear in
 the game: 4 lines at most, 25 characters wide, and 23 on the last line
 (before the arrow). "Here" means the caretaker's room.
 
-"Shown after" and "Done when" give the flag (set by `[setflag]` in the
+"Shown after" and "Until" give the flag (set by `[setflag]` in the
 script message named) that opens and closes each hint. The chain checks
-the latest step first, so flags the game clears again later (07, 4E, 7E)
-are harmless.
+the latest step first, so flags the game clears again later (4E, 7E, 85)
+are harmless as long as a later hint's flag is set by then. Three flags the
+game clears mid-story (07 when you take the sign, 44 at Misako's coffee,
+53 when you ride the underground) sent the hint back a step in the first
+build; those hints now open on flags that stay set (Stephen, 2026-11-02).
 
 ## H01
 
-Shown after: new game. Done when: 04 (013 Junko agrees).
+Shown after: new game. Until 04 (013 Junko agrees).
 
 ```
 Start around school,
@@ -27,7 +30,7 @@ out, and nicely, mind.
 
 ## H02
 
-Shown after: 04. Done when: 07 (032 Junko: Kakui roof).
+Shown after: flag 04. Until 07 (032 Junko: Kakui roof).
 
 ```
 Junko'll be waiting at
@@ -45,7 +48,7 @@ she's heard.
 
 ## H03
 
-Shown after: 07. Done when: 0D (194 Nobuo: the walkway on floor 4, after Search on the annexe roof).
+Shown after: flag 07. Until 09 (191 Nobuo takes the sign; it also clears 07).
 
 ```
 Kakui Dept. Store,
@@ -57,10 +60,20 @@ in for lads like you.
 
 Have a nose round the
 building just south of
-it. Take what you find
-there.
+the store.
 
-Then use it at the store
+Take whatever you find
+there, then see how you
+get on.
+```
+
+## H04
+
+Shown after: flag 09. Until 0D (194 Nobuo: the walkway on floor 4, after Search on the annexe roof).
+
+```
+Got yourselves a sign,
+eh? Use it at the store
 to get in.
 
 Then it's up and up, all
@@ -69,9 +82,9 @@ the annexe. Have a good
 look round.
 ```
 
-## H04
+## H05
 
-Shown after: 0D. Done when: 11 (19A Watch on the main roof). *the cigarette ends (1EF, flag 0F) come halfway through.*
+Shown after: flag 0D. Until 11 (19A Watch on the main roof); the cigarette ends (1EF, flag 0F) come halfway through.
 
 ```
 Found a way across, have
@@ -90,9 +103,9 @@ then keep watch.
 Patience, lads.
 ```
 
-## H05
+## H06
 
-Shown after: 11. Done when: 13 (038 the police take the call).
+Shown after: flag 11. Until 13 (038 the police take the call).
 
 ```
 A bomb on Minami Bridge?!
@@ -111,9 +124,9 @@ That'll get them
 moving.
 ```
 
-## H06
+## H07
 
-Shown after: 13. Done when: 20 (086 Risa: Higashi in the arcade). *rival (08B) sets no lasting flag, so he and Risa go together.*
+Shown after: flag 13. Until 20 (086 Risa: Higashi in the arcade); rival (08B) sets no lasting flag, so he and Risa go together.
 
 ```
 Got shot of the police?
@@ -144,9 +157,9 @@ flatter her. Works on me,
 that does.
 ```
 
-## H07
+## H08
 
-Shown after: 20. Done when: 1F (07D Misako: Mari).
+Shown after: flag 20. Until 1F (07D Misako: Mari).
 
 ```
 Misako, just below the
@@ -160,9 +173,9 @@ first time. Try again,
 then ask her.
 ```
 
-## H08
+## H09
 
-Shown after: 1F. Done when: 19 (057 Shimazaki: dragged into a car).
+Shown after: flag 1F. Until 19 (057 Shimazaki: dragged into a car).
 
 ```
 There's a lad called
@@ -174,9 +187,9 @@ Lean on him, then ask him
 what he saw.
 ```
 
-## H09
+## H10
 
-Shown after: 19. Done when: 1B (062 Yoshino: Gold Emperor car).
+Shown after: flag 19. Until 1B (062 Yoshino: Gold Emperor car).
 
 ```
 A black Skyline? Yoshino
@@ -189,9 +202,9 @@ Give him a good hiding
 goes), then ask him.
 ```
 
-## H10
+## H11
 
-Shown after: 1B. Done when: 1E (076 man outside: Higashi lying low).
+Shown after: flag 1B. Until 1E (076 man outside: Higashi lying low).
 
 ```
 A fella's turned up
@@ -211,9 +224,9 @@ go on the machines. Then
 give him your winnings.
 ```
 
-## H11
+## H12
 
-Shown after: 1E. Done when: 21 (01A tip man: Mandrill).
+Shown after: flag 1E. Until 21 (01A tip man: Mandrill).
 
 ```
 Higashi's lying low, is
@@ -222,9 +235,9 @@ about near cafe Mai hears
 all sorts. Ask him.
 ```
 
-## H12
+## H13
 
-Shown after: 21. Done when: 24 (093 Mandrill: Joto car park).
+Shown after: flag 21. Until 24 (093 Mandrill: Joto car park).
 
 ```
 Mandrill, eh? Go and
@@ -236,9 +249,9 @@ few goes), then ask
 him.
 ```
 
-## H13
+## H14
 
-Shown after: 24. Done when: 26 (09A teacher: one stop to Joto).
+Shown after: flag 24. Until 26 (09A teacher: one stop to Joto).
 
 ```
 Joto High? Your teacher's
@@ -250,9 +263,9 @@ Ask him the way. He'll
 want a promise.
 ```
 
-## H14
+## H15
 
-Shown after: 26. Done when: 2A (0A8 Yamada swears).
+Shown after: flag 26. Until 2A (0A8 Yamada swears).
 
 ```
 Buy tickets and ride one
@@ -266,9 +279,9 @@ him, then get him to
 promise.
 ```
 
-## H15
+## H16
 
-Shown after: 2A. Done when: 2F (210 It's the black Skyline!). *stakeout, Teru and the car in one go.*
+Shown after: flag 2A. Until 2F (210 It's the black Skyline!); stakeout, Teru and the car in one go.
 
 ```
 There's a car park south
@@ -293,9 +306,9 @@ close, then do a
 search.
 ```
 
-## H16
+## H17
 
-Shown after: 2F. Done when: 30 (0B1 Yamada: our Teru?).
+Shown after: flag 2F. Until 30 (0B1 Yamada: our Teru?).
 
 ```
 The black Skyline! Yamada
@@ -304,9 +317,9 @@ in a gang. Go back and
 lean on him.
 ```
 
-## H17
+## H18
 
-Shown after: 30. Done when: 7E (0B7 Teru: Nishiyama Building). *7E is cleared by 0C8; the chain checks later steps first.*
+Shown after: flag 30. Until 7E (0B7 Teru: Nishiyama Building); 7E is cleared by 0C8; the chain checks later steps first.
 
 ```
 The day after you spoke
@@ -320,9 +333,9 @@ to Teru, and lean on
 him.
 ```
 
-## H18
+## H19
 
-Shown after: 7E. Done when: 33 (0C2 Gen: "Canny").
+Shown after: flag 7E. Until 33 (0C2 Gen: "Canny").
 
 ```
 Gen, south-west of the
@@ -335,9 +348,9 @@ chatting till he names
 his favourite tipple.
 ```
 
-## H19
+## H20
 
-Shown after: 33. Done when: B2 (0C8 Gen lets you through).
+Shown after: flag 33. Until B2 (0C8 Gen lets you through).
 
 ```
 Canny, is it? The offie
@@ -346,9 +359,9 @@ sells it. Buy a bottle
 and give it to him.
 ```
 
-## H20
+## H21
 
-Shown after: B2. Done when: 81 (219 the gym).
+Shown after: flag B2. Until 81 (219 the gym).
 
 ```
 Have a wander round the
@@ -369,9 +382,9 @@ search the top floor,
 then come back down.
 ```
 
-## H21
+## H22
 
-Shown after: 81. Done when: 3B (0DB Tsubota: steer clear of Mari).
+Shown after: flag 81. Until 3B (0DB Tsubota: steer clear of Mari).
 
 ```
 There's a fella in purple
@@ -385,9 +398,9 @@ him and ask. He'll sing
 like a canary.
 ```
 
-## H22
+## H23
 
-Shown after: 3B. Done when: 3F (0E9 the police by the bridge). *blocker (5F) and police together.*
+Shown after: flag 3B. Until 3F (0E9 the police by the bridge); blocker (5F) and police together.
 
 ```
 West in Joto there's a
@@ -401,9 +414,9 @@ are further west. Have a
 word.
 ```
 
-## H23
+## H24
 
-Shown after: 3F. Done when: 3D (0E3 Mari: the photo). *needed for the second Tsuji fight.*
+Shown after: flag 3F. Until 3D (0E3 Mari: the photo); needed for the second Tsuji fight.
 
 ```
 Mari's in the underground
@@ -420,9 +433,9 @@ You may need to recognise
 who's in it later.
 ```
 
-## H24
+## H25
 
-Shown after: 3D. Done when: 40 (0F3 Junko: dodgy types still on the roof).
+Shown after: flag 3D. Until 40 (0F3 Junko: dodgy types still on the roof).
 
 ```
 Been a while since you
@@ -431,9 +444,9 @@ Mai and ask her what's
 new.
 ```
 
-## H25
+## H26
 
-Shown after: 40. Done when: 42 (1C8 bomb taken).
+Shown after: flag 40. Until 42 (1C8 bomb taken).
 
 ```
 Back up to the main roof
@@ -445,9 +458,9 @@ Search it and take what
 you find.
 ```
 
-## H26
+## H27
 
-Shown after: 42. Done when: 43 (0FA Minoru: Kikunaga and cafe Gecko). *no lasting flag for handing over the bomb, so it goes with Minoru.*
+Shown after: flag 42. Until 43 (0FA Minoru: Kikunaga and cafe Gecko); no lasting flag for handing over the bomb, so it goes with Minoru.
 
 ```
 A bomb?! Don't you dare
@@ -466,9 +479,9 @@ docks. Offer him a
 coffee.
 ```
 
-## H27
+## H28
 
-Shown after: 43. Done when: 44 (100 Kikunaga: don't be daft).
+Shown after: flag 43. Until 44 (100 Kikunaga: don't be daft).
 
 ```
 Kikunaga mopes about in
@@ -477,9 +490,9 @@ the fountain, in the
 daytime. Talk to him.
 ```
 
-## H28
+## H29
 
-Shown after: 44. Done when: 47 (106 Iwamoto lends the camera).
+Shown after: flag 84. Until 47 (106 Iwamoto lends the camera); 100 sets 44 and 84, and Misako's coffee (127) can clear 44 early, so 84 opens it (cleared by 114, which sets 4A).
 
 ```
 Sweet on Junko, is he? A
@@ -491,9 +504,9 @@ Search when you find him,
 then lean on him.
 ```
 
-## H29
+## H30
 
-Shown after: 47. Done when: 4A (114 Junko: keep the photo).
+Shown after: flag 47. Until 4A (114 Junko: keep the photo).
 
 ```
 Take the camera to Junko
@@ -502,9 +515,9 @@ promise what she asks,
 then use the camera.
 ```
 
-## H30
+## H31
 
-Shown after: 4A. Done when: 85 (120 Kikunaga: the warehouse).
+Shown after: flag 4A. Until 85 (120 Kikunaga: the warehouse).
 
 ```
 Now take Junko's photo to
@@ -513,9 +526,9 @@ Give it to him, then ask
 him.
 ```
 
-## H31
+## H32
 
-Shown after: 85. Done when: 86 (1CD Nobuo: Samejima).
+Shown after: flag 85. Until 86 (1CD Nobuo: Samejima).
 
 ```
 The warehouse is
@@ -528,9 +541,9 @@ way, thump him or shout
 at him.
 ```
 
-## H32
+## H33
 
-Shown after: 86. Done when: 4E (12D Misako: the fountain).
+Shown after: flag 86. Until 4E (12D Misako: the fountain).
 
 ```
 The day after your
@@ -546,9 +559,9 @@ Offer to buy her a
 coffee, then ask her.
 ```
 
-## H33
+## H34
 
-Shown after: 4E. Done when: 50 (224 teeth fished out). *4E is cleared by 224, which sets 50.*
+Shown after: flag 4E. Until 50 (224 teeth fished out); 4E is cleared by 224, which sets 50.
 
 ```
 In the fountain, eh? Off
@@ -557,9 +570,9 @@ the fountain and take
 what you find.
 ```
 
-## H34
+## H35
 
-Shown after: 50. Done when: 51 (132 Tomezo: much obliged).
+Shown after: flag 50. Until 51 (132 Tomezo: much obliged).
 
 ```
 Those'll be Tomezo's
@@ -573,9 +586,9 @@ in there and the
 police'll nab you.
 ```
 
-## H35
+## H36
 
-Shown after: 51. Done when: 53 (227 three tickets).
+Shown after: flag 51. Until 56 (1D6 Samejima legs it); the tickets (53, 227) are cleared by the ride (3A3/3A4) and nothing lasting marks the arrival, so it's one hint.
 
 ```
 Tomezo owes you one now.
@@ -584,13 +597,7 @@ Talk at Minato station.
 Then buy tickets for
 Higashimachi and ride
 there.
-```
 
-## H36
-
-Shown after: 53. Done when: 56 (1D6 Samejima legs it).
-
-```
 In Higashimachi, never
 mind most people. Nobuo's
 old classmate is the one
@@ -604,7 +611,7 @@ First building. Follow.
 
 ## H37
 
-Shown after: 56. Done when: 59 (16E Samejima: Hokuto Gym).
+Shown after: flag 56. Until 59 (16E Samejima: Hokuto Gym).
 
 ```
 Fight your way up to the
@@ -627,7 +634,7 @@ till he talks.
 
 ## H38
 
-Shown after: 59. Done when: 5D (182 Tsuji: Shingo's in my flat). *Gen kept a surprise; begging and the rematch in one go.*
+Shown after: flag 59. Until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go.
 
 ```
 Tsuji boxes at Hokuto
@@ -651,7 +658,7 @@ Tsuji where Shingo is.
 
 ## H39
 
-Shown after: 5D. Done when: end.
+Shown after: flag 5D. Until end.
 
 ```
 Shingo's at Tsuji's flat?
