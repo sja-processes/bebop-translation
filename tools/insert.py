@@ -35,6 +35,7 @@ import corridorpics  # noqa: E402
 import carpark  # noqa: E402
 import sitesign  # noqa: E402
 import daygoal   # noqa: E402
+import titleinfo  # noqa: E402
 import script   # noqa: E402
 
 ROOT = os.path.dirname(HERE)
@@ -167,7 +168,8 @@ def fix_branches(code, base):
                                 % (at, dest, target))
 
 
-def build():
+def build(version=None, date=None):
+    """version/date: a release (tools/release.py); None = DEV + commit."""
     rom = bytearray(read_rom())
     header, prg = rom[:16], rom[16:16 + OLD_PRG_BANKS * BANK]
     chr_ = bytearray(rom[16 + OLD_PRG_BANKS * BANK:])
@@ -259,10 +261,13 @@ def build():
     new[FIXED * BANK:(FIXED + 1) * BANK] = fx
     # Select in a scene: GOAL / day / time on the status panel (bank 11)
     daygoal.apply(new, chr_, BANK, FIXED)
+    # Left/Right on the title: English version / author / date (or DEV + commit)
+    info = titleinfo.apply(new, chr_, version, date, BANK, FIXED)
 
     header[4] = NEW_PRG_BANKS
     out = bytes(header + new + chr_)
     report = {b: len(d) for b, d in banks.items()}
+    report['title info'] = info
     return bytes(rom), out, starts, verb_addr, report
 
 
@@ -448,10 +453,12 @@ def main():
     assert apply_bps(old, bpatch) == new
     check_no_rom_data(old, bpatch)
     open(os.path.join(outdir, 'bebop_en.bps'), 'wb').write(bpatch)
+    info = report.pop('title info')
     for b, used in sorted(report.items()):
         print('bank %2d: %5d bytes used, %5d free' % (b, used, TEXT_LIMIT - 0x8000 - used))
     print('bank start IDs:', ', '.join('%03X@%d' % s for s in starts))
     print('verb list: bank %d $%04X' % verb_addr)
+    print('title info: %s / %s' % info)
     print('wrote out/bebop_en.nes (%d bytes), out/bebop_en.bps (%d bytes)'
           % (len(new), len(bpatch)))
 
