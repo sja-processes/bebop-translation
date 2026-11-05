@@ -883,6 +883,35 @@ ROM's code is unchanged here.
   game only.
 - Apply the BPS patch to the original Japanese ROM (SHA-1 above).
 
+### Releases (set up 2026-11-05)
+- **Version on the title** (Stephen): Left or Right (unused on the title;
+  so are A, B and Select in practice: the loop at `$DB01` only acts on a
+  D-pad change) swaps rows 25/27 for the version info in the title's
+  three-band capitals, and back. New glyphs L V B J F - . 0 2-7 in unused
+  CHR 12 tiles (not the title's, not `$E0`-`$FD` of the other bank-12
+  screen at `$E48D`). Text at most 24 characters (columns 30-31 colour
+  wrongly), so the date is YYYY.MM. Hooks: `$DAF9` (`LDA #0 / STA $65`) ->
+  init (state cleared on each title visit), `$DB1D` (`JSR $EC22`) ->
+  trampoline at `$FC90` -> bank 11 `$8400`, which redraws a row a frame
+  with the NMI row writer (`$1D` tiles from `($62)` to `$61:$60`) from a
+  copy in `$7630`. State `$7620`-`$7622`. Tested in Nestopia and Mesen:
+  toggles both ways, a held button doesn't repeat, cursor and Start as
+  before, state cleared after Start.
+- **Building a release** (`tools/release.py`): tag the commit (`git tag
+  -a v1.0 -m "Version 1.0"`), run the script. It refuses uncommitted
+  changes or an untagged HEAD, bakes the tag's version and the commit's
+  year.month into the title, and writes the BPS and the notes (ROM SHA-1,
+  emulator settings, the QoL list below). Same tag = identical BPS
+  (checked). Built locally because it needs the Japanese ROM, which must
+  never go to GitHub (not even as an Actions secret).
+- **Publishing** only when Stephen asks (pushes): no remote is set up yet
+  and `gh` isn't installed. Then: `git remote add origin
+  git@github.com:sja-processes/<repo>.git`, `git push origin main v1.0`,
+  `gh release create v1.0 out/release/bebop_en-v1.0.bps --title ...
+  --notes-file out/release/RELEASE-v1.0.md` (`release.py --notes` prints it).
+- **To do before the first release:** the QoL list below is written for us
+  (addresses, flags); the public notes want a player-facing version.
+
 ### Quality-of-life changes (keep up to date; for the patch readme)
 Beyond the translation itself. Details in the sections named.
 - **New content**
@@ -973,6 +1002,8 @@ Beyond the translation itself. Details in the sections named.
     the face changes as the shout starts (both emulators; both heroes in
     Nestopia).
 - **Clearer feedback**
+  - Title screen: Left or Right shows the English version, author and
+    date (2026-11-05).
   - Out-of-NERVE game over says why ("Guv, you've lost your nerve. We're
     finished!") instead of the shared arrest/crash ending.
   - Day goal (2026-10-31): the caretaker's Coffee tells you the day limit
@@ -1013,6 +1044,11 @@ Beyond the translation itself. Details in the sections named.
 - `tools/lrnes.py` — headless Nestopia (libretro) harness: `Core(rom)`,
   `run`, `press`, `ram`/`sram`, `poke(addr, val)` for cartridge RAM
   (`$6000`-`$7FFF`, flags at `$7100`+n), `frame_png`.
+- `tools/titleinfo.py` (called by `insert.py`) — Left/Right on the title
+  swaps the copyright lines for " ENGLISH VERSION 1.0" / "BY SJA-PROCESSES
+  2026.11" (development builds: DEV / the commit). See "Releases".
+- `tools/release.py [--notes]` — build `out/release/bebop_en-vX.bps` and
+  `RELEASE-vX.md` from the `v*` tag on HEAD. See "Releases".
 - `tools/fightodds.py STATE [--n N] [--menu KEYS]` — fight win rate per
   luck grade from a RetroArch save state at a fight menu (handles the
   RZIP / RASTATE wrapping; ~3 min for 5 x 128).
