@@ -63,6 +63,7 @@ HINTS = [
         'Got shot of the police? Good. First things first, though: toughen yourselves up.',
         "There's a soft lad in purple north-east over the road, near some pipes.",
         "Scrap with him till your NERVE's full. You'll get about faster after.",
+        "Every scrap's down to luck, mind, but he's a soft touch. A bit of luck and he's yours.",
         'Next, your rival will be hanging about south-east of the pipes. Swallow your pride and beg him.',
         "He'll send you to Risa, north-west inside the shopping centre.",
         'Buy her a coffee, then flatter her. Works on me, that does.',
@@ -80,7 +81,8 @@ HINTS = [
     # H10, until 1B (062 Yoshino: Gold Emperor car)
     (0x19, [
         'A black Skyline? Yoshino might know whose it is. Orange top, near that soft lad in purple.',
-        'Give him a good hiding (it may take a couple of goes), then ask him what he knows.',
+        "He's tougher than the lad in purple. The luckier you are, the better your chances.",
+        'Give him a good hiding, then ask him what he knows.',
     ]),
     # H11, until 1E (076 man outside: Higashi lying low)
     (0x1B, [
@@ -96,7 +98,7 @@ HINTS = [
     # H13, until 24 (093 Mandrill: Joto car park)
     (0x21, [
         'Mandrill, eh? Go and shout for him in the arcade.',
-        'Beat him (it may take a few goes), then ask him.',
+        'Beat him, then ask him. If he gets the better of you, try again. Luck decides it.',
     ]),
     # H14, until 26 (09A teacher: one stop to Joto)
     (0x24, [
@@ -222,7 +224,8 @@ HINTS = [
     (0x56, [
         "Fight your way up to the top floor. Just south-east of the barrel, there's a way down.",
         "It takes you to the three you can't reach directly on the floor below.",
-        'Beat the two who fight. Both take more than one go.',
+        'Beat the two who fight, Kudo and Kitamura. They\'re tough, so expect to lose a few.',
+        'Like any scrap, it comes down to luck. Try them on your luckiest days.',
         'Samejima will be cowering in a barrel. Keep at him till he mentions the gym.',
     ]),
     # H38, until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go

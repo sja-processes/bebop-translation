@@ -258,6 +258,7 @@ MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIG
 # first page fitted, but ours has two. A helper at $FFC0 runs the
 # original box routine then $E9AC (cursor back to the top-left).
 NERVE_HELPER = 0xFFC0
+FIGHT_ROW5 = 0xE351                        # fight odds table row 5 (see PATCHES)
 
 # (CPU address in the fixed bank, original bytes, new bytes)
 PATCHES = [
@@ -269,6 +270,13 @@ PATCHES = [
     (0xE8DE, bytes([0xA2, 0xC4, 0xA0, 0x01]),                 # LDX #$C4 / LDY #$01
      bytes([0xA2, FIRST_ID & 0xFF, 0xA0, FIRST_ID >> 8])),
     (MISAKO_MENU_GIVE, bytes([VERB_RIDE]), bytes([VERB_GIVE])),
+    # Fight odds (original bug, found 2026-11-05 after Stephen lost to
+    # Kitamura again and again): $E2FF rolls $70 against a row of three
+    # rising thresholds at $E342 + 3 * (luck grade + 3 - strength); you lose
+    # if the roll is <= the second. Row 5 is stored backwards (99 4D 1A), so
+    # CHARM v strength 2 (Kudo, Kitamura, Harada, Mandrill), GOOD v 1 and
+    # NORMAL v 0 won 40% instead of 70%, worse than one grade lower.
+    (FIGHT_ROW5, bytes([0x99, 0x4D, 0x1A]), bytes([0x1A, 0x4D, 0x99])),
 ]
 for _mid, _row in MENU_ROWS.items():
     PATCHES.append((MENU_TABLE + _mid * 6, bytes(6), bytes(_row)))

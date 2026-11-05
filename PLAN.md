@@ -918,6 +918,22 @@ Beyond the translation itself. Details in the sections named.
     7:00 re-reset fix still holds: after midnight and after stakeouts
     started at minutes $36/$37, CHARM luck survives four in-game hours
     (2026-10-31, both emulators).
+  - Fights (2026-11-05, Stephen kept losing to Kitamura): every fight is
+    one roll of `$70` (a counter bumped in the idle loop at `$C177`, so it
+    depends on timing) at `$E2FF` against the row at `$E342` + 3 x (luck
+    grade + 3 - strength); lose if the roll <= the row's second value.
+    Strength (`$037D`): Kudo, Kitamura, Harada, Mandrill's first fight 2,
+    Mandrill later 1; Tsuji 3 = always lose; street people from bank 6's
+    per-area tables (`$A396`, 0-2); Yamada/Teru (cmdEA 12) is a scripted
+    win. Row 5 was stored backwards (`99 4D 1A`), so CHARM v strength 2,
+    GOOD v 1 and NORMAL v 0 won 40% instead of 70%, worse than one grade
+    lower (and the luck cheat always gives CHARM). Now `1A 4D 99`
+    (`additions.FIGHT_ROW5`). Win odds by strength 0/1/2: JINX 30/10/0%,
+    BAD 50/30/10, NORMAL 70/50/30, GOOD 80/70/50, CHARM ~100/80/70.
+    Checked from Stephen's handheld save 3 (Kitamura, CHARM): 90 timings
+    won 31 before, 59 after (all four outcomes now occur); Mesen: a CHARM
+    win. Fight hints now say luck decides it (purple lad a soft touch,
+    Yoshino tougher, Kudo and Kitamura tough).
   - Pachinko Shout: the cop's line waited for A before it appeared, then
     cut straight to the police station. The wait is now at the end
     (2BE/134, 2026-10-25).
