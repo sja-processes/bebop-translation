@@ -932,8 +932,11 @@ Beyond the translation itself. Details in the sections named.
     BAD 50/30/10, NORMAL 70/50/30, GOOD 80/70/50, CHARM ~100/80/70.
     Checked from Stephen's handheld save 3 (Kitamura, CHARM): 90 timings
     won 31 before, 59 after (all four outcomes now occur); Mesen: a CHARM
-    win. Fight hints now say luck decides it (purple lad a soft touch,
-    Yoshino tougher, Kudo and Kitamura tough).
+    win. Every grade measured on the fixed ROM with `tools/fightodds.py`
+    (save 3, Kitamura, 128 timings each): JINX 0%, BAD 10.2%, NORMAL
+    31.2%, GOOD 48.4%, CHARM 69.5%, as the table says. Fight hints say
+    luck affects it (purple lad a soft touch, Yoshino tougher, Kudo and
+    Kitamura tough).
   - Pachinko Shout: the cop's line waited for A before it appeared, then
     cut straight to the police station. The wait is now at the end
     (2BE/134, 2026-10-25).
@@ -1010,6 +1013,9 @@ Beyond the translation itself. Details in the sections named.
 - `tools/lrnes.py` — headless Nestopia (libretro) harness: `Core(rom)`,
   `run`, `press`, `ram`/`sram`, `poke(addr, val)` for cartridge RAM
   (`$6000`-`$7FFF`, flags at `$7100`+n), `frame_png`.
+- `tools/fightodds.py STATE [--n N] [--menu KEYS]` — fight win rate per
+  luck grade from a RetroArch save state at a fight menu (handles the
+  RZIP / RASTATE wrapping; ~3 min for 5 x 128).
 - `tools/caretaker/hinttest.py [OUT.png]` — Flatter hint test: checks every
   script `[clrflag]` against the hint chain, builds `out/hinttest.nes`
   (new game opens in the caretaker's room), and grids the first box of all

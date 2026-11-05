@@ -158,10 +158,10 @@ Scrap with him till your
 NERVE's full. You'll get
 about faster after.
 
-Every scrap's down to
-luck, mind, but he's a
-soft touch. A bit of luck
-and he's yours.
+Luck affects every scrap,
+mind, but he's a soft
+touch. A bit of luck and
+he's yours.
 
 Next, your rival will be
 hanging about south-east
@@ -269,10 +269,12 @@ Mandrill, eh? Go and
 shout for him in the
 arcade.
 
-Beat him, then ask him.
+Beat him, then ask him
+what he knows.
+
 If he gets the better of
 you, try again. Luck
-decides it.
+helps decide it.
 ```
 
 ## H14
@@ -655,9 +657,10 @@ Kudo and Kitamura.
 They're tough, so expect
 to lose a few.
 
-Like any scrap, it comes
-down to luck. Try them on
-your luckiest days.
+Like any scrap, a lot
+comes down to luck. Try
+them on your luckiest
+days.
 
 Samejima will be cowering
 in a barrel. Keep at him
