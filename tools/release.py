@@ -10,7 +10,9 @@ usage: tools/release.py            build the release for the tag on HEAD
    commit's date ("2026.11") baked into the title screen's Left/Right
    info, so the same tag always gives the same patch.
 3. It writes out/release/bebop_en-v1.0.bps and RELEASE-v1.0.md (notes:
-   the ROM to patch, emulator settings, the changes list from PLAN.md).
+   the ROM to patch, emulator settings, the changes list from PLAN.md),
+   and checks that Flips (~/Downloads/flips/flips-linux, or $FLIPS)
+   applies the patch to exactly the ROM we built.
 
 Publishing is separate and only on Stephen's say-so (it pushes): push the
 commit and tag, then `gh release create v1.0 out/release/bebop_en-v1.0.bps
@@ -21,8 +23,10 @@ built here, not by GitHub Actions.
 import hashlib
 import os
 import re
+import shutil
 import subprocess
 import sys
+import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -30,6 +34,21 @@ sys.path.insert(0, HERE)
 import insert  # noqa: E402
 
 TITLE = 'Be-Bop-Highschool: English translation'
+# Stephen's Flips (the patcher players use); FLIPS=... overrides
+FLIPS = os.environ.get('FLIPS', os.path.expanduser('~/Downloads/flips/flips-linux'))
+
+
+def check_with_flips(bps_path, old, new):
+    """Apply the patch with Flips too: it must give exactly our ROM."""
+    flips = shutil.which(FLIPS) or (FLIPS if os.access(FLIPS, os.X_OK) else None)
+    if not flips:
+        sys.exit('Flips not found at %s (set FLIPS=/path/to/flips)' % FLIPS)
+    with tempfile.TemporaryDirectory() as d:
+        src, out = os.path.join(d, 'original.nes'), os.path.join(d, 'patched.nes')
+        open(src, 'wb').write(old)
+        r = subprocess.run([flips, '--apply', bps_path, src, out], capture_output=True, text=True)
+        if r.returncode or not os.path.exists(out) or open(out, 'rb').read() != new:
+            sys.exit('Flips gave a different ROM: %s%s' % (r.stdout, r.stderr))
 
 
 def git(*args):
@@ -83,11 +102,13 @@ def main():
     os.makedirs(outdir, exist_ok=True)
     bps_name = 'bebop_en-%s.bps' % tag
     open(os.path.join(outdir, bps_name), 'wb').write(bpatch)
+    check_with_flips(os.path.join(outdir, bps_name), old, new)
     note_name = 'RELEASE-%s.md' % tag
     open(os.path.join(outdir, note_name), 'w', encoding='utf-8').write(
         notes(tag, '%s-%s' % (y, m), hashlib.sha1(old).hexdigest(), bps_name))
     print('built %s (%d bytes): title shows "%s" / "%s"'
           % (bps_name, len(bpatch), *insert.titleinfo.version_info(version, date)))
+    print('Flips applies it to the identical ROM')
     print('notes: out/release/%s' % note_name)
     if '--notes' in sys.argv:
         print('\nTo publish (pushes; only when Stephen says):')

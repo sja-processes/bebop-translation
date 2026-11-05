@@ -902,7 +902,10 @@ ROM's code is unchanged here.
   changes or an untagged HEAD, bakes the tag's version and the commit's
   year.month into the title, and writes the BPS and the notes (ROM SHA-1,
   emulator settings, the QoL list below). Same tag = identical BPS
-  (checked). Built locally because it needs the Japanese ROM, which must
+  (checked). It also applies the patch with Stephen's Flips
+  (`~/Downloads/flips/flips-linux`, or `FLIPS=...`) and stops unless that
+  gives exactly our ROM (checked 2026-11-05: identical, and Flips refuses
+  a wrong ROM). Built locally because it needs the Japanese ROM, which must
   never go to GitHub (not even as an Actions secret).
 - **Publishing** only when Stephen asks (pushes): no remote is set up yet
   and `gh` isn't installed. Then: `git remote add origin
