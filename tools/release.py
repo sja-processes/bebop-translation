@@ -62,8 +62,8 @@ def notes(tag, date, rom_sha1, bps_name):
         'ROM *Be-Bop-Highschool - Koukousei Gokuraku Densetsu (Japan).nes*,',
         'SHA-1 `%s`. The ROM is not included.' % rom_sha1.upper(), '',
         'On the title screen, press Left or Right to show the version.', '',
-        '## Notes', '', plan_section('Release notes').replace(
-            '- Apply the BPS patch to the original Japanese ROM (SHA-1 above).\n', ''), '',
+        '## Notes', '', '\n'.join(l for l in plan_section('Release notes').splitlines()
+                                  if 'SHA-1 above' not in l), '',
         '## Changes beyond the translation', '', plan_section('Quality-of-life changes'), '',
     ])
 
