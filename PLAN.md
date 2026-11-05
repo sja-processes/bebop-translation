@@ -1069,6 +1069,15 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
     against the chain; code writes none of the opening flags. Still 39
     hints. Tested: all 39 plus the three cases in Nestopia, the sign case
     in Mesen.
+  - Wording round 4 (Stephen, 2026-11-05): directions by compass
+    ("north-west of school", "east of the fountain"), the bed tip on H01/
+    H02 ("search your place (north of here) on your first day, or you
+    can't go to bed"), "ask him what he knows", Samejima "till he mentions
+    the gym", the gym's building named. H02's "If he's not there, you'll
+    need better luck" is right: map people spawn by luck (bank 6 `$9C84`:
+    each person's `$05BD` low 5 bits = the luck grades he appears under,
+    tested against `$EB97`'s grade). The sign is not luck: building scene
+    277 finds it whenever Junko's 07 is set, so H03 has no luck line.
     Steps with no lasting flag (begging the rival, the car stakeout,
     handing over the bomb) share a hint with the next step. Hint IDs
     `$3DE`-`$405`; `$3FF` is left empty, since its low byte `$FF` inside the

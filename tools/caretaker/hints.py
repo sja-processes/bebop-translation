@@ -21,13 +21,17 @@ WIDTH, LAST_WIDTH, LINES = 25, 23, 4
 HINTS = [
     # H01, until 04 (013 Junko agrees)
     (None, [
-        'Start around school, lads. Junko hears all the gossip there. Ask her out, and nicely, mind.',
+        'Start north-west of school, lads. Junko hears all the gossip there.',
+        'Ask her out, and nicely, mind.',
+        "By the way, search your place (north of here) on your first day, or you can't go to bed.",
     ]),
     # H02, until 07 (032 Junko: Kakui roof)
     (0x04, [
         "Junko'll be waiting at cafe Mai. Lost?",
         'The fella just beyond the building east of here will point the way.',
+        "If he's not there, you'll need better luck.",
         "Once you're sat down, a bit of flattery never hurts. Then ask her what she's heard.",
+        "By the way, search your place (north of here) on your first day, or you can't go to bed.",
     ]),
     # H03, until 09 (191 Nobuo takes the sign; it also clears 07)
     (0x07, [
@@ -50,8 +54,8 @@ HINTS = [
     ]),
     # H06, until 13 (038 the police take the call)
     (0x11, [
-        'A bomb on Minami Bridge?! Somebody ought to tip off the police, and sharpish.',
-        "There's a payphone south-west of here, under a blue awning. Give them a ring.",
+        'Extremists have planted a bomb?! Somebody ought to tip off the police, and sharpish.',
+        "There's a payphone south-west of here, beyond a little blue area. Give them a ring.",
         "If they won't listen, lean on them a bit. That'll get them moving.",
     ]),
     # H07, until 20 (086 Risa: Higashi in the arcade); rival (08B) sets no lasting flag, so he and Risa go together
@@ -76,7 +80,7 @@ HINTS = [
     # H10, until 1B (062 Yoshino: Gold Emperor car)
     (0x19, [
         'A black Skyline? Yoshino might know whose it is. Orange top, near that soft lad in purple.',
-        'Give him a good hiding (it may take a couple of goes), then ask him.',
+        'Give him a good hiding (it may take a couple of goes), then ask him what he knows.',
     ]),
     # H11, until 1E (076 man outside: Higashi lying low)
     (0x1B, [
@@ -134,7 +138,7 @@ HINTS = [
     (0xB2, [
         'Have a wander round the next town.',
         "It won't be there long, but you'll glimpse something you've been looking for.",
-        'Then go into the building to the right of where you saw it.',
+        'Then go into the building to the east of where you saw it.',
         "That's the Nishiyama Building. Go up and search the top floor, then come back down.",
     ]),
     # H22, until 3B (0DB Tsubota: steer clear of Mari)
@@ -170,7 +174,7 @@ HINTS = [
     ]),
     # H28, until 44 (100 Kikunaga: don't be daft)
     (0x43, [
-        'Kikunaga mopes about in cafe Gecko, just right of the fountain, in the daytime. Talk to him.',
+        'Kikunaga mopes about in cafe Gecko, just east of the fountain, in the daytime. Talk to him.',
     ]),
     # H29, until 47 (106 Iwamoto lends the camera); 100 sets 44 and 84, and Misako's
     # coffee (127) can clear 44 early, so 84 opens it (cleared by 114, which sets 4A)
@@ -184,7 +188,7 @@ HINTS = [
     ]),
     # H31, until 85 (120 Kikunaga: the warehouse)
     (0x4A, [
-        "Now take Junko's photo to Kikunaga at cafe Gecko. Give it to him, then ask him.",
+        "Now take Junko's photo to Kikunaga at cafe Gecko. Give it to him, then ask him what he knows.",
     ]),
     # H32, until 86 (1CD Nobuo: Samejima)
     (0x85, [
@@ -195,7 +199,7 @@ HINTS = [
     (0x86, [
         'The day after your scuffle at the warehouse, find Misako.',
         "She'll be near Minato underground station, north-east of cafe Gecko.",
-        'Offer to buy her a coffee, then ask her.',
+        'Offer to buy her a coffee, then ask her a follow-up question.',
     ]),
     # H34, until 50 (224 teeth fished out); 4E is cleared by 224, which sets 50
     (0x4E, [
@@ -211,7 +215,7 @@ HINTS = [
     (0x51, [
         'Tomezo owes you one now. Talk at Minato station.',
         'Then buy tickets for Higashimachi and ride there.',
-        "In Higashimachi, never mind most people. Nobuo's old classmate is the one at the bottom right.",
+        "In Higashimachi, never mind most people. Nobuo's old classmate is the one in the south-east.",
         "Lean on him, thump him, shout at him, chase him. He'll run into the Safety First building. Follow.",
     ]),
     # H37, until 59 (16E Samejima: Hokuto Gym)
@@ -219,12 +223,12 @@ HINTS = [
         "Fight your way up to the top floor. Just south-east of the barrel, there's a way down.",
         "It takes you to the three you can't reach directly on the floor below.",
         'Beat the two who fight. Both take more than one go.',
-        'Samejima will be cowering in a barrel. Keep at him till he talks.',
+        'Samejima will be cowering in a barrel. Keep at him till he mentions the gym.',
     ]),
     # H38, until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go
     (0x59, [
-        'Tsuji boxes at Hokuto Gym, in the evenings. Take him on.',
-        "You'll lose, mind. But you must try at least twice.",
+        'Tsuji boxes at Hokuto Gym in the Nishiyama Building during the evenings.',
+        "Take him on. You'll lose, mind. But you must try at least twice.",
         'Then leave. A friend of yours will be waiting outside. Beg him for help.',
         'Back in to Tsuji, then, and use your new friend in the fight. Then ask Tsuji where Shingo is.',
     ]),

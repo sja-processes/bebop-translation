@@ -22,10 +22,17 @@ build; those hints now open on flags that stay set (Stephen, 2026-11-02).
 Shown after: new game. Until 04 (013 Junko agrees).
 
 ```
-Start around school,
-lads. Junko hears all the
-gossip there. Ask her
-out, and nicely, mind.
+Start north-west of
+school, lads. Junko hears
+all the gossip there.
+
+Ask her out, and nicely,
+mind.
+
+By the way, search your
+place (north of here) on
+your first day, or you
+can't go to bed.
 ```
 
 ## H02
@@ -40,10 +47,18 @@ The fella just beyond the
 building east of here
 will point the way.
 
+If he's not there, you'll
+need better luck.
+
 Once you're sat down, a
 bit of flattery never
 hurts. Then ask her what
 she's heard.
+
+By the way, search your
+place (north of here) on
+your first day, or you
+can't go to bed.
 ```
 
 ## H03
@@ -108,15 +123,15 @@ Patience, lads.
 Shown after: flag 11. Until 13 (038 the police take the call).
 
 ```
-A bomb on Minami Bridge?!
-Somebody ought to tip off
-the police, and
+Extremists have planted a
+bomb?! Somebody ought to
+tip off the police, and
 sharpish.
 
 There's a payphone
-south-west of here, under
-a blue awning. Give them
-a ring.
+south-west of here,
+beyond a little blue
+area. Give them a ring.
 
 If they won't listen,
 lean on them a bit.
@@ -199,7 +214,8 @@ soft lad in purple.
 
 Give him a good hiding
 (it may take a couple of
-goes), then ask him.
+goes), then ask him what
+he knows.
 ```
 
 ## H11
@@ -373,7 +389,7 @@ something you've been
 looking for.
 
 Then go into the building
-to the right of where you
+to the east of where you
 saw it.
 
 That's the Nishiyama
@@ -485,7 +501,7 @@ Shown after: flag 43. Until 44 (100 Kikunaga: don't be daft).
 
 ```
 Kikunaga mopes about in
-cafe Gecko, just right of
+cafe Gecko, just east of
 the fountain, in the
 daytime. Talk to him.
 ```
@@ -523,7 +539,7 @@ Shown after: flag 4A. Until 85 (120 Kikunaga: the warehouse).
 Now take Junko's photo to
 Kikunaga at cafe Gecko.
 Give it to him, then ask
-him.
+him what he knows.
 ```
 
 ## H32
@@ -556,7 +572,8 @@ north-east of cafe
 Gecko.
 
 Offer to buy her a
-coffee, then ask her.
+coffee, then ask her a
+follow-up question.
 ```
 
 ## H34
@@ -601,7 +618,7 @@ there.
 In Higashimachi, never
 mind most people. Nobuo's
 old classmate is the one
-at the bottom right.
+in the south-east.
 
 Lean on him, thump him,
 shout at him, chase him.
@@ -629,7 +646,8 @@ go.
 
 Samejima will be cowering
 in a barrel. Keep at him
-till he talks.
+till he mentions the
+gym.
 ```
 
 ## H38
@@ -637,13 +655,13 @@ till he talks.
 Shown after: flag 59. Until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go.
 
 ```
-Tsuji boxes at Hokuto
-Gym, in the evenings.
-Take him on.
+Tsuji boxes at Hokuto Gym
+in the Nishiyama Building
+during the evenings.
 
-You'll lose, mind. But
-you must try at least
-twice.
+Take him on. You'll lose,
+mind. But you must try at
+least twice.
 
 Then leave. A friend of
 yours will be waiting
