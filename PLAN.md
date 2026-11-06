@@ -1059,7 +1059,8 @@ Beyond the translation itself. Details in the sections named.
   script `[clrflag]` against the hint chain, builds `out/hinttest.nes`
   (new game opens in the caretaker's room), and grids the first box of all
   39 hints + the cleared-flag cases into `out/hinttest.png` (~3 min). Run
-  after any change to `hints.py` or the story flags.
+  after any change to `hints.py` or the story flags. `--hint 12` instead
+  captures every box of one hint into `out/hint12.png` (~20 s).
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
