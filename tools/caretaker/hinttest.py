@@ -99,9 +99,10 @@ def build_rom(path=TEST_ROM):
     return path
 
 
-def flatter(rom, set_flags, clear_flags=()):
+def flatter(rom, set_flags, clear_flags=(), page=0, height=55):
     """New game in the caretaker's room, flags poked, Flatter, then the
-    first hint box. -> PIL image of the text box."""
+    hint's first box (or box `page`, counted from 0). -> PIL image of the
+    text box."""
     import additions
     from lrnes import Core
     from PIL import Image
@@ -122,8 +123,11 @@ def flatter(rom, set_flags, clear_flags=()):
     c.run(150)                      # "Ooh, such kind words."
     c.press('a', 5)
     c.run(400)                      # long enough for a full box to print
+    for _ in range(page):
+        c.press('a', 5)
+        c.run(400)
     w, h, rgb = c.frame
-    im = Image.frombytes('RGB', (w, h), rgb).crop((0, 0, w, 55))
+    im = Image.frombytes('RGB', (w, h), rgb).crop((0, 0, w, height))
     c.close()
     return im
 

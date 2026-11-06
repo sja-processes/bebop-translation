@@ -94,6 +94,7 @@ HINTS = [
     # H12, until 21 (01A tip man: Mandrill)
     (0x1E, [
         "Higashi's lying low, is he? The fella who hangs about near cafe Mai hears all sorts. Ask him.",
+        "If he's not there, you'll need better luck.",
     ]),
     # H13, until 24 (093 Mandrill: Joto car park)
     (0x21, [

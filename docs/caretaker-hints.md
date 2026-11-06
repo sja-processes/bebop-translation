@@ -258,6 +258,9 @@ Higashi's lying low, is
 he? The fella who hangs
 about near cafe Mai hears
 all sorts. Ask him.
+
+If he's not there, you'll
+need better luck.
 ```
 
 ## H13
