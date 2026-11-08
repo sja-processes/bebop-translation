@@ -808,8 +808,8 @@ Word is No.1 Tsuji and
 No.2 Kitamura are high
 up in Gold Emperor.[page]
 They're not a patch [cmdEE 02]on
-the great Kikunaga, but
-they're hard, I hear.
+me, the great Kikunaga,
+but they're hard, I hear.
 
 @@ 0FD  bank2 $ACA3
 EN:
