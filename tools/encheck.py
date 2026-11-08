@@ -40,6 +40,7 @@ CODE_CHANGES = {
     0x247: "leading blank page removed (original slip: 246 already ends with a page wait; 244 now ends with one) (Stephen, 2026-10-31)",
     0x388: "page added: bridge before Nobuo's Sneak shout (tailing Teru: ninja) (Stephen, 2026-10-23)",
     0x38A: "page added: bridge before Nobuo's Sneak shout (slipping past the thug: vanishing trick) (Stephen, 2026-10-23)",
+    0x1AF: "page added: Nobuo steps in ('I'll handle this, Guv.') before menacing Iwamoto on Thump (Stephen, 2026-11-08)",
     0x1C6: "ends instead of jumping to the next roof menu: each jump left a menu level open, so Go down needed extra presses (original-game bug, Stephen 2026-10-25)",
     0x1C8: "as 1C6 (taking the bomb)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "

@@ -1061,6 +1061,9 @@ Beyond the translation itself. Details in the sections named.
   39 hints + the cleared-flag cases into `out/hinttest.png` (~3 min). Run
   after any change to `hints.py` or the story flags. `--hint 12` instead
   captures every box of one hint into `out/hint12.png` (~20 s).
+- `tools/showmsg.py ID [--hero 0|1]` — show one message in headless
+  Nestopia (the intro jumps to it), each box captured after it prints,
+  into `out/msgID.png`. Quick on-screen check of a reworded line.
 - `tools/script.py check | show ID…` — message parser (stage 4 builds the
   full dumper on this).
 
