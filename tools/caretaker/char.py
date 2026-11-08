@@ -157,26 +157,29 @@ def body(cv):
     cv.patch(24, 40, ["", "", "", "", "", "", "", "", "", ""])
     for y in (52, 57, 62):
         cv.set(30, y, 'w'); cv.set(31, y, '#')
-    # lapels in cols 2 and 5
+    # lapels in cols 2 and 5: filled to the waistcoat edge (x23), the outer
+    # edge sloping in to meet it (Stephen, 2026-11-08)
     cv.patch(16, 40, [
         "    ####",
         "   #JJJ#",
         "  #JJJJ#",
         "  #JJJJ#",
-        "  #JJJ# ",
-        "  #JJJ# ",
-        "  #JJ#  ",
-        "  #JJ#  ",
-        "  #JJ#  ",
-        "   #J#  ",
-        "   #J#  ",
-        "   ##   ",
+        "  #JJJJ#",
+        "  #JJJJ#",
+        "  #JJJJ#",
+        "   #JJJ#",
+        "   #JJJ#",
+        "    #JJ#",
+        "    #JJ#",
+        "     #J#",
+        "     #J#",
+        "      ##",
     ], mirror=True)
     for y in range(52, 64):
         cv.set(23, y, '#'); cv.set(40, y, '#')
     # neck skin shows above the collar in cols 3-4 only
-    # breast pocket with a pen (viewer's right)
-    cv.patch(49, 50, [
+    # breast pocket with a pen (viewer's right), low and beside the waistcoat
+    cv.patch(42, 53, [
         "    J    ",
         "    J    ",
         "#########",
@@ -185,8 +188,9 @@ def body(cv):
         "#jjjjjjj#",
         "#########",
     ])
-    cv.patch(10, 58, ["#", "#", "#", "#", "#", "#"])
-    cv.patch(7, 52, ["#", "#", " #", " #"])
+    # arm creases, both sides
+    cv.patch(10, 58, ["#", "#", "#", "#", "#", "#"], mirror=True)
+    cv.patch(7, 52, ["#", "#", " #", " #"], mirror=True)
 
 
 def build(talking=False):
