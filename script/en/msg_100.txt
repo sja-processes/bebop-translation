@@ -195,9 +195,10 @@ warehouse at the docks.[page]
 And they've hired a
 minder, Harada, who's
 strong as a monster.[page]
-[cmdEE 01]Even the mighty Kikunaga
-might struggle a bit, so
-he must be something.
+[cmdEE 01]Even me, the mighty
+Kikunaga, might struggle
+a bit, so he must be
+something.
 [setflag 85]
 
 @@ 121  bank2 $B241

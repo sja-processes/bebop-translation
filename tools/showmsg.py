@@ -40,15 +40,31 @@ def build(msg, path):
     return insert.english_messages()[msg]
 
 
-def settle(c, step=8, limit=600):
-    """Run until the screen stops changing (the box has finished printing)."""
-    last = None
-    for _ in range(limit // step):
-        c.run(step)
+def settle(c, quiet=130, limit=1200):
+    """Run until the box has finished printing: nothing new on screen for
+    `quiet` frames (letters come every 1-3 frames, [delay] pauses are up
+    to 120; the waiting arrow's blink, 16 frames, doesn't count as new).
+    -> that frame; if the screen starts fading first (a closing message
+    with no wait moves straight on), the last frame before the fade."""
+    seen = []                                   # the last two distinct frames
+    shown = None
+    since = 0
+    for _ in range(limit):
+        c.run(1)
         now = c.frame[2]
-        if now == last:
-            return
-        last = now
+        if now.count(b"\xff\xff\xff") < 1000:    # fading out (the box is pure white)
+            if shown:
+                return shown
+            continue
+        if now in seen:
+            since += 1
+        else:
+            seen = (seen + [now])[-2:]
+            since = 0
+            shown = now
+        if since >= quiet:
+            return now
+    return shown or c.frame[2]
 
 
 def main():
@@ -71,15 +87,14 @@ def main():
     if a.hero is not None:
         c.poke(HERO, a.hero)
     c.run(400)                          # past the fade-in
-    settle(c)
+    frame = settle(c)
     shots = []
     for i in range(boxes):
         if i:
             c.press('a', 5)
             c.run(20)                       # let the old box clear
-            settle(c)
-        w, h, rgb = c.frame
-        shots.append(Image.frombytes('RGB', (w, h), rgb))
+            frame = settle(c)
+        shots.append(Image.frombytes('RGB', (256, 240), frame))
     sheet = Image.new('RGB', (256 * len(shots), 240))
     for i, im in enumerate(shots):
         sheet.paste(im, (256 * i, 0))
