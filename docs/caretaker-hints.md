@@ -170,7 +170,8 @@ your pride and beg him.
 
 He'll send you to Risa,
 north-west inside the
-shopping centre.
+underground shopping
+centre.
 
 Buy her a coffee, then
 flatter her. Works on me,

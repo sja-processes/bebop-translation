@@ -65,7 +65,7 @@ HINTS = [
         "Scrap with him till your NERVE's full. You'll get about faster after.",
         "Luck affects every scrap, mind, but he's a soft touch. A bit of luck and he's yours.",
         'Next, your rival will be hanging about south-east of the pipes. Swallow your pride and beg him.',
-        "He'll send you to Risa, north-west inside the shopping centre.",
+        "He'll send you to Risa, north-west inside the underground shopping centre.",
         'Buy her a coffee, then flatter her. Works on me, that does.',
     ]),
     # H08, until 1F (07D Misako: Mari)
