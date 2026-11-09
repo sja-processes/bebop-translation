@@ -625,10 +625,10 @@ Shown after: flag 51. Until 56 (1D6 Samejima legs it); the tickets (53, 227) are
 
 ```
 Tomezo owes you one now.
-He will help you at
-Minato station.
+He'll help you at Minato
+station.
 
-Buy tickets for
+Then buy tickets for
 Higashimachi and ride
 there.
 
