@@ -503,9 +503,7 @@ Give it to the police in
 Joto.
 
 Same way as before, past
-that big lad. Once
-they've gone, cross the
-bridge.
+that big lad.
 
 ★ Or if you want a
 ★ shortcut, hang around
@@ -517,7 +515,10 @@ bridge.
 ★ him a promise he'll do
 ★ something very helpful.
 
-Across the bridge there's
+Once the police have
+gone, cross the bridge.
+
+On the other side there's
 a lad south of the
 fountain by the docks.
 Offer him a coffee.
