@@ -17,6 +17,24 @@ to 4 lines.
 
 WIDTH, LAST_WIDTH, LINES = 25, 23, 4
 
+# Gen's night shift (PLAN.md, Stephen 2026-11-09): outside the caretaker's
+# door at night he blasts the hedge for a Promise, a shortcut down to the
+# next area. Flag 97 is set while he's waiting there (0C8, the hill) and
+# cleared by the blast (186). A paragraph wrapped in Gen() is shown only
+# while 97 is set: such a hint is built twice, and its message checks 97
+# to pick one (additions.py).
+FLAG_GEN_WAITING = 0x97
+
+
+class Gen(str):
+    """A paragraph shown only while Gen still waits to blast the hedge."""
+
+
+GEN_FRIEND = Gen("A friend of yours will be there, and if you make him a promise he'll do "
+                 "something very helpful.")
+GEN_BRIDGE = Gen('Want a shortcut from here to Minami Bridge? Hang around outside my door '
+                 'after nightfall.')
+
 # (flag that opens the hint, None for a new game; paragraphs)
 HINTS = [
     # H01, until 04 (013 Junko agrees)
@@ -174,11 +192,15 @@ HINTS = [
     (0x42, [
         "A bomb?! Don't you dare do anything daft with it. Give it to the police in Joto.",
         "Same way as before, past that big lad. Once they've gone, cross the bridge.",
-        "There's a lad south of the fountain by the docks. Offer him a coffee.",
+        Gen('Or if you want a shortcut, hang around outside my door after nightfall.'),
+        GEN_FRIEND,
+        "Across the bridge there's a lad south of the fountain by the docks. Offer him a coffee.",
     ]),
     # H28, until 44 (100 Kikunaga: don't be daft)
     (0x43, [
         'Kikunaga mopes about in cafe Gecko, just east of the fountain, in the daytime. Talk to him.',
+        GEN_BRIDGE,
+        GEN_FRIEND,
     ]),
     # H29, until 47 (106 Iwamoto lends the camera); 100 sets 44 and 84, and Misako's
     # coffee (127) can clear 44 early, so 84 opens it (cleared by 114, which sets 4A)
@@ -193,11 +215,15 @@ HINTS = [
     # H31, until 85 (120 Kikunaga: the warehouse)
     (0x4A, [
         "Now take Junko's photo to Kikunaga at cafe Gecko. Give it to him, then ask him what he knows.",
+        GEN_BRIDGE,
+        GEN_FRIEND,
     ]),
     # H32, until 86 (1CD Nobuo: Samejima)
     (0x85, [
         'The warehouse is south-west by the docks. Go after dark and search it.',
         'If anyone gets in your way, thump him or shout at him.',
+        GEN_BRIDGE,
+        GEN_FRIEND,
     ]),
     # H33, until 4E (12D Misako: the fountain)
     (0x86, [
@@ -263,5 +289,10 @@ def wrap(par):
     return '\n'.join(lines)
 
 
-def text(paragraphs):
-    return '[page]\n'.join(wrap(p) for p in paragraphs)
+def text(paragraphs, gen=True):
+    """The hint's boxes; gen=False leaves out the Gen() paragraphs."""
+    return '[page]\n'.join(wrap(p) for p in paragraphs if gen or not isinstance(p, Gen))
+
+
+def has_gen(paragraphs):
+    return any(isinstance(p, Gen) for p in paragraphs)

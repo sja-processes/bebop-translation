@@ -249,8 +249,19 @@ MESSAGES[NOBUO_BOMB_GONE] = NOBUO_BOMB_GONE_TEXT
 MESSAGES[COFFEE] = '[ifflag %02x %s %s]\n' % (FLAG_HERO, _id(COFFEE_HIROSHI), _id(COFFEE_TORU))
 MESSAGES[COFFEE_HIROSHI] = COFFEE_TEXT % 9 + BACK
 MESSAGES[COFFEE_TORU] = COFFEE_TEXT % 8 + BACK
-MESSAGES.update({mid: hints.text(pars) + BACK for (_, pars), mid in zip(hints.HINTS, HINT_IDS)})
+MESSAGES.update({mid: hints.text(pars, gen=False) + BACK
+                 for (_, pars), mid in zip(hints.HINTS, HINT_IDS)})
 MESSAGES.update({mid: '' for mid in range(HINT_FIRST, HINT_IDS[-1]) if mid not in HINT_IDS})
+# Hints with Gen's shortcut tip (hints.Gen): the hint's message checks flag
+# 97 ([ifflag f clear set]) and goes to the version without the tip (once
+# he has blasted the hedge) or with it (Stephen, 2026-11-09).
+_gen_hints = [(pars, mid) for (_, pars), mid in zip(hints.HINTS, HINT_IDS) if hints.has_gen(pars)]
+GEN_IDS = [mid for mid in range(HINT_IDS[-1] + 1, HINT_IDS[-1] + 2 + 2 * len(_gen_hints) + 2)
+           if mid & 0xFF != 0xFF][:2 * len(_gen_hints)]
+for (pars, mid), plain, tip in zip(_gen_hints, GEN_IDS[::2], GEN_IDS[1::2]):
+    MESSAGES[plain] = hints.text(pars, gen=False) + BACK
+    MESSAGES[tip] = hints.text(pars, gen=True) + BACK
+    MESSAGES[mid] = '[ifflag %02x %s %s]\n' % (hints.FLAG_GEN_WAITING, _id(plain), _id(tip))
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the

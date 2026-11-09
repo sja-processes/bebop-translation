@@ -1204,7 +1204,17 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   by 0C8 (he blasts the hill, with B2) and cleared by 186, so he's there
   every night from H21 to the end until you blast the hedge. Menu: Talk
   183, Ask 184, Promise 186 (more Canny: blasts the hedge, sets B3), Tease
-  185, Beg 187, Leave. No sake needed. Not in the hints yet.
+  185, Beg 187, Leave. No sake needed. In the hints (Stephen, 2026-11-09):
+  H27, H28, H31 and H32 add two boxes (hints.Gen) telling you to wait
+  outside the caretaker's door at night and make your friend a promise;
+  each of those hint messages is `[ifflag 97 without with]`, so the tip
+  goes once the hedge is blasted (versions $406-$40D). hinttest `--hint N
+  --gen` shows the version with it. Tested in Nestopia and Mesen.
+- **hinttest fix (2026-11-09):** starting a new game resets some flags
+  after the test had set them (B2, 84-86, 97), so H21, H29, H32 and H33
+  had been showing the hint before; nobody noticed in the grid. The test
+  now sets the flags again once the room has loaded; all 39 show their
+  own text.
 
 ### Day goal (agreed with Stephen 2026-10-31; built the same day)
 Ending facts (fixed bank of the original): `$71C8` = day counter, one

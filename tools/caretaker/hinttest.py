@@ -2,11 +2,12 @@
 """Test the caretaker's Flatter hints (hints.py) in headless Nestopia.
 
 usage: tools/caretaker/hinttest.py [OUT.png]
-       tools/caretaker/hinttest.py --hint N [OUT.png]
+       tools/caretaker/hinttest.py --hint N [--gen] [OUT.png]
 
 With --hint N (e.g. --hint 12 for H12) it skips the full run and captures
 every box of that one hint, top to bottom (default out/hintN.png), to
-check a reworded hint by eye.
+check a reworded hint by eye. --gen also sets flag 97 (Gen still waiting
+to blast the hedge), for the hints with his shortcut tip (hints.Gen).
 
   1. Static check: every [clrflag] in the script that clears a hint's
      opening flag must set a later hint's flag in the same message, or
@@ -116,11 +117,18 @@ def flatter(rom, set_flags, clear_flags=(), page=0, height=55):
     c.press('start', 5)
     c.run(5)
     c.poke(FLAG_BASE + additions.FLAG_BEGGED, 1)
-    for f in set_flags:
-        c.poke(FLAG_BASE + f, 1)
-    for f in clear_flags:
-        c.poke(FLAG_BASE + f, 0)
+
+    def poke_flags():
+        for f in set_flags:
+            c.poke(FLAG_BASE + f, 1)
+        for f in clear_flags:
+            c.poke(FLAG_BASE + f, 0)
+    poke_flags()
     c.run(300)
+    # again once in the room: starting a new game resets some flags (B2,
+    # 84-86, 97 were lost, so H21/H29/H32/H33 showed the hint before;
+    # found 2026-11-09)
+    poke_flags()
     # big menu: Talk Ask Coffee / Promise Flatter Leave, cursor on Talk
     for k in ('down', 'right', 'a'):
         c.press(k, 5)
@@ -137,14 +145,15 @@ def flatter(rom, set_flags, clear_flags=(), page=0, height=55):
     return im
 
 
-def one_hint(n, out):
+def one_hint(n, out, gen=False):
     """Every box of hint n (1-based), stacked, -> out."""
     import hints
     from PIL import Image
     rom = build_rom()
     flags = opening_flags()
-    boxes = hints.text(hints.HINTS[n - 1][1]).count('[page]') + 1
-    shots = [flatter(rom, flags[1:n], page=p, height=100) for p in range(boxes)]
+    boxes = hints.text(hints.HINTS[n - 1][1], gen).count('[page]') + 1
+    extra = [hints.FLAG_GEN_WAITING] if gen else []
+    shots = [flatter(rom, flags[1:n] + extra, page=p, height=100) for p in range(boxes)]
     w, h = shots[0].size
     sheet = Image.new('RGB', (w, h * len(shots)))
     for i, im in enumerate(shots):
@@ -158,8 +167,10 @@ def main():
     if '--hint' in sys.argv:
         i = sys.argv.index('--hint')
         n = int(sys.argv[i + 1].lstrip('Hh'))
-        rest = sys.argv[i + 2:]
-        return one_hint(n, rest[0] if rest else os.path.join(ROOT, 'out', 'hint%02d.png' % n))
+        gen = '--gen' in sys.argv
+        rest = [x for x in sys.argv[i + 2:] if x != '--gen']
+        return one_hint(n, rest[0] if rest else os.path.join(
+            ROOT, 'out', 'hint%02d%s.png' % (n, 'gen' if gen else '')), gen)
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'out', 'hinttest.png')
     problems = check_clears()
     for p in problems:

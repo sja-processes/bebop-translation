@@ -494,6 +494,8 @@ you find.
 
 Shown after: flag 42. Until 43 (0FA Minoru: Kikunaga and cafe Gecko); no lasting flag for handing over the bomb, so it goes with Minoru.
 
+The boxes marked ★ are Gen's shortcut tip, shown only while he still waits outside the caretaker's door at night to blast the hedge (flag 97: set by 0C8, cleared by 186).
+
 ```
 A bomb?! Don't you dare
 do anything daft with it.
@@ -505,21 +507,43 @@ that big lad. Once
 they've gone, cross the
 bridge.
 
-There's a lad south of
-the fountain by the
-docks. Offer him a
-coffee.
+★ Or if you want a
+★ shortcut, hang around
+★ outside my door after
+★ nightfall.
+
+★ A friend of yours will be
+★ there, and if you make
+★ him a promise he'll do
+★ something very helpful.
+
+Across the bridge there's
+a lad south of the
+fountain by the docks.
+Offer him a coffee.
 ```
 
 ## H28
 
 Shown after: flag 43. Until 44 (100 Kikunaga: don't be daft).
 
+The boxes marked ★ are Gen's shortcut tip, shown only while he still waits outside the caretaker's door at night to blast the hedge (flag 97: set by 0C8, cleared by 186).
+
 ```
 Kikunaga mopes about in
 cafe Gecko, just east of
 the fountain, in the
 daytime. Talk to him.
+
+★ Want a shortcut from here
+★ to Minami Bridge? Hang
+★ around outside my door
+★ after nightfall.
+
+★ A friend of yours will be
+★ there, and if you make
+★ him a promise he'll do
+★ something very helpful.
 ```
 
 ## H29
@@ -551,16 +575,30 @@ then use the camera.
 
 Shown after: flag 4A. Until 85 (120 Kikunaga: the warehouse).
 
+The boxes marked ★ are Gen's shortcut tip, shown only while he still waits outside the caretaker's door at night to blast the hedge (flag 97: set by 0C8, cleared by 186).
+
 ```
 Now take Junko's photo to
 Kikunaga at cafe Gecko.
 Give it to him, then ask
 him what he knows.
+
+★ Want a shortcut from here
+★ to Minami Bridge? Hang
+★ around outside my door
+★ after nightfall.
+
+★ A friend of yours will be
+★ there, and if you make
+★ him a promise he'll do
+★ something very helpful.
 ```
 
 ## H32
 
 Shown after: flag 85. Until 86 (1CD Nobuo: Samejima).
+
+The boxes marked ★ are Gen's shortcut tip, shown only while he still waits outside the caretaker's door at night to blast the hedge (flag 97: set by 0C8, cleared by 186).
 
 ```
 The warehouse is
@@ -571,6 +609,16 @@ it.
 If anyone gets in your
 way, thump him or shout
 at him.
+
+★ Want a shortcut from here
+★ to Minami Bridge? Hang
+★ around outside my door
+★ after nightfall.
+
+★ A friend of yours will be
+★ there, and if you make
+★ him a promise he'll do
+★ something very helpful.
 ```
 
 ## H33
