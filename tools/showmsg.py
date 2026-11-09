@@ -86,7 +86,10 @@ def main():
     c.run(5)
     if a.hero is not None:
         c.poke(HERO, a.hero)
-    c.run(400)                          # past the fade-in
+    for _ in range(1200):                   # until the first box appears
+        c.run(1)
+        if c.frame[2].count(b"\xff\xff\xff") >= 1000:
+            break
     frame = settle(c)
     shots = []
     for i in range(boxes):

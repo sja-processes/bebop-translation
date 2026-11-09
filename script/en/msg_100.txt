@@ -766,7 +766,7 @@ EN:
 @@ 179  bank3 $816D
 EN:
 [cmdEE 02]Eh? What's that?
-[cmdEE 00]Divn't faff on, man,
+[cmdEE 00]Don't faff about, man,
 just leave it to me!
 
 @@ 17A  bank3 $8198
