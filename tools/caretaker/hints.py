@@ -217,8 +217,8 @@ HINTS = [
     # H36, until 56 (1D6 Samejima legs it); the tickets (53, 227) are cleared by
     # the ride (3A3/3A4) and nothing lasting marks the arrival, so it's one hint
     (0x51, [
-        'Tomezo owes you one now. Go to Minato station and talk to anyone there.',
-        'Then buy tickets for Higashimachi and ride there.',
+        'Tomezo owes you one now. He will help you at Minato station.',
+        'Buy tickets for Higashimachi and ride there.',
         "In Higashimachi, never mind most people. Nobuo's old classmate is the one in the south-east.",
         "Lean on him, thump him, shout at him, chase him. He'll run into the Safety First building. Follow.",
     ]),
