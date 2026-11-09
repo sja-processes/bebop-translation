@@ -190,9 +190,8 @@ HINTS = [
     ]),
     # H27, until 43 (0FA Minoru: Kikunaga and cafe Gecko); no lasting flag for handing over the bomb, so it goes with Minoru
     (0x42, [
-        "A bomb?! Don't you dare do anything daft with it. Give it to the police in Joto.",
-        'Same way as before, past that big lad.',
-        Gen('Or if you want a shortcut, hang around outside my door after nightfall.'),
+        "A bomb?! Don't you dare do anything daft with it. Give it to the police in Joto by the bridge.",
+        Gen('If you want a shortcut, hang around outside my door after nightfall.'),
         GEN_FRIEND,
         'Once the police have gone, cross the bridge.',
         "On the other side there's a lad south of the fountain by the docks. Offer him a coffee.",

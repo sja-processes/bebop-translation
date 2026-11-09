@@ -500,15 +500,11 @@ The boxes marked ★ are Gen's shortcut tip, shown only while he still waits out
 A bomb?! Don't you dare
 do anything daft with it.
 Give it to the police in
-Joto.
+Joto by the bridge.
 
-Same way as before, past
-that big lad.
-
-★ Or if you want a
-★ shortcut, hang around
-★ outside my door after
-★ nightfall.
+★ If you want a shortcut,
+★ hang around outside my
+★ door after nightfall.
 
 ★ A friend of yours will be
 ★ there, and if you make
