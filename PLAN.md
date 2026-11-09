@@ -1194,6 +1194,17 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
 - Luck checks in the script (for reference): fortune slip 2A4, Risa
   coffee 2C7 (JINX refuses), Misako coffee 2C4 (needs GOOD/CHARM), Tomezo
   trick shot 2B9 and pachinko parlour 2BB (JINX/BAD fail).
+- **Gen's night shift (found from Stephen's Mesen state 7, 2026-11-09).**
+  Map characters: bank 6 per-area tables, indexed by slot (`$6138`) and
+  area (`$6139`): scene list `$A312`, gate `$9C29` (byte g -> flag
+  `$6E+g` must be set; `$FF` = no gate), time/luck `$94A8` (bits 7-5 =
+  morning/evening/night via `$71B9` and `$9C81` 80 40 20; bits 4-0 = luck
+  grades JINX..CHARM via `$9C9F`). Gen's night spot is area 6 slot 28,
+  scene 36C: gate flag 97, mask 3F = night only, any luck. Flag 97 is set
+  by 0C8 (he blasts the hill, with B2) and cleared by 186, so he's there
+  every night from H21 to the end until you blast the hedge. Menu: Talk
+  183, Ask 184, Promise 186 (more Canny: blasts the hedge, sets B3), Tease
+  185, Beg 187, Leave. No sake needed. Not in the hints yet.
 
 ### Day goal (agreed with Stephen 2026-10-31; built the same day)
 Ending facts (fixed bank of the original): `$71C8` = day counter, one
