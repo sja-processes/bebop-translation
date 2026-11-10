@@ -30,10 +30,11 @@ class Gen(str):
     """A paragraph shown only while Gen still waits to blast the hedge."""
 
 
-GEN_FRIEND = Gen("A friend of yours will be there, and if you make him a promise he'll do "
-                 "something very helpful.")
-GEN_BRIDGE = Gen('Want a shortcut from here to Minami Bridge? Hang around outside my door '
-                 'after nightfall.')
+GEN_TIP = [
+    Gen("By the way, there's now a quick way to Minami Bridge if you want it."),
+    Gen('Hang around outside my door after nightfall. A friend of yours will be there.'),
+    Gen("Make him a promise and he'll do something very helpful."),
+]
 
 # (flag that opens the hint, None for a new game; paragraphs)
 HINTS = [
@@ -190,17 +191,15 @@ HINTS = [
     ]),
     # H27, until 43 (0FA Minoru: Kikunaga and cafe Gecko); no lasting flag for handing over the bomb, so it goes with Minoru
     (0x42, [
-        "A bomb?! Don't you dare do anything daft with it. Give it to the police in Joto by the bridge.",
-        Gen('If you want a shortcut, hang around outside my door after nightfall.'),
-        GEN_FRIEND,
+        "A bomb?! Don't you dare do anything daft with it. Give it to the police in Joto by Minami Bridge.",
         'Once the police have gone, cross the bridge.',
         "On the other side there's a lad south of the fountain by the docks. Offer him a coffee.",
+        *GEN_TIP,
     ]),
     # H28, until 44 (100 Kikunaga: don't be daft)
     (0x43, [
         'Kikunaga mopes about in cafe Gecko, just east of the fountain, in the daytime. Talk to him.',
-        GEN_BRIDGE,
-        GEN_FRIEND,
+        *GEN_TIP,
     ]),
     # H29, until 47 (106 Iwamoto lends the camera); 100 sets 44 and 84, and Misako's
     # coffee (127) can clear 44 early, so 84 opens it (cleared by 114, which sets 4A)
@@ -215,15 +214,13 @@ HINTS = [
     # H31, until 85 (120 Kikunaga: the warehouse)
     (0x4A, [
         "Now take Junko's photo to Kikunaga at cafe Gecko. Give it to him, then ask him what he knows.",
-        GEN_BRIDGE,
-        GEN_FRIEND,
+        *GEN_TIP,
     ]),
     # H32, until 86 (1CD Nobuo: Samejima)
     (0x85, [
         'The warehouse is south-west by the docks. Go after dark and search it.',
         'If anyone gets in your way, thump him or shout at him.',
-        GEN_BRIDGE,
-        GEN_FRIEND,
+        *GEN_TIP,
     ]),
     # H33, until 4E (12D Misako: the fountain)
     (0x86, [

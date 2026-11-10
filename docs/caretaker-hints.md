@@ -500,16 +500,7 @@ The boxes marked ★ are Gen's shortcut tip, shown only while he still waits out
 A bomb?! Don't you dare
 do anything daft with it.
 Give it to the police in
-Joto by the bridge.
-
-★ If you want a shortcut,
-★ hang around outside my
-★ door after nightfall.
-
-★ A friend of yours will be
-★ there, and if you make
-★ him a promise he'll do
-★ something very helpful.
+Joto by Minami Bridge.
 
 Once the police have
 gone, cross the bridge.
@@ -518,6 +509,19 @@ On the other side there's
 a lad south of the
 fountain by the docks.
 Offer him a coffee.
+
+★ By the way, there's now a
+★ quick way to Minami
+★ Bridge if you want it.
+
+★ Hang around outside my
+★ door after nightfall. A
+★ friend of yours will be
+★ there.
+
+★ Make him a promise and
+★ he'll do something very
+★ helpful.
 ```
 
 ## H28
@@ -532,15 +536,18 @@ cafe Gecko, just east of
 the fountain, in the
 daytime. Talk to him.
 
-★ Want a shortcut from here
-★ to Minami Bridge? Hang
-★ around outside my door
-★ after nightfall.
+★ By the way, there's now a
+★ quick way to Minami
+★ Bridge if you want it.
 
-★ A friend of yours will be
-★ there, and if you make
-★ him a promise he'll do
-★ something very helpful.
+★ Hang around outside my
+★ door after nightfall. A
+★ friend of yours will be
+★ there.
+
+★ Make him a promise and
+★ he'll do something very
+★ helpful.
 ```
 
 ## H29
@@ -580,15 +587,18 @@ Kikunaga at cafe Gecko.
 Give it to him, then ask
 him what he knows.
 
-★ Want a shortcut from here
-★ to Minami Bridge? Hang
-★ around outside my door
-★ after nightfall.
+★ By the way, there's now a
+★ quick way to Minami
+★ Bridge if you want it.
 
-★ A friend of yours will be
-★ there, and if you make
-★ him a promise he'll do
-★ something very helpful.
+★ Hang around outside my
+★ door after nightfall. A
+★ friend of yours will be
+★ there.
+
+★ Make him a promise and
+★ he'll do something very
+★ helpful.
 ```
 
 ## H32
@@ -607,15 +617,18 @@ If anyone gets in your
 way, thump him or shout
 at him.
 
-★ Want a shortcut from here
-★ to Minami Bridge? Hang
-★ around outside my door
-★ after nightfall.
+★ By the way, there's now a
+★ quick way to Minami
+★ Bridge if you want it.
 
-★ A friend of yours will be
-★ there, and if you make
-★ him a promise he'll do
-★ something very helpful.
+★ Hang around outside my
+★ door after nightfall. A
+★ friend of yours will be
+★ there.
+
+★ Make him a promise and
+★ he'll do something very
+★ helpful.
 ```
 
 ## H33
