@@ -20,8 +20,9 @@ calls INIT instead, which also clears the state each time the title
 screen starts. State lives in save RAM page $76xx (see daygoal.py).
 
 New glyphs (L V B J F - and the digits the title lacks) go in CHR bank 12
-tiles that no screen uses: not in the title nametable and not in the
-other bank-12 screen's strings ($E4C9/$E4DA, tiles $E0-$FD).
+tiles that no screen uses: not in the title nametable, not in the
+other bank-12 screen's strings ($E4C9/$E4DA, tiles $E0-$FD) and not in
+the Gold Emperor warehouse picture ($1E), which uses this bank too.
 """
 import subprocess
 
@@ -137,6 +138,21 @@ def routine(table):
     ]
 
 
+def picture_tiles(new, bank_size=0x4000, fixed_bank=15):
+    """Bank-12 tiles a scene picture uses: the Gold Emperor warehouse
+    ($1E) is drawn with the title's CHR bank. (The first version of this
+    file missed it and drew the glyphs over tiles $01-$0E of the
+    warehouse; Stephen, 2026-11-11.) Plus the scene frame tiles."""
+    f = new[fixed_bank * bank_size:]
+    b1 = new[bank_size:2 * bank_size]
+    used = {0x00, 0x02, 0x07, 0x2A, 0xBB, 0xFF}
+    for p in range(37):
+        if f[0xED2E - 0xC000 + p] == title.CHR_BANK:
+            i = f[0xED53 - 0xC000 + p]
+            used |= set(b1[i * 0x130:i * 0x130 + 280])
+    return used
+
+
 def apply(new, chr_, version=None, date=None, bank_size=0x4000, fixed_bank=15):
     """After title.apply and daygoal.apply. -> the two info lines."""
     lines = version_info(version, date)
@@ -145,7 +161,7 @@ def apply(new, chr_, version=None, date=None, bank_size=0x4000, fixed_bank=15):
 
     # glyphs: reuse the title's letters, draw the rest in unused tiles
     cb = title.CHR_BANK * 0x1000
-    used = set(nt) | set(OTHER_SCREEN) | {0}
+    used = set(nt) | set(OTHER_SCREEN) | {0} | picture_tiles(new, bank_size, fixed_bank)
     free = [t for t in range(256) if t not in used]
     tiles = dict(title.LETTERS)
     tiles.update({ch: t for ch, (t, _) in title.NEW_TILES.items()})

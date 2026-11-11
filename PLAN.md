@@ -1055,6 +1055,17 @@ Beyond the translation itself. Details in the sections named.
 - `tools/titleinfo.py` (called by `insert.py`) — Left/Right on the title
   swaps the copyright lines for " ENGLISH VERSION 1.0" / "BY SJA-PROCESSES
   2026.11" (development builds: DEV / the commit). See "Releases".
+  Its new glyphs go in bank-12 tiles off the title screen; the first
+  version put them over tiles $01-$0E of the Gold Emperor warehouse
+  ($1E, the only picture in that bank), so its back wall and the lads'
+  shoulders showed bits of letters (Stephen, 2026-11-11). It now skips
+  every picture's tiles too.
+- `tools/picdiff.py [OUT_DIR]` — renders the 37 original scene pictures
+  from the original ROM and ours and lists the ones that differ, with
+  side-by-side images in `out/picdiff/`. Only $1D (the "CLOSED"
+  caption) should be listed. Run after anything that writes CHR.
+- `tools/msgfilm.py ID` — films a message from the intro as a strip of
+  frames, for sequences rather than text.
 - `tools/release.py [--notes]` — build `out/release/bebop_en-vX.bps` and
   `RELEASE-vX.md` from the `v*` tag on HEAD. See "Releases".
 - `tools/fightodds.py STATE [--n N] [--menu KEYS]` — fight win rate per
