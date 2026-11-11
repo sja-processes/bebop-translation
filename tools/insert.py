@@ -51,6 +51,19 @@ NEW_CODE = 0xFD00             # free $FF run in the fixed bank ($FCFC-$FFCF)
 FONT_CHR_BANKS = (30, 31)
 
 
+# tools/picdiff.py sets this to a list to get each new picture as built:
+# (number, CHR bank, layout, palette record, that CHR bank's data right
+# after the picture's tiles were written), to check later steps don't
+# draw over them.
+SNAPSHOTS = None
+
+
+def _snap(pics, bank, chr_):
+    if SNAPSHOTS is not None:
+        data = bytes(chr_[bank * 0x1000:(bank + 1) * 0x1000])
+        SNAPSHOTS.extend((n, bank, bytes(lay), bytes(pal), data) for n, lay, pal in pics)
+
+
 def read_rom():
     romdir = os.path.join(ROOT, 'rom')
     name = next(f for f in os.listdir(romdir) if f.endswith('.nes'))
@@ -230,6 +243,7 @@ def build(version=None, date=None):
     for t, data in store_tiles.items():
         o = storepics.CHR_BANK * 0x1000 + t * 16
         chr_[o:o + 16] = data
+    _snap(store, storepics.CHR_BANK, chr_)
     # corridor floor variants ($2A-$2E, also bank 10): first point the
     # original pictures at one copy of each duplicated tile to free slots
     store_used = {t for _, lay, _ in store for t in lay[:280]}
@@ -240,6 +254,7 @@ def build(version=None, date=None):
     corr, corr_tiles = corridorpics.build(read_rom(), bytes(chr_[cb10:cb10 + 0x1000]), used10, free10)
     for t, data in corr_tiles.items():
         chr_[cb10 + t * 16:cb10 + t * 16 + 16] = data
+    _snap(corr, storepics.CHR_BANK, chr_)
     # Toru's happiest-ending picture ($30, CHR bank 13's free tiles)
     used13 = caretaker._picture_tiles_used(new, endingpic.CHR_BANK)
     free13 = [t for t in range(256) if t not in used13 and t not in caretaker.SCENE_FRAME]
@@ -247,6 +262,7 @@ def build(version=None, date=None):
     endp, end_tiles = endingpic.build(read_rom(), bytes(chr_[cb13:cb13 + 0x1000]), used13, free13)
     for t, data in end_tiles.items():
         chr_[cb13 + t * 16:cb13 + t * 16 + 16] = data
+    _snap(endp, endingpic.CHR_BANK, chr_)
     # cars in the Nishiyama Building car park (town map + CHR bank 1)
     car_doors, _ = carpark.apply(new, chr_)
     # English "SAFETY FIRST" sign on the Higashimachi building site (area 3)
@@ -255,6 +271,8 @@ def build(version=None, date=None):
                     [(n, storepics.CHR_BANK, lay, pal) for n, lay, pal in store + corr]
                     + [(n, endingpic.CHR_BANK, lay, pal) for n, lay, pal in endp],
                     car_doors)
+    d = caretaker.DATA_BANK * BANK + caretaker.LAYOUT_ADDR - 0x8000
+    _snap([(caretaker.PIC, new[d:d + 0x130], caretaker.palette_record())], caretaker.ROOM_CHR, chr_)
     fx = bytearray(new[FIXED * BANK:(FIXED + 1) * BANK])
     carpark.apply_hook(fx)
     endingpic.apply_hook(fx)

@@ -8,9 +8,17 @@ own tables (pictures.py's facts, fixed bank = the last PRG bank, so it
 works on the expanded ROM too) and lists the ones that differ, with the
 tiles that changed. Writes OUT_DIR/picNN.png (original | ours | changed
 tiles in red) for each difference (default out/picdiff). Only $1D (the
-"CLOSED" caption) should differ. Our new pictures ($25, the floor
-variants $26-$2E, $30) load through hooks in place of an original and
-aren't covered here.
+"CLOSED" caption) should differ.
+
+Then the new pictures (the caretaker's room $25, the floor variants
+$26-$2F, Toru's ending $30), which have no original: it runs the build
+with insert.SNAPSHOTS on, so each one comes back with its CHR bank as it
+was right after its own tiles were written, and checks that the finished
+ROM still has the same pixels in every tile the picture uses (all three
+times of day), and its layout and palette record in the data bank. A
+difference means a later step drew over it, as the title info did to the
+warehouse. Writes OUT_DIR/newNN.png (as built | finished | changed) for
+each one that differs.
 """
 import glob
 import os
@@ -43,6 +51,72 @@ def load(data, pic):
     palsets = [fixed[rec + 13 * t:rec + 13 * t + 13] for t in range(3)]
     return pictures.Picture(bank, lay[:280], blocks, palsets,
                             chr_[bank * 0x1000:(bank + 1) * 0x1000])
+
+
+def from_layout(bank, lay, pal, chr_data):
+    blocks = []
+    for by in range(7):
+        row = []
+        for bx in range(10):
+            i, sh = pictures.attr_index(bx, by)
+            row.append((lay[280 + i] >> sh) & 3)
+        blocks.append(row)
+    palsets = [pal[13 * t:13 * t + 13] for t in range(3)]
+    return pictures.Picture(bank, lay[:280], blocks, palsets, chr_data)
+
+
+def strip(p):
+    from PIL import Image
+    im = Image.new('RGB', (160, 112 * 3))
+    for t in range(3):
+        im.paste(p.render(t), (0, 112 * t))
+    return im
+
+
+def check_new(out):
+    """-> number of new pictures that differ."""
+    from PIL import Image, ImageDraw
+    import insert
+    insert.SNAPSHOTS = []
+    try:
+        _, rom, *_ = insert.build()
+    finally:
+        snaps, insert.SNAPSHOTS = insert.SNAPSHOTS, None
+    nprg = rom[4]
+    prg = rom[16:16 + nprg * BANK]
+    chr_ = rom[16 + nprg * BANK:]
+    data_bank = prg[14 * BANK:15 * BANK]
+    bad = 0
+    for num, bank, lay, pal, built in snaps:
+        final = chr_[bank * 0x1000:(bank + 1) * 0x1000]
+        a = from_layout(bank, lay, pal, built)
+        b = from_layout(bank, lay, pal, final)
+        ia, ib = strip(a), strip(b)
+        problems = []
+        if lay not in data_bank:
+            problems.append('layout not in the data bank')
+        if pal not in data_bank:
+            problems.append('palette record not in the data bank')
+        tiles = sorted({t for t in lay[:280] if built[t * 16:t * 16 + 16] != final[t * 16:t * 16 + 16]})
+        if tiles:
+            problems.append('CHR bank %d tiles drawn over: %s' % (
+                bank, ' '.join('%02X' % t for t in tiles)))
+        print('new %02X (CHR bank %d): %s' % (num, bank, '; '.join(problems) or 'ok'))
+        if problems:
+            bad += 1
+            mark = ib.copy()
+            d = ImageDraw.Draw(mark)
+            for t in range(3):
+                for i in range(280):
+                    if lay[i] in tiles:
+                        x, y = i % 20 * 8, i // 20 * 8 + 112 * t
+                        d.rectangle((x, y, x + 7, y + 7), outline=(255, 0, 0))
+            sheet = Image.new('RGB', (160 * 3 + 16, 112 * 3), (255, 255, 255))
+            for i, im in enumerate((ia, ib, mark)):
+                sheet.paste(im, (i * 168, 0))
+            sheet.resize((sheet.width * 2, sheet.height * 2), Image.NEAREST).save(
+                os.path.join(out, 'new%02X.png' % num))
+    return bad
 
 
 def tile_pixels(p, t):
@@ -93,6 +167,7 @@ def main():
             sheet.paste(im, (i * 168, 0))
         sheet.resize((sheet.width * 2, sheet.height * 2), Image.NEAREST).save(
             os.path.join(out, 'pic%02X.png' % pic))
+    check_new(out)
 
 
 if __name__ == '__main__':
