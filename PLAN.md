@@ -1063,7 +1063,10 @@ Beyond the translation itself. Details in the sections named.
 - `tools/picdiff.py [OUT_DIR]` — renders the 37 original scene pictures
   from the original ROM and ours and lists the ones that differ, with
   side-by-side images in `out/picdiff/`. Only $1D (the "CLOSED"
-  caption) should be listed. Run after anything that writes CHR.
+  caption) should be listed. Run after anything that writes CHR. It
+  doesn't cover our new pictures (caretaker's room $25, store floors
+  $26-$29, corridor floors $2A-$2E, Toru's ending $30), which load
+  through hooks in place of an original; those need checking on screen.
 - `tools/msgfilm.py ID` — films a message from the intro as a strip of
   frames, for sequences rather than text.
 - `tools/release.py [--notes]` — build `out/release/bebop_en-vX.bps` and
