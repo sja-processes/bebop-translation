@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare every scene picture in the original ROM and out/bebop_en.nes.
+"""Compare the 37 original scene pictures in the original ROM and out/bebop_en.nes.
 
 usage: tools/picdiff.py [--all] [OUT_DIR]
 
@@ -7,9 +7,10 @@ Renders each picture (morning palette) from both ROMs with the loader's
 own tables (pictures.py's facts, fixed bank = the last PRG bank, so it
 works on the expanded ROM too) and lists the ones that differ, with the
 tiles that changed. Writes OUT_DIR/picNN.png (original | ours | changed
-tiles in red) for each difference (default out/picdiff). Pictures we
-changed on purpose (captions, variants) will show up too: check the
-list against PLAN.md.
+tiles in red) for each difference (default out/picdiff). Only $1D (the
+"CLOSED" caption) should differ. Our new pictures ($25, the floor
+variants $26-$2E, $30) load through hooks in place of an original and
+aren't covered here.
 """
 import glob
 import os
