@@ -715,14 +715,14 @@ Ahh, I blew my precious
 @@ 072  bank2 $938E
 EN:
 [cmdDD 07][cmdEE 02]Threaten me all you
-like, you won't get a
-penny.
+like, you won't get
+anything out of me.
 
 @@ 073  bank2 $93A5
 EN:
 [cmdDD 03][cmdEE 03][cmdED][delay 1e][cmdEE 04]Thump me all you like,
-you still won't get a
-penny.
+you still won't get
+anything out of me.
 
 @@ 074  bank2 $93C1
 EN:
