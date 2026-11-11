@@ -1004,6 +1004,11 @@ Beyond the translation itself. Details in the sections named.
     save 7): 244 now ends with `[page]` (only used there), so there too
     the face changes as the shout starts (both emulators; both heroes in
     Nestopia).
+  - Train, Higashimachi -> Minato (3A4): Ride skipped the ride (no
+    portrait clear, no ride sound or wait) and went straight to Leave
+    with Nobuo's face still up; the other three rides all have it. 3A4
+    now starts like them; CODE_CHANGES (Stephen, save 6; 2026-11-11,
+    both emulators).
 - **Clearer feedback**
   - Title screen: Left or Right shows the English version, author and
     date (2026-11-05).
