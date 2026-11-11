@@ -1215,6 +1215,15 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   had been showing the hint before; nobody noticed in the grid. The test
   now sets the flags again once the room has loaded; all 39 show their
   own text.
+- **Higashimachi -> Minato ride (Stephen's Mesen state 6, 2026-11-11).**
+  Ride (third in the station menus $336 / $343) runs $3A1-$3A4. Three of
+  them start `[cmdEF 00][cmdF0 18][cmdDD 16][cmdDA]` (portrait off, train
+  picture, ride sound and wait for it); $3A4, Higashimachi back to Minato,
+  lacked all but the picture in the original, so the ride cut straight
+  to Leave with Nobuo's face still up. Original-game omission; $3A4 now
+  starts the same as the others (encheck CODE_CHANGES). `tools/msgfilm.py`
+  films a message from the intro. Tested from the $343 menu in Nestopia
+  (matches the $336 ride frame for frame) and Mesen.
 
 ### Day goal (agreed with Stephen 2026-10-31; built the same day)
 Ending facts (fixed bank of the original): `$71C8` = day counter, one

@@ -169,7 +169,7 @@ EN:
 
 @@ 3A4  bank3 $BE22
 EN:
-[cmdF0 18][clrflag 54][clrflag 53][cmdEC 02 55 76][menu 53 09 03]
+[cmdEF 00][cmdF0 18][cmdDD 16][cmdDA][clrflag 54][clrflag 53][cmdEC 02 55 76][menu 53 09 03]
 
 @@ 3A5  bank3 $BE31
 EN:

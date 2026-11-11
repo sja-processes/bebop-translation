@@ -43,6 +43,7 @@ CODE_CHANGES = {
     0x1AF: "page added: Nobuo steps in ('I'll handle this, Guv.') before menacing Iwamoto on Thump (Stephen, 2026-11-08)",
     0x1C6: "ends instead of jumping to the next roof menu: each jump left a menu level open, so Go down needed extra presses (original-game bug, Stephen 2026-10-25)",
     0x1C8: "as 1C6 (taking the bomb)",
+    0x3A4: "Higashimachi -> Minato ride plays the train sequence like the other rides (cmdEF 00, cmdDD 16, cmdDA added; original-game omission, Stephen 2026-11-11)",
     0x1FA: "page wait before the NERVE loss: in JP the status panel replaces the "
            "text the moment it finishes, too fast to read (Stephen, 2026-10-20)",
 }   # the box holds 25 (cols 4-28; pagecheck simulates borders)
