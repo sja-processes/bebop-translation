@@ -448,13 +448,17 @@ word.
 
 ## H24
 
-Shown after: flag 3F. Until 3D (0E3 Mari: the photo); needed for the second Tsuji fight.
+Shown after: flag 3F. Until 3D (0E3 Mari: the photo); needed for the second Tsuji fight. Mari (scene 30E) is only there with GOOD or CHARM luck, morning or evening.
 
 ```
-Mari's in the underground
-shopping centre, just
-above the water feature.
-Talk to her.
+If you're lucky, you'll
+find Mari in the
+underground shopping
+centre.
+
+She'll be just above the
+water feature. Talk to
+her.
 
 Buy her a coffee, then
 tease her a bit. Make

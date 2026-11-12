@@ -174,9 +174,11 @@ HINTS = [
         "West in Joto there's a big lad blocking the way. Don't fight him. You'll not win.",
         'Shout at him first, then sneak past. The police are further west. Have a word.',
     ]),
-    # H24, until 3D (0E3 Mari: the photo); needed for the second Tsuji fight
+    # H24, until 3D (0E3 Mari: the photo); needed for the second Tsuji fight.
+    # Mari (scene 30E) needs GOOD or CHARM luck, morning or evening, flag 82
     (0x3F, [
-        "Mari's in the underground shopping centre, just above the water feature. Talk to her.",
+        "If you're lucky, you'll find Mari in the underground shopping centre.",
+        "She'll be just above the water feature. Talk to her.",
         'Buy her a coffee, then tease her a bit. Make sure she shows you a photo.',
         "You may need to recognise who's in it later.",
     ]),
