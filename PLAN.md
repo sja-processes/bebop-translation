@@ -1220,7 +1220,14 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   area (`$6139`): scene list `$A312`, gate `$9C29` (byte g -> flag
   `$6E+g` must be set; `$FF` = no gate), time/luck `$94A8` (bits 7-5 =
   morning/evening/night via `$71B9` and `$9C81` 80 40 20; bits 4-0 = luck
-  grades JINX..CHARM via `$9C9F`). Gen's night spot is area 6 slot 28,
+  grades JINX..CHARM via `$9C9F`). Slot count per area: first byte at
+  `$937D[area]` (0: 6, 1: 3, 2: 1, 3: 2, 4: 6, 5: 4, 6: 37); the lists
+  are contiguous, so reading past the count lands in the next area's
+  list. Map area (`$3F`) -> character area via `$9AE6`: map 0-2 -> 6
+  (town), 3 (Higashimachi) -> 0, 4 -> 2-5 by quadrant, 5 (underground
+  shopping centre) -> 1. Positions: x `$93CD`, y `$9416` (metatiles).
+  Mari (scene 30E) is character area 1 slot 2 only: GOOD/CHARM,
+  morning/evening, flag 82 (2026-11-12). Gen's night spot is area 6 slot 28,
   scene 36C: gate flag 97, mask 3F = night only, any luck. Flag 97 is set
   by 0C8 (he blasts the hill, with B2) and cleared by 186, so he's there
   every night from H21 to the end until you blast the hedge. Menu: Talk
