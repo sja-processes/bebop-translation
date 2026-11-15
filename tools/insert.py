@@ -263,7 +263,7 @@ def build(version=None, date=None):
     for t, data in end_tiles.items():
         chr_[cb13 + t * 16:cb13 + t * 16 + 16] = data
     _snap(endp, endingpic.CHR_BANK, chr_)
-    # cars in the Nishiyama Building car park (town map + CHR bank 1)
+    # cars in the Joto car park (town map + CHR bank 1)
     car_doors, _ = carpark.apply(new, chr_)
     # English "SAFETY FIRST" sign on the Higashimachi building site (area 3)
     sitesign.apply(new, chr_, new[FIXED * BANK:(FIXED + 1) * BANK])

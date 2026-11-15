@@ -28,7 +28,7 @@ each session so the next one doesn't re-derive anything.
 - [x] Optional — Caretaker extras, stage 1: menu split (Talk / Ask), Beg → Promise luck cheat (always CHARM), Flatter hint placeholder; built 2026-10-23, see "Caretaker extras" below. **To do:** Stephen's handheld test
 - [x] Optional — Caretaker extras, stage 2: real hints, one per story milestone (39 hints, built 2026-11-01; see "Caretaker extras"). **To do:** Stephen's handheld test
 - [x] Optional — Day goal: caretaker Coffee tells the day limit for the happiest ending; Select in a scene swaps LUCK/grade for GOAL / DAY / time. Built 2026-10-31 (`tools/daygoal.py`), see "Day goal" below. **To do:** Stephen's handheld test
-- [x] Optional — Visible cars in the Nishiyama Building car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
+- [x] Optional — Visible cars in the Joto car park (two car scenes had no car on the map); built 2026-10-24, see "Car park cars" below. **To do:** Stephen's handheld test
 
 ## Stages
 
@@ -1031,7 +1031,7 @@ Beyond the translation itself. Details in the sections named.
 - **Menu:** Misako's coffee date offers Give instead of Ride (one byte in
   that menu only).
 - **Expression timing:** 196, Nobuo keeps his smug look through the pause.
-- **Map:** cars drawn in the Nishiyama Building car park for both car
+- **Map:** cars drawn in the Joto car park for both car
   scenes (the red car always; Teru's black car while you're tailing him).
 - **Map:** an English "SAFETY ✓ FIRST" sign above the Japanese 安全✚第一
   on the Higashimachi building site, so the big, clear Japanese sign

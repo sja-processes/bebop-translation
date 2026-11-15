@@ -196,3 +196,9 @@ If you're stuck somewhere, an alternative to following this walkthrough is to fl
 - End of game sequence
 
 </details>
+
+## Licence
+
+The tools, the English script, the new artwork and the documentation in this repository are released under the [MIT License](LICENSE), so you're welcome to use, change and share them.
+
+This covers only the work in this repository. *Be-Bop Highschool - Koukousei Gokuraku Densetsu* itself (the game, its ROM and its original Japanese text and graphics) belongs to its rights holders and is not included or licensed here.

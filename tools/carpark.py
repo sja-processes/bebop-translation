@@ -1,4 +1,4 @@
-"""Cars drawn in the Nishiyama Building car park (town map, area 1).
+"""Cars drawn in the Joto car park (town map, area 1).
 
 Two car scenes had nothing on the map (Stephen, 2026-10-24): you walked
 into the side of a building (car 1) or the car simply wasn't there while
