@@ -2,9 +2,7 @@
 
 English translation patch for the Famicom/NES game *Be-Bop Highschool - Koukousei Gokuraku Densetsu*.
 
-- By sja-processes
-- Version 1.0, 15 Nov 2026
-- Download the BPS patch from [Releases](https://github.com/sja-processes/bebop-translation/releases).
+Download the BPS patch from [Releases](https://github.com/sja-processes/bebop-translation/releases).
 
 ## Intro
 
