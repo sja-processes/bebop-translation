@@ -8,7 +8,7 @@ English translation patch for the Famicom/NES game *Be-Bop Highschool - Koukouse
 
 ## Intro
 
-*Be-Bop Highschool - Legend of High-School Paradise* is an adventure game where you and two of your schoolfriends try to find your missing classmate. This mainly involves walking around and talking to people, with fighting and dating girls also crucial parts of your adventures.
+*Be-Bop Highschool - Legend of High-School Paradise* is an adventure game where you and two of your schoolfriends try to find your missing classmate. This mainly involves walking around and talking to people, with fighting and dating girls also crucial parts of your adventures. You begin by choosing your hero: Toru Nakama or Hiroshi Kato.
 
 This patch is a British English translation of the Japanese original, along with many bug fixes and quality-of-life improvements.
 
@@ -29,6 +29,8 @@ To set it in RetroArch: Quick Menu → Core Options → Overclock → 1x, then M
 The original Japanese meaning and spirit has been kept throughout where possible, but inevitably there are some things that could not be meaningfully translated directly. For example, some jokes simply do not work in English, most notably a few puns relating to one character's name sounding similar to "up". Different lines or phrases have been used instead in these situations.
 
 Many action commands had reactions that would make more sense in Japanese culture, but not necessarily to others. To handle these, bridging lines have been added to naturally lead the player's understanding into what is meant.
+
+The action choices in a particular coffee date (with Misako) offered Ride as an option. In the original this could be taken as a double entendre (riding a train, etc. / riding her), but in English it can only be taken one way given the situation. So it has been changed to Give to keep the double entendre: "give her a gift" / "give her one".
 
 A particular character had a regional Japanese accent. To reflect that in this English version, a well-known regional English accent has been used for the character: Geordie, as used by people from Newcastle and surrounding areas of north-east England.
 
@@ -89,7 +91,7 @@ If you're stuck somewhere, an alternative to following this walkthrough is to fl
 ### Get rid of the police to leave the initial area
 
 - Ask out Junko
-- Restaurant (cafe Mai) directions from tip man just north-east of the cafe
+- Restaurant (cafe Mai) directions from tip man just north-east of the cafe. The man is only there if luck is sufficient.
 - Junko - flatter and ask
 - Search building just south of Kakui Dept. Store
 - Take sign and go just north to Kakui Dept. Store
@@ -140,7 +142,7 @@ If you're stuck somewhere, an alternative to following this walkthrough is to fl
 - Then go to man blocking way to the west in Joto
 - Don't do anything but Shout and then Sneak to get past him (he would win any fight attempts)
 - Police are further west - talk to them
-- Talk to Mari in the underground shopping centre (just above water feature; only with good luck) - her boyfriend is high up in Gold Emperor and boxes. Also ask for Coffee and then Tease her so she shows photo of her boyfriend (cannot do second fight with Tsuji without this step)
+- Talk to Mari in the underground shopping centre (just above water feature if luck is sufficient) - her boyfriend is high up in Gold Emperor and boxes. Also ask for Coffee and then Tease her so she shows photo of her boyfriend (cannot do second fight with Tsuji without this step)
 - Ask Junko again in cafe Mai, "dodgy types are still hanging about on the roof of Kakui Dept. Store"
 - Back to roof and Search - finds bomb
 - Then go back to the police in Joto using the same method as before, or for a shortcut go below the caretaker's building after nightfall and Promise Gen, and he will blow a hole in the hedge
@@ -157,7 +159,7 @@ If you're stuck somewhere, an alternative to following this walkthrough is to fl
 - Go to the fountain and Search - false teeth found, then Take
 - Go to pachinko place - need to Buy and Use the machines again, then can Give
 - Leave pachinko place without doing Shout, otherwise police will get you
-- Go to Minato station. The pachinko man will tell Ken the Slasher to let us through.
+- Go into Minato station. The pachinko man will tell Ken the Slasher to let us through.
 - Travel on underground to Higashimachi area
 
 ### Higashimachi area
