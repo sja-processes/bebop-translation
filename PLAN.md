@@ -913,10 +913,12 @@ ROM's code is unchanged here.
   `gh release create v1.0 out/release/bebop_en-v1.0.bps --title ...
   --notes-file out/release/RELEASE-v1.0.md` (`release.py --notes` prints it).
 - **Patched ROM hashes** (MD5, SHA-1, CRC32) go in each release's notes, not README.md, since they change per release: `release.py` adds them (Stephen, 2026-11-15).
-- **To do before the first release:** the QoL list below is written for us
-  (addresses, flags); the public notes want a player-facing version.
+- **Release notes' changes lists** come from README.md (Emulation notes,
+  Translation notes, Bug fixes, Quality-of-life improvements), which
+  Stephen keeps player-facing; `release.py` copies those sections as they
+  are (2026-11-15). The QoL list below stays our detailed record.
 
-### Quality-of-life changes (keep up to date; for the patch readme)
+### Quality-of-life changes (keep up to date; our detailed record, see README.md for players)
 Beyond the translation itself. Details in the sections named.
 - **New content**
   - Caretaker's room (new door south of Aitoku High): Talk (NERVE,

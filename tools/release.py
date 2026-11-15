@@ -11,7 +11,7 @@ usage: tools/release.py            build the release for the tag on HEAD
    info, so the same tag always gives the same patch.
 3. It writes out/release/bebop_en-v1.0.bps and RELEASE-v1.0.md (notes:
    the ROM to patch, the patched ROM's MD5/SHA-1/CRC32, emulator
-   settings, the changes list from PLAN.md),
+   settings and the changes lists from README.md),
    and checks that Flips (~/Downloads/flips/flips-linux, or $FLIPS)
    applies the patch to exactly the ROM we built.
 
@@ -68,10 +68,20 @@ def tag_on_head():
     return tag
 
 
-def plan_section(name):
-    text = open(os.path.join(ROOT, 'PLAN.md'), encoding='utf-8').read()
-    m = re.search(r'^### %s[^\n]*\n(.*?)(?=^### )' % re.escape(name), text, re.S | re.M)
-    return m.group(1).strip() if m else ''
+# README.md sections copied into the release notes, as they are there
+# (Stephen, 2026-11-15: one player-facing list, kept in the README)
+README_SECTIONS = ('Emulation notes', 'Translation notes', 'Bug fixes',
+                   'Quality-of-life improvements')
+
+
+def readme_section(name):
+    """-> the README.md section whose '## ' heading starts with name,
+    heading included (as '## ...')."""
+    text = open(os.path.join(ROOT, 'README.md'), encoding='utf-8').read()
+    m = re.search(r'^(## %s[^\n]*\n.*?)(?=^## |\Z)' % re.escape(name), text, re.S | re.M)
+    if not m:
+        sys.exit('README.md has no "## %s" section' % name)
+    return m.group(1).strip()
 
 
 def hashes(data):
@@ -94,10 +104,7 @@ def notes(tag, date, rom_sha1, bps_name, patched):
         '| SHA-1 | `%s` |' % patched[1],
         '| CRC32 | `%s` |' % patched[2], '',
         'On the title screen, press Left or Right to show the version.', '',
-        '## Notes', '', '\n'.join(l for l in plan_section('Release notes').splitlines()
-                                  if 'SHA-1 above' not in l), '',
-        '## Changes beyond the translation', '', plan_section('Quality-of-life changes'), '',
-    ])
+    ] + ['\n\n'.join(readme_section(n) for n in README_SECTIONS), ''])
 
 
 def main():
