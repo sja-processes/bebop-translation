@@ -10,7 +10,8 @@ usage: tools/release.py            build the release for the tag on HEAD
    commit's date ("2026.11") baked into the title screen's Left/Right
    info, so the same tag always gives the same patch.
 3. It writes out/release/bebop_en-v1.0.bps and RELEASE-v1.0.md (notes:
-   the ROM to patch, emulator settings, the changes list from PLAN.md),
+   the ROM to patch, the patched ROM's MD5/SHA-1/CRC32, emulator
+   settings, the changes list from PLAN.md),
    and checks that Flips (~/Downloads/flips/flips-linux, or $FLIPS)
    applies the patch to exactly the ROM we built.
 
@@ -21,6 +22,7 @@ the Japanese ROM, which must never be uploaded anywhere, so releases are
 built here, not by GitHub Actions.
 """
 import hashlib
+import zlib
 import os
 import re
 import shutil
@@ -72,7 +74,13 @@ def plan_section(name):
     return m.group(1).strip() if m else ''
 
 
-def notes(tag, date, rom_sha1, bps_name):
+def hashes(data):
+    """-> (MD5, SHA-1, CRC32) of a ROM file, as lower-case hex."""
+    return (hashlib.md5(data).hexdigest(), hashlib.sha1(data).hexdigest(),
+            '%08x' % zlib.crc32(data))
+
+
+def notes(tag, date, rom_sha1, bps_name, patched):
     return '\n'.join([
         '# %s, %s' % (TITLE, tag), '',
         'Built %s from commit %s.' % (date, git('rev-parse', '--short=7', 'HEAD')), '',
@@ -80,6 +88,11 @@ def notes(tag, date, rom_sha1, bps_name):
         'Apply `%s` (BPS, e.g. with Flips or Rom Patcher JS) to the original Japanese' % bps_name,
         'ROM *Be-Bop-Highschool - Koukousei Gokuraku Densetsu (Japan).nes*,',
         'SHA-1 `%s`. The ROM is not included.' % rom_sha1.upper(), '',
+        'The patched ROM (with its 16-byte iNES header, like the original) should be:', '',
+        '| | |', '|---|---|',
+        '| MD5 | `%s` |' % patched[0],
+        '| SHA-1 | `%s` |' % patched[1],
+        '| CRC32 | `%s` |' % patched[2], '',
         'On the title screen, press Left or Right to show the version.', '',
         '## Notes', '', '\n'.join(l for l in plan_section('Release notes').splitlines()
                                   if 'SHA-1 above' not in l), '',
@@ -105,7 +118,7 @@ def main():
     check_with_flips(os.path.join(outdir, bps_name), old, new)
     note_name = 'RELEASE-%s.md' % tag
     open(os.path.join(outdir, note_name), 'w', encoding='utf-8').write(
-        notes(tag, '%s-%s' % (y, m), hashlib.sha1(old).hexdigest(), bps_name))
+        notes(tag, '%s-%s' % (y, m), hashlib.sha1(old).hexdigest(), bps_name, hashes(new)))
     print('built %s (%d bytes): title shows "%s" / "%s"'
           % (bps_name, len(bpatch), *insert.titleinfo.version_info(version, date)))
     print('Flips applies it to the identical ROM')

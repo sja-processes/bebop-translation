@@ -912,7 +912,7 @@ ROM's code is unchanged here.
   git@github.com:sja-processes/<repo>.git`, `git push origin main v1.0`,
   `gh release create v1.0 out/release/bebop_en-v1.0.bps --title ...
   --notes-file out/release/RELEASE-v1.0.md` (`release.py --notes` prints it).
-- **When the release is made:** add the patched ROM's hashes (MD5, SHA-1, CRC32 of `out/release` build) to README.md's "How to patch" (Stephen, 2026-11-15).
+- **Patched ROM hashes** (MD5, SHA-1, CRC32) go in each release's notes, not README.md, since they change per release: `release.py` adds them (Stephen, 2026-11-15).
 - **To do before the first release:** the QoL list below is written for us
   (addresses, flags); the public notes want a player-facing version.
 
