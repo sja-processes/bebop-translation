@@ -878,8 +878,8 @@ ROM's code is unchanged here.
   overclocking (e.g. RetroArch Nestopia's "Overclock 2x", common on
   handheld setups) the town map is half-drawn after Leave — every other
   row stays blank until you walk over it. The original Japanese game
-  does the same. In RetroArch: Quick Menu -> Core Options -> Overclock ->
-  1x, then Manage Core Options -> Save Game Options to keep it for this
+  does the same. In RetroArch: Quick Menu -> Core Options -> Emulation
+  Hacks -> CPU Speed (Overclock) -> 1x, then Manage Core Options -> Save Game Options to keep it for this
   game only.
 - Apply the BPS patch to the original Japanese ROM (SHA-1 above).
 

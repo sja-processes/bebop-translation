@@ -20,7 +20,7 @@ This has been thoroughly tested in two emulators, Mesen and Nestopia (the latter
 
 **Important:** if your emulator has an overclock option, make sure it is set to 1x rather than 2x, etc. The main map view can often show blocks that shouldn't be there due to timing issues if not running at 1x. This issue exists with the original ROM too; it is not a problem with this patch.
 
-To set it in RetroArch: Quick Menu → Core Options → Overclock → 1x, then Manage Core Options → Save Game Options to apply it to this game only.
+To set it in RetroArch: Quick Menu → Core Options → Emulation Hacks → CPU Speed (Overclock) → 1x, then Manage Core Options → Save Game Options to apply it to this game only.
 
 ## Translation notes
 
