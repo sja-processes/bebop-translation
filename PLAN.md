@@ -917,6 +917,9 @@ ROM's code is unchanged here.
   Translation notes, Bug fixes, Quality-of-life improvements), which
   Stephen keeps player-facing; `release.py` copies those sections as they
   are (2026-11-15). The QoL list below stays our detailed record.
+  Later releases (an earlier v* tag exists) instead give "Changes since
+  vX": the tag's entry in CHANGELOG.md (written before tagging; the tool
+  stops if it's missing), plus the emulation notes (2026-11-18).
 
 ### Quality-of-life changes (keep up to date; our detailed record, see README.md for players)
 Beyond the translation itself. Details in the sections named.
