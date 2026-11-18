@@ -30,6 +30,17 @@ class Gen(str):
     """A paragraph shown only while Gen still waits to blast the hedge."""
 
 
+# Mari's photo (flag 3D, set by 0E3) is needed before Gen turns up outside
+# Hokuto Gym, but H38 can open without it (Stephen's handheld state 1,
+# 2026-11-18). A paragraph wrapped in Mari() is shown only while 3D is
+# clear; such a hint is built twice too, and its message checks 3D.
+FLAG_MARI_PHOTO = 0x3D
+
+
+class Mari(str):
+    """A paragraph shown only while Mari hasn't shown you the photo."""
+
+
 GEN_TIP = [
     Gen("By the way, there's now a quick way to Minami Bridge if you want it."),
     Gen('Hang around outside my door after nightfall. A friend of yours will be there.'),
@@ -257,6 +268,8 @@ HINTS = [
     ]),
     # H38, until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go
     (0x59, [
+        Mari('On a lucky day, chat to Mari above the underground shopping centre water feature.'),
+        Mari('Keep chatting till she shows you a photo of her boyfriend.'),
         'Tsuji boxes at Hokuto Gym in the Nishiyama Building during the evenings.',
         "Take him on. You'll lose, mind. But you must try at least twice.",
         'Then leave. A friend of yours will be waiting outside. Beg him for help.',
@@ -288,9 +301,15 @@ def wrap(par):
     return '\n'.join(lines)
 
 
-def text(paragraphs, gen=True):
-    """The hint's boxes; gen=False leaves out the Gen() paragraphs."""
-    return '[page]\n'.join(wrap(p) for p in paragraphs if gen or not isinstance(p, Gen))
+def text(paragraphs, gen=True, mari=True):
+    """The hint's boxes; gen=False leaves out the Gen() paragraphs,
+    mari=False the Mari() ones."""
+    return '[page]\n'.join(wrap(p) for p in paragraphs
+                           if (gen or not isinstance(p, Gen)) and (mari or not isinstance(p, Mari)))
+
+
+def has_mari(paragraphs):
+    return any(isinstance(p, Mari) for p in paragraphs)
 
 
 def has_gen(paragraphs):

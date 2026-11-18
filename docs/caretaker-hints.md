@@ -739,7 +739,18 @@ gym.
 
 Shown after: flag 59. Until 5D (182 Tsuji: Shingo's in my flat); Gen kept a surprise; begging and the rematch in one go.
 
+The boxes marked ◆ are a reminder about Mari, shown only while she hasn't shown you the photo (flag 3D clear): Gen doesn't turn up outside the gym without it, and this hint can open before it (Stephen, 2026-11-18).
+
 ```
+◆ On a lucky day, chat to
+◆ Mari above the
+◆ underground shopping
+◆ centre water feature.
+
+◆ Keep chatting till she
+◆ shows you a photo of her
+◆ boyfriend.
+
 Tsuji boxes at Hokuto Gym
 in the Nishiyama Building
 during the evenings.

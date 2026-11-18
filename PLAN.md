@@ -1241,6 +1241,14 @@ Optional QoL on top of the caretaker's room (see "Optional: help pages").
   each of those hint messages is `[ifflag 97 without with]`, so the tip
   goes once the hedge is blasted (versions $406-$40D). hinttest `--hint N
   --gen` shows the version with it. Tested in Nestopia and Mesen.
+- **H38 Mari reminder (Stephen's handheld state 1, 2026-11-18):** H38
+  (flag 59) can open without Mari's photo (flag 3D, set by 0E3), and Gen
+  doesn't come to the gym without it. Paragraphs wrapped in hints.Mari()
+  show only while 3D is clear: H38's message is `[ifflag 3d with without]`
+  ($40E/$40F). Two boxes: "On a lucky day, chat to Mari above the
+  underground shopping centre water feature." / "Keep chatting till she
+  shows you a photo of her boyfriend." hinttest `--hint 38 --no-photo`
+  shows it. State 1 checked: 59 set, 3D clear.
 - **hinttest fix (2026-11-09):** starting a new game resets some flags
   after the test had set them (B2, 84-86, 97), so H21, H29, H32 and H33
   had been showing the hint before; nobody noticed in the grid. The test

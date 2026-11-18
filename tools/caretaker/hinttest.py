@@ -2,12 +2,14 @@
 """Test the caretaker's Flatter hints (hints.py) in headless Nestopia.
 
 usage: tools/caretaker/hinttest.py [OUT.png]
-       tools/caretaker/hinttest.py --hint N [--gen] [OUT.png]
+       tools/caretaker/hinttest.py --hint N [--gen] [--no-photo] [OUT.png]
 
 With --hint N (e.g. --hint 12 for H12) it skips the full run and captures
 every box of that one hint, top to bottom (default out/hintN.png), to
 check a reworded hint by eye. --gen also sets flag 97 (Gen still waiting
 to blast the hedge), for the hints with his shortcut tip (hints.Gen).
+--no-photo clears flag 3D (Mari hasn't shown the photo), for the hints
+with a Mari reminder (hints.Mari, H38).
 
   1. Static check: every [clrflag] in the script that clears a hint's
      opening flag must set a later hint's flag in the same message, or
@@ -145,15 +147,17 @@ def flatter(rom, set_flags, clear_flags=(), page=0, height=55):
     return im
 
 
-def one_hint(n, out, gen=False):
+def one_hint(n, out, gen=False, no_photo=False):
     """Every box of hint n (1-based), stacked, -> out."""
     import hints
     from PIL import Image
     rom = build_rom()
     flags = opening_flags()
-    boxes = hints.text(hints.HINTS[n - 1][1], gen).count('[page]') + 1
+    boxes = hints.text(hints.HINTS[n - 1][1], gen, no_photo).count('[page]') + 1
     extra = [hints.FLAG_GEN_WAITING] if gen else []
-    shots = [flatter(rom, flags[1:n] + extra, page=p, height=100) for p in range(boxes)]
+    clear = [hints.FLAG_MARI_PHOTO] if no_photo else []
+    set_ = [f for f in flags[1:n] + extra if f not in clear]
+    shots = [flatter(rom, set_, clear, page=p, height=100) for p in range(boxes)]
     w, h = shots[0].size
     sheet = Image.new('RGB', (w, h * len(shots)))
     for i, im in enumerate(shots):
@@ -168,9 +172,11 @@ def main():
         i = sys.argv.index('--hint')
         n = int(sys.argv[i + 1].lstrip('Hh'))
         gen = '--gen' in sys.argv
-        rest = [x for x in sys.argv[i + 2:] if x != '--gen']
+        no_photo = '--no-photo' in sys.argv
+        rest = [x for x in sys.argv[i + 2:] if x not in ('--gen', '--no-photo')]
         return one_hint(n, rest[0] if rest else os.path.join(
-            ROOT, 'out', 'hint%02d%s.png' % (n, 'gen' if gen else '')), gen)
+            ROOT, 'out', 'hint%02d%s%s.png' % (n, 'gen' if gen else '', 'nophoto' if no_photo else '')),
+            gen, no_photo)
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, 'out', 'hinttest.png')
     problems = check_clears()
     for p in problems:

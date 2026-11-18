@@ -249,7 +249,7 @@ MESSAGES[NOBUO_BOMB_GONE] = NOBUO_BOMB_GONE_TEXT
 MESSAGES[COFFEE] = '[ifflag %02x %s %s]\n' % (FLAG_HERO, _id(COFFEE_HIROSHI), _id(COFFEE_TORU))
 MESSAGES[COFFEE_HIROSHI] = COFFEE_TEXT % 9 + BACK
 MESSAGES[COFFEE_TORU] = COFFEE_TEXT % 8 + BACK
-MESSAGES.update({mid: hints.text(pars, gen=False) + BACK
+MESSAGES.update({mid: hints.text(pars, gen=False, mari=False) + BACK
                  for (_, pars), mid in zip(hints.HINTS, HINT_IDS)})
 MESSAGES.update({mid: '' for mid in range(HINT_FIRST, HINT_IDS[-1]) if mid not in HINT_IDS})
 # Hints with Gen's shortcut tip (hints.Gen): the hint's message checks flag
@@ -262,6 +262,16 @@ for (pars, mid), plain, tip in zip(_gen_hints, GEN_IDS[::2], GEN_IDS[1::2]):
     MESSAGES[plain] = hints.text(pars, gen=False) + BACK
     MESSAGES[tip] = hints.text(pars, gen=True) + BACK
     MESSAGES[mid] = '[ifflag %02x %s %s]\n' % (hints.FLAG_GEN_WAITING, _id(plain), _id(tip))
+# Hints with a Mari() reminder (H38, Stephen 2026-11-18): the message checks
+# flag 3D and goes to the version with the reminder while it's clear.
+_mari_hints = [(pars, mid) for (_, pars), mid in zip(hints.HINTS, HINT_IDS) if hints.has_mari(pars)]
+assert not any(hints.has_gen(p) for p, _ in _mari_hints)
+MARI_IDS = [mid for mid in range(GEN_IDS[-1] + 1, GEN_IDS[-1] + 2 + 2 * len(_mari_hints) + 2)
+            if mid & 0xFF != 0xFF][:2 * len(_mari_hints)]
+for (pars, mid), plain, remind in zip(_mari_hints, MARI_IDS[::2], MARI_IDS[1::2]):
+    MESSAGES[plain] = hints.text(pars, mari=False) + BACK
+    MESSAGES[remind] = hints.text(pars, mari=True) + BACK
+    MESSAGES[mid] = '[ifflag %02x %s %s]\n' % (hints.FLAG_MARI_PHOTO, _id(remind), _id(plain))
 MESSAGES[ASK_SIGNOFF] = SIGNOFFS[2]   # replaced at run time, like CARETAKER_SIGNOFF
 
 # The out-of-NERVE path ($E8D7) doesn't reset the text cursor, so the
