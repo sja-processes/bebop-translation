@@ -11,7 +11,8 @@ usage: tools/release.py            build the release for the tag on HEAD
    info, so the same tag always gives the same patch.
 3. It writes out/release/bebop_en-v1.0.bps and RELEASE-v1.0.md (notes:
    the ROM to patch, the patched ROM's MD5/SHA-1/CRC32, emulator
-   settings and the changes lists from README.md),
+   settings and the changes lists from README.md, or for a later
+   release just what changed since the last one, from CHANGELOG.md),
    and checks that Flips (~/Downloads/flips/flips-linux, or $FLIPS)
    applies the patch to exactly the ROM we built.
 
@@ -84,6 +85,24 @@ def readme_section(name):
     return m.group(1).strip()
 
 
+def previous_tag(tag):
+    """-> the release tag before this one (by version number), or None."""
+    def key(t):
+        return tuple(int(x) for x in t[1:].split('.'))
+    tags = [t for t in git('tag', '--list', 'v*').split() if re.fullmatch(r'v\d+(\.\d+)*', t)]
+    earlier = sorted((t for t in tags if key(t) < key(tag)), key=key)
+    return earlier[-1] if earlier else None
+
+
+def changelog_entry(tag):
+    """-> this release's entry in CHANGELOG.md (the text under '## vX.Y')."""
+    text = open(os.path.join(ROOT, 'CHANGELOG.md'), encoding='utf-8').read()
+    m = re.search(r'^## %s\b[^\n]*\n(.*?)(?=^## |\Z)' % re.escape(tag), text, re.S | re.M)
+    if not m or not m.group(1).strip():
+        sys.exit('CHANGELOG.md has no "## %s" entry: write what changed, commit, re-tag' % tag)
+    return m.group(1).strip()
+
+
 def hashes(data):
     """-> (MD5, SHA-1, CRC32) of a ROM file, as lower-case hex."""
     return (hashlib.md5(data).hexdigest(), hashlib.sha1(data).hexdigest(),
@@ -104,7 +123,19 @@ def notes(tag, date, rom_sha1, bps_name, patched):
         '| SHA-1 | `%s` |' % patched[1],
         '| CRC32 | `%s` |' % patched[2], '',
         'On the title screen, press Left or Right to show the version.', '',
-    ] + ['\n\n'.join(readme_section(n) for n in README_SECTIONS), ''])
+    ] + changes(tag) + [''])
+
+
+def changes(tag):
+    """First release: the README's full lists. Later ones: what changed
+    since the previous release (CHANGELOG.md), plus the emulation notes,
+    which matter whichever version you get (Stephen, 2026-11-18)."""
+    prev = previous_tag(tag)
+    if prev is None:
+        return ['\n\n'.join(readme_section(n) for n in README_SECTIONS)]
+    return ['## Changes since %s' % prev, '', changelog_entry(tag), '',
+            'The full lists of changes from the original game are in the README.', '',
+            readme_section('Emulation notes')]
 
 
 def main():
